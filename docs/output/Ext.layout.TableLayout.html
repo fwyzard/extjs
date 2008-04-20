@@ -12,7 +12,7 @@
                 <h1>Class Ext.layout.TableLayout</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.layout</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/layout/TableLayout.js" target="_blank">TableLayout.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">TableLayout.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">TableLayout</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.layout.ContainerLayout" ext:member="" href="output/Ext.layout.ContainerLayout.html">ContainerLayout</a></td></tr>
                     </table>
@@ -24,7 +24,13 @@ and should generally not need to be created directly via the new keyword.</p>
 <p>Note that when creating a layout via config, the layout-specific config properties must be passed in via
 the <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">Ext.Container.layoutConfig</a> object which will then be applied internally to the layout.  In the
 case of TableLayout, the only valid layout config property is <a ext:cls="Ext.layout.TableLayout" ext:member="columns" href="output/Ext.layout.TableLayout.html#columns">columns</a>.  However, the items added to a
-TableLayout can supply table-specific config properties of <b>rowspan</b> and <b>colspan</b>, as explained below.</p>
+TableLayout can supply the following table-specific config properties:</p>
+<ul>
+<li><b>rowspan</b> Applied to the table cell containing the item.</li>
+<li><b>colspan</b> Applied to the table cell containing the item.</li>
+<li><b>cellId</b> An id applied to the table cell containing the item.</li>
+<li><b>cellCls</b> A CSS class name added to the table cell containing the item.</li>
+</ul>
 <p>The basic concept of building up a TableLayout is conceptually very similar to building up a standard
 HTML table.  You simply add each panel (or "cell") that you want to include along with any span attributes
 specified as the special config properties of rowspan and colspan which work exactly like their HTML counterparts.
@@ -58,7 +64,8 @@ up correctly in your overall layout or you'll end up with missing and/or extra c
         html: <em>'&lt;p&gt;Cell B content&lt;/p&gt;'</em>,
         colspan: 2
     },{
-        html: <em>'&lt;p&gt;Cell C content&lt;/p&gt;'</em>
+        html: <em>'&lt;p&gt;Cell C content&lt;/p&gt;'</em>,
+        cellCls: <em>'highlight'</em>
     },{
         html: <em>'&lt;p&gt;Cell D content&lt;/p&gt;'</em>
     }]

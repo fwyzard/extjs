@@ -18,21 +18,21 @@
     <link rel="stylesheet" type="text/css" href="combos.css" />
 
     <!-- Common Styles for the examples -->
-    <link rel="stylesheet" type="text/css" href="../examples.css" />
+    <link rel="stylesheet" type="text/css" href="../shared/examples.css" />
     <style type="text/css">
         p { width:650px; }
     </style>
 </head>
 <body>
-<script type="text/javascript" src="../examples.js"></script><!-- EXAMPLES -->
+<script type="text/javascript" src="../shared/examples.js"></script><!-- EXAMPLES -->
 <h1>Combo Boxes</h1>
 <p>The js is not minified so it is readable. See <a href="combos.js">combos.js</a>.</p>
 
 <p>
 <b>Data Sources</b><br />
-The combo box can use any type of Ext.data.Store as it's data source.
-    This means your data can be XML, JSON, arrays or any other supported format. It can be loaded using Ajax, script tags or be local.
-    This combo uses local data from a JS array:<p>
+The combo box can use any type of Ext.data.Store as its data source.
+    This means your data can be XML, JSON, arrays or any other supported format. It can be loaded using 
+    Ajax, via script tags or locally. This combo uses local data from a JS array:</p>
 <div>
     <input type="text" id="local-states" size="20"/>
 </div>
@@ -54,7 +54,7 @@ var combo = new Ext.form.ComboBox({
 });
 </code></pre></div>
 <br />
-</p>
+
 <p>
 	The combo below uses the same data, but also illustrates how to use an optional
 	custom template to create custom UI renditions for list items. In this case,
@@ -82,6 +82,25 @@ var comboWithTooltip = new Ext.form.ComboBox({
 });
 </code></pre></div>
 <br />
+
+<p>
+The combo box can also use plain array data directly as its data source, wrapping the array internally
+with a SimpleStore as needed.  You can pass a 1-dimensional or multi-dimensional array as the store config:</p>
+<div>
+    <input type="text" id="array-states" size="20"/>
+</div>
+<div id="array-combo-code-panel" style="margin-top:10px">
+<pre id="array-combo-code" class="code"><code>var comboFromArray = new Ext.form.ComboBox({
+    store: exampleData, //direct array data
+    typeAhead: true,
+    triggerAction: 'all',
+    emptyText:'Select a state...',
+    selectOnFocus:true,
+    applyTo: 'array-states'
+});
+</code></pre></div>
+<br />
+
 <p>
 <b>Unobtrusive</b><br />
 The combo box can very easily be used to convert existing select elements into auto-completing, filtering combos.

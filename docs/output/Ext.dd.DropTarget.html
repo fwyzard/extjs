@@ -13,7 +13,7 @@
                 <h1>Class Ext.dd.DropTarget</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.dd</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/dd/DropTarget.js" target="_blank">DropTarget.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">DropTarget.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">DropTarget</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.dd.DropZone" href="output/Ext.dd.DropZone.html">DropZone</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.dd.DDTarget" ext:member="" href="output/Ext.dd.DDTarget.html">DDTarget</a></td></tr>
@@ -95,7 +95,16 @@ draggable items dropped onto it.  The drop has no effect until an implementation
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#config" href="output/Ext.dd.DragDrop.html#config">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited expandable">
+        <tr class="property-row inherited">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.dd.DropTarget-defaultPadding"></a>
+            <b>defaultPadding</b> : Object            <div class="mdesc">
+                            Provides default constraint padding to "constrainTo" elements (defaults to {left: 0, right:0, top:0, bottom:0}).                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#defaultPadding" href="output/Ext.dd.DragDrop.html#defaultPadding">DragDrop</a></td>
+    </tr>
+        <tr class="property-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-groups"></a>
@@ -111,7 +120,7 @@ groups using a single DragDrop subclass if we want.            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#groups" href="output/Ext.dd.DragDrop.html#groups">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited alt expandable">
+        <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-hasOuterHandles"></a>
@@ -128,7 +137,7 @@ if outer handles are defined.            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#hasOuterHandles" href="output/Ext.dd.DragDrop.html#hasOuterHandles">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited expandable">
+        <tr class="property-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-id"></a>
@@ -144,7 +153,7 @@ interacted.            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#id" href="output/Ext.dd.DragDrop.html#id">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-invalidHandleClasses"></a>
@@ -154,7 +163,7 @@ if clicked.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#invalidHandleClasses" href="output/Ext.dd.DragDrop.html#invalidHandleClasses">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-invalidHandleIds"></a>
@@ -163,7 +172,7 @@ if clicked.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#invalidHandleIds" href="output/Ext.dd.DragDrop.html#invalidHandleIds">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-invalidHandleTypes"></a>
@@ -172,7 +181,7 @@ if clicked.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#invalidHandleTypes" href="output/Ext.dd.DragDrop.html#invalidHandleTypes">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-isTarget"></a>
@@ -182,7 +191,7 @@ setting isTarget to false.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#isTarget" href="output/Ext.dd.DragDrop.html#isTarget">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited alt expandable">
+        <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-maintainOffset"></a>
@@ -197,7 +206,7 @@ when the page changes            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#maintainOffset" href="output/Ext.dd.DragDrop.html#maintainOffset">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-padding"></a>
@@ -207,7 +216,7 @@ the drop zone intersection with this object.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#padding" href="output/Ext.dd.DragDrop.html#padding">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited alt expandable">
+        <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-primaryButtonOnly"></a>
@@ -223,7 +232,7 @@ by the browser            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#primaryButtonOnly" href="output/Ext.dd.DragDrop.html#primaryButtonOnly">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited expandable">
+        <tr class="property-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-xTicks"></a>
@@ -238,7 +247,7 @@ when you define a tick interval.            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#xTicks" href="output/Ext.dd.DragDrop.html#xTicks">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited alt expandable">
+        <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-yTicks"></a>
@@ -439,6 +448,42 @@ since they can't exist independent of a constraint at this time.    <div class="
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.dd.DropTarget-constrainTo"></a>
+            <b>constrainTo</b>(&nbsp;<code>Mixed constrainTo</code>, <span class="optional" title="Optional">[<code>Object/Number pad</code>]</span>, <span class="optional" title="Optional">[<code>Boolean inContent</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Initializes the drag drop object's constraints to restrict movement to a certain element.
+Usage:
+ var dd = new Ext.d...</div>
+            <div class="long">
+                Initializes the drag drop object's constraints to restrict movement to a certain element.
+Usage:
+ <pre><code>var dd = <b>new</b> Ext.dd.DDProxy(<em>"dragDiv1"</em>, <em>"proxytest"</em>,
+                { dragElId: <em>"existingProxyDiv"</em> });
+ dd.startDrag = <b>function</b>(){
+     <b>this</b>.constrainTo(<em>"parent-id"</em>);
+ };</code></pre>
+Or you can initalize it using the <a ext:cls="Ext.Element" href="output/Ext.Element.html">Ext.Element</a> object:
+ <pre><code>Ext.get(<em>"dragDiv1"</em>).initDDProxy(<em>"proxytest"</em>, {dragElId: <em>"existingProxyDiv"</em>}, {
+     startDrag : <b>function</b>(){
+         <b>this</b>.constrainTo(<em>"parent-id"</em>);
+     }
+ });</code></pre>    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>constrainTo</code> : Mixed<div class="sub-desc">The element to constrain to.</div></li><li><code>pad</code> : Object/Number<div class="sub-desc">(optional) Pad provides a way to specify "padding" of the constraints,
+and can be either a number for symmetrical padding (4 would be equal to {left:4, right:4, top:4, bottom:4}) or
+an object containing the sides to pad. For example: {right:10, bottom:10}</div></li><li><code>inContent</code> : Boolean<div class="sub-desc">(optional) Constrain the draggable in the content box of the element (inside padding and borders)</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#constrainTo" href="output/Ext.dd.DragDrop.html#constrainTo">DragDrop</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.dd.DropTarget-endDrag"></a>
             <b>endDrag</b>(&nbsp;<code>Event e</code>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Fired when we are done dragging the object</div>
@@ -456,7 +501,7 @@ since they can't exist independent of a constraint at this time.    <div class="
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#endDrag" href="output/Ext.dd.DragDrop.html#endDrag">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-getDragEl"></a>
@@ -479,7 +524,7 @@ element. An example of this can be found in Ext.dd.DDProxy    <div class="mdetai
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#getDragEl" href="output/Ext.dd.DragDrop.html#getDragEl">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-getEl"></a>
@@ -499,7 +544,7 @@ element. An example of this can be found in Ext.dd.DDProxy    <div class="mdetai
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#getEl" href="output/Ext.dd.DragDrop.html#getEl">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-init"></a>
@@ -521,7 +566,7 @@ Ext.dd.DragDrop subclass    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#init" href="output/Ext.dd.DragDrop.html#init">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-initTarget"></a>
@@ -543,7 +588,7 @@ get a mousedown handler.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#initTarget" href="output/Ext.dd.DragDrop.html#initTarget">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-isLocked"></a>
@@ -565,7 +610,7 @@ get a mousedown handler.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#isLocked" href="output/Ext.dd.DragDrop.html#isLocked">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-isValidHandleChild"></a>
@@ -585,7 +630,7 @@ get a mousedown handler.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#isValidHandleChild" href="output/Ext.dd.DragDrop.html#isValidHandleChild">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-lock"></a>
@@ -605,7 +650,7 @@ get a mousedown handler.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#lock" href="output/Ext.dd.DragDrop.html#lock">DragDrop</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-notifyDrop"></a>
@@ -629,7 +674,7 @@ repair action does not run.    <div class="mdetail-params">
         </td>
         <td class="msource">DropTarget</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-notifyEnter"></a>
@@ -652,7 +697,7 @@ and returns the dropAllowed config value.  This method should be overridden if d
         </td>
         <td class="msource">DropTarget</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-notifyOut"></a>
@@ -675,7 +720,7 @@ overClass (if any) from the drop element.    <div class="mdetail-params">
         </td>
         <td class="msource">DropTarget</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-notifyOver"></a>
@@ -698,7 +743,7 @@ This default implementation simply returns the dropAllowed config value.    <div
         </td>
         <td class="msource">DropTarget</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-onAvailable"></a>
@@ -720,7 +765,7 @@ position was determined.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#onAvailable" href="output/Ext.dd.DragDrop.html#onAvailable">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-onDrag"></a>
@@ -742,7 +787,7 @@ object.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#onDrag" href="output/Ext.dd.DragDrop.html#onDrag">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-onDragDrop"></a>
@@ -766,7 +811,7 @@ was dropped on.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#onDragDrop" href="output/Ext.dd.DragDrop.html#onDragDrop">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-onDragEnter"></a>
@@ -790,7 +835,7 @@ dragdrop items being hovered over.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#onDragEnter" href="output/Ext.dd.DragDrop.html#onDragEnter">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-onDragOut"></a>
@@ -812,7 +857,7 @@ that the mouse is no longer over.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#onDragOut" href="output/Ext.dd.DragDrop.html#onDragOut">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-onDragOver"></a>
@@ -836,7 +881,7 @@ being hovered over.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#onDragOver" href="output/Ext.dd.DragDrop.html#onDragOver">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-onInvalidDrop"></a>
@@ -858,7 +903,7 @@ drop target    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#onInvalidDrop" href="output/Ext.dd.DragDrop.html#onInvalidDrop">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-onMouseDown"></a>
@@ -878,7 +923,7 @@ drop target    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#onMouseDown" href="output/Ext.dd.DragDrop.html#onMouseDown">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-onMouseUp"></a>
@@ -898,7 +943,7 @@ drop target    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#onMouseUp" href="output/Ext.dd.DragDrop.html#onMouseUp">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-removeFromGroup"></a>
@@ -918,7 +963,7 @@ drop target    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#removeFromGroup" href="output/Ext.dd.DragDrop.html#removeFromGroup">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-removeInvalidHandleClass"></a>
@@ -939,7 +984,7 @@ re-enable</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#removeInvalidHandleClass" href="output/Ext.dd.DragDrop.html#removeInvalidHandleClass">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-removeInvalidHandleId"></a>
@@ -959,7 +1004,7 @@ re-enable</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#removeInvalidHandleId" href="output/Ext.dd.DragDrop.html#removeInvalidHandleId">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-removeInvalidHandleType"></a>
@@ -979,7 +1024,7 @@ re-enable</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#removeInvalidHandleType" href="output/Ext.dd.DragDrop.html#removeInvalidHandleType">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-resetConstraints"></a>
@@ -999,7 +1044,7 @@ re-enable</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#resetConstraints" href="output/Ext.dd.DragDrop.html#resetConstraints">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-setDragElId"></a>
@@ -1021,7 +1066,7 @@ will be moved with the cursor during a drag    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#setDragElId" href="output/Ext.dd.DragDrop.html#setDragElId">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-setHandleElId"></a>
@@ -1048,7 +1093,7 @@ initiate the drag.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#setHandleElId" href="output/Ext.dd.DragDrop.html#setHandleElId">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-setInitialPosition"></a>
@@ -1068,7 +1113,7 @@ initiate the drag.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#setInitialPosition" href="output/Ext.dd.DragDrop.html#setInitialPosition">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-setOuterHandleElId"></a>
@@ -1090,7 +1135,7 @@ handle    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#setOuterHandleElId" href="output/Ext.dd.DragDrop.html#setOuterHandleElId">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-setPadding"></a>
@@ -1115,7 +1160,7 @@ will have the first param, the left and right the second.    <div class="mdetail
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#setPadding" href="output/Ext.dd.DragDrop.html#setPadding">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-setXConstraint"></a>
@@ -1141,7 +1186,7 @@ should move iTickSize pixels at a time.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#setXConstraint" href="output/Ext.dd.DragDrop.html#setXConstraint">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-setYConstraint"></a>
@@ -1165,7 +1210,7 @@ element should move iTickSize pixels at a time.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#setYConstraint" href="output/Ext.dd.DragDrop.html#setYConstraint">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-startDrag"></a>
@@ -1187,7 +1232,7 @@ and the drag or mousedown time thresholds have beeen met.    <div class="mdetail
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#startDrag" href="output/Ext.dd.DragDrop.html#startDrag">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-toString"></a>
@@ -1207,7 +1252,7 @@ and the drag or mousedown time thresholds have beeen met.    <div class="mdetail
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#toString" href="output/Ext.dd.DragDrop.html#toString">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-unlock"></a>
@@ -1227,7 +1272,7 @@ and the drag or mousedown time thresholds have beeen met.    <div class="mdetail
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#unlock" href="output/Ext.dd.DragDrop.html#unlock">DragDrop</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropTarget-unreg"></a>

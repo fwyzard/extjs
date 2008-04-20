@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -14,8 +14,8 @@
  * This class is intended to be extended or created via the layout:'column' {@link Ext.Container#layout} config,
  * and should generally not need to be created directly via the new keyword.</p>
  * <p>ColumnLayout does not have any direct config options (other than inherited ones), but it does support a
- * specific config property of <b>columnWidth</b> that can be included in the config of any panel added to it.  The
- * layout will use the width (if pixels) or columnWidth (if percent) of each panel during layout to determine how to size each panel.
+ * specific config property of <b><tt>columnWidth</tt></b> that can be included in the config of any panel added to it.  The
+ * layout will use the columnWidth (if present) or width of each panel during layout to determine how to size each panel.
  * If width or columnWidth is not specified for a given panel, its width will default to the panel's width (or auto).</p>
  * <p>The width property is always evaluated as pixels, and must be a number greater than or equal to 1.
  * The columnWidth property is always evaluated as a percentage, and must be a decimal value greater than 0 and
@@ -25,7 +25,7 @@
  * specified (auto) are skipped, but their widths are subtracted from the overall container width.  During the second
  * pass, all panels with columnWidths are assigned pixel widths in proportion to their percentages based on
  * the total <b>remaining</b> container width.  In other words, percentage width panels are designed to fill the space
- * left over by all the fixed-width or auto-width panels.  Because of this, while you can specify any number of columns
+ * left over by all the fixed-width and/or auto-width panels.  Because of this, while you can specify any number of columns
  * with different percentages, the columnWidths must always add up to 1 (or 100%) when added together, otherwise your
  * layout may not render as expected.  Example usage:</p>
  * <pre><code>
@@ -45,8 +45,8 @@ var p = new Ext.Panel({
     }]
 });
 
-// Mix of width and columnWidth -- all columnWidth values values must add
-// up to 1. The first column will take up exactly 120px, and the last two
+// Mix of width and columnWidth -- all columnWidth values must add up
+// to 1. The first column will take up exactly 120px, and the last two
 // columns will fill the remaining container width.
 var p = new Ext.Panel({
     title: 'Column Layout - Mixed',

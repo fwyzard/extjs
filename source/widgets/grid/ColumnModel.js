@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -13,7 +13,7 @@
  * with an Array of column config objects.
  * <br><br>
  * An individual column's config object defines the header string, the {@link Ext.data.Record}
- * field the column draws its data from, an otional rendering function to provide customized
+ * field the column draws its data from, an optional rendering function to provide customized
  * data formatting, and the ability to apply a CSS class to all cells in a column through its
  * {@link #id} config option.<br>
  * <br>Usage:<br>
@@ -109,7 +109,7 @@ Ext.extend(Ext.grid.ColumnModel, Ext.util.Observable, {
      * <br><br>
      * Header cells will also recieve this class name, but will also have the class <pr>x-grid3-hd</pre>,
      * so to target header cells, use CSS selectors such as:<pre>.x-grid3-hd.x-grid3-td-<b>id</b></pre>
-     * The {@link Ext.grid.Grid#autoExpandColumn} grid config option references the column
+     * The {@link Ext.grid.GridPanel#autoExpandColumn} grid config option references the column
      * via this identifier.
      */
     /**
@@ -122,7 +122,7 @@ Ext.extend(Ext.grid.ColumnModel, Ext.util.Observable, {
      */
     /**
      * @cfg {Number} width (optional) The initial width in pixels of the column. Using this
-     * instead of {@link Ext.grid.Grid#autoSizeColumns} is more efficient.
+     * instead of {@link Ext.grid.GridPanel#autoSizeColumns} is more efficient.
      */
     /**
      * @cfg {Boolean} sortable (optional) True if sorting is to be allowed on this column.
@@ -143,7 +143,7 @@ Ext.extend(Ext.grid.ColumnModel, Ext.util.Observable, {
      */
     /**
      * @cfg {String} tooltip (optional) A text string to use as the column header's tooltip.  If Quicktips are enabled, this
-     * value will be used as the text of the quick tip, otherwise it will be set as the header's HTML title attribute. 
+     * value will be used as the text of the quick tip, otherwise it will be set as the header's HTML title attribute.
      * Defaults to ''.
      */
     /**
@@ -345,7 +345,7 @@ Ext.extend(Ext.grid.ColumnModel, Ext.util.Observable, {
     },
 
     /**
-     * Sets the rendering (formatting) function for a column.  See {@link Ext.util.Format} for some 
+     * Sets the rendering (formatting) function for a column.  See {@link Ext.util.Format} for some
      * default formatting functions.
      * @param {Number} col The column index
      * @param {Function} fn The function to use to process the cell's raw data
@@ -443,7 +443,7 @@ Ext.extend(Ext.grid.ColumnModel, Ext.util.Observable, {
     /**
      * Returns the dataIndex for the specified column.
      * @param {Number} col The column index
-     * @return {Number}
+     * @return {String} The column's dataIndex
      */
     getDataIndex : function(col){
         return this.config[col].dataIndex;
@@ -452,12 +452,17 @@ Ext.extend(Ext.grid.ColumnModel, Ext.util.Observable, {
     /**
      * Sets the dataIndex for a column.
      * @param {Number} col The column index
-     * @param {Number} dataIndex The new dataIndex
+     * @param {String} dataIndex The new dataIndex
      */
     setDataIndex : function(col, dataIndex){
         this.config[col].dataIndex = dataIndex;
     },
 
+    /**
+     * Finds the index of the first matching column for the given dataIndex.
+     * @param {String} col The dataIndex to find
+     * @return {Number} The column index, or -1 if no match was found
+     */
     findColumnIndex : function(dataIndex){
         var c = this.config;
         for(var i = 0, len = c.length; i < len; i++){

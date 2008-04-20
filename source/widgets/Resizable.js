@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -93,6 +93,13 @@ Ext.Resizable = function(el, config){
         }
     }
 
+    /**
+     * The proxy Element that is resized in place of the real Element during the resize operation.
+     * This may be queried using {@link Ext.Element#getBox} to provide the new area to resize to.
+     * Read only.
+     * @type Ext.Element.
+     * @property proxy
+     */
     this.proxy = this.el.createProxy({tag: "div", cls: "x-resizable-proxy", id: this.el.id + "-rzproxy"});
     this.proxy.unselectable();
     this.proxy.enableDisplayMode('block');
@@ -339,7 +346,45 @@ Ext.extend(Ext.Resizable, Ext.util.Observable, {
         return Math.max(min, newValue);
     },
 
-    // private
+    /**
+     * <p>Performs resizing of the associated Element. This method is called internally by this
+     * class, and should not be called by user code.</p>
+     * <p>If a Resizable is being used to resize an Element which encapsulates a more complex UI
+     * component such as a Panel, this method may be overridden by specifying an implementation
+     * as a config option to provide appropriate behaviour at the end of the resize operation on
+     * mouseup, for example resizing the Panel, and relaying the Panel's content.</p>
+     * <p>The new area to be resized to is available by examining the state of the {@link #proxy}
+     * Element. Example:
+<pre><code>
+new Ext.Panel({
+    title: 'Resize me',
+    x: 100,
+    y: 100,
+    renderTo: Ext.getBody(),
+    floating: true,
+    frame: true,
+    width: 400,
+    height: 200,
+    listeners: {
+        render: function(p) {
+            new Ext.Resizable(p.getEl(), {
+                handles: 'all',
+                pinned: true,
+                transparent: true,
+                resizeElement: function() {
+                    var box = this.proxy.getBox();
+                    p.updateBox(box);
+                    if (p.layout) {
+                        p.doLayout();
+                    }
+                    return box;
+                }
+           });
+       }
+    }
+}).show();
+</code></pre>
+     */
     resizeElement : function(){
         var box = this.proxy.getBox();
         if(this.updateBox){
@@ -370,7 +415,7 @@ Ext.extend(Ext.Resizable, Ext.util.Observable, {
             try{// try catch so if something goes wrong the user doesn't get hung
 
             if(this.resizeRegion && !this.resizeRegion.contains(e.getPoint())) {
-            	return;
+                return;
             }
 
             //var curXY = this.startPoint;

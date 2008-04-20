@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -7,7 +7,7 @@
  */
 
 Ext.Spotlight = function(config){
-    Ext.apply(this.config);
+    Ext.apply(this, config);
 }
 Ext.Spotlight.prototype = {
     active : false,

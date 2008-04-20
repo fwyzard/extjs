@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -211,6 +211,11 @@ Ext.layout.BorderLayout.Region.prototype = {
      * autoHide is true, the panel will automatically hide after the user mouses out of the panel.  If autoHide
      * is false, the panel will continue to display until the user clicks outside of the panel (defaults to true).
      */
+	/**
+	 * @cfg {Boolean} collapsed
+	 * By default, collapsible regions will be visible when rendered. Set the collapsed config to true to render
+	 * the region as collapsed.
+	 */
     /**
      * @cfg {String} collapseMode
      * By default, collapsible regions are collapsed by clicking the expand/collapse tool button that renders into

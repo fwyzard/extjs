@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -24,27 +24,18 @@ Ext.data.DataProxy = function(){
         /**
          * @event beforeload
          * Fires before a network request is made to retrieve a data object.
-         * @param {Object} This DataProxy object.
-         * @param {Object} params The params parameter to the load function.
+         * @param {Object} this
+         * @param {Object} params The params object passed to the {@link #load} function
          */
         'beforeload',
         /**
          * @event load
          * Fires before the load method's callback is called.
-         * @param {Object} This DataProxy object.
-         * @param {Object} o The data object.
-         * @param {Object} arg The callback argument object passed to the load function.
+         * @param {Object} this
+         * @param {Object} o The data object
+         * @param {Object} arg The callback's arg object passed to the {@link #load} function
          */
-        'load',
-        /**
-         * @event loadexception
-         * Fires if an Exception occurs during data retrieval.
-         * @param {Object} This DataProxy object.
-         * @param {Object} o The data object.
-         * @param {Object} arg The callback argument object passed to the load function.
-         * @param {Object} e The Exception.
-         */
-        'loadexception'
+        'load'
     );
     Ext.data.DataProxy.superclass.constructor.call(this);
 };

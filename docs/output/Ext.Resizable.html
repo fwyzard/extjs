@@ -12,7 +12,7 @@
                 <h1>Class Ext.Resizable</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/Resizable.js" target="_blank">Resizable.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Resizable.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Resizable</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
                     </table>
@@ -321,7 +321,28 @@ resizer.east.setDisplayed(false);</p>        </div>
             </table>
                 <a id="Ext.Resizable-props"></a>
         <h2>Public Properties</h2>
-        <div class="no-members">This class has no public properties.</div>        <a id="Ext.Resizable-methods"></a>
+                <table cellspacing="0" class="member-table">
+            <tr>
+                <th class="sig-header" colspan="2">Property</th>
+                <th class="msource-header">Defined By</th>
+            </tr>
+                <tr class="property-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Resizable-proxy"></a>
+            <b>proxy</b> : Ext.Element.            <div class="mdesc">
+                        <div class="short">The proxy Element that is resized in place of the real Element during the resize operation.
+This may be queried using...</div>
+            <div class="long">
+                The proxy Element that is resized in place of the real Element during the resize operation.
+This may be queried using <a ext:cls="Ext.Element" ext:member="getBox" href="output/Ext.Element.html#getBox">Ext.Element.getBox</a> to provide the new area to resize to.
+Read only.            </div>
+                        </div>
+        </td>
+        <td class="msource">Resizable</td>
+    </tr>
+            </table>
+                <a id="Ext.Resizable-methods"></a>
         <h2>Public Methods</h2>
                 <table cellspacing="0" class="member-table">
             <tr>
@@ -581,6 +602,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Resizable-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Resizable-removeListener"></a>
             <b>removeListener</b>(&nbsp;<code>String eventName</code>, <code>Function handler</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Removes a listener</div>
@@ -597,6 +638,61 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Resizable-resizeElement"></a>
+            <b>resizeElement</b>() : void            <div class="mdesc">
+                        <div class="short">Performs resizing of the associated Element. This method is called internally by this
+class, and should not be called...</div>
+            <div class="long">
+                <p>Performs resizing of the associated Element. This method is called internally by this
+class, and should not be called by user code.</p>
+<p>If a Resizable is being used to resize an Element which encapsulates a more complex UI
+component such as a Panel, this method may be overridden by specifying an implementation
+as a config option to provide appropriate behaviour at the end of the resize operation on
+mouseup, for example resizing the Panel, and relaying the Panel's content.</p>
+<p>The new area to be resized to is available by examining the state of the <a ext:cls="Ext.Resizable" ext:member="proxy" href="output/Ext.Resizable.html#proxy">proxy</a>
+Element. Example:
+<pre><code>new Ext.Panel({
+    title: <em>'Resize me'</em>,
+    x: 100,
+    y: 100,
+    renderTo: Ext.getBody(),
+    floating: true,
+    frame: true,
+    width: 400,
+    height: 200,
+    listeners: {
+        render: <b>function</b>(p) {
+            <b>new</b> Ext.Resizable(p.getEl(), {
+                handles: <em>'all'</em>,
+                pinned: true,
+                transparent: true,
+                resizeElement: <b>function</b>() {
+                    <b>var</b> box = <b>this</b>.proxy.getBox();
+                    p.updateBox(box);
+                    <b>if</b> (p.layout) {
+                        p.doLayout();
+                    }
+                    <b>return</b> box;
+                }
+           });
+       }
+    }
+}).show();</code></pre>    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Resizable</td>
     </tr>
         <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -9,7 +9,9 @@
 /**
  * @class Ext.data.JsonStore
  * @extends Ext.data.Store
- * Small helper class to make creating Stores for JSON data easier. <br/>
+ * Small helper class to make creating Stores for remotely-loaded JSON data easier. JsonStore is pre-configured 
+ * with a built-in {@link Ext.data.HttpProxy} and {@link Ext.data.JsonReader}.  If you require some other proxy/reader
+ * combination then you'll have to create a basic {@link Ext.data.Store} configured as needed.<br/>
 <pre><code>
 var store = new Ext.data.JsonStore({
     url: 'get-images.php',
@@ -31,7 +33,7 @@ var store = new Ext.data.JsonStore({
  * JsonReader.</b>
  * @cfg {String} url  The URL from which to load data through an HttpProxy. Either this
  * option, or the {@link #data} option must be specified.
- * @cfg {Object} data  A data object readable this object's JsonReader. Either this
+ * @cfg {Object} data  A data object readable by this object's JsonReader. Either this
  * option, or the {@link #url} option must be specified.
  * @cfg {Array} fields  Either an Array of field definition objects as passed to
  * {@link Ext.data.Record#create}, or a {@link Ext.data.Record Record} constructor created using {@link Ext.data.Record#create}.

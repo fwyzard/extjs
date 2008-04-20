@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<project path="" name="Ext Examples" author="Ext JS, LLC" version="2.0.2" copyright="Ext JS Library $version&#xD;&#xA;Copyright(c) 2006-2008, $author.&#xD;&#xA;licensing@extjs.com&#xD;&#xA;&#xD;&#xA;http://extjs.com/license" output="C:\apps\www\deploy\ext-2.0.2\examples" source="True" source-dir="$output" minify="False" min-dir="$output\build" doc="False" doc-dir="$output\docs" master="true" master-file="$output\yui-ext.js" zip="true" zip-file="$output\yuo-ext.$version.zip">
+<project path="" name="Ext Examples" author="Ext JS, LLC" version="2.1" copyright="Ext JS Library $version&#xD;&#xA;Copyright(c) 2006-2008, $author.&#xD;&#xA;licensing@extjs.com&#xD;&#xA;&#xD;&#xA;http://extjs.com/license" output="C:\apps\www\deploy\ext-2.1\examples" source="True" source-dir="$output" minify="False" min-dir="$output\build" doc="False" doc-dir="$output\docs" master="true" master-file="$output\yui-ext.js" zip="true" zip-file="$output\yuo-ext.$version.zip">
   <file name="dialog\blog.html" path="dialog" />
   <file name="dialog\comments.txt" path="dialog" />
   <file name="dialog\hello.html" path="dialog" />
@@ -334,13 +334,28 @@
   <file name="six\ui.js" path="six" />
   <file name="six\actions.js" path="six" />
   <file name="six\images\six\button\action-item-sprite.gif" path="six\images\six\button" />
-  <file name="core\templates.html" path="core" />
-  <file name="debug\debug-console.html" path="debug" />
-  <file name="debug\inspector.gif" path="debug" />
   <file name="dependency\dep-tree.json" path="dependency" />
   <file name="dependency\dependency.css" path="dependency" />
   <file name="dependency\dependency.html" path="dependency" />
   <file name="dependency\dependency.php" path="dependency" />
+  <file name="shared\extjs\extjs2.png" path="shared\extjs" />
+  <file name="shared\extjs\ft.png" path="shared\extjs" />
+  <file name="shared\extjs\topbar.png" path="shared\extjs" />
+  <file name="slider\echo.php" path="slider" />
+  <file name="slider\slider2.html" path="slider" />
+  <file name="slider\SliderField.css" path="slider" />
+  <file name="extjs.css" path="" />
+  <file name="extjs2.css" path="" />
+  <file name="index.html" path="" />
+  <file name="dependency\dependency.js" path="dependency" />
+  <file name="slider\slider2.js" path="slider" />
+  <file name="slider\SliderField.js" path="slider" />
+  <file name="samples.html" path="" />
+  <file name="core\spotlight.html" path="core" />
+  <file name="core\templates.html" path="core" />
+  <file name="dd\dragdropzones.html" path="dd" />
+  <file name="debug\debug-console.html" path="debug" />
+  <file name="debug\inspector.gif" path="debug" />
   <file name="desktop\css\desktop.css" path="desktop\css" />
   <file name="desktop\images\taskbar\black\item-over.gif" path="desktop\images\taskbar\black" />
   <file name="desktop\images\taskbar\black\scroll-left.gif" path="desktop\images\taskbar\black" />
@@ -439,6 +454,8 @@
   <file name="feed-viewer\feed-proxy.php" path="feed-viewer" />
   <file name="feed-viewer\feed-viewer.css" path="feed-viewer" />
   <file name="feed-viewer\view.html" path="feed-viewer" />
+  <file name="form\absform.html" path="form" />
+  <file name="form\adv-vtypes.html" path="form" />
   <file name="form\anchoring.html" path="form" />
   <file name="form\combos.css" path="form" />
   <file name="form\combos.html" path="form" />
@@ -481,6 +498,14 @@
   <file name="grid\topic.gif" path="grid" />
   <file name="grid\totals.html" path="grid" />
   <file name="grid\xml-grid.html" path="grid" />
+  <file name="grid-filtering\img\bullet_purple.png" path="grid-filtering\img" />
+  <file name="grid-filtering\img\equals.png" path="grid-filtering\img" />
+  <file name="grid-filtering\img\find.png" path="grid-filtering\img" />
+  <file name="grid-filtering\img\greater_then.png" path="grid-filtering\img" />
+  <file name="grid-filtering\img\less_then.png" path="grid-filtering\img" />
+  <file name="grid-filtering\grid-demo.sql" path="grid-filtering" />
+  <file name="grid-filtering\grid-filter.html" path="grid-filtering" />
+  <file name="grid-filtering\grid-filter.php" path="grid-filtering" />
   <file name="layout\images\add-feed.gif" path="layout\images" />
   <file name="layout\images\article.gif" path="layout\images" />
   <file name="layout\images\bullet.gif" path="layout\images" />
@@ -510,6 +535,16 @@
   <file name="layout\column.html" path="layout" />
   <file name="layout\complex.html" path="layout" />
   <file name="layout\table.html" path="layout" />
+  <file name="layout-browser\images\disk.png" path="layout-browser\images" />
+  <file name="layout-browser\images\email_go.png" path="layout-browser\images" />
+  <file name="layout-browser\images\layout-browser-hd-bg.gif" path="layout-browser\images" />
+  <file name="layout-browser\images\layout-icon.gif" path="layout-browser\images" />
+  <file name="layout-browser\images\page_attach.png" path="layout-browser\images" />
+  <file name="layout-browser\images\printer.png" path="layout-browser\images" />
+  <file name="layout-browser\images\spellcheck.png" path="layout-browser\images" />
+  <file name="layout-browser\layout-browser.css" path="layout-browser" />
+  <file name="layout-browser\layout-browser.html" path="layout-browser" />
+  <file name="layout-browser\tree-data.json" path="layout-browser" />
   <file name="locale\create_languages_js.py" path="locale" />
   <file name="locale\dutch-form.html" path="locale" />
   <file name="locale\multi-lang.html" path="locale" />
@@ -534,9 +569,41 @@
   <file name="resizable\sara.jpg" path="resizable" />
   <file name="resizable\sara_and_zack.jpg" path="resizable" />
   <file name="resizable\zack.jpg" path="resizable" />
-  <file name="shared\extjs\extjs2.png" path="shared\extjs" />
-  <file name="shared\extjs\ft.png" path="shared\extjs" />
-  <file name="shared\extjs\topbar.png" path="shared\extjs" />
+  <file name="shared\extjs\css\extjs.css" path="shared\extjs\css" />
+  <file name="shared\extjs\images\arrow.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\bd-bg.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\big-box.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\c-sep-l.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\c-sep.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\check.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\checked.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\corners-sprite.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\extanim32.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\extjs2.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\ft-bg.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\ft.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\full-box.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\gxt.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\inner-hd.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\left-right.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\med-box.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\med-shd.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\msg-bg.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-left-over.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-left-over.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-left.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-left.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-over.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-right-over.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-right-over.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-right.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-right.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\nav-spacer.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\pdf.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\sample-over.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\side-box.png" path="shared\extjs\images" />
+  <file name="shared\extjs\images\top-bottom.gif" path="shared\extjs\images" />
+  <file name="shared\extjs\images\topbar.png" path="shared\extjs\images" />
   <file name="shared\icons\fam\add.gif" path="shared\icons\fam" />
   <file name="shared\icons\fam\application_go.png" path="shared\icons\fam" />
   <file name="shared\icons\fam\application_view_list.png" path="shared\icons\fam" />
@@ -619,10 +686,11 @@
   <file name="simple-widgets\progress-bar.html" path="simple-widgets" />
   <file name="simple-widgets\qtips.css" path="simple-widgets" />
   <file name="simple-widgets\qtips.html" path="simple-widgets" />
-  <file name="slider\echo.php" path="slider" />
+  <file name="slider\images\slider-bg.png" path="slider\images" />
+  <file name="slider\images\slider-thumb.png" path="slider\images" />
+  <file name="slider\images\ticks.gif" path="slider\images" />
+  <file name="slider\slider.css" path="slider" />
   <file name="slider\slider.html" path="slider" />
-  <file name="slider\slider2.html" path="slider" />
-  <file name="slider\SliderField.css" path="slider" />
   <file name="state\get-state.php" path="state" />
   <file name="state\README.txt" path="state" />
   <file name="state\save-state.php" path="state" />
@@ -692,17 +760,37 @@
   <file name="view\get-images.php" path="view" />
   <file name="window\hello.html" path="window" />
   <file name="window\layout.html" path="window" />
+  <file name="code-display.js" path="" />
   <file name="examples.css" path="" />
+  <file name="examples.js" path="" />
   <file name="examples.jsb" path="" />
-  <file name="extjs.css" path="" />
-  <file name="extjs2.css" path="" />
-  <file name="index.html" path="" />
   <file name="info-bg.gif" path="" />
   <file name="lib.css" path="" />
   <file name="README.txt" path="" />
+  <file name="samples.css" path="" />
+  <file name="toc.html" path="" />
+  <file name="shared\examples.css" path="shared" />
+  <file name="shared\info-bg.gif" path="shared" />
+  <file name="shared\lib.css" path="shared" />
+  <file name="status-bar\images\saving.gif" path="status-bar\images" />
+  <file name="status-bar\images\accept.png" path="status-bar\images" />
+  <file name="status-bar\images\saved.png" path="status-bar\images" />
+  <file name="status-bar\statusbar-advanced.js" path="status-bar" />
+  <file name="status-bar\statusbar-demo.js" path="status-bar" />
+  <file name="status-bar\ValidationStatus.js" path="status-bar" />
+  <file name="status-bar\statusbar.css" path="status-bar" />
+  <file name="shared\screens\blank.gif" path="shared\screens" />
+  <file name="statusbar\images\accept.png" path="statusbar\images" />
+  <file name="statusbar\images\saved.png" path="statusbar\images" />
+  <file name="statusbar\images\saving.gif" path="statusbar\images" />
+  <file name="statusbar\fake.php" path="statusbar" />
+  <file name="statusbar\statusbar-advanced.html" path="statusbar" />
+  <file name="statusbar\statusbar-demo.html" path="statusbar" />
+  <file name="statusbar\statusbar.css" path="statusbar" />
+  <file name="core\spotlight-example.js" path="core" />
   <file name="core\Spotlight.js" path="core" />
   <file name="core\templates.js" path="core" />
-  <file name="dependency\dependency.js" path="dependency" />
+  <file name="dd\dragdropzones.js" path="dd" />
   <file name="desktop\js\App.js" path="desktop\js" />
   <file name="desktop\js\Desktop.js" path="desktop\js" />
   <file name="desktop\js\Module.js" path="desktop\js" />
@@ -714,9 +802,7 @@
   <file name="feed-viewer\FeedViewer.js" path="feed-viewer" />
   <file name="feed-viewer\FeedWindow.js" path="feed-viewer" />
   <file name="feed-viewer\MainPanel.js" path="feed-viewer" />
-  <file name="form\absform.html" path="form" />
   <file name="form\absform.js" path="form" />
-  <file name="form\adv-vtypes.html" path="form" />
   <file name="form\adv-vtypes.js" path="form" />
   <file name="form\anchoring.js" path="form" />
   <file name="form\combos.js" path="form" />
@@ -744,6 +830,20 @@
   <file name="grid\RowExpander.js" path="grid" />
   <file name="grid\totals.js" path="grid" />
   <file name="grid\xml-grid.js" path="grid" />
+  <file name="grid-filtering\grid\filter\BooleanFilter.js" path="grid-filtering\grid\filter" />
+  <file name="grid-filtering\grid\filter\DateFilter.js" path="grid-filtering\grid\filter" />
+  <file name="grid-filtering\grid\filter\Filter.js" path="grid-filtering\grid\filter" />
+  <file name="grid-filtering\grid\filter\ListFilter.js" path="grid-filtering\grid\filter" />
+  <file name="grid-filtering\grid\filter\NumericFilter.js" path="grid-filtering\grid\filter" />
+  <file name="grid-filtering\grid\filter\StringFilter.js" path="grid-filtering\grid\filter" />
+  <file name="grid-filtering\grid\GridFilters.js" path="grid-filtering\grid" />
+  <file name="grid-filtering\menu\EditableItem.js" path="grid-filtering\menu" />
+  <file name="grid-filtering\menu\RangeMenu.js" path="grid-filtering\menu" />
+  <file name="grid-filtering\grid-filter.js" path="grid-filtering" />
+  <file name="layout-browser\layouts\basic.js" path="layout-browser\layouts" />
+  <file name="layout-browser\layouts\combination.js" path="layout-browser\layouts" />
+  <file name="layout-browser\layouts\custom.js" path="layout-browser\layouts" />
+  <file name="layout-browser\layout-browser.js" path="layout-browser" />
   <file name="locale\dutch-form.js" path="locale" />
   <file name="locale\dutch-provinces.js" path="locale" />
   <file name="locale\languages.js" path="locale" />
@@ -759,13 +859,29 @@
   <file name="portal\Portlet.js" path="portal" />
   <file name="portal\sample-grid.js" path="portal" />
   <file name="portal\sample.js" path="portal" />
+  <file name="remoteload\App.js" path="remoteload" />
+  <file name="remoteload\ComponentLoader.js" path="remoteload" />
+  <file name="remoteload\EmployeeDetails.js" path="remoteload" />
+  <file name="remoteload\EmployeeDetailsTab.js" path="remoteload" />
+  <file name="remoteload\EmployeeGrid.js" path="remoteload" />
+  <file name="remoteload\EmployeePropertyGrid.js" path="remoteload" />
+  <file name="remoteload\EmployeeStore.js" path="remoteload" />
+  <file name="remoteload\loadEmployeeInfo.php" path="remoteload" />
+  <file name="remoteload\loadEmployeePropGrid.php" path="remoteload" />
+  <file name="remoteload\loadStore.php" path="remoteload" />
+  <file name="remoteload\remoteload.php" path="remoteload" />
+  <file name="remoteload\sampleApp.php" path="remoteload" />
   <file name="resizable\basic.js" path="resizable" />
+  <file name="shared\extjs\site.js" path="shared\extjs" />
+  <file name="shared\code-display.js" path="shared" />
+  <file name="shared\examples.js" path="shared" />
   <file name="simple-widgets\progress-bar.js" path="simple-widgets" />
   <file name="simple-widgets\qtips.js" path="simple-widgets" />
   <file name="slider\slider.js" path="slider" />
-  <file name="slider\slider2.js" path="slider" />
-  <file name="slider\SliderField.js" path="slider" />
   <file name="state\SessionProvider.js" path="state" />
+  <file name="statusbar\statusbar-advanced.js" path="statusbar" />
+  <file name="statusbar\statusbar-demo.js" path="statusbar" />
+  <file name="statusbar\ValidationStatus.js" path="statusbar" />
   <file name="tabs\TabCloseMenu.js" path="tabs" />
   <file name="tabs\tabs-adv.js" path="tabs" />
   <file name="tabs\tabs-example.js" path="tabs" />
@@ -785,7 +901,5 @@
   <file name="view\data-view.js" path="view" />
   <file name="window\hello.js" path="window" />
   <file name="window\layout.js" path="window" />
-  <file name="code-display.js" path="" />
-  <file name="examples.js" path="" />
   <file name="samples.js" path="" />
 </project>

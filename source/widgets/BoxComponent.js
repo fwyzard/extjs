@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -49,12 +49,14 @@ Ext.BoxComponent = Ext.extend(Ext.Component, {
      * @cfg {Boolean} autoWidth
      * True to use width:'auto', false to use fixed width. Note: although many components inherit this config option, not all will function as expected with a width of 'auto'. (defaults to false).
      */
+	
     /* // private internal config
-     * @cfg {Boolean} deferHeight
+     * {Boolean} deferHeight
      * True to defer height calculations to an external component, false to allow this component to set its own
      * height (defaults to false).
      */
 
+	// private
     initComponent : function(){
         Ext.BoxComponent.superclass.initComponent.call(this);
         this.addEvents(

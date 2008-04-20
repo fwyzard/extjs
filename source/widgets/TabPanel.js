@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -98,7 +98,7 @@ Ext.TabPanel = Ext.extend(Ext.Panel,  {
     resizeTabs:false,
     /**
      * @cfg {Boolean} enableTabScroll True to enable scrolling to tabs that may be invisible due to overflowing the
-     * overall TabPanel width. Only available with tabs on top. (defaults to false).
+     * overall TabPanel width. Only available with tabPosition:'top' (defaults to false).
      */
     enableTabScroll: false,
     /**
@@ -455,6 +455,10 @@ var tabs = new Ext.TabPanel({
     onRemove : function(tp, item){
         Ext.removeNode(this.getTabEl(item));
         this.stack.remove(item);
+        item.un('disable', this.onItemDisabled, this);
+        item.un('enable', this.onItemEnabled, this);
+        item.un('titlechange', this.onItemTitleChanged, this);
+        item.un('beforeshow', this.onBeforeShowItem, this);
         if(item == this.activeTab){
             var next = this.stack.next();
             if(next){
@@ -543,6 +547,7 @@ var tabs = new Ext.TabPanel({
             el.style.display = 'none';
             this.delegateUpdates();
         }
+        this.stack.remove(item);
     },
 
     /**
@@ -875,6 +880,14 @@ var tabs = new Ext.TabPanel({
      */
     /**
      * @cfg {Boolean} collapsed
+     * @hide
+     */
+    /**
+     * @cfg {String} layout
+     * @hide
+     */
+    /**
+     * @cfg {Object} layoutConfig
      * @hide
      */
 

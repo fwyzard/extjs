@@ -1,4 +1,12 @@
 /*
+ * Ext JS Library 2.1
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ */
+
+/*
  * Macedonia translation
  * By PetarD petar.dimitrijevic@vorteksed.com.mk (utf8 encoding)
  * 23 April 2007

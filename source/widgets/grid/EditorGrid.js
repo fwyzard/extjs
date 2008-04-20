@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -43,6 +43,10 @@ Ext.grid.EditorGridPanel = Ext.extend(Ext.grid.GridPanel, {
         Ext.grid.EditorGridPanel.superclass.initComponent.call(this);
 
         if(!this.selModel){
+            /**
+             * @cfg {Object} selModel Any subclass of AbstractSelectionModel that will provide the selection model for
+             * the grid (defaults to {@link Ext.grid.CellSelectionModel} if not specified).
+             */
             this.selModel = new Ext.grid.CellSelectionModel();
         }
 

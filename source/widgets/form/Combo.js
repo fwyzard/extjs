@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -29,7 +29,12 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
      * {tag: "input", type: "text", size: "24", autocomplete: "off"})
      */
     /**
-     * @cfg {Ext.data.Store} store The data store to which this combo is bound (defaults to undefined)
+     * @cfg {Ext.data.Store/Array} store The data source to which this combo is bound (defaults to undefined).  This can be 
+     * any {@link Ext.data.Store} subclass, a 1-dimensional array (e.g., ['Foo','Bar']) or a 2-dimensional array (e.g.,
+     * [['f','Foo'],['b','Bar']]).  Arrays will be converted to a {@link Ext.data.SimpleStore} internally.
+     * 1-dimensional arrays will automatically be expanded (each array item will be the combo value and text) and 
+     * for multi-dimensional arrays, the value in index 0 of each item will be assumed to be the combo value, while 
+     * the value at index 1 is assumed to be the combo text.
      */
     /**
      * @cfg {String} title If supplied, a header element is created containing this text and added into the top of
@@ -53,7 +58,9 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
     /**
      * @cfg {String} hiddenName If specified, a hidden form field with this name is dynamically generated to store the
      * field's data value (defaults to the underlying DOM element's name). Required for the combo's value to automatically
-     * post during a form submission.
+     * post during a form submission.  Note that the hidden field's id will also default to this name if {@link #hiddenId}
+     * is not specified.  The combo's id and the hidden field's ids should be different, since no two DOM nodes should
+     * share the same id, so if the combo and hidden names are the same, you should specify a unique hiddenId.
      */
     /**
      * @cfg {String} hiddenId If {@link #hiddenName} is specified, hiddenId can also be provided to give the hidden field
@@ -104,7 +111,7 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
     minChars : 4,
     /**
      * @cfg {Boolean} typeAhead True to populate and autoselect the remainder of the text being typed after a configurable
-     * delay (typeAheadDelay) if it matches a known value (defaults to false)
+     * delay ({@link #typeAheadDelay}) if it matches a known value (defaults to false)
      */
     typeAhead: false,
     /**
@@ -169,11 +176,12 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
     typeAheadDelay : 250,
     /**
      * @cfg {String} valueNotFoundText When using a name/value combo, if the value passed to setValue is not found in
-     * the store, valueNotFoundText will be displayed as the field text if defined (defaults to undefined)
+     * the store, valueNotFoundText will be displayed as the field text if defined (defaults to undefined). If this
+     * defaut text is used, it means there is no value set and no validation will occur on this field.
      */
 
     /**
-     * @cfg {Boolean} lazyInit True to not initialize the list for this combo until the field is focused. (defaults to true)
+     * @cfg {Boolean} lazyInit True to not initialize the list for this combo until the field is focused (defaults to true)
      */
     lazyInit : true,
 
@@ -255,8 +263,27 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
             }else{
                 Ext.removeNode(s); // remove it
             }
-
         }
+        //auto-configure store from local array data
+        else if(Ext.isArray(this.store)){
+			if (Ext.isArray(this.store[0])){
+				this.store = new Ext.data.SimpleStore({
+				    fields: ['value','text'],
+				    data: this.store
+				});
+		        this.valueField = 'value';
+			}else{
+				this.store = new Ext.data.SimpleStore({
+				    fields: ['text'],
+				    data: this.store,
+				    expandData: true
+				});
+		        this.valueField = 'text';
+			}
+			this.displayField = 'text';
+			this.mode = 'local';
+		}
+		
         this.selectedIndex = -1;
         if(this.mode == 'local'){
             if(this.initialConfig.queryDelay === undefined){
@@ -331,28 +358,36 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
             }
 
             if(!this.tpl){
-			    /**
-			    * @cfg {String/Ext.XTemplate} tpl The template string, or {@link Ext.XTemplate}
-			    * instance to use to display each item in the dropdown list. Use
-			    * this to create custom UI layouts for items in the list.
-			    * <p>
-			    * If you wish to preserve the default visual look of list items, add the CSS
-			    * class name <pre>x-combo-list-item</pre> to the template's container element.
-			    * <p>
-			    * <b>The template must contain one or more substitution parameters using field
-			    * names from the Combo's</b> {@link #store Store}. An example of a custom template
-			    * would be adding an <pre>ext:qtip</pre> attribute which might display other fields
-			    * from the Store.
-			    * <p>
-			    * The dropdown list is displayed in a DataView. See {@link Ext.DataView} for details.
-			    */
+                /**
+                * @cfg {String/Ext.XTemplate} tpl The template string, or {@link Ext.XTemplate}
+                * instance to use to display each item in the dropdown list. Use
+                * this to create custom UI layouts for items in the list.
+                * <p>
+                * If you wish to preserve the default visual look of list items, add the CSS
+                * class name <pre>x-combo-list-item</pre> to the template's container element.
+                * <p>
+                * <b>The template must contain one or more substitution parameters using field
+                * names from the Combo's</b> {@link #store Store}. An example of a custom template
+                * would be adding an <pre>ext:qtip</pre> attribute which might display other fields
+                * from the Store.
+                * <p>
+                * The dropdown list is displayed in a DataView. See {@link Ext.DataView} for details.
+                */
                 this.tpl = '<tpl for="."><div class="'+cls+'-item">{' + this.displayField + '}</div></tpl>';
+                /**
+                 * @cfg {String} itemSelector
+                 * <b>This setting is required if a custom XTemplate has been specified in {@link #tpl}
+                 * which assigns a class other than <pre>'x-combo-list-item'</pre> to dropdown list items</b>.
+                 * A simple CSS selector (e.g. div.some-class or span:first-child) that will be 
+                 * used to determine what nodes the DataView which handles the dropdown display will
+                 * be working with.
+                 */
             }
 
-		    /**
-		    * The {@link Ext.DataView DataView} used to display the ComboBox's options.
-		    * @type Ext.DataView
-		    */
+            /**
+            * The {@link Ext.DataView DataView} used to display the ComboBox's options.
+            * @type Ext.DataView
+            */
             this.view = new Ext.DataView({
                 applyTo: this.innerList,
                 tpl: this.tpl,
@@ -429,7 +464,7 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
             "enter" : function(e){
                 this.onViewClick();
                 this.delayedCheck = true;
-				this.unsetDelayCheck.defer(10, this);
+                this.unsetDelayCheck.defer(10, this);
             },
 
             "esc" : function(e){
@@ -479,9 +514,9 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
         Ext.form.ComboBox.superclass.onDestroy.call(this);
     },
 
-	unsetDelayCheck : function(){
-		delete this.delayedCheck;
-	},
+    unsetDelayCheck : function(){
+        delete this.delayedCheck;
+    },
     // private
     fireKey : function(e){
         if(e.isNavKeyPress() && !this.isExpanded() && !this.delayedCheck){
@@ -692,20 +727,20 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
     },
 
     // private
-	restrictHeight : function(){
+    restrictHeight : function(){
         this.innerList.dom.style.height = '';
         var inner = this.innerList.dom;
         var pad = this.list.getFrameWidth('tb')+(this.resizable?this.handleHeight:0)+this.assetHeight;
         var h = Math.max(inner.clientHeight, inner.offsetHeight, inner.scrollHeight);
         var ha = this.getPosition()[1]-Ext.getBody().getScroll().top;
         var hb = Ext.lib.Dom.getViewHeight()-ha-this.getSize().height;
-        var space = Math.max(ha, hb, this.minHeight || 0)-this.list.shadow.offset-pad-2;
+        var space = Math.max(ha, hb, this.minHeight || 0)-this.list.shadowOffset-pad-5;
         h = Math.min(h, space, this.maxHeight);
         
         this.innerList.setHeight(h);
         this.list.beginUpdate();
         this.list.setHeight(h+pad);
-        this.list.alignTo(this.el, this.listAlign);
+        this.list.alignTo(this.wrap, this.listAlign);
         this.list.endUpdate();
     },
 

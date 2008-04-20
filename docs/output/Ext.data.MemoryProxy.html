@@ -13,7 +13,7 @@
                 <h1>Class Ext.data.MemoryProxy</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.data</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/data/MemoryProxy.js" target="_blank">MemoryProxy.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">MemoryProxy.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">MemoryProxy</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.data.DataProxy" ext:member="" href="output/Ext.data.DataProxy.html">DataProxy</a></td></tr>
                     </table>
@@ -203,10 +203,12 @@ Or a shorthand syntax:<br>
         <td class="sig">
         <a id="Ext.data.MemoryProxy-load"></a>
             <b>load</b>(&nbsp;<code>Object params</code>, <code>Ext.data.DataReader) reader</code>, <code>Function callback</code>, <code>Object scope</code>, <code>Object arg</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Load data from the requested source (in this case an in-memory
-data object passed to the constructor), read the data ...</div>
+                        <div class="short">
+Load data from the requested source (in this case an in-memory
+data object passed to the constructor), read the data...</div>
             <div class="long">
-                Load data from the requested source (in this case an in-memory
+                
+Load data from the requested source (in this case an in-memory
 data object passed to the constructor), read the data object into
 a block of Ext.data.Records using the passed Ext.data.DataReader implementation, and
 process that block using the passed callback.    <div class="mdetail-params">
@@ -272,6 +274,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.data.MemoryProxy-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.data.MemoryProxy-removeListener"></a>
             <b>removeListener</b>(&nbsp;<code>String eventName</code>, <code>Function handler</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Removes a listener</div>
@@ -289,7 +311,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.MemoryProxy-resumeEvents"></a>
@@ -309,7 +331,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.MemoryProxy-suspendEvents"></a>
@@ -329,7 +351,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.MemoryProxy-un"></a>
@@ -361,12 +383,12 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.MemoryProxy-beforeload"></a>
-            <b>beforeload</b> : (&nbsp;<code>Object This</code>, <code>Object params</code>&nbsp;)            <div class="mdesc">
+            <b>beforeload</b> : (&nbsp;<code>Object this</code>, <code>Object params</code>&nbsp;)            <div class="mdesc">
                         <div class="short">Fires before a network request is made to retrieve a data object.</div>
             <div class="long">
                 Fires before a network request is made to retrieve a data object.    <div class="mdetail-params">
         <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
-        <ul><li><code>This</code> : Object<div class="sub-desc">DataProxy object.</div></li><li><code>params</code> : Object<div class="sub-desc">The params parameter to the load function.</div></li>        </ul>
+        <ul><li><code>this</code> : Object<div class="sub-desc"></div></li><li><code>params</code> : Object<div class="sub-desc">The params object passed to the <a ext:cls="Ext.data.DataProxy" ext:member="load" href="output/Ext.data.DataProxy.html#load">load</a> function</div></li>        </ul>
     </div>
                 </div>
                         </div>
@@ -377,33 +399,35 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.MemoryProxy-load"></a>
-            <b>load</b> : (&nbsp;<code>Object This</code>, <code>Object o</code>, <code>Object arg</code>&nbsp;)            <div class="mdesc">
+            <b>load</b> : (&nbsp;<code>Object this</code>, <code>Object o</code>, <code>Object arg</code>&nbsp;)            <div class="mdesc">
                         <div class="short">Fires before the load method's callback is called.</div>
             <div class="long">
                 Fires before the load method's callback is called.    <div class="mdetail-params">
         <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
-        <ul><li><code>This</code> : Object<div class="sub-desc">DataProxy object.</div></li><li><code>o</code> : Object<div class="sub-desc">The data object.</div></li><li><code>arg</code> : Object<div class="sub-desc">The callback argument object passed to the load function.</div></li>        </ul>
+        <ul><li><code>this</code> : Object<div class="sub-desc"></div></li><li><code>o</code> : Object<div class="sub-desc">The data object</div></li><li><code>arg</code> : Object<div class="sub-desc">The callback's arg object passed to the <a ext:cls="Ext.data.DataProxy" ext:member="load" href="output/Ext.data.DataProxy.html#load">load</a> function</div></li>        </ul>
     </div>
                 </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.data.DataProxy" ext:member="#event-load" href="output/Ext.data.DataProxy.html#event-load">DataProxy</a></td>
     </tr>
-        <tr class="event-row inherited expandable">
+        <tr class="event-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.MemoryProxy-loadexception"></a>
-            <b>loadexception</b> : (&nbsp;<code>Object This</code>, <code>Object o</code>, <code>Object arg</code>, <code>Object e</code>&nbsp;)            <div class="mdesc">
-                        <div class="short">Fires if an Exception occurs during data retrieval.</div>
+            <b>loadexception</b> : (&nbsp;<code>Object this</code>, <code>Object arg</code>, <code>Object null</code>, <code>Error e</code>&nbsp;)            <div class="mdesc">
+                        <div class="short">Fires if an exception occurs in the Proxy during data loading. Note that this event is also relayed 
+through Ext.data...</div>
             <div class="long">
-                Fires if an Exception occurs during data retrieval.    <div class="mdetail-params">
+                Fires if an exception occurs in the Proxy during data loading. Note that this event is also relayed 
+through <a ext:cls="Ext.data.Store" href="output/Ext.data.Store.html">Ext.data.Store</a>, so you can listen for it directly on any Store instance.    <div class="mdetail-params">
         <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
-        <ul><li><code>This</code> : Object<div class="sub-desc">DataProxy object.</div></li><li><code>o</code> : Object<div class="sub-desc">The data object.</div></li><li><code>arg</code> : Object<div class="sub-desc">The callback argument object passed to the load function.</div></li><li><code>e</code> : Object<div class="sub-desc">The Exception.</div></li>        </ul>
+        <ul><li><code>this</code> : Object<div class="sub-desc"></div></li><li><code>arg</code> : Object<div class="sub-desc">The callback's arg object passed to the <a ext:cls="Ext.data.MemoryProxy" ext:member="load" href="output/Ext.data.MemoryProxy.html#load">load</a> function</div></li><li><code>null</code> : Object<div class="sub-desc">This parameter does not apply and will always be null for MemoryProxy</div></li><li><code>e</code> : Error<div class="sub-desc">The JavaScript Error object caught if the configured Reader could not read the data</div></li>        </ul>
     </div>
                 </div>
                         </div>
         </td>
-        <td class="msource"><a ext:cls="Ext.data.DataProxy" ext:member="#event-loadexception" href="output/Ext.data.DataProxy.html#event-loadexception">DataProxy</a></td>
+        <td class="msource">MemoryProxy</td>
     </tr>
             </table>
         

@@ -1,4 +1,12 @@
 /*
+ * Ext JS Library 2.1
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ */
+
+/*
  * Portuguese/Brazil Translation by Weber Souza
  * 08 April 2007
  * Updated by Allan Brazute Alves (EthraZa)

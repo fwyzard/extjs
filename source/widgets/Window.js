@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -17,6 +17,16 @@
  * @param {Object} config The config object
  */
 Ext.Window = Ext.extend(Ext.Panel, {
+    /**
+     * @cfg {Number} x
+     * The X position of the left edge of the Window on initial showing. Defaults to centering the Window within
+     * the width of the Window's container {@link Ext.Element Element) (The Element that the Window is rendered to).
+     */
+    /**
+     * @cfg {Number} y
+     * The Y position of the top edge of the Window on initial showing. Defaults to centering the Window within
+     * the height of the Window's container {@link Ext.Element Element) (The Element that the Window is rendered to).
+     */
     /**
      * @cfg {Boolean} modal
      * True to make the window modal and mask everything behind it when displayed, false to display it without
@@ -64,8 +74,13 @@ Ext.Window = Ext.extend(Ext.Panel, {
     draggable:true,
     /**
      * @cfg {Boolean} closable
-     * True to display the 'close' tool button and allow the user to close the window, false to hide the button and
-     * disallow closing the window (default to true).
+     * <p>True to display the 'close' tool button and allow the user to close the window, false to
+     * hide the button and disallow closing the window (default to true).</p>
+     * <p>By default, when close is requested by either clicking the close button in the header
+     * or pressing ESC when the Window has focus, the {@link #close} method will be called. This
+     * will <i>destroy</i> the Window and its content meaning that it may not be reused.</p>
+     * <p>To make closing a Window <i>hide</i> the Window so that it may be reused, set
+     * {@link #closeAction} to 'hide'.
      */
     closable : true,
     /**
@@ -128,6 +143,22 @@ Ext.Window = Ext.extend(Ext.Panel, {
      * via the {@link #show} method.
      */
     closeAction: 'close',
+    /**
+     * @cfg {String} elements
+     * A comma-delimited list of panel elements to initialize when the window is rendered.  Normally, this list will be
+     * generated automatically based on the items added to the window at config time, but sometimes it might be useful to
+     * make sure a structural element is rendered even if not specified at config time (for example, you may want
+     * to add a button or toolbar dynamically after the window has been rendered).  Adding those elements to this
+     * list will allocate the required placeholders in the window when it is rendered.  Valid values are<ul>
+     * <li><b>header</b> (required)</li>
+     * <li><b>tbar</b> (top bar)</li>
+     * <li><b>body</b> (required)</li>
+     * <li><b>bbar</b> (bottom bar)</li>
+     * <li><b>footer</b><li>
+     * </ul>
+     * Defaults to 'header,body'.
+     */
+    elements: 'header,body',
 
     // inherited docs, same default
     collapsible:false,
@@ -139,13 +170,6 @@ Ext.Window = Ext.extend(Ext.Panel, {
     * This is automatically managed based on the value of constrain and constrainToHeader
     */
     monitorResize : true,
-
-    // The following configs are set to provide the basic functionality of a window.
-    // Changing them would require additional code to handle correctly and should
-    // usually only be done in subclasses that can provide custom behavior.  Changing them
-    // may have unexpected or undesirable results.
-    /** @cfg {String} elements @hide */
-    elements: 'header,body',
     /** @cfg {Boolean} frame @hide */
     frame:true,
     /** @cfg {Boolean} floating @hide */
@@ -263,6 +287,12 @@ Ext.Window = Ext.extend(Ext.Panel, {
     },
 
     initDraggable : function(){
+        /**
+         * If this Window is configured {@link #draggable}, this property will contain
+         * an instance of {@link Ext.dd.DD} which handles dragging the Window's DOM Element.
+         * @type Ext.dd.DD
+         * @property dd
+         */
         this.dd = new Ext.Window.DD(this);  
     },
 
@@ -637,8 +667,10 @@ Ext.Window = Ext.extend(Ext.Panel, {
             this.expand(false);
             this.restoreSize = this.getSize();
             this.restorePos = this.getPosition(true);
-            this.tools.maximize.hide();
-            this.tools.restore.show();
+            if (this.maximizable){
+                this.tools.maximize.hide();
+                this.tools.restore.show();
+            }
             this.maximized = true;
             this.el.disableShadow();
 

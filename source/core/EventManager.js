@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -183,7 +183,13 @@ Ext.EventManager = function(){
      * use {@link Ext.Element#addListener} directly on an Element in favor of calling this version.
      * @param {String/HTMLElement} el The html element or id to assign the event handler to
      * @param {String} eventName The type of event to listen for
-     * @param {Function} handler The handler function the event invokes
+     * @param {Function} handler The handler function the event invokes This function is passed
+     * the following parameters:<ul>
+     * <li>evt : EventObject<div class="sub-desc">The {@link Ext.EventObject EventObject} describing the event.</div></li>
+     * <li>t : Element<div class="sub-desc">The {@link Ext.Element Element} which was the target of the event.
+     * Note that this may be filtered by using the <tt>delegate</tt> option.</div></li>
+     * <li>o : Object<div class="sub-desc">The the options object from the addListener call.</div></li>
+     * </ul>
      * @param {Object} scope (optional) The scope in which to execute the handler
      * function (the handler function's "this" context)
      * @param {Object} options (optional) An object containing handler configuration properties.
@@ -637,8 +643,7 @@ Ext.EventObject = function(){
          * @return {HTMLelement}
          */
         getTarget : function(selector, maxDepth, returnEl){
-        	var t = Ext.get(this.target);
-            return selector ? t.findParent(selector, maxDepth, returnEl) : (returnEl ? t : this.target);
+            return selector ? Ext.fly(this.target).findParent(selector, maxDepth, returnEl) : (returnEl ? Ext.get(this.target) : this.target);
         },
         
         /**

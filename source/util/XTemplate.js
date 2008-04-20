@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -39,7 +39,7 @@ var data = {
 };
 </code></pre>
 * <p><b>Auto filling of arrays and scope switching</b><br/>Using the <tt>tpl</tt> tag and the <tt>for</tt> operator,
-* you can switch to the scope of the object specified by <tt>for</tt> and access its members to populate the teamplte.
+* you can switch to the scope of the object specified by <tt>for</tt> and access its members to populate the template.
 * If the variable in <tt>for</tt> is an array, it will auto-fill, repeating the template block inside the <tt>tpl</tt>
 * tag for each item in the array:</p>
 * <pre><code>
@@ -61,7 +61,7 @@ var tpl = new Ext.XTemplate(
     '&lt;p>Name: {name}&lt;/p>',
     '&lt;p>Kids: ',
     '&lt;tpl for="kids">',
-        '&lt;tpl if="age &gt; 1">',
+        '&lt;tpl if="age &amp;gt; 1">',  // <-- Note that the &gt; is encoded
             '&lt;p>{name}&lt;/p>',
             '&lt;p>Dad: {parent.name}&lt;/p>',
         '&lt;/tpl>',
@@ -77,7 +77,7 @@ var tpl = new Ext.XTemplate(
     '&lt;p>Name: {name}&lt;/p>',
     '&lt;p>Kids: ',
     '&lt;tpl for="kids">',
-        '&lt;tpl if="age &gt; 1">',
+        '&lt;tpl if="age &amp;gt; 1">',  // <-- Note that the &gt; is encoded
             '&lt;p>{#}: {name}&lt;/p>',  // <-- Auto-number each item
             '&lt;p>In 5 Years: {age+5}&lt;/p>',  // <-- Basic math
             '&lt;p>Dad: {parent.name}&lt;/p>',
@@ -128,10 +128,10 @@ tpl.overwrite(panel.body, data);
 * <pre><code>
 var tpl = new Ext.XTemplate(
     '&lt;p>Name: {name}&lt;/p>',
-    '&lt;p>Company: {[company.toUpperCase() + ', ' + title]}&lt;/p>',
+    '&lt;p>Company: {[values.company.toUpperCase() + ', ' + values.title]}&lt;/p>',
     '&lt;p>Kids: ',
     '&lt;tpl for="kids">',
-       '&lt;div class="{[xindex % 2 === 0 ? "even" : "odd"]}">,
+       '&lt;div class="{[xindex % 2 === 0 ? "even" : "odd"]}">',
         '{name}',
         '&lt;/div>',
     '&lt;/tpl>&lt;/p>'
@@ -306,13 +306,6 @@ Ext.extend(Ext.XTemplate, Ext.Template, {
     },
 
     /**
-     * Alias of {@link #applyTemplate}.
-     */
-    apply : function(values){
-        return this.master.compiled.call(this, values, {}, 1, 1);
-    },
-
-    /**
      * Returns an HTML fragment of this template with the specified values applied.
      * @param {Object} values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
      * @return {String} The HTML fragment
@@ -339,8 +332,17 @@ Ext.extend(Ext.XTemplate, Ext.Template, {
      * @method set
      * @hide
      */
-    
+
 });
+/**
+ * Alias for {@link #applyTemplate}
+ * Returns an HTML fragment of this template with the specified values applied.
+ * @param {Object/Array} values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
+ * @return {String} The HTML fragment
+ * @member Ext.XTemplate
+ * @method apply
+ */
+Ext.XTemplate.prototype.apply = Ext.XTemplate.prototype.applyTemplate;
 
 /**
  * Creates a template from the passed element's value (<i>display:none</i> textarea, preferred) or innerHTML.

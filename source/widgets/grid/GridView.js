@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -105,6 +105,10 @@ Ext.extend(Ext.grid.GridView, Ext.util.Observable, {
     /**
      * @cfg {String} emptyText Default text to display in the grid body when no rows are available (defaults to '').
      */
+    /**
+     * @cfg {Boolean} deferEmptyText True to defer emptyText being applied until the store's first load
+     */
+    deferEmptyText: true,
     /**
      * The amount of space to reserve for the scrollbar (defaults to 19 pixels)
      * @type Number
@@ -584,6 +588,9 @@ Ext.extend(Ext.grid.GridView, Ext.util.Observable, {
         this.mainBody.dom.innerHTML = this.renderRows();
         this.processRows(0, true);
 
+        if(this.deferEmptyText !== true){
+            this.applyEmptyText();
+        }
 
         // get mousedowns early
         Ext.fly(this.innerHd).on("click", this.handleHdDown, this);
@@ -623,7 +630,7 @@ Ext.extend(Ext.grid.GridView, Ext.util.Observable, {
         }
 
         if(g.enableDragDrop || g.enableDrag){
-            var dd = new Ext.grid.GridDragZone(g, {
+            this.dragZone = new Ext.grid.GridDragZone(g, {
                 ddGroup : g.ddGroup || 'GridDD'
             });
         }
@@ -638,10 +645,7 @@ Ext.extend(Ext.grid.GridView, Ext.util.Observable, {
             return; // not rendered
         }
         var g = this.grid;
-        var c = g.getGridEl(), cm = this.cm,
-                expandCol = g.autoExpandColumn,
-                gv = this;
-
+        var c = g.getGridEl();
         var csize = c.getSize(true);
         var vw = csize.width;
 
@@ -1124,6 +1128,10 @@ Ext.extend(Ext.grid.GridView, Ext.util.Observable, {
         }
 
         Ext.destroy(this.resizeMarker, this.resizeProxy);
+
+        if(this.dragZone){
+            this.dragZone.unreg();
+        }
 
         this.initData(null, null);
         Ext.EventManager.removeResizeListener(this.onWindowResize, this);

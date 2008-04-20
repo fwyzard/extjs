@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -8,74 +8,87 @@
 
 Ext.onReady(function(){
 
-    Ext.QuickTips.init();
-
-    // turn on validation errors beside the field globally
-    Ext.form.Field.prototype.msgTarget = 'side';
-
-    var bd = Ext.getBody();
-
-    /*
-     * ================  Simple form  =======================
-     */
-    bd.createChild({tag: 'h2', html: 'Form 1 - Very Simple'});
-
-
-    var simple = new Ext.FormPanel({
-        labelWidth: 75, // label settings here cascade unless overridden
-        url:'echo.php',
-        frame:true,
-        title: 'Simple Form',
-        bodyStyle:'padding:5px 5px 0',
-        width: 350,
-        defaults: {width: 230},
-        defaultType: 'textfield',
-
-        items: [{
-                fieldLabel: 'First Name',
-                name: 'first',
-                allowBlank:true
-            },{
-                fieldLabel: 'Last Name',
-                name: 'last'
-            },{
-                fieldLabel: 'Company',
-                name: 'company'
-            }, {
-                fieldLabel: 'Email',
-                name: 'email',
-                vtype:'email'
-            }, new Ext.form.TimeField({
-                fieldLabel: 'Time',
-                name: 'time',
-                minValue: '8:00am',
-                maxValue: '6:00pm'
-            }),{
-				xtype:'sliderfield',
-				name:'slider1',
-				minValue:0,
-				maxValue:100,
-				fieldLabel:'Slider'
-			}
-
-        ],
-
-        buttons: [{
-			text: 'Save',handler:function() {
-				simple.getForm().submit({
-					success:function(form, action) {
-						alert('Success:\n' + action.response.responseText);
-					},
-					failure:function(form, action) {
-						alert('Failure: ' + action.failureType);
-					}
-				});
-		    }
-        },{
-            text: 'Cancel'
-        }]
+    new Ext.Slider({
+        renderTo: 'basic-slider',
+        width: 214,
+        minValue: 0,
+        maxValue: 100
     });
 
-    simple.render(document.body);
+    new Ext.Slider({
+        renderTo: 'increment-slider',
+        width: 214,
+        value:50,
+        increment: 10,
+        minValue: 0,
+        maxValue: 100
+    });
 
+    new Ext.Slider({
+        renderTo: 'vertical-slider',
+        height: 214,
+        vertical: true,
+        minValue: 0,
+        maxValue: 100
+    });
+
+    new Ext.Slider({
+        renderTo: 'tip-slider',
+        width: 214,
+        minValue: 0,
+        maxValue: 100,
+        plugins: new Ext.ux.SliderTip()
+    });
+
+    var tip = new Ext.ux.SliderTip({
+        getText: function(slider){
+            return String.format('<b>{0}% complete</b>', slider.getValue());
+        }
+    });
+
+    new Ext.Slider({
+        renderTo: 'custom-tip-slider',
+        width: 214,
+        increment: 10,
+        minValue: 0,
+        maxValue: 100,
+        plugins: tip
+    });
+
+    new Ext.Slider({
+        renderTo: 'custom-slider',
+        width: 214,
+        increment: 10,
+        minValue: 0,
+        maxValue: 100,
+        plugins: new Ext.ux.SliderTip()
+    });
+});
+
+
+/**
+ * @class Ext.ux.SliderTip
+ * @extends Ext.Tip
+ * Simple plugin for using an Ext.Tip with a slider to show the slider value
+ */
+Ext.ux.SliderTip = Ext.extend(Ext.Tip, {
+    minWidth: 10,
+    offsets : [0, -10],
+    init : function(slider){
+        slider.on('dragstart', this.onSlide, this);
+        slider.on('drag', this.onSlide, this);
+        slider.on('dragend', this.hide, this);
+        slider.on('destroy', this.destroy, this);
+    },
+
+    onSlide : function(slider){
+        this.show();
+        this.body.update(this.getText(slider));
+        this.doAutoWidth();
+        this.el.alignTo(slider.thumb, 'b-t?', this.offsets);
+    },
+
+    getText : function(slider){
+        return slider.getValue();
+    }
 });

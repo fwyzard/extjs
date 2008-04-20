@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -32,7 +32,7 @@ Ext.onReady(function(){
         autoHeight:true,
         collapsible:true,
         layout:'fit',
-        title:'Simple DataView with editable labels, multi and drag selection',
+        title:'Simple DataView (0 items selected)',
 
         items: new Ext.DataView({
             store: store,
@@ -53,6 +53,16 @@ Ext.onReady(function(){
                 data.sizeString = Ext.util.Format.fileSize(data.size);
                 data.dateString = data.lastmod.format("m/d/Y g:i a");
                 return data;
+            },
+            
+            listeners: {
+            	selectionchange: {
+            		fn: function(dv,nodes){
+            			var l = nodes.length;
+            			var s = l != 1 ? 's' : '';
+            			panel.setTitle('Simple DataView ('+l+' item'+s+' selected)');
+            		}
+            	}
             }
         })
     });

@@ -8,7 +8,7 @@
                 <h1>Class Ext.Template</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/core/Template.js" target="_blank">Template.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Template.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Template</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.XTemplate" href="output/Ext.XTemplate.html">XTemplate</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
@@ -123,15 +123,17 @@ For more information see this blog post with examples: <a href="http://www.jacks
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Template-apply"></a>
-            <b>apply</b>() : void            <div class="mdesc">
-                        <div class="short">Alias for <a ext:cls="Ext.Template" ext:member="applyTemplate" href="output/Ext.Template.html#applyTemplate">applyTemplate</a></div>
+            <b>apply</b>(&nbsp;<code>Object/Array values</code>&nbsp;) : String            <div class="mdesc">
+                        <div class="short">Alias for <a ext:cls="Ext.Template" ext:member="applyTemplate" href="output/Ext.Template.html#applyTemplate">applyTemplate</a>
+Returns an HTML fragment of this template with the specified values applied.</div>
             <div class="long">
-                Alias for <a ext:cls="Ext.Template" ext:member="applyTemplate" href="output/Ext.Template.html#applyTemplate">applyTemplate</a>    <div class="mdetail-params">
+                Alias for <a ext:cls="Ext.Template" ext:member="applyTemplate" href="output/Ext.Template.html#applyTemplate">applyTemplate</a>
+Returns an HTML fragment of this template with the specified values applied.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
+        <ul><li><code>values</code> : Object/Array<div class="sub-desc">The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>void</code></li>
+            <li><code>String</code><div class="sub-desc">The HTML fragment</div></li>
         </ul>
     </div>
                 </div>

@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -190,10 +190,8 @@ Ext.grid.GroupingView = Ext.extend(Ext.grid.GridView, {
         }
         var s = this.hmenu.items.get('showGroups');
         if(s){
-            if (!!field){ // Disable the 'showGroups' checkbox if it is not checked and the field is not groupable
-                s.setDisabled(this.cm.config[this.hdCtxIndex].groupable === false)
-            }
-            s.setChecked(!!field);
+           s.setDisabled(!field && this.cm.config[this.hdCtxIndex].groupable === false);
+			s.setChecked(!!field, true);
         }
     },
 

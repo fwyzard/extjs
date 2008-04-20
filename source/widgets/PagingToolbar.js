@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -45,7 +45,9 @@ Ext.PagingToolbar = Ext.extend(Ext.Toolbar, {
      */
     beforePageText : "Page",
     /**
-     * Customizable piece of the default paging text (defaults to "of %0")
+     * Customizable piece of the default paging text (defaults to "of {0}"). Note that this string is
+     * formatted using {0} as a token that is replaced by the number of total pages. This token should be 
+     * preserved when overriding this string if showing the total page count is desired.
      * @type String
      */
     afterPageText : "of {0}",

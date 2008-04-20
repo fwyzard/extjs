@@ -1,4 +1,12 @@
 /*
+ * Ext JS Library 2.1
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ */
+
+/*
  * Italian translation
  * By eric_void
  * 04-10-2007, 11:25 AM

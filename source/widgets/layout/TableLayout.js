@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -16,7 +16,13 @@
  * <p>Note that when creating a layout via config, the layout-specific config properties must be passed in via
  * the {@link Ext.Container#layoutConfig} object which will then be applied internally to the layout.  In the
  * case of TableLayout, the only valid layout config property is {@link #columns}.  However, the items added to a
- * TableLayout can supply table-specific config properties of <b>rowspan</b> and <b>colspan</b>, as explained below.</p>
+ * TableLayout can supply the following table-specific config properties:</p>
+ * <ul>
+ * <li><b>rowspan</b> Applied to the table cell containing the item.</li>
+ * <li><b>colspan</b> Applied to the table cell containing the item.</li>
+ * <li><b>cellId</b> An id applied to the table cell containing the item.</li>
+ * <li><b>cellCls</b> A CSS class name added to the table cell containing the item.</li>
+ * </ul>
  * <p>The basic concept of building up a TableLayout is conceptually very similar to building up a standard
  * HTML table.  You simply add each panel (or "cell") that you want to include along with any span attributes
  * specified as the special config properties of rowspan and colspan which work exactly like their HTML counterparts.
@@ -51,7 +57,8 @@ var table = new Ext.Panel({
         html: '&lt;p&gt;Cell B content&lt;/p&gt;',
         colspan: 2
     },{
-        html: '&lt;p&gt;Cell C content&lt;/p&gt;'
+        html: '&lt;p&gt;Cell C content&lt;/p&gt;',
+        cellCls: 'highlight'
     },{
         html: '&lt;p&gt;Cell D content&lt;/p&gt;'
     }]

@@ -15,7 +15,7 @@
                 <h1>Class Ext.CycleButton</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/CycleButton.js" target="_blank">CycleButton.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">CycleButton.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">CycleButton</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.SplitButton" ext:member="" href="output/Ext.SplitButton.html">SplitButton</a></td></tr>
                     </table>
@@ -51,13 +51,22 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
                 <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.CycleButton-allowDepress"></a>
+            <b>allowDepress</b> : Boolean            <div class="mdesc">
+                            True to allow a pressed Button to be depressed (defaults to false). Only valid when <a ext:cls="Ext.Button" ext:member="enableToggle" href="output/Ext.Button.html#enableToggle">enableToggle</a> is true.                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Button" ext:member="#allowDepress" href="output/Ext.Button.html#allowDepress">Button</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.CycleButton-allowDomMove"></a>
             <b>allowDomMove</b> : Boolean            <div class="mdesc">
                             Whether the component can move the Dom node when rendering (defaults to true).                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#allowDomMove" href="output/Ext.Component.html#allowDomMove">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-applyTo"></a>
@@ -69,7 +78,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#applyTo" href="output/Ext.Component.html#applyTo">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-arrowHandler"></a>
@@ -78,7 +87,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.SplitButton" ext:member="#arrowHandler" href="output/Ext.SplitButton.html#arrowHandler">SplitButton</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-arrowTooltip"></a>
@@ -87,7 +96,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.SplitButton" ext:member="#arrowTooltip" href="output/Ext.SplitButton.html#arrowTooltip">SplitButton</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-autoShow"></a>
@@ -99,7 +108,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#autoShow" href="output/Ext.Component.html#autoShow">Component</a></td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-changeHandler"></a>
@@ -111,7 +120,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource">CycleButton</td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-clickEvent"></a>
@@ -120,7 +129,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#clickEvent" href="output/Ext.Button.html#clickEvent">Button</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-cls"></a>
@@ -132,7 +141,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#cls" href="output/Ext.Component.html#cls">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-ctCls"></a>
@@ -144,7 +153,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#ctCls" href="output/Ext.Component.html#ctCls">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-disabled"></a>
@@ -153,7 +162,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#disabled" href="output/Ext.Button.html#disabled">Button</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-disabledClass"></a>
@@ -162,7 +171,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabledClass" href="output/Ext.Component.html#disabledClass">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-enableToggle"></a>
@@ -171,7 +180,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#enableToggle" href="output/Ext.Button.html#enableToggle">Button</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-forceIcon"></a>
@@ -183,7 +192,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource">CycleButton</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-handleMouseEvents"></a>
@@ -192,7 +201,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#handleMouseEvents" href="output/Ext.Button.html#handleMouseEvents">Button</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-handler"></a>
@@ -201,7 +210,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#handler" href="output/Ext.Button.html#handler">Button</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-hidden"></a>
@@ -210,7 +219,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#hidden" href="output/Ext.Button.html#hidden">Button</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-hideMode"></a>
@@ -222,7 +231,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideMode" href="output/Ext.Component.html#hideMode">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-hideParent"></a>
@@ -234,7 +243,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideParent" href="output/Ext.Component.html#hideParent">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-icon"></a>
@@ -246,7 +255,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#icon" href="output/Ext.Button.html#icon">Button</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-iconCls"></a>
@@ -255,7 +264,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#iconCls" href="output/Ext.Button.html#iconCls">Button</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-id"></a>
@@ -264,7 +273,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#id" href="output/Ext.Component.html#id">Component</a></td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-items"></a>
@@ -276,7 +285,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource">CycleButton</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-listeners"></a>
@@ -288,7 +297,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-menu"></a>
@@ -300,7 +309,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#menu" href="output/Ext.Button.html#menu">Button</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-menuAlign"></a>
@@ -309,7 +318,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#menuAlign" href="output/Ext.Button.html#menuAlign">Button</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-minWidth"></a>
@@ -317,6 +326,18 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
                             The minimum width for this button (used to give a set of buttons a common width)                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#minWidth" href="output/Ext.Button.html#minWidth">Button</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.CycleButton-overCls"></a>
+            <b>overCls</b> : String            <div class="mdesc">
+                        <div class="short">An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and...</div>
+            <div class="long">
+                An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and removed when the mouse moves out. (defaults to ''). This can be useful for adding customized "active" or "hover" styles to the component or any of its children using standard CSS rules.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
     </tr>
         <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -450,7 +471,19 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#tabIndex" href="output/Ext.Button.html#tabIndex">Button</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.CycleButton-template"></a>
+            <b>template</b> : Ext.Template            <div class="mdesc">
+                        <div class="short">(Optional) An Ext.Template with which to create the Button's main element. This Template must contain numeric substit...</div>
+            <div class="long">
+                (Optional) An <a ext:cls="Ext.Template" href="output/Ext.Template.html">Ext.Template</a> with which to create the Button's main element. This Template must contain numeric substitution parameter 0 if it is to display the text property. Changing the template could require code modifications if required elements (e.g. a button) aren't present.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Button" ext:member="#template" href="output/Ext.Button.html#template">Button</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-text"></a>
@@ -459,7 +492,7 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#text" href="output/Ext.Button.html#text">Button</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-toggleGroup"></a>
@@ -467,6 +500,18 @@ button displays the dropdown menu just like a normal SplitButton.  Example usage
                             The group this toggle button is a member of (only 1 per group can be pressed, only applies if enableToggle = true)                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#toggleGroup" href="output/Ext.Button.html#toggleGroup">Button</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.CycleButton-toggleHandler"></a>
+            <b>toggleHandler</b> : Function            <div class="mdesc">
+                        <div class="short">Function called when a Button with enableToggle set to true is clicked. Two arguments are passed: button : Ext.Button...</div>
+            <div class="long">
+                Function called when a Button with <a ext:cls="Ext.Button" ext:member="enableToggle" href="output/Ext.Button.html#enableToggle">enableToggle</a> set to true is clicked. Two arguments are passed:<ul class="mdetail-params"> <li><b>button</b> : Ext.Button<div class="sub-desc">this Button object</div></li> <li><b>state</b> : Boolean<div class="sub-desc">The next state if the Button, true means pressed.</div></li> </ul>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Button" ext:member="#toggleHandler" href="output/Ext.Button.html#toggleHandler">Button</a></td>
     </tr>
         <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -1238,6 +1283,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.CycleButton-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.CycleButton-removeClass"></a>
             <b>removeClass</b>(&nbsp;<code>string cls</code>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Removes a CSS class from the component's underlying element.</div>
@@ -1255,7 +1320,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#removeClass" href="output/Ext.Component.html#removeClass">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-removeListener"></a>
@@ -1275,7 +1340,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-render"></a>
@@ -1297,7 +1362,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#render" href="output/Ext.Component.html#render">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-resumeEvents"></a>
@@ -1317,7 +1382,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-setActiveItem"></a>
@@ -1337,7 +1402,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource">CycleButton</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-setArrowHandler"></a>
@@ -1357,7 +1422,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.SplitButton" ext:member="#setArrowHandler" href="output/Ext.SplitButton.html#setArrowHandler">SplitButton</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-setDisabled"></a>
@@ -1377,7 +1442,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setDisabled" href="output/Ext.Component.html#setDisabled">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-setHandler"></a>
@@ -1397,7 +1462,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#setHandler" href="output/Ext.Button.html#setHandler">Button</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-setIconClass"></a>
@@ -1419,7 +1484,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#setIconClass" href="output/Ext.Button.html#setIconClass">Button</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-setText"></a>
@@ -1439,7 +1504,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#setText" href="output/Ext.Button.html#setText">Button</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-setVisible"></a>
@@ -1459,7 +1524,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setVisible" href="output/Ext.Component.html#setVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-show"></a>
@@ -1479,7 +1544,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#show" href="output/Ext.Component.html#show">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-showMenu"></a>
@@ -1499,7 +1564,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#showMenu" href="output/Ext.Button.html#showMenu">Button</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-suspendEvents"></a>
@@ -1519,7 +1584,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-toggle"></a>
@@ -1539,7 +1604,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.Button" ext:member="#toggle" href="output/Ext.Button.html#toggle">Button</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-toggleSelected"></a>
@@ -1562,7 +1627,7 @@ the active item will be set to the first item in the menu.    <div class="mdetai
         </td>
         <td class="msource">CycleButton</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CycleButton-un"></a>

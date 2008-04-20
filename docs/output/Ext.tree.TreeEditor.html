@@ -14,12 +14,12 @@
                 <h1>Class Ext.tree.TreeEditor</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.tree</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/tree/TreeEditor.js" target="_blank">TreeEditor.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">TreeEditor.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">TreeEditor</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.Editor" ext:member="" href="output/Ext.Editor.html">Editor</a></td></tr>
                     </table>
         <div class="description">
-            Provides editor functionality for inline tree node editing.  Any valid <a ext:cls="Ext.form.Field" href="output/Ext.form.Field.html">Ext.form.Field</a> can be used
+            Provides editor functionality for inline tree node editing.  Any valid <a ext:cls="Ext.form.Field" href="output/Ext.form.Field.html">Ext.form.Field</a> subclass can be used
 as the editor field.        </div>
         
         <div class="hr"></div>
@@ -88,14 +88,14 @@ as the editor field.        </div>
         <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
-        <a id="Ext.tree.TreeEditor-autosize"></a>
-            <b>autosize</b> : Boolean/String            <div class="mdesc">
+        <a id="Ext.tree.TreeEditor-autoSize"></a>
+            <b>autoSize</b> : Boolean/String            <div class="mdesc">
                         <div class="short">True for the editor to automatically adopt the size of the underlying field, "width" to adopt the width only, or "hei...</div>
             <div class="long">
                 True for the editor to automatically adopt the size of the underlying field, "width" to adopt the width only, or "height" to adopt the height only (defaults to false)            </div>
                         </div>
         </td>
-        <td class="msource"><a ext:cls="Ext.Editor" ext:member="#autosize" href="output/Ext.Editor.html#autosize">Editor</a></td>
+        <td class="msource"><a ext:cls="Ext.Editor" ext:member="#autoSize" href="output/Ext.Editor.html#autoSize">Editor</a></td>
     </tr>
         <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -247,6 +247,18 @@ as the editor field.        </div>
         <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.tree.TreeEditor-overCls"></a>
+            <b>overCls</b> : String            <div class="mdesc">
+                        <div class="short">An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and...</div>
+            <div class="long">
+                An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and removed when the mouse moves out. (defaults to ''). This can be useful for adding customized "active" or "hover" styles to the component or any of its children using standard CSS rules.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.tree.TreeEditor-plugins"></a>
             <b>plugins</b> : Object/Array            <div class="mdesc">
                         <div class="short">An object or array of objects that will provide custom functionality for this component. The only requirement for a v...</div>
@@ -256,7 +268,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-renderTo"></a>
@@ -268,7 +280,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-revertInvalid"></a>
@@ -280,7 +292,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#revertInvalid" href="output/Ext.Editor.html#revertInvalid">Editor</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-shadow"></a>
@@ -289,7 +301,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#shadow" href="output/Ext.Editor.html#shadow">Editor</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-shim"></a>
@@ -298,7 +310,7 @@ as the editor field.        </div>
         </td>
         <td class="msource">TreeEditor</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-stateEvents"></a>
@@ -310,7 +322,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateEvents" href="output/Ext.Component.html#stateEvents">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-stateId"></a>
@@ -322,7 +334,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-stateful"></a>
@@ -334,7 +346,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-style"></a>
@@ -346,7 +358,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#style" href="output/Ext.Component.html#style">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-swallowKeys"></a>
@@ -355,7 +367,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#swallowKeys" href="output/Ext.Editor.html#swallowKeys">Editor</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-updateEl"></a>
@@ -364,7 +376,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#updateEl" href="output/Ext.Editor.html#updateEl">Editor</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-value"></a>
@@ -373,7 +385,7 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#value" href="output/Ext.Editor.html#value">Editor</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-xtype"></a>
@@ -456,12 +468,13 @@ the component is added to a container).  Read-only.            </div>
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-TreeEditor"></a>
-            <b>TreeEditor</b>(&nbsp;<code>TreePanel tree</code>, <code>Object config</code>&nbsp;)            <div class="mdesc">
+            <b>TreeEditor</b>(&nbsp;<code>TreePanel tree</code>, <span class="optional" title="Optional">[<code>Object fieldConfig</code>]</span>, <span class="optional" title="Optional">[<code>Object config</code>]</span>&nbsp;)            <div class="mdesc">
                         <div class="short"></div>
             <div class="long">
                     <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>tree</code> : TreePanel<div class="sub-desc"></div></li><li><code>config</code> : Object<div class="sub-desc">Either a prebuilt <a ext:cls="Ext.form.Field" href="output/Ext.form.Field.html">Ext.form.Field</a> instance or a Field config object</div></li>        </ul>
+        <ul><li><code>tree</code> : TreePanel<div class="sub-desc"></div></li><li><code>fieldConfig</code> : Object<div class="sub-desc">(optional) Either a prebuilt <a ext:cls="Ext.form.Field" href="output/Ext.form.Field.html">Ext.form.Field</a> instance or a Field config object
+that will be applied to the default field instance (defaults to a <a ext:cls="Ext.form.TextField" href="output/Ext.form.TextField.html">Ext.form.TextField</a>).</div></li><li><code>config</code> : Object<div class="sub-desc">(optional) A TreeEditor config object</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code></code></li>
@@ -1090,6 +1103,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.tree.TreeEditor-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.tree.TreeEditor-removeClass"></a>
             <b>removeClass</b>(&nbsp;<code>string cls</code>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Removes a CSS class from the component's underlying element.</div>
@@ -1107,7 +1140,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#removeClass" href="output/Ext.Component.html#removeClass">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-removeListener"></a>
@@ -1127,7 +1160,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-render"></a>
@@ -1149,7 +1182,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#render" href="output/Ext.Component.html#render">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-resumeEvents"></a>
@@ -1169,7 +1202,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-setDisabled"></a>
@@ -1189,7 +1222,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setDisabled" href="output/Ext.Component.html#setDisabled">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-setSize"></a>
@@ -1209,7 +1242,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#setSize" href="output/Ext.Editor.html#setSize">Editor</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-setValue"></a>
@@ -1229,7 +1262,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#setValue" href="output/Ext.Editor.html#setValue">Editor</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-setVisible"></a>
@@ -1249,7 +1282,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setVisible" href="output/Ext.Component.html#setVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-show"></a>
@@ -1269,7 +1302,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#show" href="output/Ext.Component.html#show">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-startEdit"></a>
@@ -1290,7 +1323,7 @@ to the innerHTML of el.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#startEdit" href="output/Ext.Editor.html#startEdit">Editor</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-suspendEvents"></a>
@@ -1310,7 +1343,7 @@ to the innerHTML of el.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-un"></a>

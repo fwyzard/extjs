@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<project path="" name="Ext - JS Lib" author="Ext JS, LLC" version="2.0.2" copyright="Ext JS Library $version&#xD;&#xA;Copyright(c) 2006-2008, $author.&#xD;&#xA;licensing@extjs.com&#xD;&#xA;&#xD;&#xA;http://extjs.com/license" output="C:\apps\www\deploy\ext-2.0.2\" source="True" source-dir="$output\source" minify="True" min-dir="$output\build" doc="False" doc-dir="$output\docs" min-dair="$output\build">
+<project path="" name="Ext - JS Lib" author="Ext JS, LLC" version="2.1" copyright="Ext JS Library $version&#xD;&#xA;Copyright(c) 2006-2008, $author.&#xD;&#xA;licensing@extjs.com&#xD;&#xA;&#xD;&#xA;http://extjs.com/license" output="C:\apps\www\deploy\ext-2.1\" source="True" source-dir="$output\source" minify="True" min-dir="$output\build" doc="False" doc-dir="$output\docs" min-dair="$output\build">
   <directory name="" />
   <target name="Core" file="$output\ext-core.js" debug="True" shorthand="False" shorthand-list="YAHOO.util.Dom.setStyle&#xD;&#xA;YAHOO.util.Dom.getStyle&#xD;&#xA;YAHOO.util.Dom.getRegion&#xD;&#xA;YAHOO.util.Dom.getViewportHeight&#xD;&#xA;YAHOO.util.Dom.getViewportWidth&#xD;&#xA;YAHOO.util.Dom.get&#xD;&#xA;YAHOO.util.Dom.getXY&#xD;&#xA;YAHOO.util.Dom.setXY&#xD;&#xA;YAHOO.util.CustomEvent&#xD;&#xA;YAHOO.util.Event.addListener&#xD;&#xA;YAHOO.util.Event.getEvent&#xD;&#xA;YAHOO.util.Event.getTarget&#xD;&#xA;YAHOO.util.Event.preventDefault&#xD;&#xA;YAHOO.util.Event.stopEvent&#xD;&#xA;YAHOO.util.Event.stopPropagation&#xD;&#xA;YAHOO.util.Event.stopEvent&#xD;&#xA;YAHOO.util.Anim&#xD;&#xA;YAHOO.util.Motion&#xD;&#xA;YAHOO.util.Connect.asyncRequest&#xD;&#xA;YAHOO.util.Connect.setForm&#xD;&#xA;YAHOO.util.Dom&#xD;&#xA;YAHOO.util.Event">
     <include name="core\DomHelper.js" />
@@ -80,7 +80,6 @@
     <include name="widgets\layout\FormLayout.js" />
     <include name="widgets\layout\AccordionLayout.js" />
     <include name="widgets\layout\TableLayout.js" />
-    <include name="widgets\layout\AbsoluteFormLayout.js" />
     <include name="widgets\layout\AbsoluteLayout.js" />
     <include name="widgets\Viewport.js" />
     <include name="widgets\Panel.js" />
@@ -165,6 +164,8 @@
     <include name="widgets\grid\CheckboxSelectionModel.js" />
     <include name="widgets\LoadMask.js" />
     <include name="widgets\ProgressBar.js" />
+    <include name="widgets\Slider.js" />
+    <include name="widgets\StatusBar.js" />
     <include name="debug.js" />
   </target>
   <file name="layout\LayoutRegionLite.js" path="layout" />
@@ -511,6 +512,23 @@
   <file name="locale\ext-lang-no.js" path="locale" />
   <file name="widgets\layout\AbsoluteForm.js" path="widgets\layout" />
   <file name="widgets\layout\AbsoluteFormLayout.js" path="widgets\layout" />
+  <file name="widgets\grid\GridColumn.js" path="widgets\grid" />
+  <file name="legacy\layout\BasicLayoutRegion.js" path="legacy\layout" />
+  <file name="legacy\layout\BorderLayout.js" path="legacy\layout" />
+  <file name="legacy\layout\BorderLayoutRegions.js" path="legacy\layout" />
+  <file name="legacy\layout\ContentPanels.js" path="legacy\layout" />
+  <file name="legacy\layout\LayoutManager.js" path="legacy\layout" />
+  <file name="legacy\layout\LayoutRegion.js" path="legacy\layout" />
+  <file name="legacy\layout\LayoutStateManager.js" path="legacy\layout" />
+  <file name="legacy\layout\ReaderLayout.js" path="legacy\layout" />
+  <file name="legacy\layout\SplitLayoutRegion.js" path="legacy\layout" />
+  <file name="legacy\AbstractGridView.js" path="legacy" />
+  <file name="legacy\BasicDialog.js" path="legacy" />
+  <file name="legacy\GridView2.js" path="legacy" />
+  <file name="legacy\JsonView.js" path="legacy" />
+  <file name="legacy\MasterTemplate.js" path="legacy" />
+  <file name="legacy\View.js" path="legacy" />
+  <file name="widgets\grid\Column.js" path="widgets\grid" />
   <file name="adapter\ext-base.js" path="adapter" />
   <file name="adapter\jquery-bridge.js" path="adapter" />
   <file name="adapter\prototype-bridge.js" path="adapter" />
@@ -551,21 +569,6 @@
   <file name="dd\Registry.js" path="dd" />
   <file name="dd\ScrollManager.js" path="dd" />
   <file name="dd\StatusProxy.js" path="dd" />
-  <file name="legacy\layout\BasicLayoutRegion.js" path="legacy\layout" />
-  <file name="legacy\layout\BorderLayout.js" path="legacy\layout" />
-  <file name="legacy\layout\BorderLayoutRegions.js" path="legacy\layout" />
-  <file name="legacy\layout\ContentPanels.js" path="legacy\layout" />
-  <file name="legacy\layout\LayoutManager.js" path="legacy\layout" />
-  <file name="legacy\layout\LayoutRegion.js" path="legacy\layout" />
-  <file name="legacy\layout\LayoutStateManager.js" path="legacy\layout" />
-  <file name="legacy\layout\ReaderLayout.js" path="legacy\layout" />
-  <file name="legacy\layout\SplitLayoutRegion.js" path="legacy\layout" />
-  <file name="legacy\AbstractGridView.js" path="legacy" />
-  <file name="legacy\BasicDialog.js" path="legacy" />
-  <file name="legacy\GridView2.js" path="legacy" />
-  <file name="legacy\JsonView.js" path="legacy" />
-  <file name="legacy\MasterTemplate.js" path="legacy" />
-  <file name="legacy\View.js" path="legacy" />
   <file name="locale\ext-lang-af.js" path="locale" />
   <file name="locale\ext-lang-bg.js" path="locale" />
   <file name="locale\ext-lang-ca.js" path="locale" />
@@ -716,6 +719,7 @@
   <file name="widgets\ProgressBar.js" path="widgets" />
   <file name="widgets\Resizable.js" path="widgets" />
   <file name="widgets\Shadow.js" path="widgets" />
+  <file name="widgets\Slider.js" path="widgets" />
   <file name="widgets\SplitBar.js" path="widgets" />
   <file name="widgets\SplitButton.js" path="widgets" />
   <file name="widgets\TabPanel.js" path="widgets" />
@@ -724,4 +728,5 @@
   <file name="widgets\Window.js" path="widgets" />
   <file name="widgets\WindowManager.js" path="widgets" />
   <file name="debug.js" path="" />
+  <file name="widgets\StatusBar.js" path="widgets" />
 </project>

@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -32,6 +32,24 @@ Ext.data.HttpProxy = function(conn){
      */
     this.conn = conn;
     this.useAjax = !conn || !conn.events;
+
+    /**
+     * @event loadexception
+     * Fires if an exception occurs in the Proxy during data loading.  This event can be fired for one of two reasons:
+     * <ul><li><b>The load call returned success: false.</b>  This means the server logic returned a failure
+     * status and there is no data to read.  In this case, this event will be raised and the
+     * fourth parameter (read error) will be null.</li>
+     * <li><b>The load succeeded but the reader could not read the response.</b>  This means the server returned
+     * data, but the configured Reader threw an error while reading the data.  In this case, this event will be 
+     * raised and the caught error will be passed along as the fourth parameter of this event.</li></ul>
+     * Note that this event is also relayed through {@link Ext.data.Store}, so you can listen for it directly
+     * on any Store instance.
+     * @param {Object} this
+     * @param {Object} options The loading options that were specified (see {@link #load} for details)
+     * @param {Object} response The XMLHttpRequest object containing the response data
+     * @param {Error} e The JavaScript Error object caught if the configured Reader could not read the data.
+     * If the load call returned success: false, this parameter will be null.
+     */
 };
 
 Ext.extend(Ext.data.HttpProxy, Ext.data.DataProxy, {

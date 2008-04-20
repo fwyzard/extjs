@@ -72,11 +72,16 @@ Ext.onReady(function(){
 		store: opener.tx.data.lists,
 		anchor: '100%'
     });
+	
 	list.on('render', function(){
 		this.menu.on('beforeshow', function(m){
 			list.tree.setWidth(Math.max(180, list.getSize().width));
 		});
-	})
+	});
+	win.addEventListener('closing', function(){
+		opener.tx.data.lists.unbindTree(list.tree);
+	});
+	
 	
 	var hasReminder = new Ext.form.Checkbox({
 		boxLabel: 'Reminder:',
@@ -285,6 +290,7 @@ Ext.onReady(function(){
 		}
 		return t;
 	}
+	
 });
 
     

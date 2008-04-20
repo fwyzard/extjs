@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -493,7 +493,7 @@ Ext.extend(Ext.tree.TreeNode, Ext.data.Node, {
     },
 
     endUpdate : function(){
-        if(this.expanded){
+        if(this.expanded && this.rendered){
             this.renderChildren();
         }
     },

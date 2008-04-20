@@ -3,7 +3,6 @@
             <a class="inner-link" href="#Ext.StoreMgr-props"><img src="../resources/images/default/s.gif" class="item-icon icon-prop">Properties</a>
             <a class="inner-link" href="#Ext.StoreMgr-methods"><img src="../resources/images/default/s.gif" class="item-icon icon-method">Methods</a>
             <a class="inner-link" href="#Ext.StoreMgr-events"><img src="../resources/images/default/s.gif" class="item-icon icon-event">Events</a>
-                            <a class="inner-link" href="#Ext.StoreMgr-configs"><img src="../resources/images/default/s.gif" class="item-icon icon-config">Config Options</a>
                         <a class="bookmark" href="../docs/?class=Ext.StoreMgr"><img src="../resources/images/default/s.gif" class="item-icon icon-fav">Direct Link</a>
         </div>
                 <div class="inheritance res-block">
@@ -13,7 +12,7 @@
                 <h1>Class Ext.StoreMgr</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/data/StoreMgr.js" target="_blank">StoreMgr.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">StoreMgr.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">StoreMgr</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.MixedCollection" ext:member="" href="output/Ext.util.MixedCollection.html">MixedCollection</a></td></tr>
                     </table>
@@ -21,26 +20,6 @@
             The default global group of stores.<br><br><i>This class is a singleton and cannot be created directly.</i>        </div>
         
         <div class="hr"></div>
-                <a id="Ext.StoreMgr-configs"></a>
-        <h2>Config Options</h2>
-        <table cellspacing="0" class="member-table">
-            <tr>
-                <th class="sig-header" colspan="2">Config Options</th>
-                <th class="msource-header">Defined By</th>
-            </tr>
-                <tr class="config-row inherited expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
-        <a id="Ext.StoreMgr-listeners"></a>
-            <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
-            <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
-    </tr>
-            </table>
                 <a id="Ext.StoreMgr-props"></a>
         <h2>Public Properties</h2>
         <div class="no-members">This class has no public properties.</div>        <a id="Ext.StoreMgr-methods"></a>
@@ -59,7 +38,11 @@
             <div class="long">
                 Adds an item to the collection. Fires the <a ext:cls="Ext.util.MixedCollection" ext:member="add" href="output/Ext.util.MixedCollection.html#add">add</a> event when complete.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>key</code> : String<div class="sub-desc">The key to associate with the item</div></li><li><code>o</code> : Object<div class="sub-desc">The item to add.</div></li>        </ul>
+        <ul><li><code>key</code> : String<div class="sub-desc"><p>The key to associate with the item, or the new item.</p>
+<p>If you supplied a {@link #getKey) implementation for this MixedCollection, or if the key
+of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection
+will be able to <i>derive</i> the key for the new item. In this case just pass the new item in
+this parameter.</p></div></li><li><code>o</code> : Object<div class="sub-desc">The item to add.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Object</code><div class="sub-desc">The item added.</div></li>
@@ -753,7 +736,7 @@ of calling <a ext:cls="Ext.util.MixedCollection" ext:member="key" href="output/E
             <div class="long">
                 Gets a registered Store by id    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>id</code> : String/Object<div class="sub-desc">The id of the Store or a Store</div></li>        </ul>
+        <ul><li><code>id</code> : String/Object<div class="sub-desc">The id of the Store, or a Store instance</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Ext.data.Store</code></li>
@@ -804,6 +787,50 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.StoreMgr-register"></a>
+            <b>register</b>(&nbsp;<code>Ext.data.Store store1</code>, <span class="optional" title="Optional">[<code>Ext.data.Store store2</code>]</span>, <span class="optional" title="Optional">[<code>Ext.data.Store etc...</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">
+Registers one or more Stores with the StoreMgr. You do not normally need to register stores
+manually.  Any store ini...</div>
+            <div class="long">
+                
+Registers one or more Stores with the StoreMgr. You do not normally need to register stores
+manually.  Any store initialized with a <a ext:cls="Ext.data.Store" ext:member="storeId" href="output/Ext.data.Store.html#storeId">Ext.data.Store.storeId</a> will be auto-registered.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>store1</code> : Ext.data.Store<div class="sub-desc">A Store instance</div></li><li><code>store2</code> : Ext.data.Store<div class="sub-desc">(optional)</div></li><li><code>etc...</code> : Ext.data.Store<div class="sub-desc">(optional)</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">StoreMgr</td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.StoreMgr-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -894,7 +921,12 @@ function. The handler function's "this" context.</div></li><li><code>options</co
             <div class="long">
                 Replaces an item in the collection. Fires the <a ext:cls="Ext.util.MixedCollection" ext:member="replace" href="output/Ext.util.MixedCollection.html#replace">replace</a> event when complete.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>key</code> : String<div class="sub-desc">The key associated with the item to replace, or the item to replace.</div></li><li><code>{Object}</code> : o<div class="sub-desc">o (optional) If the first parameter passed was a key, the item to associate with that key.</div></li>        </ul>
+        <ul><li><code>key</code> : String<div class="sub-desc"><p>The key associated with the item to replace, or the replacement item.</p>
+<p>If you supplied a {@link #getKey) implementation for this MixedCollection, or if the key
+of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection
+will be able to <i>derive</i> the key of the replacement item. If you want to replace an item
+with one having the same key value, then just pass the replacement item in this parameter.</p></div></li><li><code>{Object}</code> : o<div class="sub-desc">o (optional) If the first parameter passed was a key, the item to associate
+with that key.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Object</code><div class="sub-desc">The new item.</div></li>
@@ -984,6 +1016,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#un" href="output/Ext.util.Observable.html#un">Observable</a></td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.StoreMgr-unregister"></a>
+            <b>unregister</b>(&nbsp;<code>String/Object id1</code>, <span class="optional" title="Optional">[<code>String/Object id2</code>]</span>, <span class="optional" title="Optional">[<code>String/Object etc...</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Unregisters one or more Stores with the StoreMgr</div>
+            <div class="long">
+                Unregisters one or more Stores with the StoreMgr    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>id1</code> : String/Object<div class="sub-desc">The id of the Store, or a Store instance</div></li><li><code>id2</code> : String/Object<div class="sub-desc">(optional)</div></li><li><code>etc...</code> : String/Object<div class="sub-desc">(optional)</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">StoreMgr</td>
     </tr>
             </table>
                 <a id="Ext.StoreMgr-events"></a>

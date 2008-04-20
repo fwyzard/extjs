@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -19,7 +19,7 @@ var t = new Ext.Template(
 );
 t.append('some-element', {id: 'myid', cls: 'myclass', name: 'foo', value: 'bar'});
 </code></pre>
-* For more information see this blog post with examples: <a href="http://www.jackslocum.com/blog/2006/10/06/domhelper-create-elements-using-dom-html-fragments-or-templates/">DomHelper - Create Elements using DOM, HTML fragments and Templates</a>. 
+* For more information see this blog post with examples: <a href="http://www.jackslocum.com/blog/2006/10/06/domhelper-create-elements-using-dom-html-fragments-or-templates/">DomHelper - Create Elements using DOM, HTML fragments and Templates</a>.
 * @constructor
 * @param {String/Array} html The HTML fragment or an array of fragments to join("") or multiple arguments to join("")
 */
@@ -41,7 +41,7 @@ Ext.Template = function(html){
     /**@private*/
     this.html = html;
     if(this.compiled){
-        this.compile();   
+        this.compile();
     }
 };
 Ext.Template.prototype = {
@@ -62,7 +62,7 @@ Ext.Template.prototype = {
                     return tpl.call(format.substr(5), values[name], values);
                 }else{
                     if(args){
-                        // quoted values are required for strings in compiled templates, 
+                        // quoted values are required for strings in compiled templates,
                         // but for non compiled we need to strip them
                         // quoted reversed for jsmin
                         var re = /^\s*['"](.*)["']\s*$/;
@@ -82,7 +82,7 @@ Ext.Template.prototype = {
         };
         return this.html.replace(this.re, fn);
     },
-    
+
     /**
      * Sets the HTML used as the template and optionally compiles it.
      * @param {String} html
@@ -97,20 +97,20 @@ Ext.Template.prototype = {
         }
         return this;
     },
-    
+
     /**
      * True to disable format functions (defaults to false)
      * @type Boolean
      */
     disableFormats : false,
-    
+
     /**
-    * The regular expression used to match template variables 
+    * The regular expression used to match template variables
     * @type RegExp
-    * @property 
+    * @property
     */
     re : /\{([\w-]+)(?:\:([\w\.]*)(?:\((.*?)?\))?)?\}/g,
-    
+
     /**
      * Compiles the template into an internal function, eliminating the RegEx overhead.
      * @return {Ext.Template} this
@@ -148,12 +148,12 @@ Ext.Template.prototype = {
         eval(body);
         return this;
     },
-    
+
     // private function used to call members
     call : function(fnName, value, allValues){
         return this[fnName](value, allValues);
     },
-    
+
     /**
      * Applies the supplied values to the template and inserts the new node(s) as the first child of el.
      * @param {Mixed} el The context element
@@ -186,7 +186,7 @@ Ext.Template.prototype = {
     insertAfter : function(el, values, returnElement){
         return this.doInsert('afterEnd', el, values, returnElement);
     },
-    
+
     /**
      * Applies the supplied values to the template and appends the new node(s) to el.
      * @param {Mixed} el The context element
@@ -219,7 +219,11 @@ Ext.Template.prototype = {
 };
 /**
  * Alias for {@link #applyTemplate}
- * @method
+ * Returns an HTML fragment of this template with the specified values applied.
+ * @param {Object/Array} values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
+ * @return {String} The HTML fragment
+ * @member Ext.Template
+ * @method apply
  */
 Ext.Template.prototype.apply = Ext.Template.prototype.applyTemplate;
 

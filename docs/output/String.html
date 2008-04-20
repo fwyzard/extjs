@@ -8,7 +8,7 @@
                 <h1>Class String</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Global</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/core/Ext.js" target="_blank">Ext.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Ext.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">String</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
@@ -55,8 +55,8 @@
                 &lt;static&gt; Allows you to define a tokenized string and pass an arbitrary number of arguments to replace the tokens.  Each
 token must be unique, and must increment in the format {0}, {1}, etc.  Example usage:
 <pre><code>var cls = <em>'my-class'</em>, text = <em>'Some text'</em>;
-<b>var</b> s = String.format(<em>'<div class="{0}">{1}</div>'</em>, cls, text);
-// s now contains the string: <em>'<div class="my-class">Some text</div>'</em></code></pre>    <div class="mdetail-params">
+<b>var</b> s = String.format(<em>'&lt;div class="{0}">{1}&lt;/div>'</em>, cls, text);
+// s now contains the string: <em>'&lt;div class="my-class">Some text&lt;/div>'</em></code></pre>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>string</code> : String<div class="sub-desc">The tokenized string to be formatted</div></li><li><code>value1</code> : String<div class="sub-desc">The value to replace token {0}</div></li><li><code>value2</code> : String<div class="sub-desc">Etc...</div></li>        </ul>
         <strong>Returns:</strong>

@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -16,8 +16,8 @@ FeedPanel = function() {
         minSize: 175,
         maxSize: 400,
         collapsible: true,
-        margins:'5 0 5 5',
-        cmargins:'5 5 5 5',
+        margins:'0 0 5 5',
+        cmargins:'0 5 5 5',
         rootVisible:false,
         lines:false,
         autoScroll:true,

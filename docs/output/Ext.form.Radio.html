@@ -16,7 +16,7 @@
                 <h1>Class Ext.form.Radio</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.form</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/form/Radio.js" target="_blank">Radio.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Radio.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Radio</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.form.Checkbox" ext:member="" href="output/Ext.form.Checkbox.html">Checkbox</a></td></tr>
                     </table>
@@ -224,12 +224,15 @@ Radio grouping is handled automatically by the browser if you give each radio in
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#id" href="output/Ext.Component.html#id">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-inputType"></a>
             <b>inputType</b> : String            <div class="mdesc">
-                            The type attribute for input fields -- e.g. radio, text, password (defaults to "text").                        </div>
+                        <div class="short">The type attribute for input fields -- e.g. radio, text, etc. (defaults to "text"). The types "file" and "password" m...</div>
+            <div class="long">
+                The type attribute for input fields -- e.g. radio, text, etc. (defaults to "text"). The types "file" and "password" must be used to render those field types currently -- there are no separate Ext components for those.            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#inputType" href="output/Ext.form.Field.html#inputType">Field</a></td>
     </tr>
@@ -268,9 +271,9 @@ Radio grouping is handled automatically by the browser if you give each radio in
         <td class="sig">
         <a id="Ext.form.Radio-itemCls"></a>
             <b>itemCls</b> : String            <div class="mdesc">
-                        <div class="short">An additional CSS class to apply to the wrapper element of this field (defaults to the container's itemCls value if s...</div>
+                        <div class="short">An additional CSS class to apply to the wrapper's form item element of this field (defaults to the container's itemCl...</div>
             <div class="long">
-                An additional CSS class to apply to the wrapper element of this field (defaults to the container's itemCls value if set, or ''). Since it is applied to the wrapper, it allows you to write standard CSS rules that can apply to the field, the label (if specified) or any other element within the markup for the field. Example use: <pre><code><i>// Apply a style to the field's label:</i>
+                An additional CSS class to apply to the wrapper's form item element of this field (defaults to the container's itemCls value if set, or ''). Since it is applied to the item wrapper, it allows you to write standard CSS rules that can apply to the field, the label (if specified) or any other element within the markup for the field. NOTE: this will not have any effect on fields that are not part of a form. Example use: <pre><code><i>// Apply a style to the field's label:</i>
 &lt;style>
     .required .x-form-item-label {font-weight:bold;color:red;}
 &lt;/style>
@@ -359,11 +362,23 @@ side          Add an error icon to the right of the field with a popup on hover
         <td class="sig">
         <a id="Ext.form.Radio-name"></a>
             <b>name</b> : String            <div class="mdesc">
-                            The field's HTML name attribute.                        </div>
+                            The field's HTML name attribute (defaults to "").                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#name" href="output/Ext.form.Field.html#name">Field</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.Radio-overCls"></a>
+            <b>overCls</b> : String            <div class="mdesc">
+                        <div class="short">An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and...</div>
+            <div class="long">
+                An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and removed when the mouse moves out. (defaults to ''). This can be useful for adding customized "active" or "hover" styles to the component or any of its children using standard CSS rules.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-pageX"></a>
@@ -372,7 +387,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageX" href="output/Ext.BoxComponent.html#pageX">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-pageY"></a>
@@ -381,7 +396,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageY" href="output/Ext.BoxComponent.html#pageY">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-plugins"></a>
@@ -393,7 +408,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-readOnly"></a>
@@ -405,7 +420,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#readOnly" href="output/Ext.form.Field.html#readOnly">Field</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-renderTo"></a>
@@ -417,7 +432,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-stateEvents"></a>
@@ -429,7 +444,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateEvents" href="output/Ext.Component.html#stateEvents">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-stateId"></a>
@@ -441,7 +456,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-stateful"></a>
@@ -453,7 +468,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-style"></a>
@@ -465,7 +480,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#style" href="output/Ext.Component.html#style">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-tabIndex"></a>
@@ -477,7 +492,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#tabIndex" href="output/Ext.form.Field.html#tabIndex">Field</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-validateOnBlur"></a>
@@ -486,7 +501,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#validateOnBlur" href="output/Ext.form.Field.html#validateOnBlur">Field</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-validationDelay"></a>
@@ -495,7 +510,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#validationDelay" href="output/Ext.form.Field.html#validationDelay">Field</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-validationEvent"></a>
@@ -504,16 +519,16 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#validationEvent" href="output/Ext.form.Field.html#validationEvent">Field</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-value"></a>
             <b>value</b> : Mixed            <div class="mdesc">
-                            A value to initialize this field with.                        </div>
+                            A value to initialize this field with (defaults to undefined).                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#value" href="output/Ext.form.Field.html#value">Field</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-width"></a>
@@ -522,7 +537,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#width" href="output/Ext.BoxComponent.html#width">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-x"></a>
@@ -531,7 +546,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#x" href="output/Ext.BoxComponent.html#x">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-xtype"></a>
@@ -543,7 +558,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#xtype" href="output/Ext.Component.html#xtype">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-y"></a>
@@ -1225,26 +1240,6 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
-        <a id="Ext.form.Radio-initComponent"></a>
-            <b>initComponent</b>() : void            <div class="mdesc">
-                        <div class="short">// private internal config</div>
-            <div class="long">
-                // private internal config    <div class="mdetail-params">
-        <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
-        <strong>Returns:</strong>
-        <ul>
-            <li><code>void</code></li>
-        </ul>
-    </div>
-                </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#initComponent" href="output/Ext.BoxComponent.html#initComponent">BoxComponent</a></td>
-    </tr>
-        <tr class="method-row inherited expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
         <a id="Ext.form.Radio-isDirty"></a>
             <b>isDirty</b>() : void            <div class="mdesc">
                         <div class="short">Returns true if this field has been changed since it was originally loaded and is not disabled.</div>
@@ -1262,7 +1257,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#isDirty" href="output/Ext.form.Field.html#isDirty">Field</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-isValid"></a>
@@ -1282,7 +1277,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#isValid" href="output/Ext.form.Field.html#isValid">Field</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-isVisible"></a>
@@ -1302,7 +1297,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isVisible" href="output/Ext.Component.html#isVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-isXType"></a>
@@ -1330,7 +1325,7 @@ the default), or true to check whether this component is directly of the specifi
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isXType" href="output/Ext.Component.html#isXType">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-on"></a>
@@ -1351,7 +1346,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Radio-purgeListeners"></a>
@@ -1370,6 +1365,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.Radio-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

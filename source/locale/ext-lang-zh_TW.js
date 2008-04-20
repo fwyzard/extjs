@@ -1,4 +1,12 @@
-﻿/*
+/*
+ * Ext JS Library 2.1
+ * Copyright(c) 2006-2008, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://extjs.com/license
+ */
+
+/*
  * Traditional Chinese translation
  * By hata1234
  * 09 April 2007

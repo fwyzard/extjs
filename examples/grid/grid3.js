@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -124,7 +124,7 @@ Ext.onReady(function(){
             data: xg.dummyData
         }),
         cm: new xg.ColumnModel([
-            sm,
+            sm2,
             {id:'company',header: "Company", width: 40, sortable: true, dataIndex: 'company'},
             {header: "Price", width: 20, sortable: true, renderer: Ext.util.Format.usMoney, dataIndex: 'price'},
             {header: "Change", width: 20, sortable: true, dataIndex: 'change'},

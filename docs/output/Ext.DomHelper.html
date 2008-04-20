@@ -8,26 +8,27 @@
                 <h1>Class Ext.DomHelper</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/core/DomHelper.js" target="_blank">DomHelper.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">DomHelper.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">DomHelper</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
         <div class="description">
             Utility class for working with DOM and/or Templates. It transparently supports using HTML fragments or DOM.<br>
 This is an example, where an unordered list with 5 children items is appended to an existing element with id 'my-div':<br>
- <pre><code>var list = dh.append(<em>'my-div'</em>, {
+ <pre><code>var dh = Ext.DomHelper;
+<b>var</b> list = dh.append(<em>'my-div'</em>, {
     id: <em>'my-ul'</em>, tag: <em>'ul'</em>, cls: <em>'my-list'</em>, children: [
-        {tag: <em>'li'</em>, id: <em>'item0'</em>, html: <em>'List Item 0'</em>}, 
-        {tag: <em>'li'</em>, id: <em>'item1'</em>, html: <em>'List Item 1'</em>}, 
-        {tag: <em>'li'</em>, id: <em>'item2'</em>, html: <em>'List Item 2'</em>}, 
-        {tag: <em>'li'</em>, id: <em>'item3'</em>, html: <em>'List Item 3'</em>}, 
+        {tag: <em>'li'</em>, id: <em>'item0'</em>, html: <em>'List Item 0'</em>},
+        {tag: <em>'li'</em>, id: <em>'item1'</em>, html: <em>'List Item 1'</em>},
+        {tag: <em>'li'</em>, id: <em>'item2'</em>, html: <em>'List Item 2'</em>},
+        {tag: <em>'li'</em>, id: <em>'item3'</em>, html: <em>'List Item 3'</em>},
         {tag: <em>'li'</em>, id: <em>'item4'</em>, html: <em>'List Item 4'</em>}
     ]
 });</code></pre>
 <p>Element creation specification parameters in this class may also be passed as an Array of
 specification objects. This can be used to insert multiple sibling nodes into an existing
 container very efficiently. For example, to add more list items to the example above:<pre><code>dh.append(<em>'my-ul'</em>, [
-    {tag: <em>'li'</em>, id: <em>'item5'</em>, html: <em>'List Item 5'</em>}, 
+    {tag: <em>'li'</em>, id: <em>'item5'</em>, html: <em>'List Item 5'</em>},
     {tag: <em>'li'</em>, id: <em>'item6'</em>, html: <em>'List Item 6'</em>} ]);</code></pre></p>
 <p>Element creation specification parameters may also be strings. If <a ext:cls="useDom" href="output/useDom.html">useDom</a> is false, then the string is used
 as innerHTML. If <a ext:cls="useDom" href="output/useDom.html">useDom</a> is true, a string specification results in the creation of a text node.</p>

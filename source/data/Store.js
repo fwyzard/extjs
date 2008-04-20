@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -30,6 +30,7 @@ Ext.data.Store = function(config){
     };
     /**
      * An object containing properties which are used as parameters on any HTTP request.
+     * This property can be changed after creating the Store to send different parameters.
      * @property
      */
     this.baseParams = {};
@@ -143,12 +144,12 @@ Ext.data.Store = function(config){
     if(this.proxy){
         this.relayEvents(this.proxy,  ["loadexception"]);
     }
-    
+
     this.sortToggle = {};
 	if(this.sortInfo){
 		this.setDefaultSort(this.sortInfo.field, this.sortInfo.direction);
 	}
-	
+
     Ext.data.Store.superclass.constructor.call(this);
 
     if(this.storeId || this.id){
@@ -304,7 +305,7 @@ Ext.extend(Ext.data.Store, Ext.util.Observable, {
 
     /**
      * Get the index within the cache of the passed Record.
-     * @param {Ext.data.Record} record The Ext.data.Record object to to find.
+     * @param {Ext.data.Record} record The Ext.data.Record object to find.
      * @return {Number} The index of the passed Record. Returns -1 if not found.
      */
     indexOf : function(record){
@@ -543,7 +544,7 @@ Ext.extend(Ext.data.Store, Ext.util.Observable, {
         }
         var st = (this.sortToggle) ? this.sortToggle[f.name] : null;
         var si = (this.sortInfo) ? this.sortInfo : null;
-        
+
         this.sortToggle[f.name] = dir;
         this.sortInfo = {field: f.name, direction: dir};
         if(!this.remoteSort){
@@ -613,7 +614,7 @@ Ext.extend(Ext.data.Store, Ext.util.Observable, {
      * Filter the records by a specified property.
      * @param {String} field A field on your records
      * @param {String/RegExp} value Either a string that the field
-     * should start with or a RegExp to test against the field
+     * should begin with, or a RegExp to test against the field.
      * @param {Boolean} anyMatch (optional) True to match any part not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison
      */
@@ -643,7 +644,7 @@ Ext.extend(Ext.data.Store, Ext.util.Observable, {
      * Query the records by a specified property.
      * @param {String} field A field on your records
      * @param {String/RegExp} value Either a string that the field
-     * should start with or a RegExp to test against the field
+     * should begin with, or a RegExp to test against the field.
      * @param {Boolean} anyMatch (optional) True to match any part not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison
      * @return {MixedCollection} Returns an Ext.util.MixedCollection of the matched records
@@ -673,8 +674,8 @@ Ext.extend(Ext.data.Store, Ext.util.Observable, {
     /**
      * Finds the index of the first matching record in this store by a specific property/value.
      * @param {String} property A property on your objects
-     * @param {String/RegExp} value Either string that the property values
-     * should start with or a RegExp to test against the property.
+     * @param {String/RegExp} value Either a string that the property value
+     * should begin with, or a RegExp to test against the property.
      * @param {Number} startIndex (optional) The index to start searching at
      * @param {Boolean} anyMatch (optional) True to match any part of the string, not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison

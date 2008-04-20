@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -20,6 +20,16 @@ Ext.data.MemoryProxy = function(data){
 };
 
 Ext.extend(Ext.data.MemoryProxy, Ext.data.DataProxy, {
+    /**
+     * @event loadexception
+     * Fires if an exception occurs in the Proxy during data loading. Note that this event is also relayed 
+     * through {@link Ext.data.Store}, so you can listen for it directly on any Store instance.
+     * @param {Object} this
+     * @param {Object} arg The callback's arg object passed to the {@link #load} function
+     * @param {Object} null This parameter does not apply and will always be null for MemoryProxy
+     * @param {Error} e The JavaScript Error object caught if the configured Reader could not read the data
+     */
+    
     /**
      * Load data from the requested source (in this case an in-memory
      * data object passed to the constructor), read the data object into

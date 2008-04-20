@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -286,20 +286,24 @@ Ext.lib.Ajax = function(){
             };
 
             if(options){
+                var hs = options.headers;
                 if(options.xmlData){
                     o.data = options.xmlData;
                     o.processData = false;
-                    o.type = 'POST';
-                    o.contentType = 'text/xml';
+                    o.type = (method ? method : (options.method ? options.method : 'POST'));
+                    if (!hs || !hs['Content-Type']){
+                        o.contentType = 'text/xml';
+                    }
                 }else if(options.jsonData){
                     o.data = typeof options.jsonData == 'object' ? Ext.encode(options.jsonData) : options.jsonData;
                     o.processData = false;
-                    o.type = 'POST';
-                    o.contentType = 'text/javascript';
+                    o.type = (method ? method : (options.method ? options.method : 'POST'));
+                    if (!hs || !hs['Content-Type']){
+                        o.contentType = 'application/json';
+                    }
                 }
-                if(options.headers){
+                if(hs){
                     o.beforeSend = function(xhr){
-                        var hs = options.headers;
                         for(var h in hs){
                             if(hs.hasOwnProperty(h)){
                                 xhr.setRequestHeader(h, hs[h]);

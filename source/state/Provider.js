@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -52,7 +52,6 @@ Ext.extend(Ext.state.Provider, Ext.util.Observable, {
      */
     set : function(name, value){
         this.state[name] = value;
-        //console.log(value);
         this.fireEvent("statechange", this, name, value);
     },
     

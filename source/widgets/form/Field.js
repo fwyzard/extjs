@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -34,9 +34,10 @@ Ext.form.Field = Ext.extend(Ext.BoxComponent,  {
      * @cfg {String} clearCls The CSS class used to provide field clearing (defaults to 'x-form-clear-left')
      */
     /**
-     * @cfg {String} itemCls An additional CSS class to apply to the wrapper element of this field (defaults to the container's itemCls
-     * value if set, or '').  Since it is applied to the wrapper, it allows you to write standard CSS rules that can apply to
-     * the field, the label (if specified) or any other element within the markup for the field.  Example use:
+     * @cfg {String} itemCls An additional CSS class to apply to the wrapper's form item element of this field (defaults 
+     * to the container's itemCls value if set, or '').  Since it is applied to the item wrapper, it allows you to write 
+     * standard CSS rules that can apply to the field, the label (if specified) or any other element within the markup for 
+     * the field. NOTE: this will not have any effect on fields that are not part of a form. Example use:
      * <pre><code>
 // Apply a style to the field's label:
 &lt;style>
@@ -57,7 +58,25 @@ new Ext.FormPanel({
 });
 </code></pre>
      */
-
+    /**
+     * @cfg {String} inputType The type attribute for input fields -- e.g. radio, text, etc. (defaults to "text").
+     * The types "file" and "password" must be used to render those field types currently -- there are no separate
+     * Ext components for those.
+     */
+    /**
+     * @cfg {Number} tabIndex The tabIndex for this field. Note this only applies to fields that are rendered,
+     * not those which are built via applyTo (defaults to undefined).
+     */
+    /**
+     * @cfg {Mixed} value A value to initialize this field with (defaults to undefined).
+     */
+    /**
+     * @cfg {String} name The field's HTML name attribute (defaults to "").
+     */
+    /**
+     * @cfg {String} cls A custom CSS class to apply to the field's underlying element (defaults to "").
+     */
+    
     /**
      * @cfg {String} invalidClass The CSS class to use when marking a field invalid (defaults to "x-form-invalid")
      */
@@ -113,45 +132,23 @@ side          Add an error icon to the right of the field with a popup on hover
      * (defaults to 'normal').
      */
     msgFx : 'normal',
-    
     /**
      * @cfg {Boolean} readOnly True to mark the field as readOnly in HTML (defaults to false) -- Note: this only
      * sets the element's readOnly DOM attribute.
      */
     readOnly : false,
-
     /**
      * @cfg {Boolean} disabled True to disable the field (defaults to false).
      */
     disabled : false,
-
-    /**
-     * @cfg {String} inputType The type attribute for input fields -- e.g. radio, text, password (defaults to "text").
-     */
-
-    /**
-     * @cfg {Number} tabIndex The tabIndex for this field. Note this only applies to fields that are rendered,
-     * not those which are built via applyTo (defaults to undefined).
-	 */
-
+    
     // private
     isFormField : true,
-
+    
     // private
     hasFocus : false,
 
-    /**
-     * @cfg {Mixed} value A value to initialize this field with.
-     */
-    
-    /**
-     * @cfg {String} name The field's HTML name attribute.
-     */
-    /**
-     * @cfg {String} cls A CSS class to apply to the field's underlying element.
-     */
-
-	// private ??
+	// private
 	initComponent : function(){
         Ext.form.Field.superclass.initComponent.call(this);
         this.addEvents(
@@ -280,7 +277,7 @@ side          Add an error icon to the right of the field with a popup on hover
 
     // private
     initEvents : function(){
-        this.el.on(Ext.isIE ? "keydown" : "keypress", this.fireKey,  this);
+        this.el.on(Ext.isIE || Ext.isSafari3 ? "keydown" : "keypress", this.fireKey,  this);
         this.el.on("focus", this.onFocus,  this);
         this.el.on("blur", this.onBlur,  this);
 
@@ -347,6 +344,7 @@ side          Add an error icon to the right of the field with a popup on hover
         return false;
     },
 
+    // protected - should be overridden by subclasses if necessary to prepare raw values for validation
     processValue : function(value){
         return value;
     },
@@ -358,8 +356,9 @@ side          Add an error icon to the right of the field with a popup on hover
     },
 
     /**
-     * Mark this field as invalid
-     * @param {String} msg The validation message
+     * Mark this field as invalid, using {@link #msgTarget} to determine how to display the error and 
+     * applying {@link #invalidClass} to the field's element.
+     * @param {String} msg (optional) The validation message (defaults to {@link #invalidText})
      */
     markInvalid : function(msg){
         if(!this.rendered || this.preventMark){ // not rendered
@@ -380,7 +379,7 @@ side          Add an error icon to the right of the field with a popup on hover
                 break;
             case 'under':
                 if(!this.errorEl){
-                    var elp = this.el.findParent('.x-form-element', 5, true);
+                    var elp = this.getErrorCt();
                     this.errorEl = elp.createChild({cls:'x-form-invalid-msg'});
                     this.errorEl.setWidth(elp.getWidth(true)-20);
                 }
@@ -389,7 +388,7 @@ side          Add an error icon to the right of the field with a popup on hover
                 break;
             case 'side':
                 if(!this.errorIcon){
-                    var elp = this.el.findParent('.x-form-element', 5, true);
+                    var elp = this.getErrorCt();
                     this.errorIcon = elp.createChild({cls:'x-form-invalid-icon'});
                 }
                 this.alignErrorIcon();
@@ -405,6 +404,12 @@ side          Add an error icon to the right of the field with a popup on hover
                 break;
         }
         this.fireEvent('invalid', this, msg);
+    },
+    
+    // private
+    getErrorCt : function(){
+        return this.el.findParent('.x-form-element', 5, true) || // use form element wrap if available
+            this.el.findParent('.x-form-field-wrap', 5, true);   // else direct field wrap
     },
 
     // private
@@ -511,14 +516,14 @@ side          Add an error icon to the right of the field with a popup on hover
                 if(tag == 'input' && Ext.isStrict){
                     return w - (Ext.isIE6 ? 4 : 1);
                 }
-                if(tag = 'textarea' && Ext.isStrict){
+                if(tag == 'textarea' && Ext.isStrict){
                     return w-2;
                 }
             }else if(Ext.isOpera && Ext.isStrict){
                 if(tag == 'input'){
                     return w + 2;
                 }
-                if(tag = 'textarea'){
+                if(tag == 'textarea'){
                     return w-2;
                 }
             }

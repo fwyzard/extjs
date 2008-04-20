@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -464,13 +464,13 @@ Ext.dd.DragDrop.prototype = {
     onAvailable: function () {
     },
 
-    /*
+    /**
      * Provides default constraint padding to "constrainTo" elements (defaults to {left: 0, right:0, top:0, bottom:0}).
      * @type Object
      */
     defaultPadding : {left:0, right:0, top:0, bottom:0},
 
-    /*
+    /**
      * Initializes the drag drop object's constraints to restrict movement to a certain element.
  *
  * Usage:
@@ -1269,7 +1269,7 @@ Ext.dd.DragDropMgr = function() {
          * @private
          * @static
          */
-        initalized: false,
+        initialized: false,
 
         /**
          * All drag and drop can be disabled.
@@ -2472,7 +2472,7 @@ Ext.extend(Ext.dd.DD, Ext.dd.DragDrop, {
 
     /**
      * When set to true, the utility automatically tries to scroll the browser
-     * window wehn a drag and drop element is dragged near the viewport boundary.
+     * window when a drag and drop element is dragged near the viewport boundary.
      * Defaults to true.
      * @property scroll
      * @type boolean
@@ -2678,7 +2678,7 @@ Ext.extend(Ext.dd.DD, Ext.dd.DragDrop, {
         return {x:x, y:y};
     },
 
-    /*
+    /**
      * Sets up config options specific to this class. Overrides
      * Ext.dd.DragDrop, but all versions of this method through the
      * inheritance chain are called
@@ -2688,7 +2688,7 @@ Ext.extend(Ext.dd.DD, Ext.dd.DragDrop, {
         this.scroll = (this.config.scroll !== false);
     },
 
-    /*
+    /**
      * Event that fires prior to the onMouseDown event.  Overrides
      * Ext.dd.DragDrop.
      */
@@ -2698,7 +2698,7 @@ Ext.extend(Ext.dd.DD, Ext.dd.DragDrop, {
                             e.getPageY());
     },
 
-    /*
+    /**
      * Event that fires prior to the onDrag event.  Overrides
      * Ext.dd.DragDrop.
      */

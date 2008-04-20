@@ -14,7 +14,7 @@
                 <h1>Class Ext.form.Field</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.form</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/form/Field.js" target="_blank">Field.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Field.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Field</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.form.Checkbox" href="output/Ext.form.Checkbox.html">Checkbox</a>, <a ext:cls="Ext.form.Hidden" href="output/Ext.form.Hidden.html">Hidden</a>, <a ext:cls="Ext.form.HtmlEditor" href="output/Ext.form.HtmlEditor.html">HtmlEditor</a>, <a ext:cls="Ext.form.TextField" href="output/Ext.form.TextField.html">TextField</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.BoxComponent" ext:member="" href="output/Ext.BoxComponent.html">BoxComponent</a></td></tr>
@@ -89,7 +89,7 @@
         <td class="sig">
         <a id="Ext.form.Field-cls"></a>
             <b>cls</b> : String            <div class="mdesc">
-                            A CSS class to apply to the field's underlying element.                        </div>
+                            A custom CSS class to apply to the field's underlying element (defaults to "").                        </div>
         </td>
         <td class="msource">Field</td>
     </tr>
@@ -201,12 +201,15 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#id" href="output/Ext.Component.html#id">Component</a></td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-inputType"></a>
             <b>inputType</b> : String            <div class="mdesc">
-                            The type attribute for input fields -- e.g. radio, text, password (defaults to "text").                        </div>
+                        <div class="short">The type attribute for input fields -- e.g. radio, text, etc. (defaults to "text"). The types "file" and "password" m...</div>
+            <div class="long">
+                The type attribute for input fields -- e.g. radio, text, etc. (defaults to "text"). The types "file" and "password" must be used to render those field types currently -- there are no separate Ext components for those.            </div>
+                        </div>
         </td>
         <td class="msource">Field</td>
     </tr>
@@ -236,9 +239,9 @@
         <td class="sig">
         <a id="Ext.form.Field-itemCls"></a>
             <b>itemCls</b> : String            <div class="mdesc">
-                        <div class="short">An additional CSS class to apply to the wrapper element of this field (defaults to the container's itemCls value if s...</div>
+                        <div class="short">An additional CSS class to apply to the wrapper's form item element of this field (defaults to the container's itemCl...</div>
             <div class="long">
-                An additional CSS class to apply to the wrapper element of this field (defaults to the container's itemCls value if set, or ''). Since it is applied to the wrapper, it allows you to write standard CSS rules that can apply to the field, the label (if specified) or any other element within the markup for the field. Example use: <pre><code><i>// Apply a style to the field's label:</i>
+                An additional CSS class to apply to the wrapper's form item element of this field (defaults to the container's itemCls value if set, or ''). Since it is applied to the item wrapper, it allows you to write standard CSS rules that can apply to the field, the label (if specified) or any other element within the markup for the field. NOTE: this will not have any effect on fields that are not part of a form. Example use: <pre><code><i>// Apply a style to the field's label:</i>
 &lt;style>
     .required .x-form-item-label {font-weight:bold;color:red;}
 &lt;/style>
@@ -327,11 +330,23 @@ side          Add an error icon to the right of the field with a popup on hover
         <td class="sig">
         <a id="Ext.form.Field-name"></a>
             <b>name</b> : String            <div class="mdesc">
-                            The field's HTML name attribute.                        </div>
+                            The field's HTML name attribute (defaults to "").                        </div>
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.Field-overCls"></a>
+            <b>overCls</b> : String            <div class="mdesc">
+                        <div class="short">An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and...</div>
+            <div class="long">
+                An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and removed when the mouse moves out. (defaults to ''). This can be useful for adding customized "active" or "hover" styles to the component or any of its children using standard CSS rules.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
+    </tr>
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-pageX"></a>
@@ -340,7 +355,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageX" href="output/Ext.BoxComponent.html#pageX">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-pageY"></a>
@@ -349,7 +364,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageY" href="output/Ext.BoxComponent.html#pageY">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-plugins"></a>
@@ -361,7 +376,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-readOnly"></a>
@@ -373,7 +388,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-renderTo"></a>
@@ -385,7 +400,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-stateEvents"></a>
@@ -397,7 +412,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateEvents" href="output/Ext.Component.html#stateEvents">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-stateId"></a>
@@ -409,7 +424,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-stateful"></a>
@@ -421,7 +436,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-style"></a>
@@ -433,7 +448,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#style" href="output/Ext.Component.html#style">Component</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-tabIndex"></a>
@@ -445,7 +460,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-validateOnBlur"></a>
@@ -454,7 +469,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-validationDelay"></a>
@@ -463,7 +478,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-validationEvent"></a>
@@ -472,16 +487,16 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-value"></a>
             <b>value</b> : Mixed            <div class="mdesc">
-                            A value to initialize this field with.                        </div>
+                            A value to initialize this field with (defaults to undefined).                        </div>
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-width"></a>
@@ -490,7 +505,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#width" href="output/Ext.BoxComponent.html#width">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-x"></a>
@@ -499,7 +514,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#x" href="output/Ext.BoxComponent.html#x">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-xtype"></a>
@@ -511,7 +526,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#xtype" href="output/Ext.Component.html#xtype">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-y"></a>
@@ -1190,27 +1205,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hide" href="output/Ext.Component.html#hide">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
-        <a id="Ext.form.Field-initComponent"></a>
-            <b>initComponent</b>() : void            <div class="mdesc">
-                        <div class="short">// private internal config</div>
-            <div class="long">
-                // private internal config    <div class="mdetail-params">
-        <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
-        <strong>Returns:</strong>
-        <ul>
-            <li><code>void</code></li>
-        </ul>
-    </div>
-                </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#initComponent" href="output/Ext.BoxComponent.html#initComponent">BoxComponent</a></td>
-    </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-isDirty"></a>
@@ -1230,7 +1225,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-isValid"></a>
@@ -1250,7 +1245,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-isVisible"></a>
@@ -1270,7 +1265,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isVisible" href="output/Ext.Component.html#isVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-isXType"></a>
@@ -1298,16 +1293,18 @@ the default), or true to check whether this component is directly of the specifi
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isXType" href="output/Ext.Component.html#isXType">Component</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-markInvalid"></a>
-            <b>markInvalid</b>(&nbsp;<code>String msg</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Mark this field as invalid</div>
+            <b>markInvalid</b>(&nbsp;<span class="optional" title="Optional">[<code>String msg</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Mark this field as invalid, using msgTarget to determine how to display the error and 
+applying invalidClass to the f...</div>
             <div class="long">
-                Mark this field as invalid    <div class="mdetail-params">
+                Mark this field as invalid, using <a ext:cls="Ext.form.Field" ext:member="msgTarget" href="output/Ext.form.Field.html#msgTarget">msgTarget</a> to determine how to display the error and 
+applying <a ext:cls="Ext.form.Field" ext:member="invalidClass" href="output/Ext.form.Field.html#invalidClass">invalidClass</a> to the field's element.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>msg</code> : String<div class="sub-desc">The validation message</div></li>        </ul>
+        <ul><li><code>msg</code> : String<div class="sub-desc">(optional) The validation message (defaults to <a ext:cls="Ext.form.Field" ext:member="invalidText" href="output/Ext.form.Field.html#invalidText">invalidText</a>)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -1318,7 +1315,7 @@ the default), or true to check whether this component is directly of the specifi
         </td>
         <td class="msource">Field</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-on"></a>
@@ -1339,7 +1336,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Field-purgeListeners"></a>
@@ -1358,6 +1355,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.Field-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

@@ -9,7 +9,7 @@
                 <h1>Class Ext.form.Action</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.form</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/form/Action.js" target="_blank">Action.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Action.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Action</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.form.Action.Load" href="output/Ext.form.Action.Load.html">Action.Load</a>, <a ext:cls="Ext.form.Action.Submit" href="output/Ext.form.Action.Submit.html">Action.Submit</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
@@ -96,13 +96,22 @@ and to the <a ext:cls="Ext.form.BasicForm" ext:member="actioncomplete" href="out
         <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.form.Action-timeout"></a>
+            <b>timeout</b> : Number            <div class="mdesc">
+                            The number of milliseconds to wait for a server response before failing with the <a ext:cls="Ext.form.Action" ext:member="failureType" href="output/Ext.form.Action.html#failureType">failureType</a> as <a ext:cls="Ext.form.Action" ext:member="CONNECT_FAILURE" href="output/Ext.form.Action.html#CONNECT_FAILURE">CONNECT_FAILURE</a>.                        </div>
+        </td>
+        <td class="msource">Action</td>
+    </tr>
+        <tr class="config-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.form.Action-url"></a>
             <b>url</b> : String            <div class="mdesc">
                             The URL that the Action is to invoke.                        </div>
         </td>
         <td class="msource">Action</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action-waitMsg"></a>
@@ -111,7 +120,7 @@ and to the <a ext:cls="Ext.form.BasicForm" ext:member="actioncomplete" href="out
         </td>
         <td class="msource">Action</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action-waitTitle"></a>

@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -9,16 +9,18 @@
 /**
  * @class Ext.tree.TreeEditor
  * @extends Ext.Editor
- * Provides editor functionality for inline tree node editing.  Any valid {@link Ext.form.Field} can be used
+ * Provides editor functionality for inline tree node editing.  Any valid {@link Ext.form.Field} subclass can be used
  * as the editor field.
  * @constructor
  * @param {TreePanel} tree
- * @param {Object} config Either a prebuilt {@link Ext.form.Field} instance or a Field config object
+ * @param {Object} fieldConfig (optional) Either a prebuilt {@link Ext.form.Field} instance or a Field config object
+ * that will be applied to the default field instance (defaults to a {@link Ext.form.TextField}).
+ * @param {Object} config (optional) A TreeEditor config object
  */
-Ext.tree.TreeEditor = function(tree, config){
-    config = config || {};
-    var field = config.events ? config : new Ext.form.TextField(config);
-    Ext.tree.TreeEditor.superclass.constructor.call(this, field);
+Ext.tree.TreeEditor = function(tree, fc, config){
+    fc = fc || {};
+    var field = fc.events ? fc : new Ext.form.TextField(fc);
+    Ext.tree.TreeEditor.superclass.constructor.call(this, field, config);
 
     this.tree = tree;
 

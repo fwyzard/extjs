@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -24,6 +24,21 @@ Ext.onReady(function(){
         selectOnFocus:true,
         applyTo: 'local-states'
     });
+    
+    //Simple arrays can be used directly as the store config.  1-dimensional arrays
+    //will automatically be expanded (each array item will be the combo value and text)
+    //and for multi-dimensional arrays, the value in index 0 of each item will be assumed
+    //to be the value, while the value at index 1 is assumed to be the text.  For example,
+    //[['AL', 'Alabama'],['AK', 'Alaska'], etc.]. Any other values beyond index 1 within
+    //each item will be ignored using this approach.
+	var comboFromArray = new Ext.form.ComboBox({
+	    store: Ext.exampledata.states,
+	    typeAhead: true,
+	    triggerAction: 'all',
+	    emptyText:'Select a state...',
+	    selectOnFocus:true,
+	    applyTo: 'array-states'
+	});
 
     var comboWithTooltip = new Ext.form.ComboBox({
         tpl: '<tpl for="."><div ext:qtip="{state}. {nick}" class="x-combo-list-item">{state}</div></tpl>',
@@ -66,6 +81,17 @@ Ext.onReady(function(){
     	collapsible: true,
     	collapsed: true,
     	renderTo: 'state-combo-qtip-code-panel'
+    });
+    new Ext.Panel({
+    	contentEl: 'array-combo-code',
+    	autoScroll: true,
+    	width: Ext.getBody().child('p').getWidth(),
+    	title: 'View code to create this combo',
+    	hideCollapseTool: true,
+    	titleCollapse: true,
+    	collapsible: true,
+    	collapsed: true,
+    	renderTo: 'array-combo-code-panel'
     });
     new Ext.Panel({
     	contentEl: 'transformed-combo-code',

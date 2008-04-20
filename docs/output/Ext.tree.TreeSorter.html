@@ -9,12 +9,22 @@
                 <h1>Class Ext.tree.TreeSorter</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.tree</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/tree/TreeSorter.js" target="_blank">TreeSorter.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">TreeSorter.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">TreeSorter</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
         <div class="description">
-            Provides sorting of nodes in a TreePanel        </div>
+            Provides sorting of nodes in a <a ext:cls="Ext.tree.TreePanel" href="output/Ext.tree.TreePanel.html">Ext.tree.TreePanel</a>.  The TreeSorter automatically monitors events on the 
+associated TreePanel that might affect the tree's sort order (beforechildrenrendered, append, insert and textchange).
+Example usage:<br />
+<pre><code>new Ext.tree.TreeSorter(myTree, {
+    folderSort: true,
+    dir: <em>"desc"</em>,
+    sortType: <b>function</b>(node) {
+        <i>// sort by a custom, typed attribute:</i>
+        <b>return</b> parseInt(node.id, 10);
+    }
+});</code></pre>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.tree.TreeSorter-configs"></a>
@@ -29,7 +39,7 @@
         <td class="sig">
         <a id="Ext.tree.TreeSorter-caseSensitive"></a>
             <b>caseSensitive</b> : Boolean            <div class="mdesc">
-                            true for case sensitive sort (defaults to false)                        </div>
+                            true for case-sensitive sort (defaults to false)                        </div>
         </td>
         <td class="msource">TreeSorter</td>
     </tr>
@@ -38,7 +48,7 @@
         <td class="sig">
         <a id="Ext.tree.TreeSorter-dir"></a>
             <b>dir</b> : String            <div class="mdesc">
-                            The direction to sort (asc or desc) (defaults to asc)                        </div>
+                            The direction to sort ("asc" or "desc," case-insensitive, defaults to "asc")                        </div>
         </td>
         <td class="msource">TreeSorter</td>
     </tr>
@@ -47,7 +57,7 @@
         <td class="sig">
         <a id="Ext.tree.TreeSorter-folderSort"></a>
             <b>folderSort</b> : Boolean            <div class="mdesc">
-                            True to sort leaf nodes under non leaf nodes                        </div>
+                            True to sort leaf nodes under non-leaf nodes (defaults to false)                        </div>
         </td>
         <td class="msource">TreeSorter</td>
     </tr>
@@ -56,25 +66,31 @@
         <td class="sig">
         <a id="Ext.tree.TreeSorter-leafAttr"></a>
             <b>leafAttr</b> : String            <div class="mdesc">
-                            The attribute used to determine leaf nodes in folder sort (defaults to "leaf")                        </div>
+                            The attribute used to determine leaf nodes when <a ext:cls="Ext.tree.TreeSorter" ext:member="folderSort" href="output/Ext.tree.TreeSorter.html#folderSort">folderSort</a> = true (defaults to "leaf")                        </div>
         </td>
         <td class="msource">TreeSorter</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeSorter-property"></a>
             <b>property</b> : String            <div class="mdesc">
-                            The named attribute on the node to sort by (defaults to text)                        </div>
+                        <div class="short">The named attribute on the node to sort by (defaults to "text"). Note that this property is only used if no sortType ...</div>
+            <div class="long">
+                The named attribute on the node to sort by (defaults to "text"). Note that this property is only used if no <a ext:cls="Ext.tree.TreeSorter" ext:member="sortType" href="output/Ext.tree.TreeSorter.html#sortType">sortType</a> function is specified, otherwise it is ignored.            </div>
+                        </div>
         </td>
         <td class="msource">TreeSorter</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeSorter-sortType"></a>
             <b>sortType</b> : Function            <div class="mdesc">
-                            A custom "casting" function used to convert node values before sorting                        </div>
+                        <div class="short">A custom "casting" function used to convert node values before sorting. The function will be called with a single par...</div>
+            <div class="long">
+                A custom "casting" function used to convert node values before sorting. The function will be called with a single parameter (the <a ext:cls="Ext.tree.TreeNode" href="output/Ext.tree.TreeNode.html">Ext.tree.TreeNode</a> being evaluated) and is expected to return the node's sort value cast to the specific data type required for sorting. This could be used, for example, when a node's text (or other attribute) should be sorted as a date or numeric value. See the class description for example usage. Note that if a sortType is specified, any <a ext:cls="Ext.tree.TreeSorter" ext:member="property" href="output/Ext.tree.TreeSorter.html#property">property</a> config will be ignored.            </div>
+                        </div>
         </td>
         <td class="msource">TreeSorter</td>
     </tr>

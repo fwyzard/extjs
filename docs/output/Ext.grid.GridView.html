@@ -12,7 +12,7 @@
                 <h1>Class Ext.grid.GridView</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.grid</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/grid/GridView.js" target="_blank">GridView.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">GridView.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">GridView</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.grid.GroupingView" href="output/Ext.grid.GroupingView.html">GroupingView</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
@@ -44,13 +44,22 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.grid.GridView-deferEmptyText"></a>
+            <b>deferEmptyText</b> : Boolean            <div class="mdesc">
+                            True to defer emptyText being applied until the store's first load                        </div>
+        </td>
+        <td class="msource">GridView</td>
+    </tr>
+        <tr class="config-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.grid.GridView-emptyText"></a>
             <b>emptyText</b> : String            <div class="mdesc">
                             Default text to display in the grid body when no rows are available (defaults to '').                        </div>
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-enableRowBody"></a>
@@ -62,7 +71,7 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-forceFit"></a>
@@ -71,7 +80,7 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-listeners"></a>
@@ -105,8 +114,7 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         <td class="sig">
         <a id="Ext.grid.GridView-scrollOffset"></a>
             <b>scrollOffset</b> : Number            <div class="mdesc">
-                            
-The amount of space to reserve for the scrollbar (defaults to 19 pixels)                        </div>
+                            The amount of space to reserve for the scrollbar (defaults to 19 pixels)                        </div>
         </td>
         <td class="msource">GridView</td>
     </tr>
@@ -488,6 +496,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.grid.GridView-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.grid.GridView-removeListener"></a>
             <b>removeListener</b>(&nbsp;<code>String eventName</code>, <code>Function handler</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Removes a listener</div>
@@ -505,7 +533,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-resumeEvents"></a>
@@ -525,7 +553,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-scrollToTop"></a>
@@ -545,7 +573,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-suspendEvents"></a>
@@ -565,7 +593,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-un"></a>

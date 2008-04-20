@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -299,18 +299,23 @@ Ext.lib.Ajax = function(){
                 onFailure: createFailure(cb)
             };
             if(options){
-                if(options.headers){
-                    o.requestHeaders =	options.headers;
+                var hs = options.headers;
+                if(hs){
+                    o.requestHeaders = hs;
                 }
                 if(options.xmlData){
-                    method = 'POST';
-                    o.contentType = 'text/xml';
+                    method = (method ? method : (options.method ? options.method : 'POST'));
+                    if (!hs || !hs['Content-Type']){
+                        o.contentType = 'text/xml';
+                    }
                     o.postBody = options.xmlData;
                     delete o.parameters;
                 }
                 if(options.jsonData){
-                    method = 'POST';
-                    o.contentType = 'text/javascript';
+                    method = (method ? method : (options.method ? options.method : 'POST'));
+                    if (!hs || !hs['Content-Type']){
+                        o.contentType = 'application/json';
+                    }
                     o.postBody = typeof options.jsonData == 'object' ? Ext.encode(options.jsonData) : options.jsonData;
                     delete o.parameters;
                 }

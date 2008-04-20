@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -506,6 +506,7 @@ Ext.DomQuery = function(){
          * @param {String} selector The selector/xpath query
          * @param {Node} root (optional) The start of the query (defaults to document).
          * @param {String} defaultValue
+         * @return {String}
          */
         selectValue : function(path, root, defaultValue){
             path = path.replace(trimRe, "");
@@ -519,7 +520,7 @@ Ext.DomQuery = function(){
         },
 
         /**
-         * Selects the value of a node, parsing integers and floats.
+         * Selects the value of a node, parsing integers and floats. Returns the defaultValue, or 0 if none is specified.
          * @param {String} selector The selector/xpath query
          * @param {Node} root (optional) The start of the query (defaults to document).
          * @param {Number} defaultValue

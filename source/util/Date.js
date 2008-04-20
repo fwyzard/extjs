@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -49,7 +49,8 @@ Format  Description                                                             
   P     Difference to Greenwich time (GMT) with colon between hours and minutes   Example: -08:00
   T     Timezone abbreviation of the machine running the code                     Examples: EST, MDT, PDT ...
   Z     Timezone offset in seconds (negative if west of UTC, positive if east)    -43200 to 50400
-  c     ISO 8601 date                                                             2007-04-17T15:19:21+08:00
+  c     ISO 8601 date                                                             2007-04-17T15:19:21+08:00 or
+                                                                                  2007-04-17T15:19:21Z
   U     Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)                1193432466 or -2138434463
 </pre>
  *
@@ -144,88 +145,94 @@ Date.createNewFormat = function(format) {
             code += "'" + String.escape(ch) + "' + ";
         }
         else {
-            code += Date.getFormatCode(ch);
+            code += Date.getFormatCode(ch) + " + ";
         }
     }
     eval(code.substring(0, code.length - 3) + ";}");
 };
 
+/**
+ * The base format-code to formatting-function hashmap used by the {@link #format} method.
+ * Formatting functions are strings (or functions which return strings) which
+ * will return the appropriate value when evaluated in the context of the Date object
+ * from which the {@link #format} method is called.
+ * Add to / override these mappings for custom date formatting.
+ * Note: Date.format() treats characters as literals if an appropriate mapping cannot be found.
+ * Example:
+<pre><code>
+Date.formatCodes.x = "String.leftPad(this.getDate(), 2, '0')";
+(new Date()).format("X"); // returns the current day of the month
+</code></pre>
+ * @type Object
+ * @static
+ */
+Date.formatCodes = {
+    d: "String.leftPad(this.getDate(), 2, '0')",
+    D: "Date.getShortDayName(this.getDay())", // get localised short day name
+    j: "this.getDate()",
+    l: "Date.dayNames[this.getDay()]",
+    N: "(this.getDay() ? this.getDay() : 7)",
+    S: "this.getSuffix()",
+    w: "this.getDay()",
+    z: "this.getDayOfYear()",
+    W: "String.leftPad(this.getWeekOfYear(), 2, '0')",
+    F: "Date.monthNames[this.getMonth()]",
+    m: "String.leftPad(this.getMonth() + 1, 2, '0')",
+    M: "Date.getShortMonthName(this.getMonth())", // get localised short month name
+    n: "(this.getMonth() + 1)",
+    t: "this.getDaysInMonth()",
+    L: "(this.isLeapYear() ? 1 : 0)",
+    o: "(this.getFullYear() + (this.getWeekOfYear() == 1 && this.getMonth() > 0 ? +1 : (this.getWeekOfYear() >= 52 && this.getMonth() < 11 ? -1 : 0)))",
+    Y: "this.getFullYear()",
+    y: "('' + this.getFullYear()).substring(2, 4)",
+    a: "(this.getHours() < 12 ? 'am' : 'pm')",
+    A: "(this.getHours() < 12 ? 'AM' : 'PM')",
+    g: "((this.getHours() % 12) ? this.getHours() % 12 : 12)",
+    G: "this.getHours()",
+    h: "String.leftPad((this.getHours() % 12) ? this.getHours() % 12 : 12, 2, '0')",
+    H: "String.leftPad(this.getHours(), 2, '0')",
+    i: "String.leftPad(this.getMinutes(), 2, '0')",
+    s: "String.leftPad(this.getSeconds(), 2, '0')",
+    u: "String.leftPad(this.getMilliseconds(), 3, '0')",
+    O: "this.getGMTOffset()",
+    P: "this.getGMTOffset(true)",
+    T: "this.getTimezone()",
+    Z: "(this.getTimezoneOffset() * -60)",
+    c: function() { // ISO-8601 -- GMT format
+        for (var c = "Y-m-dTH:i:sP", code = [], i = 0, l = c.length; i < l; ++i) {
+            var e = c.charAt(i);
+            code.push(e == "T" ? "'T'" : Date.getFormatCode(e)); // treat T as a character literal
+        }
+        return code.join(" + ");
+    },
+    /*
+    c: function() { // ISO-8601 -- UTC format
+        return [
+          "this.getUTCFullYear()", "'-'",
+          "String.leftPad(this.getUTCMonth() + 1, 2, '0')", "'-'", 
+          "String.leftPad(this.getUTCDate(), 2, '0')",
+          "'T'",
+          "String.leftPad(this.getUTCHours(), 2, '0')", "':'",
+          "String.leftPad(this.getUTCMinutes(), 2, '0')", "':'",
+          "String.leftPad(this.getUTCSeconds(), 2, '0')",
+          "'Z'"
+        ].join(" + ");
+    },
+    */
+    U: "Math.round(this.getTime() / 1000)"
+}
+
 // private
 Date.getFormatCode = function(character) {
-    switch (character) {
-    case "d":
-        return "String.leftPad(this.getDate(), 2, '0') + ";
-    case "D":
-        return "Date.getShortDayName(this.getDay()) + "; // get L10n short day name
-    case "j":
-        return "this.getDate() + ";
-    case "l":
-        return "Date.dayNames[this.getDay()] + ";
-    case "N":
-        return "(this.getDay() ? this.getDay() : 7) + ";
-    case "S":
-        return "this.getSuffix() + ";
-    case "w":
-        return "this.getDay() + ";
-    case "z":
-        return "this.getDayOfYear() + ";
-    case "W":
-        return "String.leftPad(this.getWeekOfYear(), 2, '0') + ";
-    case "F":
-        return "Date.monthNames[this.getMonth()] + ";
-    case "m":
-        return "String.leftPad(this.getMonth() + 1, 2, '0') + ";
-    case "M":
-        return "Date.getShortMonthName(this.getMonth()) + "; // get L10n short month name
-    case "n":
-        return "(this.getMonth() + 1) + ";
-    case "t":
-        return "this.getDaysInMonth() + ";
-    case "L":
-        return "(this.isLeapYear() ? 1 : 0) + ";
-    case "o":
-        return "(this.getFullYear() + (this.getWeekOfYear() == 1 && this.getMonth() > 0 ? +1 : (this.getWeekOfYear() >= 52 && this.getMonth() < 11 ? -1 : 0))) + ";
-    case "Y":
-        return "this.getFullYear() + ";
-    case "y":
-        return "('' + this.getFullYear()).substring(2, 4) + ";
-    case "a":
-        return "(this.getHours() < 12 ? 'am' : 'pm') + ";
-    case "A":
-        return "(this.getHours() < 12 ? 'AM' : 'PM') + ";
-    case "g":
-        return "((this.getHours() % 12) ? this.getHours() % 12 : 12) + ";
-    case "G":
-        return "this.getHours() + ";
-    case "h":
-        return "String.leftPad((this.getHours() % 12) ? this.getHours() % 12 : 12, 2, '0') + ";
-    case "H":
-        return "String.leftPad(this.getHours(), 2, '0') + ";
-    case "i":
-        return "String.leftPad(this.getMinutes(), 2, '0') + ";
-    case "s":
-        return "String.leftPad(this.getSeconds(), 2, '0') + ";
-    case "u":
-        return "String.leftPad(this.getMilliseconds(), 3, '0') + ";
-    case "O":
-        return "this.getGMTOffset() + ";
-    case "P":
-        return "this.getGMTOffset(true) + ";
-    case "T":
-        return "this.getTimezone() + ";
-    case "Z":
-        return "(this.getTimezoneOffset() * -60) + ";
-    case "c":
-        for (var df = Date.getFormatCode, c = "Y-m-dTH:i:sP", code = "", i = 0, l = c.length; i < l; ++i) {
-          var e = c.charAt(i);
-          code += e == "T" ? "'T' + " : df(e); // treat T as a literal
-        }
-        return code;
-    case "U":
-        return "Math.round(this.getTime() / 1000) + ";
-    default:
-        return "'" + String.escape(character) + "' + ";
+    var f = Date.formatCodes[character];
+    
+    if (f) {
+      f = Ext.type(f) == 'function'? f() : f;
+      Date.formatCodes[character] = f; // reassign function result to prevent repeated execution
     }
+
+    // note: unknown characters are treated as literals
+    return f || ("'" + String.escape(character) + "'");
 };
 
 /**
@@ -235,7 +242,7 @@ Date.getFormatCode = function(character) {
  * be specified, but default to 0.  Keep in mind that the input date string must precisely match the specified format
  * string or the parse operation will fail.
  * Example Usage:
-<pre><code>
+ *<pre><code>
 //dt = Fri May 25 2007 (current date)
 var dt = new Date();
 
@@ -299,194 +306,254 @@ Date.createParser = function(format) {
         }
     }
 
-    code += "if (u)\n"
-        + "{v = new Date(u * 1000);}" // give top priority to UNIX time
-        + "else if (y >= 0 && m >= 0 && d > 0 && h >= 0 && i >= 0 && s >= 0 && ms >= 0)\n"
-        + "{v = new Date(y, m, d, h, i, s, ms);}\n"
-        + "else if (y >= 0 && m >= 0 && d > 0 && h >= 0 && i >= 0 && s >= 0)\n"
-        + "{v = new Date(y, m, d, h, i, s);}\n"
-        + "else if (y >= 0 && m >= 0 && d > 0 && h >= 0 && i >= 0)\n"
-        + "{v = new Date(y, m, d, h, i);}\n"
-        + "else if (y >= 0 && m >= 0 && d > 0 && h >= 0)\n"
-        + "{v = new Date(y, m, d, h);}\n"
-        + "else if (y >= 0 && m >= 0 && d > 0)\n"
-        + "{v = new Date(y, m, d);}\n"
-        + "else if (y >= 0 && m >= 0)\n"
-        + "{v = new Date(y, m);}\n"
-        + "else if (y >= 0)\n"
-        + "{v = new Date(y);}\n"
-        + "}return (v && (z || o))?\n" // favour UTC offset over GMT offset
-        + "    (z ? v.add(Date.SECOND, (v.getTimezoneOffset() * 60) + (z*1)) :\n" // reset to UTC, then add offset
-        + "        v.add(Date.HOUR, (v.getGMTOffset() / 100) + (o / -100))) : v\n" // reset to GMT, then add offset
-        + ";}";
+    code += "if (u){\n"
+        + "v = new Date(u * 1000);\n" // give top priority to UNIX time
+        + "}else if (y >= 0 && m >= 0 && d > 0 && h >= 0 && i >= 0 && s >= 0 && ms >= 0){\n"
+        + "v = new Date(y, m, d, h, i, s, ms);\n"
+        + "}else if (y >= 0 && m >= 0 && d > 0 && h >= 0 && i >= 0 && s >= 0){\n"
+        + "v = new Date(y, m, d, h, i, s);\n"
+        + "}else if (y >= 0 && m >= 0 && d > 0 && h >= 0 && i >= 0){\n"
+        + "v = new Date(y, m, d, h, i);\n"
+        + "}else if (y >= 0 && m >= 0 && d > 0 && h >= 0){\n"
+        + "v = new Date(y, m, d, h);\n"
+        + "}else if (y >= 0 && m >= 0 && d > 0){\n"
+        + "v = new Date(y, m, d);\n"
+        + "}else if (y >= 0 && m >= 0){\n"
+        + "v = new Date(y, m);\n"
+        + "}else if (y >= 0){\n"
+        + "v = new Date(y);\n"
+        + "}\n}\nreturn (v && Ext.type(z || o) == 'number')?" // favour UTC offset over GMT offset
+        +     " (Ext.type(z) == 'number' ? v.add(Date.SECOND, (v.getTimezoneOffset() * 60) + z) :" // reset to UTC, then add offset
+        +         " v.add(Date.HOUR, (v.getGMTOffset() / 100) + (o / -100))) : v;\n" // reset to GMT, then add offset
+        + "}";
 
     Date.parseRegexes[regexNum] = new RegExp("^" + regex + "$", "i");
     eval(code);
 };
 
 // private
-Date.formatCodeToRegex = function(character, currentGroup) {
+Date.parseCodes = {
     /*
-     * currentGroup = position in regex result array
-     * g = calculation group (0 or 1. only group 1 contributes to date calculations.)
-     * c = calculation method (required for group 1. null for group 0.)
-     * s = regex string
+     * Notes:
+     * g = {Number} calculation group (0 or 1. only group 1 contributes to date calculations.)
+     * c = {String} calculation method (required for group 1. null for group 0. {0} = currentGroup - position in regex result array)
+     * s = {String} regex pattern. all matches are stored in results[], and are accessible by the calculation mapped to 'c'
      */
-    switch (character) {
-    case "d":
-        return {g:1,
-            c:"d = parseInt(results[" + currentGroup + "], 10);\n",
-            s:"(\\d{2})"}; // day of month with leading zeroes (01 - 31)
-    case "D":
-        for (var a = [], i = 0; i < 7; a.push(Date.getShortDayName(i)), ++i); // get L10n short day names
-        return {g:0,
+    d: {
+        g:1,
+        c:"d = parseInt(results[{0}], 10);\n",
+        s:"(\\d{2})" // day of month with leading zeroes (01 - 31)
+    },
+    j: function() {
+        return Ext.applyIf({
+            s:"(\\d{1,2})" // day of month without leading zeroes (1 - 31)
+        }, Date.parseCodes["d"]);
+    },
+    D: function() {
+        for (var a = [], i = 0; i < 7; a.push(Date.getShortDayName(i)), ++i); // get localised short day names
+        return {
+            g:0,
             c:null,
-            s:"(?:" + a.join("|") +")"};
-    case "j":
-        return {g:1,
-            c:"d = parseInt(results[" + currentGroup + "], 10);\n",
-            s:"(\\d{1,2})"}; // day of month without leading zeroes (1 - 31)
-    case "l":
-        return {g:0,
-            c:null,
-            s:"(?:" + Date.dayNames.join("|") + ")"};
-    case "N":
-        return {g:0,
-            c:null,
-            s:"[1-7]"}; // ISO-8601 day number (1 (monday) - 7 (sunday))
-    case "S":
-        return {g:0,
-            c:null,
-            s:"(?:st|nd|rd|th)"};
-    case "w":
-        return {g:0,
-            c:null,
-            s:"[0-6]"}; // javascript day number (0 (sunday) - 6 (saturday))
-    case "z":
-        return {g:0,
-            c:null,
-            s:"(?:\\d{1,3}"}; // day of the year (0 - 364 (365 in leap years))
-    case "W":
-        return {g:0,
-            c:null,
-            s:"(?:\\d{2})"}; // ISO-8601 week number (with leading zero)
-    case "F":
-        return {g:1,
-            c:"m = parseInt(Date.getMonthNumber(results[" + currentGroup + "]), 10);\n", // get L10n month number
-            s:"(" + Date.monthNames.join("|") + ")"};
-    case "m":
-        return {g:1,
-            c:"m = parseInt(results[" + currentGroup + "], 10) - 1;\n",
-            s:"(\\d{2})"}; // month number with leading zeros (01 - 12)
-    case "M":
-        for (var a = [], i = 0; i < 12; a.push(Date.getShortMonthName(i)), ++i); // get L10n short month names
-        return {g:1,
-            c:"m = parseInt(Date.getMonthNumber(results[" + currentGroup + "]), 10);\n", // get L10n month number
-            s:"(" + a.join("|") + ")"};
-    case "n":
-        return {g:1,
-            c:"m = parseInt(results[" + currentGroup + "], 10) - 1;\n",
-            s:"(\\d{1,2})"}; // month number without leading zeros (1 - 12)
-    case "t":
-        return {g:0,
-            c:null,
-            s:"(?:\\d{2})"}; // no. of days in the month (28 - 31)
-    case "L":
-        return {g:0,
-            c:null,
-            s:"(?:1|0)"};
-    case "o":
-    case "Y":
-        return {g:1,
-            c:"y = parseInt(results[" + currentGroup + "], 10);\n",
-            s:"(\\d{4})"}; // 4-digit year
-    case "y":
-        return {g:1,
-            c:"var ty = parseInt(results[" + currentGroup + "], 10);\n"
-                + "y = ty > Date.y2kYear ? 1900 + ty : 2000 + ty;\n",
-            s:"(\\d{1,2})"}; // 2-digit year
-    case "a":
-        return {g:1,
-            c:"if (results[" + currentGroup + "] == 'am') {\n"
-                + "if (h == 12) { h = 0; }\n"
-                + "} else { if (h < 12) { h += 12; }}",
-            s:"(am|pm)"};
-    case "A":
-        return {g:1,
-            c:"if (results[" + currentGroup + "] == 'AM') {\n"
-                + "if (h == 12) { h = 0; }\n"
-                + "} else { if (h < 12) { h += 12; }}",
-            s:"(AM|PM)"};
-    case "g":
-    case "G":
-        return {g:1,
-            c:"h = parseInt(results[" + currentGroup + "], 10);\n",
-            s:"(\\d{1,2})"}; // 24-hr format of an hour without leading zeroes (0 - 23)
-    case "h":
-    case "H":
-        return {g:1,
-            c:"h = parseInt(results[" + currentGroup + "], 10);\n",
-            s:"(\\d{2})"}; //  24-hr format of an hour with leading zeroes (00 - 23)
-    case "i":
-        return {g:1,
-            c:"i = parseInt(results[" + currentGroup + "], 10);\n",
-            s:"(\\d{2})"}; // minutes with leading zeros (00 - 59)
-    case "s":
-        return {g:1,
-            c:"s = parseInt(results[" + currentGroup + "], 10);\n",
-            s:"(\\d{2})"}; // seconds with leading zeros (00 - 59)
-    case "u":
-        return {g:1,
-            c:"ms = parseInt(results[" + currentGroup + "], 10);\n",
-            s:"(\\d{3})"}; // milliseconds with leading zeros (000 - 999)
-    case "O":
-        return {g:1,
-            c:[
-                "o = results[", currentGroup, "];\n",
-                "var sn = o.substring(0,1);\n", // get + / - sign
-                "var hr = o.substring(1,3)*1 + Math.floor(o.substring(3,5) / 60);\n", // get hours (performs minutes-to-hour conversion also, just in case)
-                "var mn = o.substring(3,5) % 60;\n", // get minutes
-                "o = ((-12 <= (hr*60 + mn)/60) && ((hr*60 + mn)/60 <= 14))?\n", // -12hrs <= GMT offset <= 14hrs
-                "    (sn + String.leftPad(hr, 2, '0') + String.leftPad(mn, 2, '0')) : null;\n"
-            ].join(""),
-            s: "([+\-]\\d{4})"}; // GMT offset in hrs and mins
-    case "P":
-        return {g:1,
-            c:[
-                "o = results[", currentGroup, "];\n",
-                "var sn = o.substring(0,1);\n", // get + / - sign
-                "var hr = o.substring(1,3)*1 + Math.floor(o.substring(4,6) / 60);\n", // get hours (performs minutes-to-hour conversion also, just in case)
-                "var mn = o.substring(4,6) % 60;\n", // get minutes
-                "o = ((-12 <= (hr*60 + mn)/60) && ((hr*60 + mn)/60 <= 14))?\n", // -12hrs <= GMT offset <= 14hrs
-                "    (sn + String.leftPad(hr, 2, '0') + String.leftPad(mn, 2, '0')) : null;\n"
-            ].join(""),
-            s: "([+\-]\\d{2}:\\d{2})"}; // GMT offset in hrs and mins (with colon separator)
-    case "T":
-        return {g:0,
-            c:null,
-            s:"[A-Z]{1,4}"}; // timezone abbrev. may be between 1 - 4 chars
-    case "Z":
-        return {g:1,
-            c:"z = results[" + currentGroup + "] * 1;\n" // -43200 <= UTC offset <= 50400
-                  + "z = (-43200 <= z && z <= 50400)? z : null;\n",
-            s:"([+\-]?\\d{1,5})"}; // leading '+' sign is optional for UTC offset
-    case "c":
-        var df = Date.formatCodeToRegex, calc = [];
-        var arr = [df("Y", 1), df("m", 2), df("d", 3), df("h", 4), df("i", 5), df("s", 6), df("P", 7)];
-        for (var i = 0, l = arr.length; i < l; ++i) {
-          calc.push(arr[i].c);
+            s:"(?:" + a.join("|") +")"
         }
-        return {g:1,
-            c:calc.join(""),
-            s:arr[0].s + "-" + arr[1].s + "-" + arr[2].s + "T" + arr[3].s + ":" + arr[4].s + ":" + arr[5].s + arr[6].s};
-    case "U":
-        return {g:1,
-            c:"u = parseInt(results[" + currentGroup + "], 10);\n",
-            s:"(-?\\d+)"}; // leading minus sign indicates seconds before UNIX epoch
-    default:
-        return {g:0,
+    },
+    l: function() {
+        return {
+            g:0,
             c:null,
-            s:Ext.escapeRe(character)};
+            s:"(?:" + Date.dayNames.join("|") + ")"
+        }
+    },
+    N: {
+        g:0,
+        c:null,
+        s:"[1-7]" // ISO-8601 day number (1 (monday) - 7 (sunday))
+    },
+    S: {
+        g:0,
+        c:null,
+        s:"(?:st|nd|rd|th)"
+    },
+    w: {
+        g:0,
+        c:null,
+        s:"[0-6]" // javascript day number (0 (sunday) - 6 (saturday))
+    },
+    z: {
+        g:0,
+        c:null,
+        s:"(?:\\d{1,3}" // day of the year (0 - 364 (365 in leap years))
+    },
+    W: {
+        g:0,
+        c:null,
+        s:"(?:\\d{2})" // ISO-8601 week number (with leading zero)
+    },
+    F: function() {
+        return {
+            g:1,
+            c:"m = parseInt(Date.getMonthNumber(results[{0}]), 10);\n", // get localised month number
+            s:"(" + Date.monthNames.join("|") + ")"
+        }
+    },
+    M: function() {
+        for (var a = [], i = 0; i < 12; a.push(Date.getShortMonthName(i)), ++i); // get localised short month names
+        return Ext.applyIf({
+            s:"(" + a.join("|") + ")"
+        }, Date.parseCodes["F"]);
+    },
+    m: {
+        g:1,
+        c:"m = parseInt(results[{0}], 10) - 1;\n",
+        s:"(\\d{2})" // month number with leading zeros (01 - 12)
+    },
+    n: function() {
+        return Ext.applyIf({
+            s:"(\\d{1,2})" // month number without leading zeros (1 - 12)
+        }, Date.parseCodes["m"]);
+    },
+    t: {
+        g:0,
+        c:null,
+        s:"(?:\\d{2})" // no. of days in the month (28 - 31)
+    },
+    L: {
+        g:0,
+        c:null,
+        s:"(?:1|0)"
+    },
+    o: function() {
+        return Date.parseCodes["Y"];
+    },
+    Y: {
+        g:1,
+        c:"y = parseInt(results[{0}], 10);\n",
+        s:"(\\d{4})" // 4-digit year
+    },
+    y: {
+        g:1,
+        c:"var ty = parseInt(results[{0}], 10);\n"
+            + "y = ty > Date.y2kYear ? 1900 + ty : 2000 + ty;\n", // 2-digit year
+        s:"(\\d{1,2})"
+    },
+    a: {
+        g:1,
+        c:"if (results[{0}] == 'am') {\n"
+            + "if (h == 12) { h = 0; }\n"
+            + "} else { if (h < 12) { h += 12; }}",
+        s:"(am|pm)"
+    },
+    A: {
+        g:1,
+        c:"if (results[{0}] == 'AM') {\n"
+            + "if (h == 12) { h = 0; }\n"
+            + "} else { if (h < 12) { h += 12; }}",
+        s:"(AM|PM)"
+    },
+    g: function() {
+        return Date.parseCodes["G"];
+    },
+    G: {
+        g:1,
+        c:"h = parseInt(results[{0}], 10);\n",
+        s:"(\\d{1,2})" // 24-hr format of an hour without leading zeroes (0 - 23)
+    },
+    h: function() {
+        return Date.parseCodes["H"];
+    },
+    H: {
+        g:1,
+        c:"h = parseInt(results[{0}], 10);\n",
+        s:"(\\d{2})" //  24-hr format of an hour with leading zeroes (00 - 23)
+    },
+    i: {
+        g:1,
+        c:"i = parseInt(results[{0}], 10);\n",
+        s:"(\\d{2})" // minutes with leading zeros (00 - 59)
+    },
+    s: {
+        g:1,
+        c:"s = parseInt(results[{0}], 10);\n",
+        s:"(\\d{2})" // seconds with leading zeros (00 - 59)
+    },
+    u: {
+        g:1,
+        c:"ms = parseInt(results[{0}], 10);\n",
+        s:"(\\d{3})" // milliseconds with leading zeros (000 - 999)
+    },
+    O: {
+        g:1,
+        c:[
+            "o = results[{0}];",
+            "var sn = o.substring(0,1);", // get + / - sign
+            "var hr = o.substring(1,3)*1 + Math.floor(o.substring(3,5) / 60);", // get hours (performs minutes-to-hour conversion also, just in case)
+            "var mn = o.substring(3,5) % 60;", // get minutes
+            "o = ((-12 <= (hr*60 + mn)/60) && ((hr*60 + mn)/60 <= 14))? (sn + String.leftPad(hr, 2, '0') + String.leftPad(mn, 2, '0')) : null;\n" // -12hrs <= GMT offset <= 14hrs
+        ].join("\n"),
+        s: "([+\-]\\d{4})" // GMT offset in hrs and mins
+    },
+    P: function() {
+      return Ext.applyIf({
+        s: "([+\-]\\d{2}:\\d{2})" // GMT offset in hrs and mins (with colon separator)
+      }, Date.parseCodes["O"]);
+    },
+    T: {
+        g:0,
+        c:null,
+        s:"[A-Z]{1,4}" // timezone abbrev. may be between 1 - 4 chars
+    },
+    Z: {
+        g:1,
+        c:"z = results[{0}] * 1;\n" // -43200 <= UTC offset <= 50400
+              + "z = (-43200 <= z && z <= 50400)? z : null;\n",
+        s:"([+\-]?\\d{1,5})" // leading '+' sign is optional for UTC offset
+    },
+    c: function() {
+        var df = Date.formatCodeToRegex, calc = [];
+        var arr = [
+            df("Y", 1),
+            df("m", 2),
+            df("d", 3),
+            df("h", 4),
+            df("i", 5),
+            df("s", 6),
+            {c:"if(results[7] == 'Z'){\no = 0;\n}else{\n" + df("P", 7).c + "\n}"} // allow both "Z" (i.e. UTC) and "+08:00" (i.e. GMT) time zone delimiters
+        ];
+        for (var i = 0, l = arr.length; i < l; ++i) {
+            calc.push(arr[i].c);
+        }
+
+        return {
+            g:1,
+            c:calc.join(""),
+            s:arr[0].s + "-" + arr[1].s + "-" + arr[2].s + "T" + arr[3].s + ":" + arr[4].s + ":" + arr[5].s + "(" + df("P", 7).s + "|Z)"
+        }
+    },
+    U: {
+        g:1,
+        c:"u = parseInt(results[{0}], 10);\n",
+        s:"(-?\\d+)" // leading minus sign indicates seconds before UNIX epoch
+    }
+}
+
+// private
+Date.formatCodeToRegex = function(character, currentGroup) {
+    // Note: currentGroup - position in regex result array (see notes for Date.parseCodes above)
+    var p = Date.parseCodes[character];
+
+    if (p) {
+      p = Ext.type(p) == 'function'? p() : p;
+      Date.parseCodes[character] = p; // reassign function result to prevent repeated execution
+      
+      if (p.c) {
+        p.c = String.format(p.c, currentGroup);
+      }
+    }
+
+    return p || {
+        g:0,
+        c:null,
+        s:Ext.escapeRe(character) // treat unrecognised characters as literals
     }
 };
 
@@ -649,13 +716,20 @@ Date.daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
 
 /**
  * An array of textual month names.
- * Override these values for international dates, for example...
- * Date.monthNames = ['JanInYourLang', 'FebInYourLang', ...];
+ * Override these values for international dates.
+ * Example:
+ *<pre><code>
+Date.monthNames = [
+  'JanInYourLang',
+  'FebInYourLang',
+  ...
+];
+</code></pre>
  * @type Array
  * @static
  */
-Date.monthNames =
-   ["January",
+Date.monthNames = [
+    "January",
     "February",
     "March",
     "April",
@@ -666,7 +740,8 @@ Date.monthNames =
     "September",
     "October",
     "November",
-    "December"];
+    "December"
+];
 
 /**
  * Get the short month name for the given month number.
@@ -681,19 +756,27 @@ Date.getShortMonthName = function(month) {
 
 /**
  * An array of textual day names.
- * Override these values for international dates, for example...
- * Date.dayNames = ['SundayInYourLang', 'MondayInYourLang', ...];
+ * Override these values for international dates.
+ * Example:
+ *<pre><code>
+Date.dayNames = [
+  'SundayInYourLang',
+  'MondayInYourLang',
+  ...
+];
+</code></pre>
  * @type Array
  * @static
  */
-Date.dayNames =
-   ["Sunday",
+Date.dayNames = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"];
+    "Saturday"
+];
 
 /**
  * Get the short day name for the given day number.
@@ -711,8 +794,15 @@ Date.y2kYear = 50;
 
 /**
  * An object hash of zero-based javascript month numbers (with short month names as keys. note: keys are case-sensitive).
- * Override these values for international dates, for example...
- * Date.monthNumbers = {'ShortJanNameInYourLang':0, 'ShortFebNameInYourLang':1, ...};
+ * Override these values for international dates.
+ * Example:
+ *<pre><code>
+Date.monthNumbers = {
+  'ShortJanNameInYourLang':0,
+  'ShortFebNameInYourLang':1,
+  ...
+};
+</code></pre>
  * @type Object
  * @static
  */
@@ -728,7 +818,8 @@ Date.monthNumbers = {
     Sep:8,
     Oct:9,
     Nov:10,
-    Dec:11};
+    Dec:11
+};
 
 /**
  * Get the zero-based javascript month number for the given short/full month name.

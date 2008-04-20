@@ -8,7 +8,7 @@
                 <h1>Class Ext</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Global</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/core/Ext.js" target="_blank">Ext.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Ext.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Ext</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
@@ -233,10 +233,10 @@ Note: this only happens if enableGarbageCollector is true.            </div>
         <a id="Ext-useShims"></a>
             <b>useShims</b> : Boolean            <div class="mdesc">
                         <div class="short">By default, Ext intelligently decides whether floating elements should be shimmed. If you are using flash,
-     you ...</div>
+you may wa...</div>
             <div class="long">
                 By default, Ext intelligently decides whether floating elements should be shimmed. If you are using flash,
-     you may want to set this to true.            </div>
+you may want to set this to true.            </div>
                         </div>
         </td>
         <td class="msource">Ext</td>
@@ -328,15 +328,15 @@ Copies all the properties of config to obj.    <div class="mdetail-params">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext-decode"></a>
-            <b>decode</b>() : void            <div class="mdesc">
+            <b>decode</b>(&nbsp;<code>String json</code>&nbsp;) : Object            <div class="mdesc">
                         <div class="short">Shorthand for <a ext:cls="Ext.util.JSON" ext:member="decode" href="output/Ext.util.JSON.html#decode">Ext.util.JSON.decode</a></div>
             <div class="long">
                 Shorthand for <a ext:cls="Ext.util.JSON" ext:member="decode" href="output/Ext.util.JSON.html#decode">Ext.util.JSON.decode</a>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
+        <ul><li><code>json</code> : String<div class="sub-desc">The JSON string</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>void</code></li>
+            <li><code>Object</code><div class="sub-desc">The resulting object</div></li>
         </ul>
     </div>
                 </div>
@@ -396,15 +396,15 @@ The supplied function is called with (Object item, Number index, Array allItems)
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext-encode"></a>
-            <b>encode</b>() : void            <div class="mdesc">
+            <b>encode</b>(&nbsp;<code>Mixed o</code>&nbsp;) : String            <div class="mdesc">
                         <div class="short">Shorthand for <a ext:cls="Ext.util.JSON" ext:member="encode" href="output/Ext.util.JSON.html#encode">Ext.util.JSON.encode</a></div>
             <div class="long">
                 Shorthand for <a ext:cls="Ext.util.JSON" ext:member="encode" href="output/Ext.util.JSON.html#encode">Ext.util.JSON.encode</a>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
+        <ul><li><code>o</code> : Mixed<div class="sub-desc">The variable to encode</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>void</code></li>
+            <li><code>String</code><div class="sub-desc">The JSON string</div></li>
         </ul>
     </div>
                 </div>
@@ -442,13 +442,40 @@ also adds t...</div>
             <div class="long">
                 Extends one class with another class and optionally overrides members with the passed literal. This class
 also adds the function "override()" to the class that can be used to override
-members on an instance.    <div class="mdetail-params">
+members on an instance.
+<p>
+This function also supports a 2-argument call in which the subclass's constructor is
+not passed as an argument. In this form, the parameters are as follows:</p><p>
+<div class="mdetail-params"><ul>
+<li><code>superclass</code>
+<div class="sub-desc">The class being extended</div></li>
+<li><code>overrides</code>
+<div class="sub-desc">A literal with members which are copied into the subclass's
+prototype, and are therefore shared among all instances of the new class.<p>
+This may contain a special member named <tt><b>constructor</b></tt>. This is used
+to define the constructor of the new class, and is returned. If this property is
+<i>not</i> specified, a constructor is generated and returned which just calls the
+superclass's constructor passing on its parameters.</p></div></li>
+</ul></div></p><p>
+For example, to create a subclass of the Ext GridPanel:
+<pre><code>MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
+        constructor: <b>function</b>(config) {
+            <i>// Your preprocessing here</i>
+        	MyGridPanel.superclass.constructor.apply(<b>this</b>, arguments);
+            <i>// Your postprocessing here</i>
+        },
+
+        yourMethod: <b>function</b>() {
+            <i>// etc.</i>
+        }
+    });</code></pre>
+</p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>subclass</code> : Function<div class="sub-desc">The class inheriting the functionality</div></li><li><code>superclass</code> : Function<div class="sub-desc">The class being extended</div></li><li><code>overrides</code> : Object<div class="sub-desc">(optional) A literal with members which are copied into the subclass's
 prototype, and are therefore shared between all instances of the new class.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Function</code><div class="sub-desc">The subclass constructor. <p> This function also supports a 2 argument call in which the subclass's constructor is not passed as an argument. In this form, the parameters as as follows:</p><p> <div class="mdetail-params"><ul> <li><code>superclass</code> <div class="sub-desc">The class being extended</div></li> <li><code>overrides</code> <div class="sub-desc">A literal with members which are copied into the subclass's prototype, and are therefore shared between all instance of the new class.<p> This may contain a special member named <tt><b>constructor</b></tt>. This is used to define the constructor of the new class, and is returned. If this property is <i>not</i> specified, a constructor is generated and returned which just calls the superclass's constructor passing on its parameters.</p></div></li> </ul></div></p><p> For example, to create a subclass of the Ext GridPanel: <pre><code> MyGridPanel = Ext.extend(Ext.grid.GridPanel, { constructor: function(config) { // Your preprocessing here MyGridPanel.superclass.constructor.apply(this, arguments); // Your postprocessing here }, yourMethod: function() { // etc. } }); </code></pre> </p></div></li>
+            <li><code>Function</code><div class="sub-desc">The subclass constructor.</div></li>
         </ul>
     </div>
                 </div>
@@ -605,6 +632,46 @@ Shorthand of <a ext:cls="Ext.Element" ext:member="get" href="output/Ext.Element.
         <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext-isArray"></a>
+            <b>isArray</b>(&nbsp;<code>Object The</code>&nbsp;) : Boolean            <div class="mdesc">
+                        <div class="short">Returns true if the passed object is a JavaScript array, otherwise false.</div>
+            <div class="long">
+                Returns true if the passed object is a JavaScript array, otherwise false.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>The</code> : Object<div class="sub-desc">object to test</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Boolean</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Ext</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext-isDate"></a>
+            <b>isDate</b>(&nbsp;<code>Object The</code>&nbsp;) : Boolean            <div class="mdesc">
+                        <div class="short">Returns true if the passed object is a JavaScript date object, otherwise false.</div>
+            <div class="long">
+                Returns true if the passed object is a JavaScript date object, otherwise false.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>The</code> : Object<div class="sub-desc">object to test</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Boolean</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Ext</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext-isEmpty"></a>
             <b>isEmpty</b>(&nbsp;<code>Mixed value</code>, <span class="optional" title="Optional">[<code>Boolean allowBlank</code>]</span>&nbsp;) : Boolean            <div class="mdesc">
                         <div class="short">Returns true if the passed value is null, undefined or an empty string (optional).</div>
@@ -730,6 +797,47 @@ containing one or more methods.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Array</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Ext</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext-reg"></a>
+            <b>reg</b>(&nbsp;<code>String xtype</code>, <code>Constructor cls</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Shorthand for <a ext:cls="Ext.ComponentMgr" ext:member="registerType" href="output/Ext.ComponentMgr.html#registerType">Ext.ComponentMgr.registerType</a></div>
+            <div class="long">
+                Shorthand for <a ext:cls="Ext.ComponentMgr" ext:member="registerType" href="output/Ext.ComponentMgr.html#registerType">Ext.ComponentMgr.registerType</a>    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>xtype</code> : String<div class="sub-desc">The mnemonic string by which the Component class
+may be looked up.</div></li><li><code>cls</code> : Constructor<div class="sub-desc">The new Component class.</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Ext</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext-removeNode"></a>
+            <b>removeNode</b>(&nbsp;<code>HTMLElement node</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Removes a DOM node from the document.  The body node will be ignored if passed in.</div>
+            <div class="long">
+                Removes a DOM node from the document.  The body node will be ignored if passed in.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>node</code> : HTMLElement<div class="sub-desc">The node to remove</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
         </ul>
     </div>
                 </div>

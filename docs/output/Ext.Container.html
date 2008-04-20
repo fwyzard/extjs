@@ -14,16 +14,39 @@
                 <h1>Class Ext.Container</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/Container.js" target="_blank">Container.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Container.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Container</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.Panel" href="output/Ext.Panel.html">Panel</a>, <a ext:cls="Ext.Viewport" href="output/Ext.Viewport.html">Viewport</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.BoxComponent" ext:member="" href="output/Ext.BoxComponent.html">BoxComponent</a></td></tr>
                     </table>
         <div class="description">
-            Base class for any <a ext:cls="Ext.BoxComponent" href="output/Ext.BoxComponent.html">Ext.BoxComponent</a> that can contain other components.  Containers handle the basic
+            <p>Base class for any <a ext:cls="Ext.BoxComponent" href="output/Ext.BoxComponent.html">Ext.BoxComponent</a> that can contain other components.  Containers handle the basic
 behavior of containing items, namely adding, inserting and removing them.  The specific layout logic required
 to visually render contained items is delegated to any one of the different <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> classes available.
-This class is intended to be extended and should generally not need to be created directly via the new keyword.        </div>
+This class is intended to be extended and should generally not need to be created directly via the new keyword.</p>
+<p>When either specifying child <a ext:cls="Ext.Container" ext:member="items" href="output/Ext.Container.html#items">items</a> of a Container, or dynamically adding components to a Container,
+remember to consider how you wish the Container to arrange those child elements, and whether those child elements
+need to be sized using one of Ext's built-in layout schemes.</p>
+<p>By default, Containers use the <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.ContainerLayout.html">ContainerLayout</a> scheme. This simply renders
+child components, appending them one after the other inside the Container, and does not apply any sizing at all.
+This is a common source of confusion when widgets like GridPanels or TreePanels are added to Containers for
+which no layout has been specified. If a Container is left to use the ContainerLayout scheme, none of its child
+components will be resized, or changed in any way when the Container is resized.</p>
+<p>A very common example of this is where a developer will attempt to add a GridPanel to a TabPanel by wrapping
+the GridPanel <i>inside</i> a wrapping Panel and add that wrapping Panel to the TabPanel. This misses the point that
+Ext's inheritance means that a GridPanel <b>is</b> a Component which can be added unadorned into a Container. If
+that wrapping Panel has no layout configuration, then the GridPanel will not be sized as expected.<p>
+<p>Below is an example of adding a newly created GridPanel to a TabPanel. This requires prior knowledge of how
+to create GridPanels. See <a ext:cls="Ext.grid.GridPanel" href="output/Ext.grid.GridPanel.html">Ext.grid.GridPanel</a>, <a ext:cls="Ext.data.Store" href="output/Ext.data.Store.html">Ext.data.Store</a> and <a ext:cls="Ext.data.JsonReader" href="output/Ext.data.JsonReader.html">Ext.data.JsonReader</a> as
+well as the grid examples in the Ext installation's <tt>examples/grid</tt> directory.</p><pre><code><i>//  Create the GridPanel.</i>
+myGrid = <b>new</b> Ext.grid.GridPanel({
+    myStore,
+    myColumnModel,
+    title: <em>'Results'</em>,
+});
+
+myTabPanel.add(myGrid);
+myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.Container-configs"></a>
@@ -134,7 +157,7 @@ This class is intended to be extended and should generally not need to be create
             <b>bufferResize</b> : Boolean/Number            <div class="mdesc">
                         <div class="short">When set to true (100 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer t...</div>
             <div class="long">
-                When set to true (100 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer the frequency it calculates and does a re-layout of components. This is useful for heavy containers or containers with a large amount of sub components that frequent calls to layout are expensive.            </div>
+                When set to true (100 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer the frequency it calculates and does a re-layout of components. This is useful for heavy containers or containers with a large quantity of sub-components for which frequent layout calls would be expensive.            </div>
                         </div>
         </td>
         <td class="msource">Container</td>
@@ -266,7 +289,7 @@ This class is intended to be extended and should generally not need to be create
             <b>layout</b> : String            <div class="mdesc">
                         <div class="short">The layout type to be used in this container. If not specified, a default Ext.layout.ContainerLayout will be created ...</div>
             <div class="long">
-                The layout type to be used in this container. If not specified, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.ContainerLayout.html">Ext.layout.ContainerLayout</a> will be created and used. Valid values are: accordion, anchor, border, card, column, fit, form and table. Specific config values for the chosen layout type can be specified using <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">layoutConfig</a>.            </div>
+                The layout type to be used in this container. If not specified, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.ContainerLayout.html">Ext.layout.ContainerLayout</a> will be created and used. Valid values are: absolute, accordion, anchor, border, card, column, fit, form and table. Specific config values for the chosen layout type can be specified using <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">layoutConfig</a>.            </div>
                         </div>
         </td>
         <td class="msource">Container</td>
@@ -278,7 +301,7 @@ This class is intended to be extended and should generally not need to be create
             <b>layoutConfig</b> : Object            <div class="mdesc">
                         <div class="short">This is a config object containing properties specific to the chosen layout (to be used in conjunction with the layou...</div>
             <div class="long">
-                This is a config object containing properties specific to the chosen layout (to be used in conjunction with the <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config value). For complete details regarding the valid config options for each layout type, see the layout class corresponding to the type specified:<ul class="mdetail-params"> <li><a ext:cls="Ext.layout.Accordion" href="output/Ext.layout.Accordion.html">Ext.layout.Accordion</a></li> <li><a ext:cls="Ext.layout.AnchorLayout" href="output/Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a></li> <li><a ext:cls="Ext.layout.BorderLayout" href="output/Ext.layout.BorderLayout.html">Ext.layout.BorderLayout</a></li> <li><a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">Ext.layout.CardLayout</a></li> <li><a ext:cls="Ext.layout.ColumnLayout" href="output/Ext.layout.ColumnLayout.html">Ext.layout.ColumnLayout</a></li> <li><a ext:cls="Ext.layout.FitLayout" href="output/Ext.layout.FitLayout.html">Ext.layout.FitLayout</a></li> <li><a ext:cls="Ext.layout.FormLayout" href="output/Ext.layout.FormLayout.html">Ext.layout.FormLayout</a></li> <li><a ext:cls="Ext.layout.TableLayout" href="output/Ext.layout.TableLayout.html">Ext.layout.TableLayout</a></li></ul>            </div>
+                This is a config object containing properties specific to the chosen layout (to be used in conjunction with the <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config value). For complete details regarding the valid config options for each layout type, see the layout class corresponding to the type specified:<ul class="mdetail-params"> <li><a ext:cls="Ext.layout.Absolute" href="output/Ext.layout.Absolute.html">Ext.layout.Absolute</a></li> <li><a ext:cls="Ext.layout.Accordion" href="output/Ext.layout.Accordion.html">Ext.layout.Accordion</a></li> <li><a ext:cls="Ext.layout.AnchorLayout" href="output/Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a></li> <li><a ext:cls="Ext.layout.BorderLayout" href="output/Ext.layout.BorderLayout.html">Ext.layout.BorderLayout</a></li> <li><a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">Ext.layout.CardLayout</a></li> <li><a ext:cls="Ext.layout.ColumnLayout" href="output/Ext.layout.ColumnLayout.html">Ext.layout.ColumnLayout</a></li> <li><a ext:cls="Ext.layout.FitLayout" href="output/Ext.layout.FitLayout.html">Ext.layout.FitLayout</a></li> <li><a ext:cls="Ext.layout.FormLayout" href="output/Ext.layout.FormLayout.html">Ext.layout.FormLayout</a></li> <li><a ext:cls="Ext.layout.TableLayout" href="output/Ext.layout.TableLayout.html">Ext.layout.TableLayout</a></li></ul>            </div>
                         </div>
         </td>
         <td class="msource">Container</td>
@@ -307,7 +330,19 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource">Container</td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Container-overCls"></a>
+            <b>overCls</b> : String            <div class="mdesc">
+                        <div class="short">An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and...</div>
+            <div class="long">
+                An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and removed when the mouse moves out. (defaults to ''). This can be useful for adding customized "active" or "hover" styles to the component or any of its children using standard CSS rules.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-pageX"></a>
@@ -316,7 +351,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageX" href="output/Ext.BoxComponent.html#pageX">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-pageY"></a>
@@ -325,7 +360,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageY" href="output/Ext.BoxComponent.html#pageY">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-plugins"></a>
@@ -337,7 +372,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-renderTo"></a>
@@ -349,7 +384,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-stateEvents"></a>
@@ -361,7 +396,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateEvents" href="output/Ext.Component.html#stateEvents">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-stateId"></a>
@@ -373,7 +408,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-stateful"></a>
@@ -385,7 +420,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-style"></a>
@@ -397,7 +432,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#style" href="output/Ext.Component.html#style">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-width"></a>
@@ -406,7 +441,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#width" href="output/Ext.BoxComponent.html#width">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-x"></a>
@@ -415,7 +450,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#x" href="output/Ext.BoxComponent.html#x">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-xtype"></a>
@@ -427,7 +462,7 @@ This class is intended to be extended and should generally not need to be create
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#xtype" href="output/Ext.Component.html#xtype">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-y"></a>
@@ -1242,27 +1277,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hide" href="output/Ext.Component.html#hide">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
-        <a id="Ext.Container-initComponent"></a>
-            <b>initComponent</b>() : void            <div class="mdesc">
-                        <div class="short">// private internal config</div>
-            <div class="long">
-                // private internal config    <div class="mdetail-params">
-        <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
-        <strong>Returns:</strong>
-        <ul>
-            <li><code>void</code></li>
-        </ul>
-    </div>
-                </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#initComponent" href="output/Ext.BoxComponent.html#initComponent">BoxComponent</a></td>
-    </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-insert"></a>
@@ -1294,7 +1309,7 @@ For a list of all available xtypes, see <a ext:cls="Ext.Component" href="output/
         </td>
         <td class="msource">Container</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-isVisible"></a>
@@ -1314,7 +1329,7 @@ For a list of all available xtypes, see <a ext:cls="Ext.Component" href="output/
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isVisible" href="output/Ext.Component.html#isVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-isXType"></a>
@@ -1342,7 +1357,7 @@ the default), or true to check whether this component is directly of the specifi
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isXType" href="output/Ext.Component.html#isXType">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-on"></a>
@@ -1363,7 +1378,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-purgeListeners"></a>
@@ -1382,6 +1397,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Container-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
         <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

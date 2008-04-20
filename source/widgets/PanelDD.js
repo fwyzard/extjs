@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -116,8 +116,11 @@ Ext.Panel.DD = function(panel, cfg){
     this.dragData = {panel: panel};
     this.proxy = new Ext.dd.PanelProxy(panel, cfg);
     Ext.Panel.DD.superclass.constructor.call(this, panel.el, cfg);
-    this.setHandleElId(panel.header.id);
-    panel.header.setStyle('cursor', 'move');
+    var h = panel.header;
+    if(h){
+        this.setHandleElId(h.id);
+    }
+    (h ? h : this.panel.body).setStyle('cursor', 'move');
     this.scroll = false;
 };
 

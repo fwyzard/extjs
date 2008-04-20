@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -76,8 +76,24 @@ Ext.extend(Ext.form.BasicForm, Ext.util.Observable, {
      * The URL to use for form actions if one isn't supplied in the action options.
      */
     /**
-     * @cfg {Boolean} fileUpload
+     * @cfg {Boolean} fileUpload.
      * Set to true if this form is a file upload.
+     * <p>File uploads are not performed using normal "Ajax" techniques, that is they are <b>not</b>
+     * performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the
+     * DOM <tt>&lt;form></tt> element temporarily modified to have its
+     * {@link http://www.w3.org/TR/REC-html40/present/frames.html#adef-target target} set to refer
+     * to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document
+     * but removed after the return data has been gathered.</p>
+     * <p>The server response is parsed by the browser to create the document for the IFRAME. If the
+     * server is using JSON to send the return object, then the
+     * {@link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type} header
+     * must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p>
+     * <p>The response text is retrieved from the document, and a fake XMLHttpRequest object
+     * is created containing a <tt>responseText</tt> property in order to conform to the
+     * requirements of event handlers and callbacks.</p>
+     * <p>Be aware that file upload packets are sent with the content type {@link http://www.faqs.org/rfcs/rfc2388.html multipart/form}
+     * and some server technologies (notably JEE) may require some custom processing in order to
+     * retrieve parameter names and parameter values from the packet content.</p>
      */
     /**
      * @cfg {Object} baseParams
@@ -188,6 +204,8 @@ Ext.extend(Ext.form.BasicForm, Ext.util.Observable, {
      * to the form's method, or POST if not defined)</p></li>
      * <li><b>params</b> : String/Object<p style="margin-left:1em">The params to pass
      * (defaults to the form's baseParams, or none if not defined)</p></li>
+     * <li><b>headers</b> : Object<p style="margin-left:1em">Request headers to set for the action
+     * (defaults to the form's default headers)</p></li>
      * <li><b>success</b> : Function<p style="margin-left:1em">The callback that will
      * be invoked after a successful response.  Note that this is HTTP success
      * (the transaction was sent and received correctly), but the resulting response data

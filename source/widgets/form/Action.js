@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -68,6 +68,10 @@ Ext.form.Action.prototype = {
  * @cfg {Mixed} params Extra parameter values to pass. These are added to the Form's
  * {@link Ext.form.BasicForm#baseParams} and passed to the specified URL along with the Form's
  * input fields.
+ */
+/**
+ * @cfg {Number} timeout The number of milliseconds to wait for a server response before
+ * failing with the {@link #failureType} as {@link #CONNECT_FAILURE}.
  */
 /**
  * @cfg {Function} success The function to call when a valid success return packet is recieved.
@@ -244,16 +248,16 @@ Ext.extend(Ext.form.Action.Submit, Ext.form.Action, {
     run : function(){
         var o = this.options;
         var method = this.getMethod();
-        var isPost = method == 'POST';
+        var isGet = method == 'GET';
         if(o.clientValidation === false || this.form.isValid()){
             Ext.Ajax.request(Ext.apply(this.createCallback(o), {
                 form:this.form.el.dom,
-                url:this.getUrl(!isPost),
+                url:this.getUrl(isGet),
                 method: method,
-                params:isPost ? this.getParams() : null,
+                headers: o.headers,
+                params:!isGet ? this.getParams() : null,
                 isUpload: this.form.fileUpload
             }));
-
         }else if (o.clientValidation !== false){ // client validation failed
             this.failureType = Ext.form.Action.CLIENT_INVALID;
             this.form.afterAction(this, false);
@@ -342,6 +346,7 @@ Ext.extend(Ext.form.Action.Load, Ext.form.Action, {
                 this.createCallback(this.options), {
                     method:this.getMethod(),
                     url:this.getUrl(false),
+                    headers: this.options.headers,
                     params:this.getParams()
         }));
     },

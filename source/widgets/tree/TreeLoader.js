@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -47,7 +47,6 @@
  */
 Ext.tree.TreeLoader = function(config){
     this.baseParams = {};
-    this.requestMethod = "POST";
     Ext.apply(this, config);
 
     this.addEvents(
@@ -87,7 +86,7 @@ Ext.extend(Ext.tree.TreeLoader, Ext.util.Observable, {
     * to be loaded.
     */
     /**
-     * @cfg {String} requestMethod The HTTP request method for loading data (defaults to 'POST').
+     * @cfg {String} requestMethod The HTTP request method for loading data (defaults to the value of {@link Ext.Ajax#method}).
      */
     /**
      * @cfg {String} url Equivalent to {@link #dataUrl}.
@@ -108,7 +107,7 @@ Ext.extend(Ext.tree.TreeLoader, Ext.util.Observable, {
     * @cfg {Object} uiProviders (optional) An object containing properties which
     * specify custom {@link Ext.tree.TreeNodeUI} implementations. If the optional
     * <i>uiProvider</i> attribute of a returned child node is a string rather
-    * than a reference to a TreeNodeUI implementation, this that string value
+    * than a reference to a TreeNodeUI implementation, then that string value
     * is used as a property name in the uiProviders object.
     */
     uiProviders : {},

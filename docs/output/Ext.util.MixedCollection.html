@@ -12,7 +12,7 @@
                 <h1>Class Ext.util.MixedCollection</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.util</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/util/MixedCollection.js" target="_blank">MixedCollection.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">MixedCollection.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">MixedCollection</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.StoreMgr" href="output/Ext.StoreMgr.html">StoreMgr</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
@@ -83,7 +83,11 @@ equivalent to providing an implementation for the <a ext:cls="Ext.util.MixedColl
             <div class="long">
                 Adds an item to the collection. Fires the <a ext:cls="Ext.util.MixedCollection" ext:member="add" href="output/Ext.util.MixedCollection.html#add">add</a> event when complete.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>key</code> : String<div class="sub-desc">The key to associate with the item</div></li><li><code>o</code> : Object<div class="sub-desc">The item to add.</div></li>        </ul>
+        <ul><li><code>key</code> : String<div class="sub-desc"><p>The key to associate with the item, or the new item.</p>
+<p>If you supplied a {@link #getKey) implementation for this MixedCollection, or if the key
+of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection
+will be able to <i>derive</i> the key for the new item. In this case just pass the new item in
+this parameter.</p></div></li><li><code>o</code> : Object<div class="sub-desc">The item to add.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Object</code><div class="sub-desc">The item added.</div></li>
@@ -809,7 +813,27 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.util.MixedCollection-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.MixedCollection-remove"></a>
@@ -829,7 +853,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">MixedCollection</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.MixedCollection-removeAt"></a>
@@ -849,7 +873,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">MixedCollection</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.MixedCollection-removeKey"></a>
@@ -869,7 +893,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">MixedCollection</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.MixedCollection-removeListener"></a>
@@ -889,7 +913,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.MixedCollection-replace"></a>
@@ -898,7 +922,12 @@ function. The handler function's "this" context.</div></li><li><code>options</co
             <div class="long">
                 Replaces an item in the collection. Fires the <a ext:cls="Ext.util.MixedCollection" ext:member="replace" href="output/Ext.util.MixedCollection.html#replace">replace</a> event when complete.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>key</code> : String<div class="sub-desc">The key associated with the item to replace, or the item to replace.</div></li><li><code>{Object}</code> : o<div class="sub-desc">o (optional) If the first parameter passed was a key, the item to associate with that key.</div></li>        </ul>
+        <ul><li><code>key</code> : String<div class="sub-desc"><p>The key associated with the item to replace, or the replacement item.</p>
+<p>If you supplied a {@link #getKey) implementation for this MixedCollection, or if the key
+of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection
+will be able to <i>derive</i> the key of the replacement item. If you want to replace an item
+with one having the same key value, then just pass the replacement item in this parameter.</p></div></li><li><code>{Object}</code> : o<div class="sub-desc">o (optional) If the first parameter passed was a key, the item to associate
+with that key.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Object</code><div class="sub-desc">The new item.</div></li>
@@ -909,7 +938,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">MixedCollection</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.MixedCollection-resumeEvents"></a>
@@ -929,7 +958,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.MixedCollection-sort"></a>
@@ -949,7 +978,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">MixedCollection</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.MixedCollection-suspendEvents"></a>
@@ -969,7 +998,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.MixedCollection-un"></a>

@@ -8,7 +8,7 @@
                 <h1>Class Date</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Global</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/util/Date.js" target="_blank">Date.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Date.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Date</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
@@ -51,7 +51,8 @@ The following is a list of all currently supported formats:
   P     Difference to Greenwich time (GMT) with colon between hours and minutes   Example: -08:00
   T     Timezone abbreviation of the machine running the code                     Examples: EST, MDT, PDT ...
   Z     Timezone offset in seconds (negative if west of UTC, positive if east)    -43200 to 50400
-  c     ISO 8601 date                                                             2007-04-17T15:19:21+08:00
+  c     ISO 8601 date                                                             2007-04-17T15:19:21+08:00 or
+                                                                                  2007-04-17T15:19:21Z
   U     Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)                1193432466 or -2138434463</pre>
 Example usage (note that you must escape format specifiers with '\\' to render them as character literals):
 <pre><code><i>// Sample date:</i>
@@ -159,12 +160,18 @@ document.write(dt.format(Date.patterns.ShortDate));</code></pre>        </div>
         <a id="Date-Date.dayNames"></a>
             <b>Date.dayNames</b> : Array            <div class="mdesc">
                         <div class="short">&lt;static&gt; An array of textual day names.
-Override these values for international dates, for example...
-Date.dayN...</div>
+Override these values for international dates.
+Example:
+Date.dayNames =...</div>
             <div class="long">
                 &lt;static&gt; An array of textual day names.
-Override these values for international dates, for example...
-Date.dayNames = ['SundayInYourLang', 'MondayInYourLang', ...];            </div>
+Override these values for international dates.
+Example:
+<pre><code>Date.dayNames = [
+  <em>'SundayInYourLang'</em>,
+  <em>'MondayInYourLang'</em>,
+  ...
+];</code></pre>            </div>
                         </div>
         </td>
         <td class="msource">Date</td>
@@ -172,15 +179,20 @@ Date.dayNames = ['SundayInYourLang', 'MondayInYourLang', ...];            </div>
         <tr class="property-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
-        <a id="Date-Date.monthNames"></a>
-            <b>Date.monthNames</b> : Array            <div class="mdesc">
-                        <div class="short">&lt;static&gt; An array of textual month names.
-Override these values for international dates, for example...
-Date.mo...</div>
+        <a id="Date-Date.formatCodes"></a>
+            <b>Date.formatCodes</b> : Object            <div class="mdesc">
+                        <div class="short">&lt;static&gt; The base format-code to formatting-function hashmap used by the format method.
+Formatting functions ar...</div>
             <div class="long">
-                &lt;static&gt; An array of textual month names.
-Override these values for international dates, for example...
-Date.monthNames = ['JanInYourLang', 'FebInYourLang', ...];            </div>
+                &lt;static&gt; The base format-code to formatting-function hashmap used by the <a ext:cls="Date" ext:member="format" href="output/Date.html#format">format</a> method.
+Formatting functions are strings (or functions which return strings) which
+will return the appropriate value when evaluated in the context of the Date object
+from which the <a ext:cls="Date" ext:member="format" href="output/Date.html#format">format</a> method is called.
+Add to / override these mappings for custom date formatting.
+Note: Date.format() treats characters as literals if an appropriate mapping cannot be found.
+Example:
+<pre><code>Date.formatCodes.x = <em>"String.leftPad(<b>this</b>.getDate(), 2, '0')"</em>;
+(<b>new</b> Date()).format(<em>"X"</em>); // returns the current day of the month</code></pre>            </div>
                         </div>
         </td>
         <td class="msource">Date</td>
@@ -188,13 +200,40 @@ Date.monthNames = ['JanInYourLang', 'FebInYourLang', ...];            </div>
         <tr class="property-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Date-Date.monthNames"></a>
+            <b>Date.monthNames</b> : Array            <div class="mdesc">
+                        <div class="short">&lt;static&gt; An array of textual month names.
+Override these values for international dates.
+Example:
+Date.monthNam...</div>
+            <div class="long">
+                &lt;static&gt; An array of textual month names.
+Override these values for international dates.
+Example:
+<pre><code>Date.monthNames = [
+  <em>'JanInYourLang'</em>,
+  <em>'FebInYourLang'</em>,
+  ...
+];</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource">Date</td>
+    </tr>
+        <tr class="property-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Date-Date.monthNumbers"></a>
             <b>Date.monthNumbers</b> : Object            <div class="mdesc">
                         <div class="short">&lt;static&gt; An object hash of zero-based javascript month numbers (with short month names as keys. note: keys are ...</div>
             <div class="long">
                 &lt;static&gt; An object hash of zero-based javascript month numbers (with short month names as keys. note: keys are case-sensitive).
-Override these values for international dates, for example...
-Date.monthNumbers = {'ShortJanNameInYourLang':0, 'ShortFebNameInYourLang':1, ...};            </div>
+Override these values for international dates.
+Example:
+<pre><code>Date.monthNumbers = {
+  <em>'ShortJanNameInYourLang'</em>:0,
+  <em>'ShortFebNameInYourLang'</em>:1,
+  ...
+};</code></pre>            </div>
                         </div>
         </td>
         <td class="msource">Date</td>

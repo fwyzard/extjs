@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -393,7 +393,12 @@ Ext.DatePicker = Ext.extend(Ext.Component, {
             this.hideMonthPicker();
         }
         else if(el.is('button.x-date-mp-ok')){
-            this.update(new Date(this.mpSelYear, this.mpSelMonth, (this.activeDate || this.value).getDate()));
+            var d = new Date(this.mpSelYear, this.mpSelMonth, (this.activeDate || this.value).getDate());
+            if(d.getMonth() != this.mpSelMonth){
+                // "fix" the JS rolling date conversion if needed
+                d = new Date(this.mpSelYear, this.mpSelMonth, 1).getLastDateOfMonth();
+            }
+            this.update(d);
             this.hideMonthPicker();
         }
         else if(pn = el.up('td.x-date-mp-month', 2)){
@@ -615,8 +620,10 @@ Ext.DatePicker = Ext.extend(Ext.Component, {
 
     // private
     beforeDestroy : function() {
-        this.mbtn.destroy();
-        this.todayBtn.destroy();
+        if(this.rendered){
+	        this.mbtn.destroy();
+	        this.todayBtn.destroy();
+        }
     }
 
     /**

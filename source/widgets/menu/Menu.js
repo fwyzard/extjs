@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -120,7 +120,7 @@ Ext.extend(Ext.menu.Menu, Ext.util.Observable, {
      */
     subMenuAlign : "tl-tr?",
     /**
-     * @cfg {String} defaultAlign The default {@link Ext.Element#alignTo) anchor position value for this menu
+     * @cfg {String} defaultAlign The default {@link Ext.Element#alignTo} anchor position value for this menu
      * relative to its element of origin (defaults to "tl-bl?")
      */
     defaultAlign : "tl-bl?",
@@ -499,10 +499,12 @@ var item = menu.add(
      * Removes and destroys all items in the menu
      */
     removeAll : function(){
-        var f;
-        while(f = this.items.first()){
-            this.remove(f);
-        }
+    	if(this.items){
+	        var f;
+	        while(f = this.items.first()){
+	            this.remove(f);
+	        }
+    	}
     },
 
     /**

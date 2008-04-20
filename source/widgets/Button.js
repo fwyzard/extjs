@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -57,10 +57,22 @@ Ext.Button = Ext.extend(Ext.Component, {
      */
 
     /**
+     * @cfg {Boolean} allowDepress
+     * True to allow a pressed Button to be depressed (defaults to false). Only valid when {@link #enableToggle} is true.
+     */
+
+    /**
      * @cfg {Boolean} enableToggle
      * True to enable pressed/not pressed toggling (defaults to false)
      */
     enableToggle: false,
+    /**
+     * @cfg {Function} toggleHandler
+     * Function called when a Button with {@link #enableToggle} set to true is clicked. Two arguments are passed:<ul class="mdetail-params">
+     * <li><b>button</b> : Ext.Button<div class="sub-desc">this Button object</div></li>
+     * <li><b>state</b> : Boolean<div class="sub-desc">The next state if the Button, true means pressed.</div></li>
+     * </ul>
+     */
     /**
      * @cfg {Mixed} menu
      * Standard menu attribute consisting of a reference to a menu object, a menu id or a menu config blob (defaults to undefined).
@@ -105,16 +117,16 @@ Ext.Button = Ext.extend(Ext.Component, {
     buttonSelector : "button:first",
 
     /**
-     * @cfg {String} cls
-     * A CSS class string to apply to the button's main element.
-     */
-
-    /**
      * @cfg {Ext.Template} template (Optional)
      * An {@link Ext.Template} with which to create the Button's main element. This Template must
      * contain numeric substitution parameter 0 if it is to display the text property. Changing the template could
      * require code modifications if required elements (e.g. a button) aren't present.
      */
+    /**
+     * @cfg {String} cls
+     * A CSS class string to apply to the button's main element.
+     */
+
     initComponent : function(){
         Ext.Button.superclass.initComponent.call(this);
 

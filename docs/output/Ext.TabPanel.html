@@ -16,7 +16,7 @@
                 <h1>Class Ext.TabPanel</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/TabPanel.js" target="_blank">TabPanel.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">TabPanel.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">TabPanel</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.Panel" ext:member="" href="output/Ext.Panel.html">Panel</a></td></tr>
                     </table>
@@ -320,7 +320,7 @@ var tabs = new Ext.TabPanel({
             <b>bufferResize</b> : Boolean/Number            <div class="mdesc">
                         <div class="short">When set to true (100 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer t...</div>
             <div class="long">
-                When set to true (100 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer the frequency it calculates and does a re-layout of components. This is useful for heavy containers or containers with a large amount of sub components that frequent calls to layout are expensive.            </div>
+                When set to true (100 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer the frequency it calculates and does a re-layout of components. This is useful for heavy containers or containers with a large quantity of sub-components for which frequent layout calls would be expensive.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#bufferResize" href="output/Ext.Container.html#bufferResize">Container</a></td>
@@ -446,7 +446,41 @@ var tabs = new Ext.TabPanel({
             <b>draggable</b> : Boolean            <div class="mdesc">
                         <div class="short">True to enable dragging of this Panel (defaults to false). For custom drag/drop implementations, an Ext.Panel.DD conf...</div>
             <div class="long">
-                True to enable dragging of this Panel (defaults to false). For custom drag/drop implementations, an Ext.Panel.DD config could also be passed in this config instead of true, although Ext.Panel.DD is an internal, undocumented class.            </div>
+                <p>True to enable dragging of this Panel (defaults to false).</p> <p>For custom drag/drop implementations, an Ext.Panel.DD config could also be passed in this config instead of true. Ext.Panel.DD is an internal, undocumented class which moves a proxy Element around in place of the Panel's element, but provides no other behaviour during dragging or on drop. It is a subclass of <a ext:cls="Ext.dd.DragSource" href="output/Ext.dd.DragSource.html">Ext.dd.DragSource</a>, so behaviour may be added by implementing the interface methods of <a ext:cls="Ext.dd.DragDrop" href="output/Ext.dd.DragDrop.html">Ext.dd.DragDrop</a> eg: <pre><code>new Ext.Panel({
+    title: <em>'Drag me'</em>,
+    x: 100,
+    y: 100,
+    renderTo: Ext.getBody(),
+    floating: true,
+    frame: true,
+    width: 400,
+    height: 200,
+    draggable: {
+<i>//      Config option of Ext.Panel.DD class.</i>
+<i>//      It's a floating Panel, so <b>do</b> not show a placeholder proxy <b>in</b> the original position.</i>
+        insertProxy: false,
+
+<i>//      Called <b>for</b> each mousemove event <b>while</b> dragging the DD object.</i>
+        onDrag : <b>function</b>(e){
+<i>//          Record the x,y position of the drag proxy so that we can</i>
+<i>//          position the Panel at end of drag.</i>
+            <b>var</b> pel = <b>this</b>.proxy.getEl();
+            <b>this</b>.x = pel.getLeft(true);
+            <b>this</b>.y = pel.getTop(true);
+
+<i>//          Keep the Shadow aligned <b>if</b> there is one.</i>
+            <b>var</b> s = <b>this</b>.panel.getEl().shadow;
+            <b>if</b> (s) {
+                s.realign(<b>this</b>.x, <b>this</b>.y, pel.getWidth(), pel.getHeight());
+            }
+        },
+
+<i>//      Called on the mouseup event.</i>
+        endDrag : <b>function</b>(e){
+            <b>this</b>.panel.setPosition(<b>this</b>.x, <b>this</b>.y);
+        }
+    }
+}).show();</code></pre>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#draggable" href="output/Ext.Panel.html#draggable">Panel</a></td>
@@ -458,7 +492,7 @@ var tabs = new Ext.TabPanel({
             <b>elements</b> : String            <div class="mdesc">
                         <div class="short">A comma-delimited list of panel elements to initialize when the panel is rendered. Normally, this list will be genera...</div>
             <div class="long">
-                A comma-delimited list of panel elements to initialize when the panel is rendered. Normally, this list will be generated automatically based on the items added to the panel at config time, but sometimes it might be useful to make sure a structural element is rendered even if not specified at config time (for example, you may want to add a button or toolbar dynamically after the panel has been rendered). Adding those elements to this list will allocate the required placeholders in the panel when it is rendered. Valid values are<ul> <li><b>header</b></li> <li><b>tbar</b> (top bar)</li> <li><b>body</b></li> <li><b>bbar</b> (bottom bar)</li> <li><b>footer</b><li> </ul> Defaults to 'body'.            </div>
+                A comma-delimited list of panel elements to initialize when the panel is rendered. Normally, this list will be generated automatically based on the items added to the panel at config time, but sometimes it might be useful to make sure a structural element is rendered even if not specified at config time (for example, you may want to add a button or toolbar dynamically after the panel has been rendered). Adding those elements to this list will allocate the required placeholders in the panel when it is rendered. Valid values are<ul> <li><b>header</b></li> <li><b>tbar</b> (top bar)</li> <li><b>body</b> (required)</li> <li><b>bbar</b> (bottom bar)</li> <li><b>footer</b><li> </ul> Defaults to 'body'.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#elements" href="output/Ext.Panel.html#elements">Panel</a></td>
@@ -470,7 +504,7 @@ var tabs = new Ext.TabPanel({
             <b>enableTabScroll</b> : Boolean            <div class="mdesc">
                         <div class="short">True to enable scrolling to tabs that may be invisible due to overflowing the overall TabPanel width. Only available ...</div>
             <div class="long">
-                True to enable scrolling to tabs that may be invisible due to overflowing the overall TabPanel width. Only available with tabs on top. (defaults to false).            </div>
+                True to enable scrolling to tabs that may be invisible due to overflowing the overall TabPanel width. Only available with tabPosition:'top' (defaults to false).            </div>
                         </div>
         </td>
         <td class="msource">TabPanel</td>
@@ -562,12 +596,15 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#html" href="output/Ext.Panel.html#html">Panel</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-iconCls"></a>
             <b>iconCls</b> : String            <div class="mdesc">
-                            A CSS class that will provide a background image to be used as the panel header icon (defaults to '').                        </div>
+                        <div class="short">A CSS class that will provide a background image to be used as the header icon (defaults to ''). An example custom ic...</div>
+            <div class="long">
+                A CSS class that will provide a background image to be used as the header icon (defaults to ''). An example custom icon class would be something like: .my-icon { background: url(../images/my-icon.gif) 0 6px no-repeat !important;}            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#iconCls" href="output/Ext.Panel.html#iconCls">Panel</a></td>
     </tr>
@@ -603,30 +640,6 @@ var tabs = new Ext.TabPanel({
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#keys" href="output/Ext.Panel.html#keys">Panel</a></td>
-    </tr>
-        <tr class="config-row inherited expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
-        <a id="Ext.TabPanel-layout"></a>
-            <b>layout</b> : String            <div class="mdesc">
-                        <div class="short">The layout type to be used in this container. If not specified, a default Ext.layout.ContainerLayout will be created ...</div>
-            <div class="long">
-                The layout type to be used in this container. If not specified, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.ContainerLayout.html">Ext.layout.ContainerLayout</a> will be created and used. Valid values are: accordion, anchor, border, card, column, fit, form and table. Specific config values for the chosen layout type can be specified using <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">layoutConfig</a>.            </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.Container" ext:member="#layout" href="output/Ext.Container.html#layout">Container</a></td>
-    </tr>
-        <tr class="config-row inherited alt expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
-        <a id="Ext.TabPanel-layoutConfig"></a>
-            <b>layoutConfig</b> : Object            <div class="mdesc">
-                        <div class="short">This is a config object containing properties specific to the chosen layout (to be used in conjunction with the layou...</div>
-            <div class="long">
-                This is a config object containing properties specific to the chosen layout (to be used in conjunction with the <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config value). For complete details regarding the valid config options for each layout type, see the layout class corresponding to the type specified:<ul class="mdetail-params"> <li><a ext:cls="Ext.layout.Accordion" href="output/Ext.layout.Accordion.html">Ext.layout.Accordion</a></li> <li><a ext:cls="Ext.layout.AnchorLayout" href="output/Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a></li> <li><a ext:cls="Ext.layout.BorderLayout" href="output/Ext.layout.BorderLayout.html">Ext.layout.BorderLayout</a></li> <li><a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">Ext.layout.CardLayout</a></li> <li><a ext:cls="Ext.layout.ColumnLayout" href="output/Ext.layout.ColumnLayout.html">Ext.layout.ColumnLayout</a></li> <li><a ext:cls="Ext.layout.FitLayout" href="output/Ext.layout.FitLayout.html">Ext.layout.FitLayout</a></li> <li><a ext:cls="Ext.layout.FormLayout" href="output/Ext.layout.FormLayout.html">Ext.layout.FormLayout</a></li> <li><a ext:cls="Ext.layout.TableLayout" href="output/Ext.layout.TableLayout.html">Ext.layout.TableLayout</a></li></ul>            </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.Container" ext:member="#layoutConfig" href="output/Ext.Container.html#layoutConfig">Container</a></td>
     </tr>
         <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -688,7 +701,19 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.TabPanel-overCls"></a>
+            <b>overCls</b> : String            <div class="mdesc">
+                        <div class="short">An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and...</div>
+            <div class="long">
+                An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and removed when the mouse moves out. (defaults to ''). This can be useful for adding customized "active" or "hover" styles to the component or any of its children using standard CSS rules.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-pageX"></a>
@@ -697,7 +722,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageX" href="output/Ext.BoxComponent.html#pageX">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-pageY"></a>
@@ -706,7 +731,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageY" href="output/Ext.BoxComponent.html#pageY">BoxComponent</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-plain"></a>
@@ -715,7 +740,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-plugins"></a>
@@ -727,7 +752,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-renderTo"></a>
@@ -739,7 +764,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-resizeTabs"></a>
@@ -751,7 +776,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-scrollDuration"></a>
@@ -763,7 +788,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-scrollIncrement"></a>
@@ -775,7 +800,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-scrollRepeatInterval"></a>
@@ -784,7 +809,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-shadow"></a>
@@ -796,7 +821,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#shadow" href="output/Ext.Panel.html#shadow">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-shadowOffset"></a>
@@ -808,7 +833,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#shadowOffset" href="output/Ext.Panel.html#shadowOffset">Panel</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-shim"></a>
@@ -820,7 +845,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#shim" href="output/Ext.Panel.html#shim">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-stateEvents"></a>
@@ -832,7 +857,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateEvents" href="output/Ext.Component.html#stateEvents">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-stateId"></a>
@@ -844,7 +869,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-stateful"></a>
@@ -856,7 +881,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-style"></a>
@@ -868,7 +893,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#style" href="output/Ext.Component.html#style">Component</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-tabMargin"></a>
@@ -880,7 +905,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-tabPosition"></a>
@@ -892,7 +917,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-tabTip"></a>
@@ -904,7 +929,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#tabTip" href="output/Ext.Panel.html#tabTip">Panel</a></td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-tabWidth"></a>
@@ -913,7 +938,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-tbar"></a>
@@ -925,7 +950,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#tbar" href="output/Ext.Panel.html#tbar">Panel</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-title"></a>
@@ -937,7 +962,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#title" href="output/Ext.Panel.html#title">Panel</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-wheelIncrement"></a>
@@ -946,7 +971,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource">TabPanel</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-width"></a>
@@ -955,7 +980,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#width" href="output/Ext.BoxComponent.html#width">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-x"></a>
@@ -964,7 +989,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#x" href="output/Ext.BoxComponent.html#x">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-xtype"></a>
@@ -976,7 +1001,7 @@ var tabs = new Ext.TabPanel({
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#xtype" href="output/Ext.Component.html#xtype">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-y"></a>
@@ -1025,7 +1050,23 @@ config property. Read only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#buttons" href="output/Ext.Panel.html#buttons">Panel</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.TabPanel-dd"></a>
+            <b>dd</b> : Ext.dd.DragSource.            <div class="mdesc">
+                        <div class="short">If this Panel is configured draggable, this property will contain
+an instance of Ext.dd.DragSource which handles drag...</div>
+            <div class="long">
+                <p>If this Panel is configured <a ext:cls="Ext.Panel" ext:member="draggable" href="output/Ext.Panel.html#draggable">draggable</a>, this property will contain
+an instance of <a ext:cls="Ext.dd.DragSource" href="output/Ext.dd.DragSource.html">Ext.dd.DragSource</a> which handles dragging the Panel.</p>
+The developer must provide implementations of the abstract methods of <a ext:cls="Ext.dd.DragSource" href="output/Ext.dd.DragSource.html">Ext.dd.DragSource</a>
+in order to supply behaviour for each stage of the drag/drop process. See <a ext:cls="Ext.Panel" ext:member="draggable" href="output/Ext.Panel.html#draggable">draggable</a>.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Panel" ext:member="#dd" href="output/Ext.Panel.html#dd">Panel</a></td>
+    </tr>
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-disabled"></a>
@@ -1034,7 +1075,7 @@ config property. Read only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-footer"></a>
@@ -1045,7 +1086,7 @@ The Panel's footer <a ext:cls="Ext.Element" href="output/Ext.Element.html">Eleme
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#footer" href="output/Ext.Panel.html#footer">Panel</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-hidden"></a>
@@ -1055,7 +1096,7 @@ True if this component is hidden. Read-only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hidden" href="output/Ext.Component.html#hidden">Component</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-initialConfig"></a>
@@ -1064,7 +1105,7 @@ True if this component is hidden. Read-only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#initialConfig" href="output/Ext.Component.html#initialConfig">Component</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-items"></a>
@@ -1073,7 +1114,7 @@ True if this component is hidden. Read-only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#items" href="output/Ext.Container.html#items">Container</a></td>
     </tr>
-        <tr class="property-row inherited alt expandable">
+        <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-ownerCt"></a>
@@ -1087,7 +1128,7 @@ the component is added to a container).  Read-only.            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#ownerCt" href="output/Ext.Component.html#ownerCt">Component</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-rendered"></a>
@@ -2219,26 +2260,6 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
-        <a id="Ext.TabPanel-initComponent"></a>
-            <b>initComponent</b>() : void            <div class="mdesc">
-                        <div class="short">// private internal config</div>
-            <div class="long">
-                // private internal config    <div class="mdetail-params">
-        <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
-        <strong>Returns:</strong>
-        <ul>
-            <li><code>void</code></li>
-        </ul>
-    </div>
-                </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#initComponent" href="output/Ext.BoxComponent.html#initComponent">BoxComponent</a></td>
-    </tr>
-        <tr class="method-row inherited alt expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
         <a id="Ext.TabPanel-insert"></a>
             <b>insert</b>(&nbsp;<code>Number index</code>, <code>Ext.Component component</code>&nbsp;) : Ext.Component            <div class="mdesc">
                         <div class="short">Inserts a Component into this Container at a specified index. Fires the
@@ -2268,7 +2289,7 @@ For a list of all available xtypes, see <a ext:cls="Ext.Component" href="output/
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#insert" href="output/Ext.Container.html#insert">Container</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-isVisible"></a>
@@ -2288,7 +2309,7 @@ For a list of all available xtypes, see <a ext:cls="Ext.Component" href="output/
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isVisible" href="output/Ext.Component.html#isVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-isXType"></a>
@@ -2316,7 +2337,7 @@ the default), or true to check whether this component is directly of the specifi
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isXType" href="output/Ext.Component.html#isXType">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-load"></a>
@@ -2350,7 +2371,7 @@ associated property on this panel Updater instance.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#load" href="output/Ext.Panel.html#load">Panel</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-on"></a>
@@ -2371,7 +2392,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-purgeListeners"></a>
@@ -2391,7 +2412,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.TabPanel-readTabs"></a>
@@ -2410,6 +2431,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                         </div>
         </td>
         <td class="msource">TabPanel</td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.TabPanel-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

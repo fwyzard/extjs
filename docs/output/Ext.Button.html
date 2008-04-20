@@ -13,7 +13,7 @@
                 <h1>Class Ext.Button</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/Button.js" target="_blank">Button.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Button.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Button</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.SplitButton" href="output/Ext.SplitButton.html">SplitButton</a>, <a ext:cls="Ext.Toolbar.Button" href="output/Ext.Toolbar.Button.html">Toolbar.Button</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.Component" ext:member="" href="output/Ext.Component.html">Component</a></td></tr>
@@ -29,7 +29,16 @@
                 <th class="sig-header" colspan="2">Config Options</th>
                 <th class="msource-header">Defined By</th>
             </tr>
-                <tr class="config-row inherited">
+                <tr class="config-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Button-allowDepress"></a>
+            <b>allowDepress</b> : Boolean            <div class="mdesc">
+                            True to allow a pressed Button to be depressed (defaults to false). Only valid when <a ext:cls="Ext.Button" ext:member="enableToggle" href="output/Ext.Button.html#enableToggle">enableToggle</a> is true.                        </div>
+        </td>
+        <td class="msource">Button</td>
+    </tr>
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-allowDomMove"></a>
@@ -38,7 +47,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#allowDomMove" href="output/Ext.Component.html#allowDomMove">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-applyTo"></a>
@@ -50,7 +59,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#applyTo" href="output/Ext.Component.html#applyTo">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-autoShow"></a>
@@ -62,7 +71,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#autoShow" href="output/Ext.Component.html#autoShow">Component</a></td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-clickEvent"></a>
@@ -71,16 +80,19 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-cls"></a>
             <b>cls</b> : String            <div class="mdesc">
-                            A CSS class string to apply to the button's main element.                        </div>
+                        <div class="short">An optional extra CSS class that will be added to this component's Element (defaults to ''). This can be useful for a...</div>
+            <div class="long">
+                An optional extra CSS class that will be added to this component's Element (defaults to ''). This can be useful for adding customized styles to the component or any of its children using standard CSS rules.            </div>
+                        </div>
         </td>
-        <td class="msource">Button</td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#cls" href="output/Ext.Component.html#cls">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-ctCls"></a>
@@ -92,7 +104,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#ctCls" href="output/Ext.Component.html#ctCls">Component</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-disabled"></a>
@@ -101,7 +113,7 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-disabledClass"></a>
@@ -110,7 +122,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabledClass" href="output/Ext.Component.html#disabledClass">Component</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-enableToggle"></a>
@@ -119,7 +131,7 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-handleMouseEvents"></a>
@@ -128,7 +140,7 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-handler"></a>
@@ -137,7 +149,7 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-hidden"></a>
@@ -146,7 +158,7 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-hideMode"></a>
@@ -158,7 +170,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideMode" href="output/Ext.Component.html#hideMode">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-hideParent"></a>
@@ -170,7 +182,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideParent" href="output/Ext.Component.html#hideParent">Component</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-icon"></a>
@@ -182,7 +194,7 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-iconCls"></a>
@@ -191,7 +203,7 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-id"></a>
@@ -200,7 +212,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#id" href="output/Ext.Component.html#id">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-listeners"></a>
@@ -212,7 +224,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-menu"></a>
@@ -224,7 +236,7 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-menuAlign"></a>
@@ -233,7 +245,7 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-minWidth"></a>
@@ -241,6 +253,18 @@
                             The minimum width for this button (used to give a set of buttons a common width)                        </div>
         </td>
         <td class="msource">Button</td>
+    </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Button-overCls"></a>
+            <b>overCls</b> : String            <div class="mdesc">
+                        <div class="short">An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and...</div>
+            <div class="long">
+                An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and removed when the mouse moves out. (defaults to ''). This can be useful for adding customized "active" or "hover" styles to the component or any of its children using standard CSS rules.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
     </tr>
         <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -353,7 +377,19 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Button-template"></a>
+            <b>template</b> : Ext.Template            <div class="mdesc">
+                        <div class="short">(Optional) An Ext.Template with which to create the Button's main element. This Template must contain numeric substit...</div>
+            <div class="long">
+                (Optional) An <a ext:cls="Ext.Template" href="output/Ext.Template.html">Ext.Template</a> with which to create the Button's main element. This Template must contain numeric substitution parameter 0 if it is to display the text property. Changing the template could require code modifications if required elements (e.g. a button) aren't present.            </div>
+                        </div>
+        </td>
+        <td class="msource">Button</td>
+    </tr>
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-text"></a>
@@ -362,12 +398,24 @@
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-toggleGroup"></a>
             <b>toggleGroup</b> : String            <div class="mdesc">
                             The group this toggle button is a member of (only 1 per group can be pressed, only applies if enableToggle = true)                        </div>
+        </td>
+        <td class="msource">Button</td>
+    </tr>
+        <tr class="config-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Button-toggleHandler"></a>
+            <b>toggleHandler</b> : Function            <div class="mdesc">
+                        <div class="short">Function called when a Button with enableToggle set to true is clicked. Two arguments are passed: button : Ext.Button...</div>
+            <div class="long">
+                Function called when a Button with <a ext:cls="Ext.Button" ext:member="enableToggle" href="output/Ext.Button.html#enableToggle">enableToggle</a> set to true is clicked. Two arguments are passed:<ul class="mdetail-params"> <li><b>button</b> : Ext.Button<div class="sub-desc">this Button object</div></li> <li><b>state</b> : Boolean<div class="sub-desc">The next state if the Button, true means pressed.</div></li> </ul>            </div>
+                        </div>
         </td>
         <td class="msource">Button</td>
     </tr>
@@ -1120,6 +1168,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Button-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Button-removeClass"></a>
             <b>removeClass</b>(&nbsp;<code>string cls</code>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Removes a CSS class from the component's underlying element.</div>
@@ -1137,7 +1205,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#removeClass" href="output/Ext.Component.html#removeClass">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-removeListener"></a>
@@ -1157,7 +1225,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-render"></a>
@@ -1179,7 +1247,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#render" href="output/Ext.Component.html#render">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-resumeEvents"></a>
@@ -1199,7 +1267,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-setDisabled"></a>
@@ -1219,7 +1287,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setDisabled" href="output/Ext.Component.html#setDisabled">Component</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-setHandler"></a>
@@ -1239,7 +1307,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-setIconClass"></a>
@@ -1261,7 +1329,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-setText"></a>
@@ -1281,7 +1349,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-setVisible"></a>
@@ -1301,7 +1369,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setVisible" href="output/Ext.Component.html#setVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-show"></a>
@@ -1321,7 +1389,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#show" href="output/Ext.Component.html#show">Component</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-showMenu"></a>
@@ -1341,7 +1409,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-suspendEvents"></a>
@@ -1361,7 +1429,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-toggle"></a>
@@ -1381,7 +1449,7 @@ the value of the <a ext:cls="iconCls" href="output/iconCls.html">iconCls</a> con
         </td>
         <td class="msource">Button</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Button-un"></a>

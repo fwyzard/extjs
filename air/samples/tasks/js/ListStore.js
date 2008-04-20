@@ -16,7 +16,7 @@ tx.data.ListStore = Ext.extend(Ext.data.Store, {
 				fields: tx.data.List
 	        })
 	    });
-		
+		this.boundTrees = {};
 	    this.conn = tx.data.conn;
 	    this.proxy = new Ext.sql.Proxy(tx.data.conn, 'list', 'listId', this);
 	},
@@ -69,7 +69,7 @@ tx.data.ListStore = Ext.extend(Ext.data.Store, {
 	},
 	
 	bindTree : function(tree){
-		this.on({
+		this.boundTrees[tree.id] = {
 			add: function(ls, records){
 				var pnode = tree.getNodeById(records[0].data.parentId);
 				if(pnode){
@@ -90,7 +90,18 @@ tx.data.ListStore = Ext.extend(Ext.data.Store, {
 					node.setText(record.data.listName);
 				}
 			}
-		});
+		};
+		
+		this.on(this.boundTrees[tree.id]);
+	},
+	
+	unbindTree : function(tree){
+		var h = this.boundTrees[tree.id];
+		if (h) {
+			this.un('add', h.add);
+			this.un('remove', h.remove);
+			this.un('update', h.update);
+		}
 	},
 	
 	prepareTable : function(){

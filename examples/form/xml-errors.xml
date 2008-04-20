@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<response success="false">
+<message success="false">
 <errors>
     <field>
         <id>first</id>
@@ -14,4 +14,4 @@
          ]]></msg>
     </field>
 </errors>
-</response>
+</message>

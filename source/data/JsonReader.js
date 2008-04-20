@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -38,7 +38,7 @@ var myReader = new Ext.data.JsonReader({
  * {@link Ext.data.Store#metachange metachange} event.</p>
  * <p>The <b><tt>MetaData</tt></b> property may contain any of the configuration
  * options for this class. Additionally, it may contain a <b><tt>fields</tt></b>
- * property which the JsonReader will use that as an argument to {@link Ext.data.Record.create}
+ * property which the JsonReader will use as an argument to {@link Ext.data.Record.create}
  * to configure the layout of the Records which it will produce.<p>
  * Using the <b><tt>MetaData</tt></b> property, and the Store's {@link Ext.data.Store#metachange metachange} event,
  * it is possible to have a Store-driven control initialize itself. The metachange
@@ -50,7 +50,7 @@ var myReader = new Ext.data.JsonReader({
  * JsonReader like this:</p><pre><code>
 var myReader = new Ext.data.JsonReader();
 </code></pre>
- * <p>The first data packet from the server would configure the reader by 
+ * <p>The first data packet from the server would configure the reader by
  * containing a metaData property as well as the data:</p><pre><code>
 {
   'metaData': {
@@ -101,12 +101,6 @@ Ext.extend(Ext.data.JsonReader, Ext.data.DataReader, {
         if(!o) {
             throw {message: "JsonReader.read: Json object not found"};
         }
-        if(o.metaData){
-            delete this.ef;
-            this.meta = o.metaData;
-            this.recordType = Ext.data.Record.create(o.metaData.fields);
-            this.onMetaChange(this.meta, this.recordType, o);
-        }
         return this.readRecords(o);
     },
 
@@ -154,6 +148,12 @@ Ext.extend(Ext.data.JsonReader, Ext.data.DataReader, {
          * @type Object
          */
         this.jsonData = o;
+        if(o.metaData){
+            delete this.ef;
+            this.meta = o.metaData;
+            this.recordType = Ext.data.Record.create(o.metaData.fields);
+            this.onMetaChange(this.meta, this.recordType, o);
+        }
         var s = this.meta, Record = this.recordType,
             f = Record.prototype.fields, fi = f.items, fl = f.length;
 

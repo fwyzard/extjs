@@ -8,7 +8,7 @@
                 <h1>Class Ext.EventManager</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/core/EventManager.js" target="_blank">EventManager.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">EventManager.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">EventManager</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
@@ -62,7 +62,13 @@ use Ext.Element....</div>
                 Appends an event handler to an element.  The shorthand version <a ext:cls="Ext.EventManager" ext:member="on" href="output/Ext.EventManager.html#on">on</a> is equivalent.  Typically you will
 use <a ext:cls="Ext.Element" ext:member="addListener" href="output/Ext.Element.html#addListener">Ext.Element.addListener</a> directly on an Element in favor of calling this version.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>el</code> : String/HTMLElement<div class="sub-desc">The html element or id to assign the event handler to</div></li><li><code>eventName</code> : String<div class="sub-desc">The type of event to listen for</div></li><li><code>handler</code> : Function<div class="sub-desc">The handler function the event invokes</div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope in which to execute the handler
+        <ul><li><code>el</code> : String/HTMLElement<div class="sub-desc">The html element or id to assign the event handler to</div></li><li><code>eventName</code> : String<div class="sub-desc">The type of event to listen for</div></li><li><code>handler</code> : Function<div class="sub-desc">The handler function the event invokes This function is passed
+the following parameters:<ul>
+<li>evt : EventObject<div class="sub-desc">The <a ext:cls="Ext.EventObject" href="output/Ext.EventObject.html">EventObject</a> describing the event.</div></li>
+<li>t : Element<div class="sub-desc">The <a ext:cls="Ext.Element" href="output/Ext.Element.html">Element</a> which was the target of the event.
+Note that this may be filtered by using the <tt>delegate</tt> option.</div></li>
+<li>o : Object<div class="sub-desc">The the options object from the addListener call.</div></li>
+</ul></div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope in which to execute the handler
 function (the handler function's "this" context)</div></li><li><code>options</code> : Object<div class="sub-desc">(optional) An object containing handler configuration properties.
 This may contain any of the following properties:<ul>
 <li>scope {Object} : The scope in which to execute the handler function. The handler function's "this" context.</li>

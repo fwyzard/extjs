@@ -16,7 +16,7 @@
                 <h1>Class Ext.form.FieldSet</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.form</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/form/FieldSet.js" target="_blank">FieldSet.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">FieldSet.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">FieldSet</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.Panel" ext:member="" href="output/Ext.Panel.html">Panel</a></td></tr>
                     </table>
@@ -248,7 +248,41 @@
             <b>draggable</b> : Boolean            <div class="mdesc">
                         <div class="short">True to enable dragging of this Panel (defaults to false). For custom drag/drop implementations, an Ext.Panel.DD conf...</div>
             <div class="long">
-                True to enable dragging of this Panel (defaults to false). For custom drag/drop implementations, an Ext.Panel.DD config could also be passed in this config instead of true, although Ext.Panel.DD is an internal, undocumented class.            </div>
+                <p>True to enable dragging of this Panel (defaults to false).</p> <p>For custom drag/drop implementations, an Ext.Panel.DD config could also be passed in this config instead of true. Ext.Panel.DD is an internal, undocumented class which moves a proxy Element around in place of the Panel's element, but provides no other behaviour during dragging or on drop. It is a subclass of <a ext:cls="Ext.dd.DragSource" href="output/Ext.dd.DragSource.html">Ext.dd.DragSource</a>, so behaviour may be added by implementing the interface methods of <a ext:cls="Ext.dd.DragDrop" href="output/Ext.dd.DragDrop.html">Ext.dd.DragDrop</a> eg: <pre><code>new Ext.Panel({
+    title: <em>'Drag me'</em>,
+    x: 100,
+    y: 100,
+    renderTo: Ext.getBody(),
+    floating: true,
+    frame: true,
+    width: 400,
+    height: 200,
+    draggable: {
+<i>//      Config option of Ext.Panel.DD class.</i>
+<i>//      It's a floating Panel, so <b>do</b> not show a placeholder proxy <b>in</b> the original position.</i>
+        insertProxy: false,
+
+<i>//      Called <b>for</b> each mousemove event <b>while</b> dragging the DD object.</i>
+        onDrag : <b>function</b>(e){
+<i>//          Record the x,y position of the drag proxy so that we can</i>
+<i>//          position the Panel at end of drag.</i>
+            <b>var</b> pel = <b>this</b>.proxy.getEl();
+            <b>this</b>.x = pel.getLeft(true);
+            <b>this</b>.y = pel.getTop(true);
+
+<i>//          Keep the Shadow aligned <b>if</b> there is one.</i>
+            <b>var</b> s = <b>this</b>.panel.getEl().shadow;
+            <b>if</b> (s) {
+                s.realign(<b>this</b>.x, <b>this</b>.y, pel.getWidth(), pel.getHeight());
+            }
+        },
+
+<i>//      Called on the mouseup event.</i>
+        endDrag : <b>function</b>(e){
+            <b>this</b>.panel.setPosition(<b>this</b>.x, <b>this</b>.y);
+        }
+    }
+}).show();</code></pre>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#draggable" href="output/Ext.Panel.html#draggable">Panel</a></td>
@@ -374,7 +408,7 @@
             <b>layoutConfig</b> : Object            <div class="mdesc">
                         <div class="short">This is a config object containing properties specific to the chosen layout (to be used in conjunction with the layou...</div>
             <div class="long">
-                This is a config object containing properties specific to the chosen layout (to be used in conjunction with the <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config value). For complete details regarding the valid config options for each layout type, see the layout class corresponding to the type specified:<ul class="mdetail-params"> <li><a ext:cls="Ext.layout.Accordion" href="output/Ext.layout.Accordion.html">Ext.layout.Accordion</a></li> <li><a ext:cls="Ext.layout.AnchorLayout" href="output/Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a></li> <li><a ext:cls="Ext.layout.BorderLayout" href="output/Ext.layout.BorderLayout.html">Ext.layout.BorderLayout</a></li> <li><a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">Ext.layout.CardLayout</a></li> <li><a ext:cls="Ext.layout.ColumnLayout" href="output/Ext.layout.ColumnLayout.html">Ext.layout.ColumnLayout</a></li> <li><a ext:cls="Ext.layout.FitLayout" href="output/Ext.layout.FitLayout.html">Ext.layout.FitLayout</a></li> <li><a ext:cls="Ext.layout.FormLayout" href="output/Ext.layout.FormLayout.html">Ext.layout.FormLayout</a></li> <li><a ext:cls="Ext.layout.TableLayout" href="output/Ext.layout.TableLayout.html">Ext.layout.TableLayout</a></li></ul>            </div>
+                This is a config object containing properties specific to the chosen layout (to be used in conjunction with the <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config value). For complete details regarding the valid config options for each layout type, see the layout class corresponding to the type specified:<ul class="mdetail-params"> <li><a ext:cls="Ext.layout.Absolute" href="output/Ext.layout.Absolute.html">Ext.layout.Absolute</a></li> <li><a ext:cls="Ext.layout.Accordion" href="output/Ext.layout.Accordion.html">Ext.layout.Accordion</a></li> <li><a ext:cls="Ext.layout.AnchorLayout" href="output/Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a></li> <li><a ext:cls="Ext.layout.BorderLayout" href="output/Ext.layout.BorderLayout.html">Ext.layout.BorderLayout</a></li> <li><a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">Ext.layout.CardLayout</a></li> <li><a ext:cls="Ext.layout.ColumnLayout" href="output/Ext.layout.ColumnLayout.html">Ext.layout.ColumnLayout</a></li> <li><a ext:cls="Ext.layout.FitLayout" href="output/Ext.layout.FitLayout.html">Ext.layout.FitLayout</a></li> <li><a ext:cls="Ext.layout.FormLayout" href="output/Ext.layout.FormLayout.html">Ext.layout.FormLayout</a></li> <li><a ext:cls="Ext.layout.TableLayout" href="output/Ext.layout.TableLayout.html">Ext.layout.TableLayout</a></li></ul>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#layoutConfig" href="output/Ext.Container.html#layoutConfig">Container</a></td>
@@ -424,7 +458,19 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#monitorResize" href="output/Ext.Container.html#monitorResize">Container</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.FieldSet-overCls"></a>
+            <b>overCls</b> : String            <div class="mdesc">
+                        <div class="short">An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and...</div>
+            <div class="long">
+                An optional extra CSS class that will be added to this component's Element when the mouse moves over the Element, and removed when the mouse moves out. (defaults to ''). This can be useful for adding customized "active" or "hover" styles to the component or any of its children using standard CSS rules.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-pageX"></a>
@@ -433,7 +479,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageX" href="output/Ext.BoxComponent.html#pageX">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-pageY"></a>
@@ -442,7 +488,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageY" href="output/Ext.BoxComponent.html#pageY">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-plugins"></a>
@@ -454,7 +500,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-renderTo"></a>
@@ -466,7 +512,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-stateEvents"></a>
@@ -478,7 +524,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateEvents" href="output/Ext.Component.html#stateEvents">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-stateId"></a>
@@ -490,7 +536,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-stateful"></a>
@@ -502,7 +548,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-style"></a>
@@ -514,7 +560,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#style" href="output/Ext.Component.html#style">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-tabTip"></a>
@@ -526,7 +572,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#tabTip" href="output/Ext.Panel.html#tabTip">Panel</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-title"></a>
@@ -538,7 +584,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#title" href="output/Ext.Panel.html#title">Panel</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-width"></a>
@@ -547,7 +593,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#width" href="output/Ext.BoxComponent.html#width">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-x"></a>
@@ -556,7 +602,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#x" href="output/Ext.BoxComponent.html#x">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-y"></a>
@@ -605,7 +651,23 @@ config property. Read only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#buttons" href="output/Ext.Panel.html#buttons">Panel</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.FieldSet-dd"></a>
+            <b>dd</b> : Ext.dd.DragSource.            <div class="mdesc">
+                        <div class="short">If this Panel is configured draggable, this property will contain
+an instance of Ext.dd.DragSource which handles drag...</div>
+            <div class="long">
+                <p>If this Panel is configured <a ext:cls="Ext.Panel" ext:member="draggable" href="output/Ext.Panel.html#draggable">draggable</a>, this property will contain
+an instance of <a ext:cls="Ext.dd.DragSource" href="output/Ext.dd.DragSource.html">Ext.dd.DragSource</a> which handles dragging the Panel.</p>
+The developer must provide implementations of the abstract methods of <a ext:cls="Ext.dd.DragSource" href="output/Ext.dd.DragSource.html">Ext.dd.DragSource</a>
+in order to supply behaviour for each stage of the drag/drop process. See <a ext:cls="Ext.Panel" ext:member="draggable" href="output/Ext.Panel.html#draggable">draggable</a>.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Panel" ext:member="#dd" href="output/Ext.Panel.html#dd">Panel</a></td>
+    </tr>
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-disabled"></a>
@@ -614,7 +676,7 @@ config property. Read only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-hidden"></a>
@@ -624,7 +686,7 @@ True if this component is hidden. Read-only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hidden" href="output/Ext.Component.html#hidden">Component</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-initialConfig"></a>
@@ -633,7 +695,7 @@ True if this component is hidden. Read-only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#initialConfig" href="output/Ext.Component.html#initialConfig">Component</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-items"></a>
@@ -642,7 +704,7 @@ True if this component is hidden. Read-only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#items" href="output/Ext.Container.html#items">Container</a></td>
     </tr>
-        <tr class="property-row inherited expandable">
+        <tr class="property-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-ownerCt"></a>
@@ -656,7 +718,7 @@ the component is added to a container).  Read-only.            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#ownerCt" href="output/Ext.Component.html#ownerCt">Component</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-rendered"></a>
@@ -1583,26 +1645,6 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
-        <a id="Ext.form.FieldSet-initComponent"></a>
-            <b>initComponent</b>() : void            <div class="mdesc">
-                        <div class="short">// private internal config</div>
-            <div class="long">
-                // private internal config    <div class="mdetail-params">
-        <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
-        <strong>Returns:</strong>
-        <ul>
-            <li><code>void</code></li>
-        </ul>
-    </div>
-                </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#initComponent" href="output/Ext.BoxComponent.html#initComponent">BoxComponent</a></td>
-    </tr>
-        <tr class="method-row inherited alt expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
         <a id="Ext.form.FieldSet-insert"></a>
             <b>insert</b>(&nbsp;<code>Number index</code>, <code>Ext.Component component</code>&nbsp;) : Ext.Component            <div class="mdesc">
                         <div class="short">Inserts a Component into this Container at a specified index. Fires the
@@ -1632,7 +1674,7 @@ For a list of all available xtypes, see <a ext:cls="Ext.Component" href="output/
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#insert" href="output/Ext.Container.html#insert">Container</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-isVisible"></a>
@@ -1652,7 +1694,7 @@ For a list of all available xtypes, see <a ext:cls="Ext.Component" href="output/
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isVisible" href="output/Ext.Component.html#isVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-isXType"></a>
@@ -1680,7 +1722,7 @@ the default), or true to check whether this component is directly of the specifi
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isXType" href="output/Ext.Component.html#isXType">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-load"></a>
@@ -1714,7 +1756,7 @@ associated property on this panel Updater instance.</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#load" href="output/Ext.Panel.html#load">Panel</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-on"></a>
@@ -1735,7 +1777,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.FieldSet-purgeListeners"></a>
@@ -1754,6 +1796,26 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.FieldSet-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

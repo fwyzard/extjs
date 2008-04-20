@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -69,7 +69,7 @@ Ext.grid.GridPanel = Ext.extend(Ext.Panel, {
     * @cfg {Number} maxHeight Sets the maximum height of the grid - ignored if autoHeight is not on.
     */
     /**
-     * @cfg {Boolean} disableSelection True to disable selections in the grid (defaults to false). - ignored a SelectionModel is specified 
+     * @cfg {Boolean} disableSelection True to disable selections in the grid (defaults to false). - ignored if a SelectionModel is specified 
      */
     /**
      * @cfg {Boolean} enableColumnMove False to turn off column reordering via drag drop (defaults to true).

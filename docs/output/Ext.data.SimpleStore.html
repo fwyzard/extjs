@@ -13,7 +13,7 @@
                 <h1>Class Ext.data.SimpleStore</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.data</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/data/SimpleStore.js" target="_blank">SimpleStore.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">SimpleStore.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">SimpleStore</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.data.Store" ext:member="" href="output/Ext.data.Store.html">Store</a></td></tr>
                     </table>
@@ -165,12 +165,17 @@
                 <th class="sig-header" colspan="2">Property</th>
                 <th class="msource-header">Defined By</th>
             </tr>
-                <tr class="property-row inherited">
+                <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-baseParams"></a>
             <b>baseParams</b> : Object            <div class="mdesc">
-                            An object containing properties which are used as parameters on any HTTP request.                        </div>
+                        <div class="short">An object containing properties which are used as parameters on any HTTP request.
+This property can be changed after ...</div>
+            <div class="long">
+                An object containing properties which are used as parameters on any HTTP request.
+This property can be changed after creating the Store to send different parameters.            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#baseParams" href="output/Ext.data.Store.html#baseParams">Store</a></td>
     </tr>
@@ -439,7 +444,7 @@ Returning <tt>false</tt> aborts and exits the iteration.</div></li><li><code>sco
                 Filter the records by a specified property.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>field</code> : String<div class="sub-desc">A field on your records</div></li><li><code>value</code> : String/RegExp<div class="sub-desc">Either a string that the field
-should start with or a RegExp to test against the field</div></li><li><code>anyMatch</code> : Boolean<div class="sub-desc">(optional) True to match any part not just the beginning</div></li><li><code>caseSensitive</code> : Boolean<div class="sub-desc">(optional) True for case sensitive comparison</div></li>        </ul>
+should begin with, or a RegExp to test against the field.</div></li><li><code>anyMatch</code> : Boolean<div class="sub-desc">(optional) True to match any part not just the beginning</div></li><li><code>caseSensitive</code> : Boolean<div class="sub-desc">(optional) True for case sensitive comparison</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -486,8 +491,8 @@ to test for filtering. Access field values using <a ext:cls="Ext.data.Record" ex
             <div class="long">
                 Finds the index of the first matching record in this store by a specific property/value.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>property</code> : String<div class="sub-desc">A property on your objects</div></li><li><code>value</code> : String/RegExp<div class="sub-desc">Either string that the property values
-should start with or a RegExp to test against the property.</div></li><li><code>startIndex</code> : Number<div class="sub-desc">(optional) The index to start searching at</div></li><li><code>anyMatch</code> : Boolean<div class="sub-desc">(optional) True to match any part of the string, not just the beginning</div></li><li><code>caseSensitive</code> : Boolean<div class="sub-desc">(optional) True for case sensitive comparison</div></li>        </ul>
+        <ul><li><code>property</code> : String<div class="sub-desc">A property on your objects</div></li><li><code>value</code> : String/RegExp<div class="sub-desc">Either a string that the property value
+should begin with, or a RegExp to test against the property.</div></li><li><code>startIndex</code> : Number<div class="sub-desc">(optional) The index to start searching at</div></li><li><code>anyMatch</code> : Boolean<div class="sub-desc">(optional) True to match any part of the string, not just the beginning</div></li><li><code>caseSensitive</code> : Boolean<div class="sub-desc">(optional) True for case sensitive comparison</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Number</code><div class="sub-desc">The matched index or -1</div></li>
@@ -722,7 +727,7 @@ the dataset size. For remote data sources, this is provided by a query on the se
             <div class="long">
                 Get the index within the cache of the passed Record.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>record</code> : Ext.data.Record<div class="sub-desc">The Ext.data.Record object to to find.</div></li>        </ul>
+        <ul><li><code>record</code> : Ext.data.Record<div class="sub-desc">The Ext.data.Record object to find.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Number</code><div class="sub-desc">The index of the passed Record. Returns -1 if not found.</div></li>
@@ -903,7 +908,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                 Query the records by a specified property.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>field</code> : String<div class="sub-desc">A field on your records</div></li><li><code>value</code> : String/RegExp<div class="sub-desc">Either a string that the field
-should start with or a RegExp to test against the field</div></li><li><code>anyMatch</code> : Boolean<div class="sub-desc">(optional) True to match any part not just the beginning</div></li><li><code>caseSensitive</code> : Boolean<div class="sub-desc">(optional) True for case sensitive comparison</div></li>        </ul>
+should begin with, or a RegExp to test against the field.</div></li><li><code>anyMatch</code> : Boolean<div class="sub-desc">(optional) True to match any part not just the beginning</div></li><li><code>caseSensitive</code> : Boolean<div class="sub-desc">(optional) True for case sensitive comparison</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>MixedCollection</code><div class="sub-desc">Returns an Ext.util.MixedCollection of the matched records</div></li>
@@ -964,6 +969,26 @@ to test for filtering. Access field values using <a ext:cls="Ext.data.Record" ex
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.data.SimpleStore-relayEvents"></a>
+            <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+            <div class="long">
+                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.data.SimpleStore-reload"></a>
             <b>reload</b>(&nbsp;<span class="optional" title="Optional">[<code>Object options</code>]</span>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Reloads the Record cache from the configured Proxy using the configured Reader and
@@ -985,7 +1010,7 @@ the most recently used options are reused).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#reload" href="output/Ext.data.Store.html#reload">Store</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-remove"></a>
@@ -1005,7 +1030,7 @@ the most recently used options are reused).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#remove" href="output/Ext.data.Store.html#remove">Store</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-removeAll"></a>
@@ -1025,7 +1050,7 @@ the most recently used options are reused).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#removeAll" href="output/Ext.data.Store.html#removeAll">Store</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-removeListener"></a>
@@ -1045,7 +1070,7 @@ the most recently used options are reused).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-resumeEvents"></a>
@@ -1065,7 +1090,7 @@ the most recently used options are reused).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-setDefaultSort"></a>
@@ -1085,7 +1110,7 @@ the most recently used options are reused).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#setDefaultSort" href="output/Ext.data.Store.html#setDefaultSort">Store</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-sort"></a>
@@ -1109,7 +1134,7 @@ reloaded. If local sorting is used, the cache is sorted internally.    <div clas
         </td>
         <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#sort" href="output/Ext.data.Store.html#sort">Store</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-sum"></a>
@@ -1129,7 +1154,7 @@ reloaded. If local sorting is used, the cache is sorted internally.    <div clas
         </td>
         <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#sum" href="output/Ext.data.Store.html#sum">Store</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-suspendEvents"></a>
@@ -1149,7 +1174,7 @@ reloaded. If local sorting is used, the cache is sorted internally.    <div clas
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.SimpleStore-un"></a>

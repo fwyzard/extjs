@@ -11,7 +11,7 @@
                 <h1>Class Ext.XTemplate</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/util/XTemplate.js" target="_blank">XTemplate.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">XTemplate.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">XTemplate</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.Template" ext:member="" href="output/Ext.Template.html">Template</a></td></tr>
                     </table>
@@ -44,7 +44,7 @@ This is the data object used for reference in each code example:</p>
     }]
 };</code></pre>
 <p><b>Auto filling of arrays and scope switching</b><br/>Using the <tt>tpl</tt> tag and the <tt>for</tt> operator,
-you can switch to the scope of the object specified by <tt>for</tt> and access its members to populate the teamplte.
+you can switch to the scope of the object specified by <tt>for</tt> and access its members to populate the template.
 If the variable in <tt>for</tt> is an array, it will auto-fill, repeating the template block inside the <tt>tpl</tt>
 tag for each item in the array:</p>
 <pre><code>var tpl = <b>new</b> Ext.XTemplate(
@@ -63,7 +63,7 @@ looping through a child array, you can access the parent object's members via th
     <em>'&lt;p>Name: {name}&lt;/p>'</em>,
     <em>'&lt;p>Kids: '</em>,
     <em>'&lt;tpl <b>for</b>="kids">'</em>,
-        <em>'&lt;tpl <b>if</b>="age &gt; 1">'</em>,
+        <em>'&lt;tpl <b>if</b>="age &amp;gt; 1">'</em>,  <i>// <-- Note that the &gt; is encoded</i>
             <em>'&lt;p>{name}&lt;/p>'</em>,
             <em>'&lt;p>Dad: {parent.name}&lt;/p>'</em>,
         <em>'&lt;/tpl>'</em>,
@@ -77,7 +77,7 @@ will provide the current array index + 1 (starts at 1, not 0). Templates also su
     <em>'&lt;p>Name: {name}&lt;/p>'</em>,
     <em>'&lt;p>Kids: '</em>,
     <em>'&lt;tpl <b>for</b>="kids">'</em>,
-        <em>'&lt;tpl <b>if</b>="age &gt; 1">'</em>,
+        <em>'&lt;tpl <b>if</b>="age &amp;gt; 1">'</em>,  <i>// <-- Note that the &gt; is encoded</i>
             <em>'&lt;p>{#}: {name}&lt;/p>'</em>,  <i>// <-- Auto-number each item</i>
             <em>'&lt;p>In 5 Years: {age+5}&lt;/p>'</em>,  <i>// <-- Basic math</i>
             <em>'&lt;p>Dad: {parent.name}&lt;/p>'</em>,
@@ -122,10 +122,10 @@ can change what <tt>values</tt> is.</li>
 This example demonstrates basic row striping using an inline code block and the <tt>xindex</tt> variable:</p>
 <pre><code>var tpl = <b>new</b> Ext.XTemplate(
     <em>'&lt;p>Name: {name}&lt;/p>'</em>,
-    <em>'&lt;p>Company: {[company.toUpperCase() + '</em>, <em>' + title]}&lt;/p>'</em>,
+    <em>'&lt;p>Company: {[values.company.toUpperCase() + '</em>, <em>' + values.title]}&lt;/p>'</em>,
     <em>'&lt;p>Kids: '</em>,
     <em>'&lt;tpl <b>for</b>="kids">'</em>,
-       '&lt;div class=<em>"{[xindex % 2 === 0 ? "</em>even<em>" : "</em>odd<em>"]}"</em>>,
+       <em>'&lt;div class="{[xindex % 2 === 0 ? "even" : "odd"]}">'</em>,
         <em>'{name}'</em>,
         <em>'&lt;/div>'</em>,
     <em>'&lt;/tpl>&lt;/p>'</em>
@@ -231,15 +231,17 @@ to join("") that can also include a config object</div></li>        </ul>
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.XTemplate-apply"></a>
-            <b>apply</b>() : void            <div class="mdesc">
-                        <div class="short">Alias of <a ext:cls="Ext.XTemplate" ext:member="applyTemplate" href="output/Ext.XTemplate.html#applyTemplate">applyTemplate</a>.</div>
+            <b>apply</b>(&nbsp;<code>Object/Array values</code>&nbsp;) : String            <div class="mdesc">
+                        <div class="short">Alias for <a ext:cls="Ext.XTemplate" ext:member="applyTemplate" href="output/Ext.XTemplate.html#applyTemplate">applyTemplate</a>
+Returns an HTML fragment of this template with the specified values applied.</div>
             <div class="long">
-                Alias of <a ext:cls="Ext.XTemplate" ext:member="applyTemplate" href="output/Ext.XTemplate.html#applyTemplate">applyTemplate</a>.    <div class="mdetail-params">
+                Alias for <a ext:cls="Ext.XTemplate" ext:member="applyTemplate" href="output/Ext.XTemplate.html#applyTemplate">applyTemplate</a>
+Returns an HTML fragment of this template with the specified values applied.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
+        <ul><li><code>values</code> : Object/Array<div class="sub-desc">The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>void</code></li>
+            <li><code>String</code><div class="sub-desc">The HTML fragment</div></li>
         </ul>
     </div>
                 </div>

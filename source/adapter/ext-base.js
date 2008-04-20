@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -99,7 +99,7 @@
                 return [b.left + scroll.left, b.top + scroll.top];
             }
             var x = 0, y = 0;
-            
+
             p = el;
 
             var hasAbsolute = fly(el).getStyle("position") == "absolute";
@@ -115,7 +115,7 @@
 
                 if (Ext.isGecko) {
                     pe = fly(p);
-                    
+
                     var bt = parseInt(pe.getStyle("borderTopWidth"), 10) || 0;
                     var bl = parseInt(pe.getStyle("borderLeftWidth"), 10) || 0;
 
@@ -681,7 +681,7 @@
     var E = Ext.lib.Event;
     E.on = E.addListener;
     E.un = E.removeListener;
-    if (document && document.body) {
+    if(document && document.body) {
         E._load();
     } else {
         E.doAdd(window, "load", E._load);
@@ -701,12 +701,16 @@
                     }
                 }
                 if(options.xmlData){
-                    this.initHeader('Content-Type', 'text/xml', false);
-                    method = 'POST';
+                    if (!hs || !hs['Content-Type']){
+                        this.initHeader('Content-Type', 'text/xml', false);
+                    }
+                    method = (method ? method : (options.method ? options.method : 'POST'));
                     data = options.xmlData;
                 }else if(options.jsonData){
-                    this.initHeader('Content-Type', 'text/javascript', false);
-                    method = 'POST';
+                    if (!hs || !hs['Content-Type']){
+                        this.initHeader('Content-Type', 'application/json', false);
+                    }
+                    method = (method ? method : (options.method ? options.method : 'POST'));
                     data = typeof options.jsonData == 'object' ? Ext.encode(options.jsonData) : options.jsonData;
                 }
             }
@@ -886,7 +890,7 @@
                     }
                 }
 
-                if(postData && this.useDefaultHeader){
+                if(postData && this.useDefaultHeader && (!this.hasHeaders || !this.headers['Content-Type'])){
                     this.initHeader('Content-Type', this.defaultPostHeader);
                 }
 
@@ -2066,7 +2070,7 @@
                     control = tmp;
                 }
 
-                Ext.fly(el).position();
+                Ext.fly(el, '_anim').position();
 
                 if (isset(attributes['points']['from'])) {
                     Ext.lib.Dom.setXY(el, attributes['points']['from']);

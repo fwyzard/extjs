@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -22,7 +22,7 @@ Ext.Editor = function(field, config){
 
 Ext.extend(Ext.Editor, Ext.Component, {
     /**
-     * @cfg {Boolean/String} autosize
+     * @cfg {Boolean/String} autoSize
      * True for the editor to automatically adopt the size of the underlying field, "width" to adopt the width only,
      * or "height" to adopt the height only (defaults to false)
      */

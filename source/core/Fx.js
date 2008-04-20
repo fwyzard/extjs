@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.0.2
+ * Ext JS Library 2.1
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -701,6 +701,18 @@ el.shift({
             if(h !== undefined){
                 a.height = {to: this.adjustHeight(h)};
             }
+            if(o.left !== undefined){
+                a.left = {to: o.left};
+            }
+            if(o.top !== undefined){
+                a.top = {to: o.top};
+            }
+            if(o.right !== undefined){
+                a.right = {to: o.right};
+            }
+            if(o.bottom !== undefined){
+                a.bottom = {to: o.bottom};
+            }
             if(x !== undefined || y !== undefined){
                 a.points = {to: [
                     x !== undefined ? x : this.getX(),
@@ -735,7 +747,7 @@ el.ghost('r', { duration: 2 });
 // common config options shown with default values
 el.ghost('b', {
     easing: 'easeOut',
-    duration: .5
+    duration: .5,
     remove: false,
     useDisplay: false
 });

@@ -12,7 +12,7 @@
                 <h1>Class Ext.Layer</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../source/widgets/Layer.js" target="_blank">Layer.js</a></td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info">Layer.js</td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Layer</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.Element" ext:member="" href="output/Ext.Element.html">Element</a></td></tr>
                     </table>
@@ -230,13 +230,12 @@ automatic maintaining of shadow/shim positions.        </div>
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Layer-addClassOnOver"></a>
-            <b>addClassOnOver</b>(&nbsp;<code>String className</code>, <span class="optional" title="Optional">[<code>Boolean preventFlicker</code>]</span>&nbsp;) : Ext.Element            <div class="mdesc">
+            <b>addClassOnOver</b>(&nbsp;<code>String className</code>&nbsp;) : Ext.Element            <div class="mdesc">
                         <div class="short">Sets up event handlers to add and remove a css class when the mouse is over this element</div>
             <div class="long">
                 Sets up event handlers to add and remove a css class when the mouse is over this element    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>className</code> : String<div class="sub-desc"></div></li><li><code>preventFlicker</code> : Boolean<div class="sub-desc">(optional) If set to true, it prevents flickering by filtering
-mouseout events for children elements</div></li>        </ul>
+        <ul><li><code>className</code> : String<div class="sub-desc"></div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Ext.Element</code><div class="sub-desc">this</div></li>
@@ -297,7 +296,14 @@ mouseout events for children elements</div></li>        </ul>
             <div class="long">
                 Appends an event handler to this element.  The shorthand version <a ext:cls="Ext.Element" ext:member="on" href="output/Ext.Element.html#on">on</a> is equivalent.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>eventName</code> : String<div class="sub-desc">The type of event to handle</div></li><li><code>fn</code> : Function<div class="sub-desc">The handler function the event invokes</div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope (this element) of the handler function</div></li><li><code>options</code> : Object<div class="sub-desc">(optional) An object containing handler configuration properties.
+        <ul><li><code>eventName</code> : String<div class="sub-desc">The type of event to handle</div></li><li><code>fn</code> : Function<div class="sub-desc">The handler function the event invokes. This function is passed
+the following parameters:<ul>
+<li>evt : EventObject<div class="sub-desc">The <a ext:cls="Ext.EventObject" href="output/Ext.EventObject.html">EventObject</a> describing the event.</div></li>
+<li>t : Element<div class="sub-desc">The <a ext:cls="Ext.Element" href="output/Ext.Element.html">Element</a> which was the target of the event.
+Note that this may be filtered by using the <tt>delegate</tt> option.</div></li>
+<li>o : Object<div class="sub-desc">The the options object from the addListener call.</div></li>
+</ul></div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope (The <tt>this</tt> reference) of the handler function. Defaults
+to this Element.</div></li><li><code>options</code> : Object<div class="sub-desc">(optional) An object containing handler configuration properties.
 This may contain any of the following properties:<ul>
 <li>scope {Object} : The scope in which to execute the handler function. The handler function's "this" context.</li>
 <li>delegate {String} : A simple selector to filter the target or look for a descendant of the target</li>
@@ -317,19 +323,21 @@ In the following examples, the shorthand form <a ext:cls="Ext.Element" ext:membe
 addListener. The two are equivalent. Using the options argument, it is possible to combine different
 types of listeners:<br>
 <br>
-A normalized, delayed, one-time listener that auto stops the event and passes a custom argument (forumId)<div style="margin: 5px 20px 20px;">
+A normalized, delayed, one-time listener that auto stops the event and adds a custom argument (forumId) to the
+options object. The options object is available as the third parameter in the handler function.<div style="margin: 5px 20px 20px;">
 Code:<pre><code>el.on(<em>'click'</em>, <b>this</b>.onClick, <b>this</b>, {
     single: true,
     delay: 100,
     stopEvent : true,
     forumId: 4
-});</code></pre>
+});</code></pre></p>
 <p>
 <b>Attaching multiple handlers in 1 call</b><br>
 The method also allows for a single argument to be passed which is a config object containing properties
-which specify multiple handlers.
+which specify multiple handlers.</p>
 <p>
-Code:<pre><code>el.on({
+Code:<pre><code></p>
+el.on({
     <em>'click'</em> : {
         fn: <b>this</b>.onClick,
         scope: <b>this</b>,
@@ -346,7 +354,8 @@ Code:<pre><code>el.on({
 });</code></pre>
 <p>
 Or a shorthand syntax:<br>
-Code:<pre><code>el.on({
+Code:<pre><code></p>
+el.on({
     <em>'click'</em> : <b>this</b>.onClick,
     <em>'mouseover'</em> : <b>this</b>.onMouseOver,
     <em>'mouseout'</em> : <b>this</b>.onMouseOut,
@@ -2380,7 +2389,8 @@ within this element's scrollable range.    <div class="mdetail-params">
             <div class="long">
                 Scrolls this element into view within the passed container.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>container</code> : Mixed<div class="sub-desc">(optional) The container element to scroll (defaults to document.body)</div></li><li><code>hscroll</code> : Boolean<div class="sub-desc">(optional) False to disable horizontal scroll (defaults to true)</div></li>        </ul>
+        <ul><li><code>container</code> : Mixed<div class="sub-desc">(optional) The container element to scroll (defaults to document.body). Should be a 
+string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Boolean<div class="sub-desc">(optional) False to disable horizontal scroll (defaults to true)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Ext.Element</code><div class="sub-desc">this</div></li>
@@ -2986,12 +2996,12 @@ element, if any, will be assigned z-index + 1, and the shim element, if any, wil
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Layer-translatePoints"></a>
-            <b>translatePoints</b>(&nbsp;<code>Number/Array x</code>, <code>Number y</code>&nbsp;) : Object            <div class="mdesc">
+            <b>translatePoints</b>(&nbsp;<code>Number/Array x</code>, <span class="optional" title="Optional">[<code>Number y</code>]</span>&nbsp;) : Object            <div class="mdesc">
                         <div class="short">Translates the passed page coordinates into left/top css values for this element</div>
             <div class="long">
                 Translates the passed page coordinates into left/top css values for this element    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>x</code> : Number/Array<div class="sub-desc">The page x or an array containing [x, y]</div></li><li><code>y</code> : Number<div class="sub-desc">The page y</div></li>        </ul>
+        <ul><li><code>x</code> : Number/Array<div class="sub-desc">The page x or an array containing [x, y]</div></li><li><code>y</code> : Number<div class="sub-desc">(optional) The page y, required if x is not an array</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Object</code><div class="sub-desc">An object with left and top properties. e.g. {left: (value), top: (value)}</div></li>
