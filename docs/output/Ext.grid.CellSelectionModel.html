@@ -216,15 +216,15 @@ Or a shorthand syntax:<br>
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.CellSelectionModel-getSelectedCell"></a>
-            <b>getSelectedCell</b>() : Object            <div class="mdesc">
-                        <div class="short">Returns the currently selected cell,.</div>
+            <b>getSelectedCell</b>() : Array            <div class="mdesc">
+                        <div class="short">Returns the currently selected cell's row and column indexes as an array (e.g., [0, 0]).</div>
             <div class="long">
-                Returns the currently selected cell,.    <div class="mdetail-params">
+                Returns the currently selected cell's row and column indexes as an array (e.g., [0, 0]).    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li>None.</li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Object</code><div class="sub-desc">The selected cell or null if none selected.</div></li>
+            <li><code>Array</code><div class="sub-desc">An array containing the row and column indexes of the selected cell, or null if none selected.</div></li>
         </ul>
     </div>
                 </div>
@@ -358,11 +358,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.grid.CellSelectionModel-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>

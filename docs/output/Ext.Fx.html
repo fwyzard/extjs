@@ -84,7 +84,7 @@ below are common options that can be passed to any Fx method.</b>        </div>
             <b>callback</b> : Function            <div class="mdesc">
                         <div class="short">A function called when the effect is finished. Note that effects are queued internally by the Fx class, so do not nee...</div>
             <div class="long">
-                A function called when the effect is finished. Note that effects are queued internally by the Fx class, so do not need to use the callback parameter to specify another effect -- effects can simply be chained together and called in sequence (e.g., el.slideIn().highlight();). The callback is intended for any additional code that should run once a particular effect has completed.            </div>
+                A function called when the effect is finished. Note that effects are queued internally by the Fx class, so do not need to use the callback parameter to specify another effect -- effects can simply be chained together and called in sequence (e.g., el.slideIn().highlight();). The callback is intended for any additional code that should run once a particular effect has completed. The Element being operated upon is passed as the first parameter.            </div>
                         </div>
         </td>
         <td class="msource">Fx</td>

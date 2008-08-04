@@ -87,7 +87,7 @@
         <td class="sig">
         <a id="Ext.DatePicker-constrainToViewport"></a>
             <b>constrainToViewport</b> : Boolean            <div class="mdesc">
-                            True to constrain the date picker to the viewport (defaults to true)                        </div>
+                            <b>Deprecated</b> (not currently used). True to constrain the date picker to the viewport (defaults to true)                        </div>
         </td>
         <td class="msource">DatePicker</td>
     </tr>
@@ -115,18 +115,42 @@
         <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.DatePicker-disabled"></a>
+            <b>disabled</b> : Boolean            <div class="mdesc">
+                            Render this component disabled (default is false).                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.DatePicker-disabledClass"></a>
             <b>disabledClass</b> : String            <div class="mdesc">
                             CSS class added to the component when it is disabled (defaults to "x-item-disabled").                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabledClass" href="output/Ext.Component.html#disabledClass">Component</a></td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DatePicker-disabledDates"></a>
+            <b>disabledDates</b> : Array            <div class="mdesc">
+                        <div class="short">An array of "dates" to disable, as strings. These strings will be used to build a dynamic regular expression so they ...</div>
+            <div class="long">
+                An array of "dates" to disable, as strings. These strings will be used to build a dynamic regular expression so they are very powerful. Some examples: <ul> <li>["03/08/2003", "09/16/2003"] would disable those exact dates</li> <li>["03/08", "09/16"] would disable those days for every year</li> <li>["^03/08"] would only match the beginning (useful if you are using short years)</li> <li>["03/../2006"] would disable every day in March 2006</li> <li>["^03"] would disable every day in every March</li> </ul> Note that the format of the dates included in the array should exactly match the <a ext:cls="Ext.DatePicker" ext:member="format" href="output/Ext.DatePicker.html#format">format</a> config. In order to support regular expressions, if you are using a date format that has "." in it, you will have to escape the dot when restricting dates. For example: ["03\\.08\\.03"].            </div>
+                        </div>
+        </td>
+        <td class="msource">DatePicker</td>
+    </tr>
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-disabledDatesRE"></a>
             <b>disabledDatesRE</b> : RegExp            <div class="mdesc">
-                            JavaScript regular expression used to disable a pattern of dates (defaults to null)                        </div>
+                        <div class="short">JavaScript regular expression used to disable a pattern of dates (defaults to null). The disabledDates config will ge...</div>
+            <div class="long">
+                JavaScript regular expression used to disable a pattern of dates (defaults to null). The <a ext:cls="Ext.DatePicker" ext:member="disabledDates" href="output/Ext.DatePicker.html#disabledDates">disabledDates</a> config will generate this regex internally, but if you specify disabledDatesRE it will take precedence over the disabledDates value.            </div>
+                        </div>
         </td>
         <td class="msource">DatePicker</td>
     </tr>
@@ -135,7 +159,7 @@
         <td class="sig">
         <a id="Ext.DatePicker-disabledDatesText"></a>
             <b>disabledDatesText</b> : String            <div class="mdesc">
-                            The tooltip text to display when the date falls on a disabled date (defaults to "")                        </div>
+                            The tooltip text to display when the date falls on a disabled date (defaults to "Disabled")                        </div>
         </td>
         <td class="msource">DatePicker</td>
     </tr>
@@ -153,7 +177,7 @@
         <td class="sig">
         <a id="Ext.DatePicker-disabledDaysText"></a>
             <b>disabledDaysText</b> : String            <div class="mdesc">
-                            The tooltip to display when the date falls on a disabled day (defaults to "")                        </div>
+                            The tooltip to display when the date falls on a disabled day (defaults to "Disabled")                        </div>
         </td>
         <td class="msource">DatePicker</td>
     </tr>
@@ -169,7 +193,16 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DatePicker-hidden"></a>
+            <b>hidden</b> : Boolean            <div class="mdesc">
+                            Render this component hidden (default is false).                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#hidden" href="output/Ext.Component.html#hidden">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-hideMode"></a>
@@ -181,7 +214,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideMode" href="output/Ext.Component.html#hideMode">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-hideParent"></a>
@@ -193,7 +226,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideParent" href="output/Ext.Component.html#hideParent">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-id"></a>
@@ -202,7 +235,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#id" href="output/Ext.Component.html#id">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-listeners"></a>
@@ -214,7 +247,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-maxDate"></a>
@@ -223,7 +256,7 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-maxText"></a>
@@ -232,7 +265,7 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-minDate"></a>
@@ -241,7 +274,7 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-minText"></a>
@@ -250,7 +283,7 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-monthNames"></a>
@@ -259,7 +292,7 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-monthYearText"></a>
@@ -268,7 +301,7 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-nextText"></a>
@@ -277,7 +310,7 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-okText"></a>
@@ -286,7 +319,7 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-overCls"></a>
@@ -298,7 +331,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-plugins"></a>
@@ -310,7 +343,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-prevText"></a>
@@ -319,7 +352,7 @@
         </td>
         <td class="msource">DatePicker</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-renderTo"></a>
@@ -330,6 +363,18 @@
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
+    </tr>
+        <tr class="config-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DatePicker-showToday"></a>
+            <b>showToday</b> : Boolean            <div class="mdesc">
+                        <div class="short">False to hide the footer area containing the Today button and disable the keyboard handler for spacebar that selects ...</div>
+            <div class="long">
+                False to hide the footer area containing the Today button and disable the keyboard handler for spacebar that selects the current date (defaults to true).            </div>
+                        </div>
+        </td>
+        <td class="msource">DatePicker</td>
     </tr>
         <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -908,11 +953,14 @@ alert(t.getXType());  // alerts <em>'textfield'</em></code></pre>    <div class=
         <td class="sig">
         <a id="Ext.DatePicker-getXTypes"></a>
             <b>getXTypes</b>() : String            <div class="mdesc">
-                        <div class="short">Returns this component's xtype hierarchy as a slash-delimited string. For a list of all
+                        <div class="short">Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
 available xtypes, see the Ext...</div>
             <div class="long">
-                Returns this component's xtype hierarchy as a slash-delimited string. For a list of all
-available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header. Example usage:
+                <p>Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
+available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header.</p>
+<p><b>If using your own subclasses, be aware that a Component must register its own xtype
+to participate in determination of inherited xtypes.</b></p>
+<p>Example usage:</p>
 <pre><code>
 var t = new Ext.form.TextField();
 alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>    <div class="mdetail-params">
@@ -993,19 +1041,22 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         <td class="sig">
         <a id="Ext.DatePicker-isXType"></a>
             <b>isXType</b>(&nbsp;<code>String xtype</code>, <span class="optional" title="Optional">[<code>Boolean shallow</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Tests whether or not this component is of a specific xtype. This can test whether this component is descended
+                        <div class="short">Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
 from th...</div>
             <div class="long">
-                Tests whether or not this component is of a specific xtype. This can test whether this component is descended
-from the xtype (default) or whether it is directly of the xtype specified (shallow = true). For a list of all
-available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header. Example usage:
+                <p>Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
+from the xtype (default) or whether it is directly of the xtype specified (shallow = true).</p>
+<p><b>If using your own subclasses, be aware that a Component must register its own xtype
+to participate in determination of inherited xtypes.</b></p>
+<p>For a list of all available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header.</p>
+<p>Example usage:</p>
 <pre><code>var t = <b>new</b> Ext.form.TextField();
 <b>var</b> isText = t.isXType(<em>'textfield'</em>);        <i>// true</i>
 <b>var</b> isBoxSubclass = t.isXType(<em>'box'</em>);       <i>// true, descended from BoxComponent</i>
 <b>var</b> isBoxInstance = t.isXType(<em>'box'</em>, true); // false, not a direct BoxComponent instance</code></pre>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>xtype</code> : String<div class="sub-desc">The xtype to check for this component</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this component is descended from the xtype (this is
-the default), or true to check whether this component is directly of the specified xtype.</div></li>        </ul>
+        <ul><li><code>xtype</code> : String<div class="sub-desc">The xtype to check for this Component</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this Component is descended from the xtype (this is
+the default), or true to check whether this Component is directly of the specified xtype.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -1062,11 +1113,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.DatePicker-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -1121,13 +1172,33 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DatePicker-render"></a>
-            <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Mixed container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">If this is a lazy rendering component, render it to its container element.</div>
+            <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Element/HTMLElement/String container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Render this Components into the passed HTML element.
+If you are using a Container object to house this Component, the...</div>
             <div class="long">
-                If this is a lazy rendering component, render it to its container element.    <div class="mdetail-params">
+                <p>Render this Components into the passed HTML element.</p>
+<p><b>If you are using a <a ext:cls="Ext.Container" href="output/Ext.Container.html">Container</a> object to house this Component, then
+do not use the render method.</b></p>
+<p>A Container's child Components are rendered by that Container's
+<a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> manager when the Container is first rendered.</p>
+<p>Certain layout managers allow dynamic addition of child components. Those that do
+include <a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">Ext.layout.CardLayout</a>, <a ext:cls="Ext.layout.AnchorLayout" href="output/Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a>,
+<a ext:cls="Ext.layout.FormLayout" href="output/Ext.layout.FormLayout.html">Ext.layout.FormLayout</a>, <a ext:cls="Ext.layout.TableLayout" href="output/Ext.layout.TableLayout.html">Ext.layout.TableLayout</a>.</p>
+<p>If the Container is already rendered when a new child Component is added, you may need to call
+the Container's <a ext:cls="Ext.Container" ext:member="doLayout" href="output/Ext.Container.html#doLayout">doLayout</a> to refresh the view which causes any
+unrendered child Components to be rendered. This is required so that you can add multiple
+child components if needed while only refreshing the layout once.</p>
+<p>When creating complex UIs, it is important to remember that sizing and positioning
+of child items is the responsibility of the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> manager.
+If you expect child items to be sized in response to user interactions, you must
+configure the Container with a layout manager which creates and manages the type of layout you
+have in mind.</p>
+<p><b>Omitting the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config means that a basic
+layout manager is used which does nothnig but render child components sequentially into the
+Container. No sizing or positioning will be performed in this situation.</b></p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>container</code> : Mixed<div class="sub-desc">(optional) The element this component should be rendered into. If it is being
-applied to existing markup, this should be left off.</div></li><li><code>position</code> : String/Number<div class="sub-desc">(optional) The element ID or DOM node index within the container <b>before</b>
+        <ul><li><code>container</code> : Element/HTMLElement/String<div class="sub-desc">(optional) The element this Component should be
+rendered into. If it is being created from existing markup, this should be omitted.</div></li><li><code>position</code> : String/Number<div class="sub-desc">(optional) The element ID or DOM node index within the container <b>before</b>
 which this component will be inserted (defaults to appending to the end of the container)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
@@ -1178,6 +1249,88 @@ which this component will be inserted (defaults to appending to the end of the c
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setDisabled" href="output/Ext.Component.html#setDisabled">Component</a></td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DatePicker-setDisabledDates"></a>
+            <b>setDisabledDates</b>(&nbsp;<code>Array/RegExp disabledDates</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Replaces any existing disabled dates with new values and refreshes the DatePicker.</div>
+            <div class="long">
+                Replaces any existing disabled dates with new values and refreshes the DatePicker.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>disabledDates</code> : Array/RegExp<div class="sub-desc">An array of date strings (see the <a ext:cls="Ext.DatePicker" ext:member="disabledDates" href="output/Ext.DatePicker.html#disabledDates">disabledDates</a> config
+for details on supported values), or a JavaScript regular expression used to disable a pattern of dates.</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">DatePicker</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DatePicker-setDisabledDays"></a>
+            <b>setDisabledDays</b>(&nbsp;<code>Array disabledDays</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Replaces any existing disabled days (by index, 0-6) with new values and refreshes the DatePicker.</div>
+            <div class="long">
+                Replaces any existing disabled days (by index, 0-6) with new values and refreshes the DatePicker.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>disabledDays</code> : Array<div class="sub-desc">An array of disabled day indexes. See the <a ext:cls="Ext.DatePicker" ext:member="disabledDays" href="output/Ext.DatePicker.html#disabledDays">disabledDays</a> config
+for details on supported values.</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">DatePicker</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DatePicker-setMaxDate"></a>
+            <b>setMaxDate</b>(&nbsp;<code>Date value</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Replaces any existing <a ext:cls="Ext.DatePicker" ext:member="maxDate" href="output/Ext.DatePicker.html#maxDate">maxDate</a> with the new value and refreshes the DatePicker.</div>
+            <div class="long">
+                Replaces any existing <a ext:cls="Ext.DatePicker" ext:member="maxDate" href="output/Ext.DatePicker.html#maxDate">maxDate</a> with the new value and refreshes the DatePicker.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>value</code> : Date<div class="sub-desc">The maximum date that can be selected</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">DatePicker</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DatePicker-setMinDate"></a>
+            <b>setMinDate</b>(&nbsp;<code>Date value</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Replaces any existing <a ext:cls="Ext.DatePicker" ext:member="minDate" href="output/Ext.DatePicker.html#minDate">minDate</a> with the new value and refreshes the DatePicker.</div>
+            <div class="long">
+                Replaces any existing <a ext:cls="Ext.DatePicker" ext:member="minDate" href="output/Ext.DatePicker.html#minDate">minDate</a> with the new value and refreshes the DatePicker.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>value</code> : Date<div class="sub-desc">The minimum date that can be selected</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">DatePicker</td>
     </tr>
         <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

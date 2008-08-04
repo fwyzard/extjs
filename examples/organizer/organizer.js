@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -143,17 +143,21 @@ Ext.extend(ImageDragZone, Ext.dd.DragZone, {
                 nodes: selNodes
             };
             if(selNodes.length == 1){
-                dragData.ddel = target.firstChild.firstChild; // the img element
+                dragData.ddel = target;
                 dragData.single = true;
             }else{
                 var div = document.createElement('div'); // create the multi element drag "ghost"
                 div.className = 'multi-proxy';
                 for(var i = 0, len = selNodes.length; i < len; i++){
-                    div.appendChild(selNodes[i].firstChild.firstChild.cloneNode(true));
+                    div.appendChild(selNodes[i].firstChild.firstChild.cloneNode(true)); // image nodes only
                     if((i+1) % 3 == 0){
                         div.appendChild(document.createElement('br'));
                     }
                 }
+                var count = document.createElement('div'); // selected image count
+                count.innerHTML = i + ' images selected';
+                div.appendChild(count);
+                
                 dragData.ddel = div;
                 dragData.multi = true;
             }

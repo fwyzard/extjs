@@ -15,18 +15,16 @@
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
         <div class="description">
-            The subclasses of this class provide actions to perform upon <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a>s.
-<br><br>
-Instances of this class are only created by a <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a> when
+            <p>The subclasses of this class provide actions to perform upon <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a>s.</p>
+<p>Instances of this class are only created by a <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a> when
 the Form needs to perform an action such as submit or load. The Configuration options
 listed for this class are set through the Form's action methods: <a ext:cls="Ext.form.BasicForm" ext:member="submit" href="output/Ext.form.BasicForm.html#submit">submit</a>,
-<a ext:cls="Ext.form.BasicForm" ext:member="load" href="output/Ext.form.BasicForm.html#load">load</a> and <a ext:cls="Ext.form.BasicForm" ext:member="doAction" href="output/Ext.form.BasicForm.html#doAction">doAction</a>.
-<br><br>
-The instance of Action which performed the action is passed to the success
+<a ext:cls="Ext.form.BasicForm" ext:member="load" href="output/Ext.form.BasicForm.html#load">load</a> and <a ext:cls="Ext.form.BasicForm" ext:member="doAction" href="output/Ext.form.BasicForm.html#doAction">doAction</a></p>
+<p>The instance of Action which performed the action is passed to the success
 and failure callbacks of the Form's action methods (<a ext:cls="Ext.form.BasicForm" ext:member="submit" href="output/Ext.form.BasicForm.html#submit">submit</a>,
 <a ext:cls="Ext.form.BasicForm" ext:member="load" href="output/Ext.form.BasicForm.html#load">load</a> and <a ext:cls="Ext.form.BasicForm" ext:member="doAction" href="output/Ext.form.BasicForm.html#doAction">doAction</a>),
 and to the <a ext:cls="Ext.form.BasicForm" ext:member="actioncomplete" href="output/Ext.form.BasicForm.html#actioncomplete">actioncomplete</a> and
-<a ext:cls="Ext.form.BasicForm" ext:member="actionfailed" href="output/Ext.form.BasicForm.html#actionfailed">actionfailed</a> event handlers.        </div>
+<a ext:cls="Ext.form.BasicForm" ext:member="actionfailed" href="output/Ext.form.BasicForm.html#actionfailed">actionfailed</a> event handlers.</p>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.form.Action-configs"></a>
@@ -72,7 +70,19 @@ and to the <a ext:cls="Ext.form.BasicForm" ext:member="actioncomplete" href="out
         </td>
         <td class="msource">Action</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.Action-reset"></a>
+            <b>reset</b> : Boolean            <div class="mdesc">
+                        <div class="short">When set to true, causes the Form to be reset on Action success. If specified, this happens before the success callba...</div>
+            <div class="long">
+                When set to <tt><b>true</b></tt>, causes the Form to be <a ext:cls="Ext.form.BasicForm.reset" href="output/Ext.form.BasicForm.reset.html">reset</a> on Action success. If specified, this happens <b>before</b> the <a ext:cls="Ext.form.Action" ext:member="success" href="output/Ext.form.Action.html#success">success</a> callback is called and before the Form's <a ext:cls="Ext.form.BasicForm.actioncomplete" href="output/Ext.form.BasicForm.actioncomplete.html">actioncomplete</a> event fires.            </div>
+                        </div>
+        </td>
+        <td class="msource">Action</td>
+    </tr>
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action-scope"></a>
@@ -81,7 +91,7 @@ and to the <a ext:cls="Ext.form.BasicForm" ext:member="actioncomplete" href="out
         </td>
         <td class="msource">Action</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action-success"></a>
@@ -93,7 +103,7 @@ and to the <a ext:cls="Ext.form.BasicForm" ext:member="actioncomplete" href="out
         </td>
         <td class="msource">Action</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action-timeout"></a>
@@ -102,7 +112,7 @@ and to the <a ext:cls="Ext.form.BasicForm" ext:member="actioncomplete" href="out
         </td>
         <td class="msource">Action</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action-url"></a>
@@ -111,7 +121,7 @@ and to the <a ext:cls="Ext.form.BasicForm" ext:member="actioncomplete" href="out
         </td>
         <td class="msource">Action</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action-waitMsg"></a>
@@ -120,7 +130,7 @@ and to the <a ext:cls="Ext.form.BasicForm" ext:member="actioncomplete" href="out
         </td>
         <td class="msource">Action</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action-waitTitle"></a>

@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -7,14 +7,28 @@
  */
 
 Ext.grid.filter.BooleanFilter = Ext.extend(Ext.grid.filter.Filter, {
-  defaultValue: false,
+    /**
+     * @cfg {Boolean} defaultValue
+     * The default value of this filter (defaults to false)
+     */
+    defaultValue: false,
+    /**
+     * @cfg {String} yesText
+     * The text displayed for the "Yes" checkbox
+     */
+    yesText: 'Yes',
+    /**
+     * @cfg {String} noText
+     * The text displayed for the "No" checkbox
+     */
+    noText: 'No',
 
 	init: function(){
-    var gId = Ext.id();
-		this.options = [
-			new Ext.menu.CheckItem({text: "Yes", group: gId, checked: this.defaultValue === true}),
-			new Ext.menu.CheckItem({text: "No", group: gId, checked: this.defaultValue === false})
-    ];
+	    var gId = Ext.id();
+			this.options = [
+				new Ext.menu.CheckItem({text: this.yesText, group: gId, checked: this.defaultValue === true}),
+				new Ext.menu.CheckItem({text: this.noText, group: gId, checked: this.defaultValue === false})
+	    ];
 		
 		this.menu.add(this.options[0], this.options[1]);
 		

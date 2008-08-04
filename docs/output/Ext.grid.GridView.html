@@ -44,6 +44,24 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.grid.GridView-cellSelector"></a>
+            <b>cellSelector</b> : String            <div class="mdesc">
+                            The selector used to find cells internally                        </div>
+        </td>
+        <td class="msource">GridView</td>
+    </tr>
+        <tr class="config-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GridView-cellSelectorDepth"></a>
+            <b>cellSelectorDepth</b> : Number            <div class="mdesc">
+                            The number of levels to search for cells in event delegation (defaults to 4)                        </div>
+        </td>
+        <td class="msource">GridView</td>
+    </tr>
+        <tr class="config-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.grid.GridView-deferEmptyText"></a>
             <b>deferEmptyText</b> : Boolean            <div class="mdesc">
                             True to defer emptyText being applied until the store's first load                        </div>
@@ -92,6 +110,24 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
+        <tr class="config-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GridView-rowSelector"></a>
+            <b>rowSelector</b> : String            <div class="mdesc">
+                            The selector used to find rows internally                        </div>
+        </td>
+        <td class="msource">GridView</td>
+    </tr>
+        <tr class="config-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GridView-rowSelectorDepth"></a>
+            <b>rowSelectorDepth</b> : Number            <div class="mdesc">
+                            The number of levels to search for rows in event delegation (defaults to 10)                        </div>
+        </td>
+        <td class="msource">GridView</td>
+    </tr>
             </table>
                 <a id="Ext.grid.GridView-props"></a>
         <h2>Public Properties</h2>
@@ -112,13 +148,23 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.grid.GridView-dragZone"></a>
+            <b>dragZone</b> : Ext.grid.GridDragZone
+<p><b>This            <div class="mdesc">
+                                                    </div>
+        </td>
+        <td class="msource">GridView</td>
+    </tr>
+        <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.grid.GridView-scrollOffset"></a>
             <b>scrollOffset</b> : Number            <div class="mdesc">
                             The amount of space to reserve for the scrollbar (defaults to 19 pixels)                        </div>
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="property-row">
+        <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-sortAscText"></a>
@@ -127,7 +173,7 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="property-row alt">
+        <tr class="property-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-sortClasses"></a>
@@ -136,7 +182,7 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="property-row">
+        <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-sortDescText"></a>
@@ -498,11 +544,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.grid.GridView-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>

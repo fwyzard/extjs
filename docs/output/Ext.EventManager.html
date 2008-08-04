@@ -67,7 +67,7 @@ the following parameters:<ul>
 <li>evt : EventObject<div class="sub-desc">The <a ext:cls="Ext.EventObject" href="output/Ext.EventObject.html">EventObject</a> describing the event.</div></li>
 <li>t : Element<div class="sub-desc">The <a ext:cls="Ext.Element" href="output/Ext.Element.html">Element</a> which was the target of the event.
 Note that this may be filtered by using the <tt>delegate</tt> option.</div></li>
-<li>o : Object<div class="sub-desc">The the options object from the addListener call.</div></li>
+<li>o : Object<div class="sub-desc">The options object from the addListener call.</div></li>
 </ul></div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope in which to execute the handler
 function (the handler function's "this" context)</div></li><li><code>options</code> : Object<div class="sub-desc">(optional) An object containing handler configuration properties.
 This may contain any of the following properties:<ul>
@@ -180,8 +180,30 @@ accessed shorthanded as Ext.onReady().    <div class="mdetail-params">
         <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.EventManager-removeAll"></a>
+            <b>removeAll</b>(&nbsp;<code>String/HTMLElement el</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Removes all event handers from an element.  Typically you will use Ext.Element.removeAllListeners
+directly on an Elem...</div>
+            <div class="long">
+                Removes all event handers from an element.  Typically you will use <a ext:cls="Ext.Element" ext:member="removeAllListeners" href="output/Ext.Element.html#removeAllListeners">Ext.Element.removeAllListeners</a>
+directly on an Element in favor of calling this version.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>el</code> : String/HTMLElement<div class="sub-desc">The id or html element from which to remove the event</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">EventManager</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.EventManager-removeListener"></a>
-            <b>removeListener</b>(&nbsp;<code>String/HTMLElement el</code>, <code>String eventName</code>, <code>Function fn</code>&nbsp;) : Boolean            <div class="mdesc">
+            <b>removeListener</b>(&nbsp;<code>String/HTMLElement el</code>, <code>String eventName</code>, <code>Function fn</code>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Removes an event handler from an element.  The shorthand version un is equivalent.  Typically
 you will use Ext.Elemen...</div>
             <div class="long">
@@ -191,7 +213,7 @@ you will use <a ext:cls="Ext.Element" ext:member="removeListener" href="output/E
         <ul><li><code>el</code> : String/HTMLElement<div class="sub-desc">The id or html element from which to remove the event</div></li><li><code>eventName</code> : String<div class="sub-desc">The type of event</div></li><li><code>fn</code> : Function<div class="sub-desc">The handler function to remove</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Boolean</code><div class="sub-desc">True if a listener was actually removed, else false</div></li>
+            <li><code>void</code></li>
         </ul>
     </div>
                 </div>
@@ -199,7 +221,7 @@ you will use <a ext:cls="Ext.Element" ext:member="removeListener" href="output/E
         </td>
         <td class="msource">EventManager</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.EventManager-removeResizeListener"></a>
@@ -219,7 +241,7 @@ you will use <a ext:cls="Ext.Element" ext:member="removeListener" href="output/E
         </td>
         <td class="msource">EventManager</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.EventManager-un"></a>

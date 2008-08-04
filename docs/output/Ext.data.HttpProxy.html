@@ -64,7 +64,7 @@ the Content-Type header in the HTTP response to "text/xml".        </div>
             <b>conn</b> : Object            <div class="mdesc">
                         <div class="short">The Connection object (Or options parameter to Ext.Ajax.request) which this HttpProxy uses to make requests to the se...</div>
             <div class="long">
-                The Connection object (Or options parameter to <a ext:cls="Ext.Ajax.request" href="output/Ext.Ajax.request.html">Ext.Ajax.request</a>) which this HttpProxy uses to make requests to the server.
+                The Connection object (Or options parameter to <a ext:cls="Ext.Ajax" ext:member="request" href="output/Ext.Ajax.html#request">Ext.Ajax.request</a>) which this HttpProxy uses to make requests to the server.
 Properties of this object may be changed dynamically to change the way data is requested.            </div>
                         </div>
         </td>
@@ -87,7 +87,7 @@ Properties of this object may be changed dynamically to change the way data is r
             <div class="long">
                     <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>conn</code> : Object<div class="sub-desc">an <a ext:cls="Ext.data.Connection" href="output/Ext.data.Connection.html">Ext.data.Connection</a> object, or options parameter to <a ext:cls="Ext.Ajax.request" href="output/Ext.Ajax.request.html">Ext.Ajax.request</a>.
+        <ul><li><code>conn</code> : Object<div class="sub-desc">an <a ext:cls="Ext.data.Connection" href="output/Ext.data.Connection.html">Ext.data.Connection</a> object, or options parameter to <a ext:cls="Ext.Ajax" ext:member="request" href="output/Ext.Ajax.html#request">Ext.Ajax.request</a>.
 If an options parameter is passed, the singleton <a ext:cls="Ext.Ajax" href="output/Ext.Ajax.html">Ext.Ajax</a> object will be used to make the request.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
@@ -322,11 +322,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.data.HttpProxy-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>

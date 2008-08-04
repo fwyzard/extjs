@@ -181,13 +181,22 @@ panel.render(document.body);</code></pre>        </div>
         <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.DataView-disabled"></a>
+            <b>disabled</b> : Boolean            <div class="mdesc">
+                            Render this component disabled (default is false).                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
+    </tr>
+        <tr class="config-row inherited">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.DataView-disabledClass"></a>
             <b>disabledClass</b> : String            <div class="mdesc">
                             CSS class added to the component when it is disabled (defaults to "x-item-disabled").                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabledClass" href="output/Ext.Component.html#disabledClass">Component</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-emptyText"></a>
@@ -196,7 +205,7 @@ panel.render(document.body);</code></pre>        </div>
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-height"></a>
@@ -204,6 +213,15 @@ panel.render(document.body);</code></pre>        </div>
                             The height of this component in pixels (defaults to auto).                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#height" href="output/Ext.BoxComponent.html#height">BoxComponent</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DataView-hidden"></a>
+            <b>hidden</b> : Boolean            <div class="mdesc">
+                            Render this component hidden (default is false).                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#hidden" href="output/Ext.Component.html#hidden">Component</a></td>
     </tr>
         <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -451,7 +469,16 @@ panel.render(document.body);</code></pre>        </div>
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DataView-trackOver"></a>
+            <b>trackOver</b> : Boolean            <div class="mdesc">
+                            True to enable mouseenter and mouseleave events                        </div>
+        </td>
+        <td class="msource">DataView</td>
+    </tr>
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-width"></a>
@@ -460,7 +487,7 @@ panel.render(document.body);</code></pre>        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#width" href="output/Ext.BoxComponent.html#width">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-x"></a>
@@ -469,7 +496,7 @@ panel.render(document.body);</code></pre>        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#x" href="output/Ext.BoxComponent.html#x">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-xtype"></a>
@@ -481,7 +508,7 @@ panel.render(document.body);</code></pre>        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#xtype" href="output/Ext.Component.html#xtype">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-y"></a>
@@ -748,6 +775,32 @@ An id property can be passed on this object, otherwise one will be generated to 
         <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.DataView-collectData"></a>
+            <b>collectData</b>(&nbsp;<code>records {Array}</code>&nbsp;) : Array            <div class="mdesc">
+                        <div class="short">Function which can be overridden which returns the data object passed to this
+DataView's template to render the whole...</div>
+            <div class="long">
+                <p>Function which can be overridden which returns the data object passed to this
+DataView's <a ext:cls="Ext.DataView" ext:member="tpl" href="output/Ext.DataView.html#tpl">template</a> to render the whole DataView.</p>
+<p>This is usually an Array of data objects, each element of which is processed by an
+<a ext:cls="Ext.XTemplate" href="output/Ext.XTemplate.html">XTemplate</a> which uses <tt>'&lt;tpl for="."&gt;'</tt> to iterate over its supplied
+data object as an Array. However, <i>named</i> properties may be placed into the data object to
+provide non-repeating data such as headings, totals etc.</p>    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>{Array}</code> : records<div class="sub-desc">An Array of <a ext:cls="Ext.data.Record" href="output/Ext.data.Record.html">Ext.data.Record</a>s to be rendered into the DataView.</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Array</code><div class="sub-desc">An Array of data objects to be processed by a repeating XTemplate. May also contain <i>named</i> properties.</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">DataView</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.DataView-deselect"></a>
             <b>deselect</b>(&nbsp;<code>HTMLElement/Number node</code>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Deselects a node.</div>
@@ -765,7 +818,7 @@ An id property can be passed on this object, otherwise one will be generated to 
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-destroy"></a>
@@ -789,7 +842,7 @@ should usually not need to be called directly.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#destroy" href="output/Ext.Component.html#destroy">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-disable"></a>
@@ -809,7 +862,7 @@ should usually not need to be called directly.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disable" href="output/Ext.Component.html#disable">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-enable"></a>
@@ -829,7 +882,7 @@ should usually not need to be called directly.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#enable" href="output/Ext.Component.html#enable">Component</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-findItemFromChild"></a>
@@ -849,7 +902,7 @@ should usually not need to be called directly.    <div class="mdetail-params">
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-findParentBy"></a>
@@ -871,7 +924,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#findParentBy" href="output/Ext.Component.html#findParentBy">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-findParentByType"></a>
@@ -891,7 +944,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#findParentByType" href="output/Ext.Component.html#findParentByType">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-fireEvent"></a>
@@ -911,7 +964,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#fireEvent" href="output/Ext.util.Observable.html#fireEvent">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-focus"></a>
@@ -931,7 +984,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#focus" href="output/Ext.Component.html#focus">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getBox"></a>
@@ -951,7 +1004,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#getBox" href="output/Ext.BoxComponent.html#getBox">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getEl"></a>
@@ -971,7 +1024,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#getEl" href="output/Ext.Component.html#getEl">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getId"></a>
@@ -991,7 +1044,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#getId" href="output/Ext.Component.html#getId">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getItemId"></a>
@@ -1011,7 +1064,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#getItemId" href="output/Ext.Component.html#getItemId">Component</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getNode"></a>
@@ -1031,16 +1084,16 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getNodes"></a>
-            <b>getNodes</b>(&nbsp;<code>Number start</code>, <code>Number end</code>&nbsp;) : Array            <div class="mdesc">
+            <b>getNodes</b>(&nbsp;<span class="optional" title="Optional">[<code>Number start</code>]</span>, <span class="optional" title="Optional">[<code>Number end</code>]</span>&nbsp;) : Array            <div class="mdesc">
                         <div class="short">Gets a range nodes.</div>
             <div class="long">
                 Gets a range nodes.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>start</code> : Number<div class="sub-desc">The index of the first node in the range</div></li><li><code>end</code> : Number<div class="sub-desc">The index of the last node in the range</div></li>        </ul>
+        <ul><li><code>start</code> : Number<div class="sub-desc">(optional) The index of the first node in the range</div></li><li><code>end</code> : Number<div class="sub-desc">(optional) The index of the last node in the range</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Array</code><div class="sub-desc">An array of nodes</div></li>
@@ -1051,7 +1104,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getPosition"></a>
@@ -1071,7 +1124,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#getPosition" href="output/Ext.BoxComponent.html#getPosition">BoxComponent</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getRecord"></a>
@@ -1091,7 +1144,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getRecords"></a>
@@ -1111,7 +1164,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getSelectedIndexes"></a>
@@ -1131,7 +1184,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getSelectedNodes"></a>
@@ -1151,7 +1204,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getSelectedRecords"></a>
@@ -1171,7 +1224,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getSelectionCount"></a>
@@ -1191,7 +1244,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getSize"></a>
@@ -1211,7 +1264,7 @@ true, the container will be returned. The passed function is called with the arg
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#getSize" href="output/Ext.BoxComponent.html#getSize">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getXType"></a>
@@ -1235,16 +1288,19 @@ alert(t.getXType());  // alerts <em>'textfield'</em></code></pre>    <div class=
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#getXType" href="output/Ext.Component.html#getXType">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-getXTypes"></a>
             <b>getXTypes</b>() : String            <div class="mdesc">
-                        <div class="short">Returns this component's xtype hierarchy as a slash-delimited string. For a list of all
+                        <div class="short">Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
 available xtypes, see the Ext...</div>
             <div class="long">
-                Returns this component's xtype hierarchy as a slash-delimited string. For a list of all
-available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header. Example usage:
+                <p>Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
+available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header.</p>
+<p><b>If using your own subclasses, be aware that a Component must register its own xtype
+to participate in determination of inherited xtypes.</b></p>
+<p>Example usage:</p>
 <pre><code>
 var t = new Ext.form.TextField();
 alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>    <div class="mdetail-params">
@@ -1260,7 +1316,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#getXTypes" href="output/Ext.Component.html#getXTypes">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-hasListener"></a>
@@ -1280,7 +1336,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#hasListener" href="output/Ext.util.Observable.html#hasListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-hide"></a>
@@ -1300,7 +1356,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hide" href="output/Ext.Component.html#hide">Component</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-indexOf"></a>
@@ -1320,7 +1376,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-isSelected"></a>
@@ -1340,7 +1396,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-isVisible"></a>
@@ -1360,24 +1416,27 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isVisible" href="output/Ext.Component.html#isVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-isXType"></a>
             <b>isXType</b>(&nbsp;<code>String xtype</code>, <span class="optional" title="Optional">[<code>Boolean shallow</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Tests whether or not this component is of a specific xtype. This can test whether this component is descended
+                        <div class="short">Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
 from th...</div>
             <div class="long">
-                Tests whether or not this component is of a specific xtype. This can test whether this component is descended
-from the xtype (default) or whether it is directly of the xtype specified (shallow = true). For a list of all
-available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header. Example usage:
+                <p>Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
+from the xtype (default) or whether it is directly of the xtype specified (shallow = true).</p>
+<p><b>If using your own subclasses, be aware that a Component must register its own xtype
+to participate in determination of inherited xtypes.</b></p>
+<p>For a list of all available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header.</p>
+<p>Example usage:</p>
 <pre><code>var t = <b>new</b> Ext.form.TextField();
 <b>var</b> isText = t.isXType(<em>'textfield'</em>);        <i>// true</i>
 <b>var</b> isBoxSubclass = t.isXType(<em>'box'</em>);       <i>// true, descended from BoxComponent</i>
 <b>var</b> isBoxInstance = t.isXType(<em>'box'</em>, true); // false, not a direct BoxComponent instance</code></pre>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>xtype</code> : String<div class="sub-desc">The xtype to check for this component</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this component is descended from the xtype (this is
-the default), or true to check whether this component is directly of the specified xtype.</div></li>        </ul>
+        <ul><li><code>xtype</code> : String<div class="sub-desc">The xtype to check for this Component</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this Component is descended from the xtype (this is
+the default), or true to check whether this Component is directly of the specified xtype.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -1388,7 +1447,7 @@ the default), or true to check whether this component is directly of the specifi
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isXType" href="output/Ext.Component.html#isXType">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-on"></a>
@@ -1409,20 +1468,21 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-prepareData"></a>
-            <b>prepareData</b>(&nbsp;<code>Array/Object data</code>&nbsp;) : Array/Object            <div class="mdesc">
-                        <div class="short">Function that can be overridden to provide custom formatting for the data that is sent to the template for each node.</div>
+            <b>prepareData</b>(&nbsp;<code>Array/Object data</code>, <code>Number recordIndex</code>, <code>Record record</code>&nbsp;) : Array/Object            <div class="mdesc">
+                        <div class="short">Function which can be overridden to provide custom formatting for each Record that is used by this
+DataView's templat...</div>
             <div class="long">
-                Function that can be overridden to provide custom formatting for the data that is sent to the template for each node.    <div class="mdetail-params">
+                Function which can be overridden to provide custom formatting for each Record that is used by this
+DataView's <a ext:cls="Ext.DataView" ext:member="tpl" href="output/Ext.DataView.html#tpl">template</a> to render each node.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>data</code> : Array/Object<div class="sub-desc">The raw data (array of colData for a data model bound view or
-a JSON object for an Updater bound view).</div></li>        </ul>
+        <ul><li><code>data</code> : Array/Object<div class="sub-desc">The raw data object that was used to create the Record.</div></li><li><code>recordIndex</code> : Number<div class="sub-desc">the index number of the Record being prepared for rendering.</div></li><li><code>record</code> : Record<div class="sub-desc">The Record being prepared for rendering.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Array/Object</code><div class="sub-desc">The formatted data in a format expected by the internal {@link #tpl}'s overwrite() method. (either an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'}))</div></li>
+            <li><code>Array/Object</code><div class="sub-desc">The formatted data in a format expected by the internal {@link #tpl template}'s overwrite() method. (either an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'}))</div></li>
         </ul>
     </div>
                 </div>
@@ -1430,7 +1490,7 @@ a JSON object for an Updater bound view).</div></li>        </ul>
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-purgeListeners"></a>
@@ -1450,7 +1510,7 @@ a JSON object for an Updater bound view).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-refresh"></a>
@@ -1470,7 +1530,7 @@ a JSON object for an Updater bound view).</div></li>        </ul>
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-refreshNode"></a>
@@ -1490,16 +1550,16 @@ a JSON object for an Updater bound view).</div></li>        </ul>
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -1510,7 +1570,7 @@ a JSON object for an Updater bound view).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-removeClass"></a>
@@ -1530,7 +1590,7 @@ a JSON object for an Updater bound view).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#removeClass" href="output/Ext.Component.html#removeClass">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-removeListener"></a>
@@ -1550,17 +1610,37 @@ a JSON object for an Updater bound view).</div></li>        </ul>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-render"></a>
-            <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Mixed container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">If this is a lazy rendering component, render it to its container element.</div>
+            <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Element/HTMLElement/String container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Render this Components into the passed HTML element.
+If you are using a Container object to house this Component, the...</div>
             <div class="long">
-                If this is a lazy rendering component, render it to its container element.    <div class="mdetail-params">
+                <p>Render this Components into the passed HTML element.</p>
+<p><b>If you are using a <a ext:cls="Ext.Container" href="output/Ext.Container.html">Container</a> object to house this Component, then
+do not use the render method.</b></p>
+<p>A Container's child Components are rendered by that Container's
+<a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> manager when the Container is first rendered.</p>
+<p>Certain layout managers allow dynamic addition of child components. Those that do
+include <a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">Ext.layout.CardLayout</a>, <a ext:cls="Ext.layout.AnchorLayout" href="output/Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a>,
+<a ext:cls="Ext.layout.FormLayout" href="output/Ext.layout.FormLayout.html">Ext.layout.FormLayout</a>, <a ext:cls="Ext.layout.TableLayout" href="output/Ext.layout.TableLayout.html">Ext.layout.TableLayout</a>.</p>
+<p>If the Container is already rendered when a new child Component is added, you may need to call
+the Container's <a ext:cls="Ext.Container" ext:member="doLayout" href="output/Ext.Container.html#doLayout">doLayout</a> to refresh the view which causes any
+unrendered child Components to be rendered. This is required so that you can add multiple
+child components if needed while only refreshing the layout once.</p>
+<p>When creating complex UIs, it is important to remember that sizing and positioning
+of child items is the responsibility of the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> manager.
+If you expect child items to be sized in response to user interactions, you must
+configure the Container with a layout manager which creates and manages the type of layout you
+have in mind.</p>
+<p><b>Omitting the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config means that a basic
+layout manager is used which does nothnig but render child components sequentially into the
+Container. No sizing or positioning will be performed in this situation.</b></p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>container</code> : Mixed<div class="sub-desc">(optional) The element this component should be rendered into. If it is being
-applied to existing markup, this should be left off.</div></li><li><code>position</code> : String/Number<div class="sub-desc">(optional) The element ID or DOM node index within the container <b>before</b>
+        <ul><li><code>container</code> : Element/HTMLElement/String<div class="sub-desc">(optional) The element this Component should be
+rendered into. If it is being created from existing markup, this should be omitted.</div></li><li><code>position</code> : String/Number<div class="sub-desc">(optional) The element ID or DOM node index within the container <b>before</b>
 which this component will be inserted (defaults to appending to the end of the container)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
@@ -1572,7 +1652,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#render" href="output/Ext.Component.html#render">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-resumeEvents"></a>
@@ -1592,7 +1672,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-select"></a>
@@ -1613,7 +1693,7 @@ id of a template node or an array of any of those to select</div></li><li><code>
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-selectRange"></a>
@@ -1633,7 +1713,7 @@ id of a template node or an array of any of those to select</div></li><li><code>
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-setDisabled"></a>
@@ -1653,14 +1733,14 @@ id of a template node or an array of any of those to select</div></li><li><code>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setDisabled" href="output/Ext.Component.html#setDisabled">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-setHeight"></a>
             <b>setHeight</b>(&nbsp;<code>Number height</code>&nbsp;) : Ext.BoxComponent            <div class="mdesc">
-                        <div class="short">Sets the height of the component.  This method fires the resize event.</div>
+                        <div class="short">Sets the height of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.</div>
             <div class="long">
-                Sets the height of the component.  This method fires the resize event.    <div class="mdetail-params">
+                Sets the height of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>height</code> : Number<div class="sub-desc">The new height to set</div></li>        </ul>
         <strong>Returns:</strong>
@@ -1673,7 +1753,7 @@ id of a template node or an array of any of those to select</div></li><li><code>
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setHeight" href="output/Ext.BoxComponent.html#setHeight">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-setPagePosition"></a>
@@ -1682,7 +1762,7 @@ id of a template node or an array of any of those to select</div></li><li><code>
 This method fires the ...</div>
             <div class="long">
                 Sets the page XY position of the component.  To set the left and top instead, use <a ext:cls="Ext.BoxComponent" ext:member="setPosition" href="output/Ext.BoxComponent.html#setPosition">setPosition</a>.
-This method fires the move event.    <div class="mdetail-params">
+This method fires the <a ext:cls="Ext.BoxComponent" ext:member="move" href="output/Ext.BoxComponent.html#move">move</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>x</code> : Number<div class="sub-desc">The new x position</div></li><li><code>y</code> : Number<div class="sub-desc">The new y position</div></li>        </ul>
         <strong>Returns:</strong>
@@ -1695,7 +1775,7 @@ This method fires the move event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setPagePosition" href="output/Ext.BoxComponent.html#setPagePosition">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-setPosition"></a>
@@ -1704,7 +1784,7 @@ This method fires the move event.    <div class="mdetail-params">
 This method fires ...</div>
             <div class="long">
                 Sets the left and top of the component.  To set the page XY position instead, use <a ext:cls="Ext.BoxComponent" ext:member="setPagePosition" href="output/Ext.BoxComponent.html#setPagePosition">setPagePosition</a>.
-This method fires the move event.    <div class="mdetail-params">
+This method fires the <a ext:cls="Ext.BoxComponent" ext:member="move" href="output/Ext.BoxComponent.html#move">move</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>left</code> : Number<div class="sub-desc">The new left</div></li><li><code>top</code> : Number<div class="sub-desc">The new top</div></li>        </ul>
         <strong>Returns:</strong>
@@ -1717,7 +1797,7 @@ This method fires the move event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setPosition" href="output/Ext.BoxComponent.html#setPosition">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-setSize"></a>
@@ -1725,7 +1805,7 @@ This method fires the move event.    <div class="mdetail-params">
                         <div class="short">Sets the width and height of the component.  This method fires the resize event.  This method can accept
 either width...</div>
             <div class="long">
-                Sets the width and height of the component.  This method fires the resize event.  This method can accept
+                Sets the width and height of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.  This method can accept
 either width and height as separate numeric arguments, or you can pass a size object like {width:10, height:20}.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>width</code> : Number/Object<div class="sub-desc">The new width to set, or a size object in the format {width, height}</div></li><li><code>height</code> : Number<div class="sub-desc">The new height to set (not required if a size object is passed as the first arg)</div></li>        </ul>
@@ -1739,7 +1819,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setSize" href="output/Ext.BoxComponent.html#setSize">BoxComponent</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-setStore"></a>
@@ -1759,7 +1839,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource">DataView</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-setVisible"></a>
@@ -1779,14 +1859,14 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setVisible" href="output/Ext.Component.html#setVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-setWidth"></a>
             <b>setWidth</b>(&nbsp;<code>Number width</code>&nbsp;) : Ext.BoxComponent            <div class="mdesc">
-                        <div class="short">Sets the width of the component.  This method fires the resize event.</div>
+                        <div class="short">Sets the width of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.</div>
             <div class="long">
-                Sets the width of the component.  This method fires the resize event.    <div class="mdetail-params">
+                Sets the width of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>width</code> : Number<div class="sub-desc">The new width to set</div></li>        </ul>
         <strong>Returns:</strong>
@@ -1799,7 +1879,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setWidth" href="output/Ext.BoxComponent.html#setWidth">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-show"></a>
@@ -1819,7 +1899,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#show" href="output/Ext.Component.html#show">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-suspendEvents"></a>
@@ -1839,7 +1919,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-syncSize"></a>
@@ -1859,7 +1939,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#syncSize" href="output/Ext.BoxComponent.html#syncSize">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-un"></a>
@@ -1879,7 +1959,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#un" href="output/Ext.util.Observable.html#un">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.DataView-updateBox"></a>
@@ -2162,6 +2242,38 @@ either width and height as separate numeric arguments, or you can pass a size ob
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-hide" href="output/Ext.Component.html#event-hide">Component</a></td>
+    </tr>
+        <tr class="event-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DataView-mouseenter"></a>
+            <b>mouseenter</b> : (&nbsp;<code>Ext.DataView this</code>, <code>Number index</code>, <code>HTMLElement node</code>, <code>Ext.EventObject e</code>&nbsp;)            <div class="mdesc">
+                        <div class="short">Fires when the mouse enters a template node. trackOver:true or an overCls must be set to enable this event.</div>
+            <div class="long">
+                Fires when the mouse enters a template node. trackOver:true or an overCls must be set to enable this event.    <div class="mdetail-params">
+        <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
+        <ul><li><code>this</code> : Ext.DataView<div class="sub-desc"></div></li><li><code>index</code> : Number<div class="sub-desc">The index of the target node</div></li><li><code>node</code> : HTMLElement<div class="sub-desc">The target node</div></li><li><code>e</code> : Ext.EventObject<div class="sub-desc">The raw event object</div></li>        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">DataView</td>
+    </tr>
+        <tr class="event-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.DataView-mouseleave"></a>
+            <b>mouseleave</b> : (&nbsp;<code>Ext.DataView this</code>, <code>Number index</code>, <code>HTMLElement node</code>, <code>Ext.EventObject e</code>&nbsp;)            <div class="mdesc">
+                        <div class="short">Fires when the mouse leaves a template node. trackOver:true or an overCls must be set to enable this event.</div>
+            <div class="long">
+                Fires when the mouse leaves a template node. trackOver:true or an overCls must be set to enable this event.    <div class="mdetail-params">
+        <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
+        <ul><li><code>this</code> : Ext.DataView<div class="sub-desc"></div></li><li><code>index</code> : Number<div class="sub-desc">The index of the target node</div></li><li><code>node</code> : HTMLElement<div class="sub-desc">The target node</div></li><li><code>e</code> : Ext.EventObject<div class="sub-desc">The raw event object</div></li>        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">DataView</td>
     </tr>
         <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

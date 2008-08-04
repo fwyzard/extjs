@@ -11,8 +11,8 @@ if(Ext.View){
    Ext.View.prototype.emptyText = "";
 }
 
-if(Ext.grid.Grid){
-   Ext.grid.Grid.prototype.ddText = "{0} righe selezionate";
+if(Ext.grid.GridPanel){
+   Ext.grid.GridPanel.prototype.ddText = "{0} righe selezionate";
 }
 
 if(Ext.TabPanelItem){
@@ -280,7 +280,7 @@ if(Ext.grid.PropertyColumnModel){
    });
 }
 
-if(Ext.layout.BorderLayout.SplitRegion){
+if(Ext.layout.BorderLayout && Ext.layout.BorderLayout.SplitRegion){
    Ext.apply(Ext.layout.BorderLayout.SplitRegion.prototype, {
       splitTip            : "Trascina per cambiare dimensioni.",
       collapsibleSplitTip : "Trascina per cambiare dimensioni. Doppio click per nascondere."

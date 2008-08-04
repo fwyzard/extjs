@@ -10,8 +10,8 @@ if(Ext.View){
     Ext.View.prototype.emptyText = "";
 }
 
-if(Ext.grid.Grid){
-    Ext.grid.Grid.prototype.ddText = "選擇了 {0} 行";
+if(Ext.grid.GridPanel){
+    Ext.grid.GridPanel.prototype.ddText = "選擇了 {0} 行";
 }
 
 if(Ext.TabPanelItem){
@@ -164,7 +164,7 @@ if(Ext.grid.PropertyColumnModel){
     });
 }
 
-if(Ext.layout.BorderLayout.SplitRegion){
+if(Ext.layout.BorderLayout && Ext.layout.BorderLayout.SplitRegion){
     Ext.apply(Ext.layout.BorderLayout.SplitRegion.prototype, {
        splitTip            : "拖曳縮放大小.",
        collapsibleSplitTip : "拖曳縮放大小. 滑鼠雙擊隱藏."

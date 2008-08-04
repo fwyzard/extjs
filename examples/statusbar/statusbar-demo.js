@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -92,6 +92,7 @@ Ext.onReady(function(){
         }],
         bbar: new Ext.StatusBar({
             id: 'win-statusbar',
+            defaultText: 'Ready',
             items: [{
                 text: 'A Button'
             }, '-',
@@ -169,11 +170,13 @@ Ext.onReady(function(){
         listeners: {
             'render': {
                 fn: function(){
-                    // Add a class to the parent TD of each text item so we can give them
-                    // some custom inset box styling:
-				    Ext.fly(wordCount.getEl().parentNode).addClass('x-status-text-panel');
-                    Ext.fly(charCount.getEl().parentNode).addClass('x-status-text-panel');
-                    Ext.fly(clock.getEl().parentNode).addClass('x-status-text-panel');
+                    // Add a class to the parent TD of each text item so we can give them some custom inset box 
+                    // styling. Also, since we are using a greedy spacer, we have to add a block level element
+                    // into each text TD in order to give them a fixed width (TextItems are spans).  Insert a
+                    // spacer div into each TD using createChild() so that we can give it a width in CSS.
+                    Ext.fly(wordCount.getEl().parentNode).addClass('x-status-text-panel').createChild({cls:'spacer'});
+                    Ext.fly(charCount.getEl().parentNode).addClass('x-status-text-panel').createChild({cls:'spacer'});
+                    Ext.fly(clock.getEl().parentNode).addClass('x-status-text-panel').createChild({cls:'spacer'});
                     
                     // Kick off the clock timer that updates the clock el every second:
 				    Ext.TaskMgr.start({

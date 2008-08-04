@@ -148,13 +148,22 @@ as the editor field.        </div>
         <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.tree.TreeEditor-disabled"></a>
+            <b>disabled</b> : Boolean            <div class="mdesc">
+                            Render this component disabled (default is false).                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
+    </tr>
+        <tr class="config-row inherited">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.tree.TreeEditor-disabledClass"></a>
             <b>disabledClass</b> : String            <div class="mdesc">
                             CSS class added to the component when it is disabled (defaults to "x-item-disabled").                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabledClass" href="output/Ext.Component.html#disabledClass">Component</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-editDelay"></a>
@@ -165,6 +174,15 @@ as the editor field.        </div>
                         </div>
         </td>
         <td class="msource">TreeEditor</td>
+    </tr>
+        <tr class="config-row inherited">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.tree.TreeEditor-hidden"></a>
+            <b>hidden</b> : Boolean            <div class="mdesc">
+                            Render this component hidden (default is false).                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#hidden" href="output/Ext.Component.html#hidden">Component</a></td>
     </tr>
         <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -213,9 +231,9 @@ as the editor field.        </div>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-ignoreNoChange"></a>
             <b>ignoreNoChange</b> : Boolean            <div class="mdesc">
-                        <div class="short">True to skip the the edit completion process (no save, no events fired) if the user completes an edit and the value h...</div>
+                        <div class="short">True to skip the edit completion process (no save, no events fired) if the user completes an edit and the value has n...</div>
             <div class="long">
-                True to skip the the edit completion process (no save, no events fired) if the user completes an edit and the value has not changed (defaults to false). Applies only to string values - edits for other data types will never be ignored.            </div>
+                True to skip the edit completion process (no save, no events fired) if the user completes an edit and the value has not changed (defaults to false). Applies only to string values - edits for other data types will never be ignored.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#ignoreNoChange" href="output/Ext.Editor.html#ignoreNoChange">Editor</a></td>
@@ -414,7 +432,16 @@ as the editor field.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.tree.TreeEditor-editNode"></a>
+            <b>editNode</b> : Ext.tree.TreeNode            <div class="mdesc">
+                            The tree node this editor is bound to. Read-only.                        </div>
+        </td>
+        <td class="msource">TreeEditor</td>
+    </tr>
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-hidden"></a>
@@ -424,7 +451,7 @@ True if this component is hidden. Read-only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hidden" href="output/Ext.Component.html#hidden">Component</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-initialConfig"></a>
@@ -433,7 +460,7 @@ True if this component is hidden. Read-only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#initialConfig" href="output/Ext.Component.html#initialConfig">Component</a></td>
     </tr>
-        <tr class="property-row inherited alt expandable">
+        <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-ownerCt"></a>
@@ -447,7 +474,7 @@ the component is added to a container).  Read-only.            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#ownerCt" href="output/Ext.Component.html#ownerCt">Component</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-rendered"></a>
@@ -931,11 +958,14 @@ alert(t.getXType());  // alerts <em>'textfield'</em></code></pre>    <div class=
         <td class="sig">
         <a id="Ext.tree.TreeEditor-getXTypes"></a>
             <b>getXTypes</b>() : String            <div class="mdesc">
-                        <div class="short">Returns this component's xtype hierarchy as a slash-delimited string. For a list of all
+                        <div class="short">Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
 available xtypes, see the Ext...</div>
             <div class="long">
-                Returns this component's xtype hierarchy as a slash-delimited string. For a list of all
-available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header. Example usage:
+                <p>Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
+available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header.</p>
+<p><b>If using your own subclasses, be aware that a Component must register its own xtype
+to participate in determination of inherited xtypes.</b></p>
+<p>Example usage:</p>
 <pre><code>
 var t = new Ext.form.TextField();
 alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>    <div class="mdetail-params">
@@ -1016,19 +1046,22 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         <td class="sig">
         <a id="Ext.tree.TreeEditor-isXType"></a>
             <b>isXType</b>(&nbsp;<code>String xtype</code>, <span class="optional" title="Optional">[<code>Boolean shallow</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Tests whether or not this component is of a specific xtype. This can test whether this component is descended
+                        <div class="short">Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
 from th...</div>
             <div class="long">
-                Tests whether or not this component is of a specific xtype. This can test whether this component is descended
-from the xtype (default) or whether it is directly of the xtype specified (shallow = true). For a list of all
-available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header. Example usage:
+                <p>Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
+from the xtype (default) or whether it is directly of the xtype specified (shallow = true).</p>
+<p><b>If using your own subclasses, be aware that a Component must register its own xtype
+to participate in determination of inherited xtypes.</b></p>
+<p>For a list of all available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header.</p>
+<p>Example usage:</p>
 <pre><code>var t = <b>new</b> Ext.form.TextField();
 <b>var</b> isText = t.isXType(<em>'textfield'</em>);        <i>// true</i>
 <b>var</b> isBoxSubclass = t.isXType(<em>'box'</em>);       <i>// true, descended from BoxComponent</i>
 <b>var</b> isBoxInstance = t.isXType(<em>'box'</em>, true); // false, not a direct BoxComponent instance</code></pre>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>xtype</code> : String<div class="sub-desc">The xtype to check for this component</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this component is descended from the xtype (this is
-the default), or true to check whether this component is directly of the specified xtype.</div></li>        </ul>
+        <ul><li><code>xtype</code> : String<div class="sub-desc">The xtype to check for this Component</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this Component is descended from the xtype (this is
+the default), or true to check whether this Component is directly of the specified xtype.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -1105,11 +1138,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.tree.TreeEditor-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -1164,13 +1197,33 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-render"></a>
-            <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Mixed container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">If this is a lazy rendering component, render it to its container element.</div>
+            <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Element/HTMLElement/String container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Render this Components into the passed HTML element.
+If you are using a Container object to house this Component, the...</div>
             <div class="long">
-                If this is a lazy rendering component, render it to its container element.    <div class="mdetail-params">
+                <p>Render this Components into the passed HTML element.</p>
+<p><b>If you are using a <a ext:cls="Ext.Container" href="output/Ext.Container.html">Container</a> object to house this Component, then
+do not use the render method.</b></p>
+<p>A Container's child Components are rendered by that Container's
+<a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> manager when the Container is first rendered.</p>
+<p>Certain layout managers allow dynamic addition of child components. Those that do
+include <a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">Ext.layout.CardLayout</a>, <a ext:cls="Ext.layout.AnchorLayout" href="output/Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a>,
+<a ext:cls="Ext.layout.FormLayout" href="output/Ext.layout.FormLayout.html">Ext.layout.FormLayout</a>, <a ext:cls="Ext.layout.TableLayout" href="output/Ext.layout.TableLayout.html">Ext.layout.TableLayout</a>.</p>
+<p>If the Container is already rendered when a new child Component is added, you may need to call
+the Container's <a ext:cls="Ext.Container" ext:member="doLayout" href="output/Ext.Container.html#doLayout">doLayout</a> to refresh the view which causes any
+unrendered child Components to be rendered. This is required so that you can add multiple
+child components if needed while only refreshing the layout once.</p>
+<p>When creating complex UIs, it is important to remember that sizing and positioning
+of child items is the responsibility of the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> manager.
+If you expect child items to be sized in response to user interactions, you must
+configure the Container with a layout manager which creates and manages the type of layout you
+have in mind.</p>
+<p><b>Omitting the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config means that a basic
+layout manager is used which does nothnig but render child components sequentially into the
+Container. No sizing or positioning will be performed in this situation.</b></p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>container</code> : Mixed<div class="sub-desc">(optional) The element this component should be rendered into. If it is being
-applied to existing markup, this should be left off.</div></li><li><code>position</code> : String/Number<div class="sub-desc">(optional) The element ID or DOM node index within the container <b>before</b>
+        <ul><li><code>container</code> : Element/HTMLElement/String<div class="sub-desc">(optional) The element this Component should be
+rendered into. If it is being created from existing markup, this should be omitted.</div></li><li><code>position</code> : String/Number<div class="sub-desc">(optional) The element ID or DOM node index within the container <b>before</b>
 which this component will be inserted (defaults to appending to the end of the container)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
@@ -1508,6 +1561,22 @@ false from the handler of this event.    <div class="mdetail-params">
         <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.tree.TreeEditor-canceledit"></a>
+            <b>canceledit</b> : (&nbsp;<code>Editor this</code>, <code>Mixed value</code>, <code>Mixed startValue</code>&nbsp;)            <div class="mdesc">
+                        <div class="short">Fires after editing has been canceled and the editor's value has been reset.</div>
+            <div class="long">
+                Fires after editing has been canceled and the editor's value has been reset.    <div class="mdetail-params">
+        <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
+        <ul><li><code>this</code> : Editor<div class="sub-desc"></div></li><li><code>value</code> : Mixed<div class="sub-desc">The user-entered field value that was discarded</div></li><li><code>startValue</code> : Mixed<div class="sub-desc">The original field value that was set back into the editor after cancel</div></li>        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Editor" ext:member="#event-canceledit" href="output/Ext.Editor.html#event-canceledit">Editor</a></td>
+    </tr>
+        <tr class="event-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.tree.TreeEditor-complete"></a>
             <b>complete</b> : (&nbsp;<code>Editor this</code>, <code>Mixed value</code>, <code>Mixed startValue</code>&nbsp;)            <div class="mdesc">
                         <div class="short">Fires after editing is complete and any changed value has been written to the underlying field.</div>
@@ -1521,7 +1590,7 @@ false from the handler of this event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#event-complete" href="output/Ext.Editor.html#event-complete">Editor</a></td>
     </tr>
-        <tr class="event-row inherited alt expandable">
+        <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-destroy"></a>
@@ -1537,7 +1606,7 @@ false from the handler of this event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-destroy" href="output/Ext.Component.html#event-destroy">Component</a></td>
     </tr>
-        <tr class="event-row inherited expandable">
+        <tr class="event-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-disable"></a>
@@ -1553,7 +1622,7 @@ false from the handler of this event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-disable" href="output/Ext.Component.html#event-disable">Component</a></td>
     </tr>
-        <tr class="event-row inherited alt expandable">
+        <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-enable"></a>
@@ -1569,7 +1638,7 @@ false from the handler of this event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-enable" href="output/Ext.Component.html#event-enable">Component</a></td>
     </tr>
-        <tr class="event-row inherited expandable">
+        <tr class="event-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-hide"></a>
@@ -1585,7 +1654,7 @@ false from the handler of this event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-hide" href="output/Ext.Component.html#event-hide">Component</a></td>
     </tr>
-        <tr class="event-row inherited alt expandable">
+        <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-render"></a>
@@ -1601,7 +1670,7 @@ false from the handler of this event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-render" href="output/Ext.Component.html#event-render">Component</a></td>
     </tr>
-        <tr class="event-row inherited expandable">
+        <tr class="event-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-show"></a>
@@ -1617,7 +1686,7 @@ false from the handler of this event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-show" href="output/Ext.Component.html#event-show">Component</a></td>
     </tr>
-        <tr class="event-row inherited alt expandable">
+        <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-specialkey"></a>
@@ -1635,7 +1704,7 @@ Ext.EventObject.g...</div>
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#event-specialkey" href="output/Ext.Editor.html#event-specialkey">Editor</a></td>
     </tr>
-        <tr class="event-row inherited expandable">
+        <tr class="event-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-startedit"></a>
@@ -1651,7 +1720,7 @@ Ext.EventObject.g...</div>
         </td>
         <td class="msource"><a ext:cls="Ext.Editor" ext:member="#event-startedit" href="output/Ext.Editor.html#event-startedit">Editor</a></td>
     </tr>
-        <tr class="event-row inherited alt expandable">
+        <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-staterestore"></a>
@@ -1667,7 +1736,7 @@ Ext.EventObject.g...</div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-staterestore" href="output/Ext.Component.html#event-staterestore">Component</a></td>
     </tr>
-        <tr class="event-row inherited expandable">
+        <tr class="event-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeEditor-statesave"></a>

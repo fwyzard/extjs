@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -180,6 +180,11 @@ Ext.EventManager.on(window, 'load', function(){
             url: 'tree/column-tree.html',
             icon: 'tree-columns.gif',
             desc: 'A custom TreePanel implementation that demonstrates extending an existing component.'
+        },{
+            text: 'XML Tree Loader',
+            url: 'tree/xml-tree-loader.html',
+            icon: 'tree-xml-loader.gif',
+            desc: 'A custom TreeLoader implementation that demonstrates loading a tree from an XML document.'
         }]
     },{
         title: 'Layout Managers',
@@ -244,6 +249,21 @@ Ext.EventManager.on(window, 'load', function(){
             url: 'form/adv-vtypes.html',
             icon: 'form-adv-vtypes.gif',
             desc: 'Relational form field validation using custom vtypes.'
+        },{
+            text: 'Checkbox/Radio Groups',
+            url: 'form/check-radio.html',
+            icon: 'form-check-radio.gif',
+            desc: 'Many examples showing different checkbox and radio group configurations.'
+        },{
+            text: 'File Upload Field',
+            url: 'form/file-upload.html',
+            icon: 'form-file-upload.gif',
+            desc: 'A demo of how to give standard file upload fields a bit of Ext style using a custom class.'
+        },{
+            text: 'MultiSelect and ItemSelector',
+            url: 'multiselect/multiselect-demo.html',
+            icon: 'form-multiselect.gif',
+            desc: 'Example controls for selecting a list of items in forms.'
         }]
     },{
         title: 'Toolbars and Menus',
@@ -277,17 +297,50 @@ Ext.EventManager.on(window, 'load', function(){
             desc: 'A more customized DataView supporting sorting and filtering with multiple templates.'
         }]
     },{
+		title   : 'Drag and Drop',
+		samples :  [{
+			text : 'Grid to Grid Drag and Drop',
+			url  : 'dd/dnd_grid_to_grid.html',
+			icon : 'dd-gridtogrid.gif',
+			desc : 'A simple drag and drop from grid to grid implementation.'
+    	},{
+			text : 'Grid to FormPanel Drag and Drop',
+			url  : 'dd/dnd_grid_to_formpanel.html',
+			icon : 'dd-gridtoformpanel.gif',
+			desc : 'A basic drag and drop from grid to formpanel.'
+    	},{
+			text : 'Custom Drag and Drop',
+			url  : 'dd/dragdropzones.html',
+			icon : 'dd-zones.gif',
+			desc : 'Enabling drag and drop between a DataView and a grid using DragZone and DropZone extensions.'
+        }]
+	},{
         title: 'Miscellaneous',
         samples: [{
+            text: 'History',
+            url: 'history/history.html',
+            icon: 'history.gif',
+            desc: 'A History manager that allows the user to navigate an Ext UI via browser back/forward.'
+        },{
+            text: 'Google Maps',
+            url: 'window/gmap.html',
+            icon: 'gmap-panel.gif',
+            desc: 'A Google Maps wrapper class that enables easy display of dynamic maps in Ext panels and windows.'
+        },{
+            text: 'StatusBar',
+            url: 'statusbar/statusbar-demo.html',
+            icon: 'statusbar.gif',
+            desc: 'A simple StatusBar that can be dropped into the bottom of any panel to display status text and icons.'
+        },{
+            text: 'StatusBar (advanced)',
+            url: 'statusbar/statusbar-advanced.html',
+            icon: 'statusbar-plugin.gif',
+            desc: 'Customizing the StatusBar via a plugin to provide automatic form validation monitoring and error linking.'
+       },{
             text: 'Slider',
             url: 'slider/slider.html',
             icon: 'slider.gif',
             desc: 'A slider component that supports vertical mode, snapping, tooltips, customized styles and more.'
-        },{
-            text: 'Custom Drag and Drop',
-            url: 'dd/dragdropzones.html',
-            icon: 'dd-zones.gif',
-            desc: 'Enabling drag and drop between a DataView and a grid using DragZone and DropZone extensions.'
         },{
             text: 'QuickTips',
             url: 'simple-widgets/qtips.html',

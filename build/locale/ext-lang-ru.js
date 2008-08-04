@@ -10,8 +10,8 @@ if(Ext.View){
   Ext.View.prototype.emptyText = "";
 }
 
-if(Ext.grid.Grid){
-  Ext.grid.Grid.prototype.ddText = "{0} выбранных строк";
+if(Ext.grid.GridPanel){
+  Ext.grid.GridPanel.prototype.ddText = "{0} выбранных строк";
 }
 
 if(Ext.TabPanelItem){
@@ -286,7 +286,7 @@ if(Ext.SplitLayoutRegion){
   });
 }
 
-if(Ext.layout.BorderLayout.SplitRegion){
+if(Ext.layout.BorderLayout && Ext.layout.BorderLayout.SplitRegion){
   Ext.apply(Ext.layout.BorderLayout.SplitRegion.prototype, {
     splitTip            : "Тяните для изменения размера.",
     collapsibleSplitTip : "Тяните для изменения размера. Двойной щелчок спрячет панель."

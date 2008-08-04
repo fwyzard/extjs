@@ -17,28 +17,45 @@
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.form.Action" ext:member="" href="output/Ext.form.Action.html">Action</a></td></tr>
                     </table>
         <div class="description">
-            A class which handles submission of data from <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a>s
-and processes the returned response.
-<br><br>
-Instances of this class are only created by a <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a> when
-submitting.
-<br><br>
-A response packet must contain a boolean <tt style="font-weight:bold">success</tt> property, and, optionally
+            <p>A class which handles submission of data from <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a>s
+and processes the returned response.</p>
+<p>Instances of this class are only created by a <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a> when
+<a ext:cls="Ext.form.BasicForm" ext:member="submit" href="output/Ext.form.BasicForm.html#submit">submit</a>ting.</p>
+<p>A response packet must contain a boolean <tt style="font-weight:bold">success</tt> property, and, optionally
 an <tt style="font-weight:bold">errors</tt> property. The <tt style="font-weight:bold">errors</tt> property contains error
-messages for invalid fields.
-<br><br>
-By default, response packets are assumed to be JSON, so a typical response
-packet may look like this:
-<br><br><pre><code>{
+messages for invalid fields.</p>
+<p>By default, response packets are assumed to be JSON, so a typical response
+packet may look like this:</p><pre><code>{
     success: false,
     errors: {
         clientCode: <em>"Client not found"</em>,
         portOfLoading: <em>"This field must not be null"</em>
     }
 }</code></pre>
-<br><br>
-Other data may be placed into the response for processing the the <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Ext.form.BasicForm</a>'s callback
-or event handler methods. The object decoded from this JSON is available in the <a ext:cls="Ext.form.Action.Submit" ext:member="result" href="output/Ext.form.Action.Submit.html#result">result</a> property.        </div>
+<p>Other data may be placed into the response for processing by the <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Ext.form.BasicForm</a>'s callback
+or event handler methods. The object decoded from this JSON is available in the <a ext:cls="Ext.form.Action.Submit" ext:member="result" href="output/Ext.form.Action.Submit.html#result">result</a> property.</p>
+<p>Alternatively, if an <a ext:cls="Ext.form.Action.Submit" ext:member="errorReader" href="output/Ext.form.Action.Submit.html#errorReader">errorReader</a> is specified as an <a ext:cls="Ext.data.XmlReader" href="output/Ext.data.XmlReader.html">XmlReader</a>:</p><pre><code>errorReader: <b>new</b> Ext.data.XmlReader({
+            record : <em>'field'</em>,
+            success: <em>'@success'</em>
+        }, [
+            <em>'id'</em>, <em>'msg'</em>
+        ]
+    )</code></pre>
+<p>then the results may be sent back in XML format:</p><pre><code>&lt;?xml version=<em>"1.0"</em> encoding=<em>"UTF-8"</em>?&gt;
+&lt;message success=<em>"false"</em>&gt;
+&lt;errors&gt;
+    &lt;field&gt;
+        &lt;id&gt;clientCode&lt;/id&gt;
+        &lt;msg&gt;&lt;![CDATA[Code not found. &lt;br /&gt;&lt;i&gt;This is a test validation message from the server &lt;/i&gt;]]&gt;&lt;/msg&gt;
+    &lt;/field&gt;
+    &lt;field&gt;
+        &lt;id&gt;portOfLoading&lt;/id&gt;
+        &lt;msg&gt;&lt;![CDATA[Port not found. &lt;br /&gt;&lt;i&gt;This is a test validation message from the server &lt;/i&gt;]]&gt;&lt;/msg&gt;
+    &lt;/field&gt;
+&lt;/errors&gt;
+&lt;/message&gt;</code></pre>
+<p>Other elements may be placed into the response XML for processing by the <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Ext.form.BasicForm</a>'s callback
+or event handler methods. The XML document is available in the <a ext:cls="Ext.form.Action.Submit" ext:member="errorReader" href="output/Ext.form.Action.Submit.html#errorReader">errorReader</a>'s <a ext:cls="Ext.data.XmlReader" ext:member="xmlData" href="output/Ext.data.XmlReader.html#xmlData">xmlData</a> property.</p>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.form.Action.Submit-configs"></a>
@@ -60,7 +77,19 @@ or event handler methods. The object decoded from this JSON is available in the 
         </td>
         <td class="msource">Action.Submit</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.Action.Submit-errorReader"></a>
+            <b>errorReader</b> : Ext.data.DataReader            <div class="mdesc">
+                        <div class="short">Optional. JSON is interpreted with no need for an errorReader. A Reader which reads a single record from the returned...</div>
+            <div class="long">
+                <b>Optional. JSON is interpreted with no need for an errorReader.</b> <p>A Reader which reads a single record from the returned data. The DataReader's <b>success</b> property specifies how submission success is determined. The Record's data provides the error messages to apply to any invalid form Fields.</p>.            </div>
+                        </div>
+        </td>
+        <td class="msource">Action.Submit</td>
+    </tr>
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action.Submit-failure"></a>
@@ -72,7 +101,7 @@ or event handler methods. The object decoded from this JSON is available in the 
         </td>
         <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#failure" href="output/Ext.form.Action.html#failure">Action</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action.Submit-method"></a>
@@ -84,7 +113,7 @@ or event handler methods. The object decoded from this JSON is available in the 
         </td>
         <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#method" href="output/Ext.form.Action.html#method">Action</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action.Submit-params"></a>
@@ -95,6 +124,18 @@ or event handler methods. The object decoded from this JSON is available in the 
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#params" href="output/Ext.form.Action.html#params">Action</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.Action.Submit-reset"></a>
+            <b>reset</b> : Boolean            <div class="mdesc">
+                        <div class="short">When set to true, causes the Form to be reset on Action success. If specified, this happens before the success callba...</div>
+            <div class="long">
+                When set to <tt><b>true</b></tt>, causes the Form to be <a ext:cls="Ext.form.BasicForm.reset" href="output/Ext.form.BasicForm.reset.html">reset</a> on Action success. If specified, this happens <b>before</b> the <a ext:cls="Ext.form.Action" ext:member="success" href="output/Ext.form.Action.html#success">success</a> callback is called and before the Form's <a ext:cls="Ext.form.BasicForm.actioncomplete" href="output/Ext.form.BasicForm.actioncomplete.html">actioncomplete</a> event fires.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#reset" href="output/Ext.form.Action.html#reset">Action</a></td>
     </tr>
         <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

@@ -59,12 +59,17 @@
         </td>
         <td class="msource">VTypes</td>
     </tr>
-        <tr class="property-row">
+        <tr class="property-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.VTypes-emailMask"></a>
             <b>emailMask</b> : RegExp            <div class="mdesc">
-                            The keystroke filter mask to be applied on email input                        </div>
+                        <div class="short">The keystroke filter mask to be applied on email input.  See the email method for 
+information about more complex ema...</div>
+            <div class="long">
+                The keystroke filter mask to be applied on email input.  See the <a ext:cls="Ext.form.VTypes" ext:member="email" href="output/Ext.form.VTypes.html#email">email</a> method for 
+information about more complex email validation.            </div>
+                        </div>
         </td>
         <td class="msource">VTypes</td>
     </tr>
@@ -139,9 +144,14 @@
         <td class="sig">
         <a id="Ext.form.VTypes-email"></a>
             <b>email</b>(&nbsp;<code>String value</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">The function used to validate email addresses</div>
+                        <div class="short">The function used to validate email addresses.  Note that this is a very basic validation -- complete
+validation per ...</div>
             <div class="long">
-                The function used to validate email addresses    <div class="mdetail-params">
+                The function used to validate email addresses.  Note that this is a very basic validation -- complete
+validation per the email RFC specifications is very complex and beyond the scope of this class, although
+this function can be overridden if a more comprehensive validation scheme is desired.  See the validation
+section of the <a href="http://en.wikipedia.org/wiki/E-mail_address">Wikipedia article on email addresses</a> 
+for additional information.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>value</code> : String<div class="sub-desc">The email address</div></li>        </ul>
         <strong>Returns:</strong>

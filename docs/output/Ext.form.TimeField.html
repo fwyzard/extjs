@@ -23,7 +23,12 @@
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.form.ComboBox" ext:member="" href="output/Ext.form.ComboBox.html">ComboBox</a></td></tr>
                     </table>
         <div class="description">
-            Provides a time input field with a time dropdown and automatic time validation.        </div>
+            Provides a time input field with a time dropdown and automatic time validation.  Example usage:
+<pre><code>new Ext.form.TimeField({
+    minValue: <em>'9:00 AM'</em>,
+    maxValue: <em>'6:00 PM'</em>,
+    increment: 30
+});</code></pre>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.form.TimeField-configs"></a>
@@ -67,7 +72,7 @@
             <b>altFormats</b> : String            <div class="mdesc">
                         <div class="short">Multiple date formats separated by "|" to try when parsing a user input value and it doesn't match the defined format...</div>
             <div class="long">
-                Multiple date formats separated by "|" to try when parsing a user input value and it doesn't match the defined format (defaults to 'm/d/Y|m-d-y|m-d-Y|m/d|m-d|d').            </div>
+                Multiple date formats separated by "|" to try when parsing a user input value and it doesn't match the defined format (defaults to 'g:ia|g:iA|g:i a|g:i A|h:i|g:i|H:i|ga|ha|gA|h a|g a|g A|gi|hi|gia|hia|g|H').            </div>
                         </div>
         </td>
         <td class="msource">TimeField</td>
@@ -164,9 +169,9 @@
         <td class="sig">
         <a id="Ext.form.TimeField-disabled"></a>
             <b>disabled</b> : Boolean            <div class="mdesc">
-                            True to disable the field (defaults to false).                        </div>
+                            Render this component disabled (default is false).                        </div>
         </td>
-        <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#disabled" href="output/Ext.form.Field.html#disabled">Field</a></td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
     </tr>
         <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -263,9 +268,9 @@
         <td class="sig">
         <a id="Ext.form.TimeField-format"></a>
             <b>format</b> : String            <div class="mdesc">
-                        <div class="short">The default date format string which can be overriden for localization support. The format must be valid according to...</div>
+                        <div class="short">The default time format string which can be overriden for localization support. The format must be valid according to...</div>
             <div class="long">
-                The default date format string which can be overriden for localization support. The format must be valid according to <a ext:cls="Date" ext:member="parseDate" href="output/Date.html#parseDate">Date.parseDate</a> (defaults to 'm/d/y').            </div>
+                The default time format string which can be overriden for localization support. The format must be valid according to <a ext:cls="Date" ext:member="parseDate" href="output/Date.html#parseDate">Date.parseDate</a> (defaults to 'g:i A', e.g., '3:15 PM'). For 24-hour time format try 'H:i' instead.            </div>
                         </div>
         </td>
         <td class="msource">TimeField</td>
@@ -288,7 +293,16 @@
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#height" href="output/Ext.BoxComponent.html#height">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.TimeField-hidden"></a>
+            <b>hidden</b> : Boolean            <div class="mdesc">
+                            Render this component hidden (default is false).                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#hidden" href="output/Ext.Component.html#hidden">Component</a></td>
+    </tr>
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-hiddenId"></a>
@@ -300,7 +314,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#hiddenId" href="output/Ext.form.ComboBox.html#hiddenId">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-hiddenName"></a>
@@ -312,7 +326,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#hiddenName" href="output/Ext.form.ComboBox.html#hiddenName">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-hideLabel"></a>
@@ -321,7 +335,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#hideLabel" href="output/Ext.form.Field.html#hideLabel">Field</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-hideMode"></a>
@@ -333,7 +347,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideMode" href="output/Ext.Component.html#hideMode">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-hideParent"></a>
@@ -345,7 +359,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideParent" href="output/Ext.Component.html#hideParent">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-hideTrigger"></a>
@@ -354,7 +368,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.TriggerField" ext:member="#hideTrigger" href="output/Ext.form.TriggerField.html#hideTrigger">TriggerField</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-id"></a>
@@ -363,7 +377,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#id" href="output/Ext.Component.html#id">Component</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-increment"></a>
@@ -372,19 +386,19 @@
         </td>
         <td class="msource">TimeField</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-inputType"></a>
             <b>inputType</b> : String            <div class="mdesc">
-                        <div class="short">The type attribute for input fields -- e.g. radio, text, etc. (defaults to "text"). The types "file" and "password" m...</div>
+                        <div class="short">The type attribute for input fields -- e.g. radio, text, password, file (defaults to "text"). The types "file" and "p...</div>
             <div class="long">
-                The type attribute for input fields -- e.g. radio, text, etc. (defaults to "text"). The types "file" and "password" must be used to render those field types currently -- there are no separate Ext components for those.            </div>
+                The type attribute for input fields -- e.g. radio, text, password, file (defaults to "text"). The types "file" and "password" must be used to render those field types currently -- there are no separate Ext components for those. Note that if you use <tt>inputType:'file'</tt>, <a ext:cls="Ext.form.Field" ext:member="emptyText" href="output/Ext.form.Field.html#emptyText">emptyText</a> is not supported and should be avoided.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#inputType" href="output/Ext.form.Field.html#inputType">Field</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-invalidClass"></a>
@@ -393,19 +407,16 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#invalidClass" href="output/Ext.form.Field.html#invalidClass">Field</a></td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-invalidText"></a>
             <b>invalidText</b> : String            <div class="mdesc">
-                        <div class="short">The error text to display when the time in the field is invalid (defaults to '{value} is not a valid time - it must b...</div>
-            <div class="long">
-                The error text to display when the time in the field is invalid (defaults to '{value} is not a valid time - it must be in the format {format}').            </div>
-                        </div>
+                            The error text to display when the time in the field is invalid (defaults to '{value} is not a valid time').                        </div>
         </td>
         <td class="msource">TimeField</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-itemCls"></a>
@@ -433,7 +444,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#itemCls" href="output/Ext.form.Field.html#itemCls">Field</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-itemSelector"></a>
@@ -445,7 +456,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#itemSelector" href="output/Ext.form.ComboBox.html#itemSelector">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-labelSeparator"></a>
@@ -457,7 +468,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#labelSeparator" href="output/Ext.form.Field.html#labelSeparator">Field</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-labelStyle"></a>
@@ -469,7 +480,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#labelStyle" href="output/Ext.form.Field.html#labelStyle">Field</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-lazyInit"></a>
@@ -478,7 +489,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#lazyInit" href="output/Ext.form.ComboBox.html#lazyInit">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-lazyRender"></a>
@@ -490,7 +501,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#lazyRender" href="output/Ext.form.ComboBox.html#lazyRender">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-listAlign"></a>
@@ -499,7 +510,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#listAlign" href="output/Ext.form.ComboBox.html#listAlign">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-listClass"></a>
@@ -508,7 +519,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#listClass" href="output/Ext.form.ComboBox.html#listClass">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-listWidth"></a>
@@ -517,7 +528,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#listWidth" href="output/Ext.form.ComboBox.html#listWidth">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-listeners"></a>
@@ -529,7 +540,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-loadingText"></a>
@@ -541,7 +552,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#loadingText" href="output/Ext.form.ComboBox.html#loadingText">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-maskRe"></a>
@@ -550,7 +561,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#maskRe" href="output/Ext.form.TextField.html#maskRe">TextField</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-maxHeight"></a>
@@ -559,7 +570,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#maxHeight" href="output/Ext.form.ComboBox.html#maxHeight">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-maxLength"></a>
@@ -568,7 +579,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#maxLength" href="output/Ext.form.TextField.html#maxLength">TextField</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-maxLengthText"></a>
@@ -580,7 +591,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#maxLengthText" href="output/Ext.form.TextField.html#maxLengthText">TextField</a></td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-maxText"></a>
@@ -592,16 +603,19 @@
         </td>
         <td class="msource">TimeField</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-maxValue"></a>
             <b>maxValue</b> : Date/String            <div class="mdesc">
-                            The maximum allowed time. Can be either a Javascript date object or a string date in a valid format (defaults to null).                        </div>
+                        <div class="short">The maximum allowed time. Can be either a Javascript date object with a valid time value or a string time in a valid ...</div>
+            <div class="long">
+                The maximum allowed time. Can be either a Javascript date object with a valid time value or a string time in a valid format -- see <a ext:cls="Ext.form.TimeField" ext:member="format" href="output/Ext.form.TimeField.html#format">format</a> and <a ext:cls="Ext.form.TimeField" ext:member="altFormats" href="output/Ext.form.TimeField.html#altFormats">altFormats</a> (defaults to null).            </div>
+                        </div>
         </td>
         <td class="msource">TimeField</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-minChars"></a>
@@ -613,7 +627,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#minChars" href="output/Ext.form.ComboBox.html#minChars">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-minHeight"></a>
@@ -625,7 +639,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#minHeight" href="output/Ext.form.ComboBox.html#minHeight">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-minLength"></a>
@@ -634,7 +648,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#minLength" href="output/Ext.form.TextField.html#minLength">TextField</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-minLengthText"></a>
@@ -646,7 +660,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#minLengthText" href="output/Ext.form.TextField.html#minLengthText">TextField</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-minListWidth"></a>
@@ -655,7 +669,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#minListWidth" href="output/Ext.form.ComboBox.html#minListWidth">ComboBox</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-minText"></a>
@@ -667,16 +681,19 @@
         </td>
         <td class="msource">TimeField</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-minValue"></a>
             <b>minValue</b> : Date/String            <div class="mdesc">
-                            The minimum allowed time. Can be either a Javascript date object or a string date in a valid format (defaults to null).                        </div>
+                        <div class="short">The minimum allowed time. Can be either a Javascript date object with a valid time value or a string time in a valid ...</div>
+            <div class="long">
+                The minimum allowed time. Can be either a Javascript date object with a valid time value or a string time in a valid format -- see <a ext:cls="Ext.form.TimeField" ext:member="format" href="output/Ext.form.TimeField.html#format">format</a> and <a ext:cls="Ext.form.TimeField" ext:member="altFormats" href="output/Ext.form.TimeField.html#altFormats">altFormats</a> (defaults to null).            </div>
+                        </div>
         </td>
         <td class="msource">TimeField</td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-mode"></a>
@@ -685,7 +702,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#mode" href="output/Ext.form.ComboBox.html#mode">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-msgFx"></a>
@@ -694,7 +711,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#msgFx" href="output/Ext.form.Field.html#msgFx">Field</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-msgTarget"></a>
@@ -712,7 +729,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#msgTarget" href="output/Ext.form.Field.html#msgTarget">Field</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-name"></a>
@@ -721,7 +738,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#name" href="output/Ext.form.Field.html#name">Field</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-overCls"></a>
@@ -733,7 +750,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-pageSize"></a>
@@ -745,7 +762,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#pageSize" href="output/Ext.form.ComboBox.html#pageSize">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-pageX"></a>
@@ -754,7 +771,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageX" href="output/Ext.BoxComponent.html#pageX">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-pageY"></a>
@@ -763,7 +780,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageY" href="output/Ext.BoxComponent.html#pageY">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-plugins"></a>
@@ -775,7 +792,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-queryDelay"></a>
@@ -787,7 +804,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#queryDelay" href="output/Ext.form.ComboBox.html#queryDelay">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-queryParam"></a>
@@ -796,7 +813,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#queryParam" href="output/Ext.form.ComboBox.html#queryParam">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-readOnly"></a>
@@ -808,7 +825,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#readOnly" href="output/Ext.form.Field.html#readOnly">Field</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-regex"></a>
@@ -820,7 +837,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#regex" href="output/Ext.form.TextField.html#regex">TextField</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-regexText"></a>
@@ -829,7 +846,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#regexText" href="output/Ext.form.TextField.html#regexText">TextField</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-renderTo"></a>
@@ -841,7 +858,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-resizable"></a>
@@ -850,7 +867,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#resizable" href="output/Ext.form.ComboBox.html#resizable">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-selectOnFocus"></a>
@@ -859,7 +876,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#selectOnFocus" href="output/Ext.form.TextField.html#selectOnFocus">TextField</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-selectedClass"></a>
@@ -868,7 +885,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#selectedClass" href="output/Ext.form.ComboBox.html#selectedClass">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-shadow"></a>
@@ -877,7 +894,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#shadow" href="output/Ext.form.ComboBox.html#shadow">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-stateEvents"></a>
@@ -889,7 +906,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateEvents" href="output/Ext.Component.html#stateEvents">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-stateId"></a>
@@ -901,7 +918,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-stateful"></a>
@@ -913,7 +930,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-store"></a>
@@ -925,7 +942,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#store" href="output/Ext.form.ComboBox.html#store">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-style"></a>
@@ -937,7 +954,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#style" href="output/Ext.Component.html#style">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-tabIndex"></a>
@@ -949,7 +966,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#tabIndex" href="output/Ext.form.Field.html#tabIndex">Field</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-title"></a>
@@ -961,7 +978,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#title" href="output/Ext.form.ComboBox.html#title">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-tpl"></a>
@@ -973,7 +990,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#tpl" href="output/Ext.form.ComboBox.html#tpl">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-transform"></a>
@@ -985,7 +1002,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#transform" href="output/Ext.form.ComboBox.html#transform">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-triggerAction"></a>
@@ -997,7 +1014,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#triggerAction" href="output/Ext.form.ComboBox.html#triggerAction">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-triggerClass"></a>
@@ -1006,7 +1023,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.TriggerField" ext:member="#triggerClass" href="output/Ext.form.TriggerField.html#triggerClass">TriggerField</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-typeAhead"></a>
@@ -1018,7 +1035,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#typeAhead" href="output/Ext.form.ComboBox.html#typeAhead">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-typeAheadDelay"></a>
@@ -1027,7 +1044,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#typeAheadDelay" href="output/Ext.form.ComboBox.html#typeAheadDelay">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-validateOnBlur"></a>
@@ -1036,7 +1053,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#validateOnBlur" href="output/Ext.form.Field.html#validateOnBlur">Field</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-validationDelay"></a>
@@ -1045,7 +1062,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#validationDelay" href="output/Ext.form.Field.html#validationDelay">Field</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-validationEvent"></a>
@@ -1054,7 +1071,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#validationEvent" href="output/Ext.form.Field.html#validationEvent">Field</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-validator"></a>
@@ -1066,7 +1083,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#validator" href="output/Ext.form.TextField.html#validator">TextField</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-value"></a>
@@ -1075,7 +1092,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#value" href="output/Ext.form.Field.html#value">Field</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-valueField"></a>
@@ -1087,7 +1104,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#valueField" href="output/Ext.form.ComboBox.html#valueField">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-valueNotFoundText"></a>
@@ -1099,7 +1116,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#valueNotFoundText" href="output/Ext.form.ComboBox.html#valueNotFoundText">ComboBox</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-vtype"></a>
@@ -1108,7 +1125,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#vtype" href="output/Ext.form.TextField.html#vtype">TextField</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-vtypeText"></a>
@@ -1120,7 +1137,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#vtypeText" href="output/Ext.form.TextField.html#vtypeText">TextField</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-width"></a>
@@ -1129,7 +1146,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#width" href="output/Ext.BoxComponent.html#width">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-x"></a>
@@ -1138,7 +1155,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#x" href="output/Ext.BoxComponent.html#x">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-xtype"></a>
@@ -1150,7 +1167,7 @@ side          Add an error icon to the right of the field with a popup on hover
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#xtype" href="output/Ext.Component.html#xtype">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-y"></a>
@@ -1448,9 +1465,9 @@ An id property can be passed on this object, otherwise one will be generated to 
         <td class="sig">
         <a id="Ext.form.TimeField-collapse"></a>
             <b>collapse</b>() : void            <div class="mdesc">
-                        <div class="short">Hides the dropdown list if it is currently expanded. Fires the 'collapse' event on completion.</div>
+                        <div class="short">Hides the dropdown list if it is currently expanded. Fires the <a ext:cls="Ext.form.ComboBox" ext:member="collapse" href="output/Ext.form.ComboBox.html#collapse">collapse</a> event on completion.</div>
             <div class="long">
-                Hides the dropdown list if it is currently expanded. Fires the 'collapse' event on completion.    <div class="mdetail-params">
+                Hides the dropdown list if it is currently expanded. Fires the <a ext:cls="Ext.form.ComboBox" ext:member="collapse" href="output/Ext.form.ComboBox.html#collapse">collapse</a> event on completion.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li>None.</li>        </ul>
         <strong>Returns:</strong>
@@ -1515,7 +1532,7 @@ should usually not need to be called directly.    <div class="mdetail-params">
                         <div class="short">Execute a query to filter the dropdown list.  Fires the beforequery event prior to performing the
 query allowing the ...</div>
             <div class="long">
-                Execute a query to filter the dropdown list.  Fires the beforequery event prior to performing the
+                Execute a query to filter the dropdown list.  Fires the <a ext:cls="Ext.form.ComboBox" ext:member="beforequery" href="output/Ext.form.ComboBox.html#beforequery">beforequery</a> event prior to performing the
 query allowing the query action to be canceled if needed.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>query</code> : String<div class="sub-desc">The SQL query to execute</div></li><li><code>forceAll</code> : Boolean<div class="sub-desc">True to force the query to execute even if there are currently fewer characters
@@ -1556,9 +1573,9 @@ saved in the current store (defaults to false)</div></li>        </ul>
         <td class="sig">
         <a id="Ext.form.TimeField-expand"></a>
             <b>expand</b>() : void            <div class="mdesc">
-                        <div class="short">Expands the dropdown list if it is currently hidden. Fires the 'expand' event on completion.</div>
+                        <div class="short">Expands the dropdown list if it is currently hidden. Fires the <a ext:cls="Ext.form.ComboBox" ext:member="expand" href="output/Ext.form.ComboBox.html#expand">expand</a> event on completion.</div>
             <div class="long">
-                Expands the dropdown list if it is currently hidden. Fires the 'expand' event on completion.    <div class="mdetail-params">
+                Expands the dropdown list if it is currently hidden. Fires the <a ext:cls="Ext.form.ComboBox" ext:member="expand" href="output/Ext.form.ComboBox.html#expand">expand</a> event on completion.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li>None.</li>        </ul>
         <strong>Returns:</strong>
@@ -1862,11 +1879,14 @@ alert(t.getXType());  // alerts <em>'textfield'</em></code></pre>    <div class=
         <td class="sig">
         <a id="Ext.form.TimeField-getXTypes"></a>
             <b>getXTypes</b>() : String            <div class="mdesc">
-                        <div class="short">Returns this component's xtype hierarchy as a slash-delimited string. For a list of all
+                        <div class="short">Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
 available xtypes, see the Ext...</div>
             <div class="long">
-                Returns this component's xtype hierarchy as a slash-delimited string. For a list of all
-available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header. Example usage:
+                <p>Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
+available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header.</p>
+<p><b>If using your own subclasses, be aware that a Component must register its own xtype
+to participate in determination of inherited xtypes.</b></p>
+<p>Example usage:</p>
 <pre><code>
 var t = new Ext.form.TextField();
 alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>    <div class="mdetail-params">
@@ -2027,19 +2047,22 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         <td class="sig">
         <a id="Ext.form.TimeField-isXType"></a>
             <b>isXType</b>(&nbsp;<code>String xtype</code>, <span class="optional" title="Optional">[<code>Boolean shallow</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Tests whether or not this component is of a specific xtype. This can test whether this component is descended
+                        <div class="short">Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
 from th...</div>
             <div class="long">
-                Tests whether or not this component is of a specific xtype. This can test whether this component is descended
-from the xtype (default) or whether it is directly of the xtype specified (shallow = true). For a list of all
-available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header. Example usage:
+                <p>Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
+from the xtype (default) or whether it is directly of the xtype specified (shallow = true).</p>
+<p><b>If using your own subclasses, be aware that a Component must register its own xtype
+to participate in determination of inherited xtypes.</b></p>
+<p>For a list of all available xtypes, see the <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> header.</p>
+<p>Example usage:</p>
 <pre><code>var t = <b>new</b> Ext.form.TextField();
 <b>var</b> isText = t.isXType(<em>'textfield'</em>);        <i>// true</i>
 <b>var</b> isBoxSubclass = t.isXType(<em>'box'</em>);       <i>// true, descended from BoxComponent</i>
 <b>var</b> isBoxInstance = t.isXType(<em>'box'</em>, true); // false, not a direct BoxComponent instance</code></pre>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>xtype</code> : String<div class="sub-desc">The xtype to check for this component</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this component is descended from the xtype (this is
-the default), or true to check whether this component is directly of the specified xtype.</div></li>        </ul>
+        <ul><li><code>xtype</code> : String<div class="sub-desc">The xtype to check for this Component</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this Component is descended from the xtype (this is
+the default), or true to check whether this Component is directly of the specified xtype.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -2096,28 +2119,6 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
-        <a id="Ext.form.TimeField-onTriggerClick"></a>
-            <b>onTriggerClick</b>(&nbsp;<code>EventObject e</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">The function that should handle the trigger's click event.  This method does nothing by default until overridden
-by a...</div>
-            <div class="long">
-                The function that should handle the trigger's click event.  This method does nothing by default until overridden
-by an implementing function.    <div class="mdetail-params">
-        <strong>Parameters:</strong>
-        <ul><li><code>e</code> : EventObject<div class="sub-desc"></div></li>        </ul>
-        <strong>Returns:</strong>
-        <ul>
-            <li><code>void</code></li>
-        </ul>
-    </div>
-                </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.form.TriggerField" ext:member="#onTriggerClick" href="output/Ext.form.TriggerField.html#onTriggerClick">TriggerField</a></td>
-    </tr>
-        <tr class="method-row inherited expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
         <a id="Ext.form.TimeField-purgeListeners"></a>
             <b>purgeListeners</b>() : void            <div class="mdesc">
                         <div class="short">Removes all listeners for this object</div>
@@ -2135,16 +2136,16 @@ by an implementing function.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -2155,7 +2156,7 @@ by an implementing function.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-removeClass"></a>
@@ -2175,7 +2176,7 @@ by an implementing function.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#removeClass" href="output/Ext.Component.html#removeClass">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-removeListener"></a>
@@ -2195,17 +2196,37 @@ by an implementing function.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-render"></a>
-            <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Mixed container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">If this is a lazy rendering component, render it to its container element.</div>
+            <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Element/HTMLElement/String container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Render this Components into the passed HTML element.
+If you are using a Container object to house this Component, the...</div>
             <div class="long">
-                If this is a lazy rendering component, render it to its container element.    <div class="mdetail-params">
+                <p>Render this Components into the passed HTML element.</p>
+<p><b>If you are using a <a ext:cls="Ext.Container" href="output/Ext.Container.html">Container</a> object to house this Component, then
+do not use the render method.</b></p>
+<p>A Container's child Components are rendered by that Container's
+<a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> manager when the Container is first rendered.</p>
+<p>Certain layout managers allow dynamic addition of child components. Those that do
+include <a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">Ext.layout.CardLayout</a>, <a ext:cls="Ext.layout.AnchorLayout" href="output/Ext.layout.AnchorLayout.html">Ext.layout.AnchorLayout</a>,
+<a ext:cls="Ext.layout.FormLayout" href="output/Ext.layout.FormLayout.html">Ext.layout.FormLayout</a>, <a ext:cls="Ext.layout.TableLayout" href="output/Ext.layout.TableLayout.html">Ext.layout.TableLayout</a>.</p>
+<p>If the Container is already rendered when a new child Component is added, you may need to call
+the Container's <a ext:cls="Ext.Container" ext:member="doLayout" href="output/Ext.Container.html#doLayout">doLayout</a> to refresh the view which causes any
+unrendered child Components to be rendered. This is required so that you can add multiple
+child components if needed while only refreshing the layout once.</p>
+<p>When creating complex UIs, it is important to remember that sizing and positioning
+of child items is the responsibility of the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> manager.
+If you expect child items to be sized in response to user interactions, you must
+configure the Container with a layout manager which creates and manages the type of layout you
+have in mind.</p>
+<p><b>Omitting the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config means that a basic
+layout manager is used which does nothnig but render child components sequentially into the
+Container. No sizing or positioning will be performed in this situation.</b></p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>container</code> : Mixed<div class="sub-desc">(optional) The element this component should be rendered into. If it is being
-applied to existing markup, this should be left off.</div></li><li><code>position</code> : String/Number<div class="sub-desc">(optional) The element ID or DOM node index within the container <b>before</b>
+        <ul><li><code>container</code> : Element/HTMLElement/String<div class="sub-desc">(optional) The element this Component should be
+rendered into. If it is being created from existing markup, this should be omitted.</div></li><li><code>position</code> : String/Number<div class="sub-desc">(optional) The element ID or DOM node index within the container <b>before</b>
 which this component will be inserted (defaults to appending to the end of the container)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
@@ -2217,7 +2238,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#render" href="output/Ext.Component.html#render">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-reset"></a>
@@ -2237,7 +2258,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#reset" href="output/Ext.form.Field.html#reset">Field</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-resumeEvents"></a>
@@ -2257,7 +2278,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-select"></a>
@@ -2279,7 +2300,7 @@ selected item if it is not currently in view (defaults to true)</div></li>      
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#select" href="output/Ext.form.ComboBox.html#select">ComboBox</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-selectByValue"></a>
@@ -2302,7 +2323,7 @@ selected item if it is not currently in view (defaults to true)</div></li>      
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#selectByValue" href="output/Ext.form.ComboBox.html#selectByValue">ComboBox</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-selectText"></a>
@@ -2322,7 +2343,7 @@ selected item if it is not currently in view (defaults to true)</div></li>      
         </td>
         <td class="msource"><a ext:cls="Ext.form.TextField" ext:member="#selectText" href="output/Ext.form.TextField.html#selectText">TextField</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setDisabled"></a>
@@ -2342,7 +2363,7 @@ selected item if it is not currently in view (defaults to true)</div></li>      
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setDisabled" href="output/Ext.Component.html#setDisabled">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setEditable"></a>
@@ -2365,14 +2386,14 @@ is the runtime equivalent of setting the 'editable' config option at config time
         </td>
         <td class="msource"><a ext:cls="Ext.form.ComboBox" ext:member="#setEditable" href="output/Ext.form.ComboBox.html#setEditable">ComboBox</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setHeight"></a>
             <b>setHeight</b>(&nbsp;<code>Number height</code>&nbsp;) : Ext.BoxComponent            <div class="mdesc">
-                        <div class="short">Sets the height of the component.  This method fires the resize event.</div>
+                        <div class="short">Sets the height of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.</div>
             <div class="long">
-                Sets the height of the component.  This method fires the resize event.    <div class="mdetail-params">
+                Sets the height of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>height</code> : Number<div class="sub-desc">The new height to set</div></li>        </ul>
         <strong>Returns:</strong>
@@ -2385,7 +2406,7 @@ is the runtime equivalent of setting the 'editable' config option at config time
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setHeight" href="output/Ext.BoxComponent.html#setHeight">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setPagePosition"></a>
@@ -2394,7 +2415,7 @@ is the runtime equivalent of setting the 'editable' config option at config time
 This method fires the ...</div>
             <div class="long">
                 Sets the page XY position of the component.  To set the left and top instead, use <a ext:cls="Ext.BoxComponent" ext:member="setPosition" href="output/Ext.BoxComponent.html#setPosition">setPosition</a>.
-This method fires the move event.    <div class="mdetail-params">
+This method fires the <a ext:cls="Ext.BoxComponent" ext:member="move" href="output/Ext.BoxComponent.html#move">move</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>x</code> : Number<div class="sub-desc">The new x position</div></li><li><code>y</code> : Number<div class="sub-desc">The new y position</div></li>        </ul>
         <strong>Returns:</strong>
@@ -2407,7 +2428,7 @@ This method fires the move event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setPagePosition" href="output/Ext.BoxComponent.html#setPagePosition">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setPosition"></a>
@@ -2416,7 +2437,7 @@ This method fires the move event.    <div class="mdetail-params">
 This method fires ...</div>
             <div class="long">
                 Sets the left and top of the component.  To set the page XY position instead, use <a ext:cls="Ext.BoxComponent" ext:member="setPagePosition" href="output/Ext.BoxComponent.html#setPagePosition">setPagePosition</a>.
-This method fires the move event.    <div class="mdetail-params">
+This method fires the <a ext:cls="Ext.BoxComponent" ext:member="move" href="output/Ext.BoxComponent.html#move">move</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>left</code> : Number<div class="sub-desc">The new left</div></li><li><code>top</code> : Number<div class="sub-desc">The new top</div></li>        </ul>
         <strong>Returns:</strong>
@@ -2429,11 +2450,11 @@ This method fires the move event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setPosition" href="output/Ext.BoxComponent.html#setPosition">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setRawValue"></a>
-            <b>setRawValue</b>(&nbsp;<code>Mixed value</code>&nbsp;) : void            <div class="mdesc">
+            <b>setRawValue</b>(&nbsp;<code>Mixed value</code>&nbsp;) : Mixed            <div class="mdesc">
                         <div class="short">Sets the underlying DOM field's value directly, bypassing validation.  To set the value with validation see <a ext:cls="Ext.form.Field" ext:member="setValue" href="output/Ext.form.Field.html#setValue">setValue</a>.</div>
             <div class="long">
                 Sets the underlying DOM field's value directly, bypassing validation.  To set the value with validation see <a ext:cls="Ext.form.Field" ext:member="setValue" href="output/Ext.form.Field.html#setValue">setValue</a>.    <div class="mdetail-params">
@@ -2441,7 +2462,7 @@ This method fires the move event.    <div class="mdetail-params">
         <ul><li><code>value</code> : Mixed<div class="sub-desc">The value to set</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>void</code></li>
+            <li><code>Mixed</code><div class="sub-desc">value The field value that is set</div></li>
         </ul>
     </div>
                 </div>
@@ -2449,7 +2470,7 @@ This method fires the move event.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#setRawValue" href="output/Ext.form.Field.html#setRawValue">Field</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setSize"></a>
@@ -2457,7 +2478,7 @@ This method fires the move event.    <div class="mdetail-params">
                         <div class="short">Sets the width and height of the component.  This method fires the resize event.  This method can accept
 either width...</div>
             <div class="long">
-                Sets the width and height of the component.  This method fires the resize event.  This method can accept
+                Sets the width and height of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.  This method can accept
 either width and height as separate numeric arguments, or you can pass a size object like {width:10, height:20}.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>width</code> : Number/Object<div class="sub-desc">The new width to set, or a size object in the format {width, height}</div></li><li><code>height</code> : Number<div class="sub-desc">The new height to set (not required if a size object is passed as the first arg)</div></li>        </ul>
@@ -2471,7 +2492,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setSize" href="output/Ext.BoxComponent.html#setSize">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setValue"></a>
@@ -2491,7 +2512,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#setValue" href="output/Ext.form.Field.html#setValue">Field</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setVisible"></a>
@@ -2511,14 +2532,14 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setVisible" href="output/Ext.Component.html#setVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-setWidth"></a>
             <b>setWidth</b>(&nbsp;<code>Number width</code>&nbsp;) : Ext.BoxComponent            <div class="mdesc">
-                        <div class="short">Sets the width of the component.  This method fires the resize event.</div>
+                        <div class="short">Sets the width of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.</div>
             <div class="long">
-                Sets the width of the component.  This method fires the resize event.    <div class="mdetail-params">
+                Sets the width of the component.  This method fires the <a ext:cls="Ext.BoxComponent" ext:member="resize" href="output/Ext.BoxComponent.html#resize">resize</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>width</code> : Number<div class="sub-desc">The new width to set</div></li>        </ul>
         <strong>Returns:</strong>
@@ -2531,7 +2552,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setWidth" href="output/Ext.BoxComponent.html#setWidth">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-show"></a>
@@ -2551,7 +2572,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#show" href="output/Ext.Component.html#show">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-suspendEvents"></a>
@@ -2571,7 +2592,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-syncSize"></a>
@@ -2591,7 +2612,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#syncSize" href="output/Ext.BoxComponent.html#syncSize">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-un"></a>
@@ -2611,7 +2632,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#un" href="output/Ext.util.Observable.html#un">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-updateBox"></a>
@@ -2631,7 +2652,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#updateBox" href="output/Ext.BoxComponent.html#updateBox">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-validate"></a>
@@ -2651,7 +2672,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.form.Field" ext:member="#validate" href="output/Ext.form.Field.html#validate">Field</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.TimeField-validateValue"></a>

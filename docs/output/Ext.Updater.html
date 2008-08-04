@@ -24,11 +24,11 @@ Usage:<br>
 <b>var</b> el = Ext.get(<em>"foo"</em>);
 <b>var</b> mgr = el.getUpdater();
 mgr.update({
-url: <em>"http:<i>//myserver.com/index.php"</em>, </i>
-params: {
-param1: <em>"foo"</em>,
-param2: <em>"bar"</em>
-}
+        url: <em>"http:<i>//myserver.com/index.php"</em>,</i>
+        params: {
+            param1: <em>"foo"</em>,
+            param2: <em>"bar"</em>
+        }
 });
 ...
 mgr.formUpdate(<em>"myFormId"</em>, <em>"http:<i>//myserver.com/index.php"</em>);</i>
@@ -38,13 +38,13 @@ mgr.formUpdate(<em>"myFormId"</em>, <em>"http:<i>//myserver.com/index.php"</em>)
 mgr.startAutoRefresh(60, <em>"http:<i>//myserver.com/index.php"</em>);</i>
 mgr.on(<em>"update"</em>, myFcnNeedsToKnow);
 <br>
-   <i>// short handed call directly from the element object</i>
-   Ext.get(<em>"foo"</em>).load({
+<i>// short handed call directly from the element object</i>
+Ext.get(<em>"foo"</em>).load({
         url: <em>"bar.php"</em>,
         scripts: true,
         params: <em>"param1=foo&amp;param2=bar"</em>,
         text: <em>"Loading Foo..."</em>
-   });</code></pre>        </div>
+});</code></pre>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.Updater-configs"></a>
@@ -211,7 +211,7 @@ mgr.on(<em>"update"</em>, myFcnNeedsToKnow);
             <div class="long">
                 Create new Updater directly.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>el</code> : Mixed<div class="sub-desc">The element to update</div></li><li><code>forceNew</code> : Boolean<div class="sub-desc">(optional) By default the constructor checks to see if the passed element already 
+        <ul><li><code>el</code> : Mixed<div class="sub-desc">The element to update</div></li><li><code>forceNew</code> : Boolean<div class="sub-desc">(optional) By default the constructor checks to see if the passed element already
 has an Updater and if it does it returns the same instance. This will skip that check (useful for extending this class).</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
@@ -234,7 +234,7 @@ has an Updater and if it does it returns the same instance. This will skip that 
 Usage:
 <pre><code>Ext.Updater.updateElement(<em>"my-div"</em>, <em>"stuff.php"</em>);</code></pre>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>el</code> : Mixed<div class="sub-desc">The element to update</div></li><li><code>url</code> : String<div class="sub-desc">The url</div></li><li><code>params</code> : String/Object<div class="sub-desc">(optional) Url encoded param string or an object of name/value pairs</div></li><li><code>options</code> : Object<div class="sub-desc">(optional) A config object with any of the Updater properties you want to set - for 
+        <ul><li><code>el</code> : Mixed<div class="sub-desc">The element to update</div></li><li><code>url</code> : String<div class="sub-desc">The url</div></li><li><code>params</code> : String/Object<div class="sub-desc">(optional) Url encoded param string or an object of name/value pairs</div></li><li><code>options</code> : Object<div class="sub-desc">(optional) A config object with any of the Updater properties you want to set - for
 example: {disableCaching:true, indicatorText: "Loading data..."}</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
@@ -378,10 +378,10 @@ Or a shorthand syntax:<br>
         <td class="sig">
         <a id="Ext.Updater-formUpdate"></a>
             <b>formUpdate</b>(&nbsp;<code>String/HTMLElement form</code>, <span class="optional" title="Optional">[<code>String url</code>]</span>, <span class="optional" title="Optional">[<code>Boolean reset</code>]</span>, <span class="optional" title="Optional">[<code>Function callback</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Performs an async form post, updating this element with the response. If the form has the attribute 
-enctype="multipa...</div>
+                        <div class="short">Performs an async form post, updating this element with the response. If the form has the attribute
+enctype="multipar...</div>
             <div class="long">
-                Performs an async form post, updating this element with the response. If the form has the attribute 
+                Performs an async form post, updating this element with the response. If the form has the attribute
 enctype="multipart/form-data", it assumes it's a file upload.
 Uses this.sslBlankUrl for SSL file uploads to prevent IE security warning.    <div class="mdetail-params">
         <strong>Parameters:</strong>
@@ -403,6 +403,29 @@ parameters are passed:<ul>
         <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Updater-getDefaultRenderer"></a>
+            <b>getDefaultRenderer</b>() : void            <div class="mdesc">
+                        <div class="short">This is an overrideable method which returns a reference to a default
+renderer class if none is specified when creati...</div>
+            <div class="long">
+                This is an overrideable method which returns a reference to a default
+renderer class if none is specified when creating the Ext.Updater.
+Defaults to <a ext:cls="Ext.Updater.BasicRenderer" href="output/Ext.Updater.BasicRenderer.html">Ext.Updater.BasicRenderer</a>    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Updater</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Updater-getEl"></a>
             <b>getEl</b>() : Ext.Element            <div class="mdesc">
                         <div class="short">Get the Element this Updater is bound to</div>
@@ -420,19 +443,19 @@ parameters are passed:<ul>
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-getRenderer"></a>
-            <b>getRenderer</b>() : void            <div class="mdesc">
-                        <div class="short">Returns the current content renderer for this Updater. See <a ext:cls="Ext.Updater.BasicRenderer" ext:member="render" href="output/Ext.Updater.BasicRenderer.html#render">Ext.Updater.BasicRenderer.render</a> for more details.</div>
+            <b>getRenderer</b>() : Object            <div class="mdesc">
+                        <div class="short">Returns the content renderer for this Updater. See <a ext:cls="Ext.Updater.BasicRenderer" ext:member="render" href="output/Ext.Updater.BasicRenderer.html#render">Ext.Updater.BasicRenderer.render</a> for more details.</div>
             <div class="long">
-                Returns the current content renderer for this Updater. See <a ext:cls="Ext.Updater.BasicRenderer" ext:member="render" href="output/Ext.Updater.BasicRenderer.html#render">Ext.Updater.BasicRenderer.render</a> for more details.    <div class="mdetail-params">
+                Returns the content renderer for this Updater. See <a ext:cls="Ext.Updater.BasicRenderer" ext:member="render" href="output/Ext.Updater.BasicRenderer.html#render">Ext.Updater.BasicRenderer.render</a> for more details.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li>None.</li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>void</code></li>
+            <li><code>Object</code></li>
         </ul>
     </div>
                 </div>
@@ -440,7 +463,7 @@ parameters are passed:<ul>
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-hasListener"></a>
@@ -460,7 +483,7 @@ parameters are passed:<ul>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#hasListener" href="output/Ext.util.Observable.html#hasListener">Observable</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-isAutoRefreshing"></a>
@@ -480,7 +503,7 @@ parameters are passed:<ul>
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-isUpdating"></a>
@@ -500,7 +523,7 @@ parameters are passed:<ul>
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-on"></a>
@@ -521,7 +544,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-purgeListeners"></a>
@@ -541,7 +564,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-refresh"></a>
@@ -561,16 +584,16 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -581,7 +604,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-removeListener"></a>
@@ -601,7 +624,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-resumeEvents"></a>
@@ -621,7 +644,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-setDefaultUrl"></a>
@@ -641,7 +664,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-setRenderer"></a>
@@ -661,15 +684,15 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-showLoading"></a>
             <b>showLoading</b>() : void            <div class="mdesc">
-                        <div class="short">Display the element's "loading" state. By default, the element is updated with indicatorText. This 
-method may be ove...</div>
+                        <div class="short">Display the element's "loading" state. By default, the element is updated with indicatorText. This
+method may be over...</div>
             <div class="long">
-                Display the element's "loading" state. By default, the element is updated with <a ext:cls="Ext.Updater" ext:member="indicatorText" href="output/Ext.Updater.html#indicatorText">indicatorText</a>. This 
+                Display the element's "loading" state. By default, the element is updated with <a ext:cls="Ext.Updater" ext:member="indicatorText" href="output/Ext.Updater.html#indicatorText">indicatorText</a>. This
 method may be overridden to perform a custom action while this Updater is actively updating its contents.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li>None.</li>        </ul>
@@ -683,7 +706,7 @@ method may be overridden to perform a custom action while this Updater is active
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-startAutoRefresh"></a>
@@ -692,10 +715,10 @@ method may be overridden to perform a custom action while this Updater is active
             <div class="long">
                 Set this element to auto refresh.  Can be canceled by calling <a ext:cls="Ext.Updater" ext:member="stopAutoRefresh" href="output/Ext.Updater.html#stopAutoRefresh">stopAutoRefresh</a>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>interval</code> : Number<div class="sub-desc">How often to update (in seconds).</div></li><li><code>url</code> : String/Object/Function<div class="sub-desc">(optional) The url for this request, a config object in the same format 
+        <ul><li><code>interval</code> : Number<div class="sub-desc">How often to update (in seconds).</div></li><li><code>url</code> : String/Object/Function<div class="sub-desc">(optional) The url for this request, a config object in the same format
 supported by <a ext:cls="Ext.Updater" ext:member="load" href="output/Ext.Updater.html#load">load</a>, or a function to call to get the url (defaults to the last used url). Note that while
-the url used in a load call can be reused by this method, other load config options will not be reused and must be 
-sepcified as part of a config object passed as this paramter if needed.</div></li><li><code>params</code> : String/Object<div class="sub-desc">(optional) The parameters to pass as either a url encoded string 
+the url used in a load call can be reused by this method, other load config options will not be reused and must be
+sepcified as part of a config object passed as this paramter if needed.</div></li><li><code>params</code> : String/Object<div class="sub-desc">(optional) The parameters to pass as either a url encoded string
 "&param1=1&param2=2" or as an object {param1: 1, param2: 2}</div></li><li><code>callback</code> : Function<div class="sub-desc">(optional) Callback when transaction is complete - called with signature (oElement, bSuccess)</div></li><li><code>refreshNow</code> : Boolean<div class="sub-desc">(optional) Whether to execute the refresh now, or wait the interval</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
@@ -707,7 +730,7 @@ sepcified as part of a config object passed as this paramter if needed.</div></l
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-stopAutoRefresh"></a>
@@ -727,7 +750,7 @@ sepcified as part of a config object passed as this paramter if needed.</div></l
         </td>
         <td class="msource">Updater</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-suspendEvents"></a>
@@ -747,7 +770,7 @@ sepcified as part of a config object passed as this paramter if needed.</div></l
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-un"></a>
@@ -767,7 +790,7 @@ sepcified as part of a config object passed as this paramter if needed.</div></l
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#un" href="output/Ext.util.Observable.html#un">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Updater-update"></a>
@@ -792,7 +815,7 @@ string, or as an object containing properties which represent parameters,
 or as a function, which returns such an object.</p></li>
 <li>scripts : <b>Boolean</b><p class="sub-desc">If <tt>true</tt>
 any &lt;script&gt; tags embedded in the response text will be extracted
-and executed (defaults to <a ext:cls="Ext.Updater.defaults" ext:member="loadScripts" href="output/Ext.Updater.defaults.html#loadScripts">Ext.Updater.defaults.loadScripts</a>). If this option is specified, 
+and executed (defaults to <a ext:cls="Ext.Updater.defaults" ext:member="loadScripts" href="output/Ext.Updater.defaults.html#loadScripts">Ext.Updater.defaults.loadScripts</a>). If this option is specified,
 the callback will be called <i>after</i> the execution of the scripts.</p></li>
 <li>callback : <b>Function</b><p class="sub-desc">A function to
 be called when the response from the server arrives. The following
@@ -805,12 +828,12 @@ parameters are passed:<ul>
 <li>scope : <b>Object</b><p class="sub-desc">The scope in which
 to execute the callback (The callback's <tt>this</tt> reference.) If the
 <tt>params</tt> argument is a function, this scope is used for that function also.</p></li>
-<li>discardUrl : <b>Boolean</b><p class="sub-desc">By default, the URL of this request becomes 
+<li>discardUrl : <b>Boolean</b><p class="sub-desc">By default, the URL of this request becomes
 the default URL for this Updater object, and will be subsequently used in <a ext:cls="Ext.Updater" ext:member="refresh" href="output/Ext.Updater.html#refresh">refresh</a>
 calls. To bypass this behavior, pass <tt>discardUrl:true</tt> (defaults to false).</p></li>
 <li>timeout : <b>Number</b><p class="sub-desc">The number of seconds to wait for a response before
 timing out (defaults to <a ext:cls="Ext.Updater.defaults" ext:member="timeout" href="output/Ext.Updater.defaults.html#timeout">Ext.Updater.defaults.timeout</a>).</p></li>
-<li>text : <b>String</b><p class="sub-desc">The text to use as the innerHTML of the 
+<li>text : <b>String</b><p class="sub-desc">The text to use as the innerHTML of the
 <a ext:cls="Ext.Updater.defaults" ext:member="indicatorText" href="output/Ext.Updater.defaults.html#indicatorText">Ext.Updater.defaults.indicatorText</a> div (defaults to 'Loading...'). To replace the entire div, not
 just the text, override <a ext:cls="Ext.Updater.defaults" ext:member="indicatorText" href="output/Ext.Updater.defaults.html#indicatorText">Ext.Updater.defaults.indicatorText</a> directly.</p></li>
 <li>nocache : <b>Boolean</b><p class="sub-desc">Only needed for GET
@@ -822,7 +845,7 @@ For example:
     url: <em>"your-url.php"</em>,
     params: {param1: <em>"foo"</em>, param2: <em>"bar"</em>}, <i>// or a URL encoded string</i>
     callback: yourFunction,
-    scope: yourObject, <i>//(optional scope)  </i>
+    scope: yourObject, <i>//(optional scope)</i>
     discardUrl: true,
     nocache: true,
     text: <em>"Loading..."</em>,

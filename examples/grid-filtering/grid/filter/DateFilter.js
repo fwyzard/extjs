@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -7,8 +7,40 @@
  */
 
 Ext.grid.filter.DateFilter = Ext.extend(Ext.grid.filter.Filter, {
+    /**
+     * @cfg {Date} dateFormat
+     * The date format applied to the menu's {@link Ext.menu.DateMenu}
+     */
 	dateFormat: 'm/d/Y',
+    /**
+     * @cfg {Object} pickerOpts
+     * The config object that will be passed to the menu's {@link Ext.menu.DateMenu} during
+     * initialization (sets minDate, maxDate and format to the same configs specified on the filter)
+     */
 	pickerOpts: {},
+    /**
+     * @cfg {String} beforeText
+     * The text displayed for the "Before" menu item
+     */
+    beforeText: 'Before',
+    /**
+     * @cfg {String} afterText
+     * The text displayed for the "After" menu item
+     */
+    afterText: 'After',
+    /**
+     * @cfg {String} onText
+     * The text displayed for the "On" menu item
+     */
+    onText: 'On',
+    /**
+     * @cfg {Date} minDate
+     * The minimum date allowed in the menu's {@link Ext.menu.DateMenu}
+     */
+    /**
+     * @cfg {Date} maxDate
+     * The maximum date allowed in the menu's {@link Ext.menu.DateMenu}
+     */
 	
 	init: function() {
 		var opts = Ext.apply(this.pickerOpts, {
@@ -17,9 +49,9 @@ Ext.grid.filter.DateFilter = Ext.extend(Ext.grid.filter.Filter, {
 			format:  this.dateFormat
 		});
 		var dates = this.dates = {
-			'before': new Ext.menu.CheckItem({text: "Before", menu: new Ext.menu.DateMenu(opts)}),
-			'after':  new Ext.menu.CheckItem({text: "After", menu: new Ext.menu.DateMenu(opts)}),
-			'on':     new Ext.menu.CheckItem({text: "On", menu: new Ext.menu.DateMenu(opts)})
+			'before': new Ext.menu.CheckItem({text: this.beforeText, menu: new Ext.menu.DateMenu(opts)}),
+			'after':  new Ext.menu.CheckItem({text: this.afterText, menu: new Ext.menu.DateMenu(opts)}),
+			'on':     new Ext.menu.CheckItem({text: this.onText, menu: new Ext.menu.DateMenu(opts)})
     };
 				
 		this.menu.add(dates.before, dates.after, "-", dates.on);

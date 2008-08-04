@@ -23,7 +23,10 @@ This class is intended to be extended or created via the layout:'border' <a ext:
 and should generally not need to be created directly via the new keyword.</p>
 <p>BorderLayout does not have any direct config options (other than inherited ones).  All configs available
 for customizing the BorderLayout are at the <a ext:cls="Ext.layout.BorderLayout.Region" href="output/Ext.layout.BorderLayout.Region.html">Ext.layout.BorderLayout.Region</a> and
-<a ext:cls="Ext.layout.BorderLayout.SplitRegion" href="output/Ext.layout.BorderLayout.SplitRegion.html">Ext.layout.BorderLayout.SplitRegion</a> levels.  Example usage:</p>
+<a ext:cls="Ext.layout.BorderLayout.SplitRegion" href="output/Ext.layout.BorderLayout.SplitRegion.html">Ext.layout.BorderLayout.SplitRegion</a> levels.</p>
+<p><b>The regions of a BorderLayout are fixed at render time and thereafter, no regions may be removed or
+added.</b></p>
+<p>Example usage:</p>
 <pre><code>var border = <b>new</b> Ext.Panel({
     title: <em>'Border Layout'</em>,
     layout:<em>'border'</em>,

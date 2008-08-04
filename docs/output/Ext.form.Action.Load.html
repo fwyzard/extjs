@@ -17,20 +17,15 @@
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.form.Action" ext:member="" href="output/Ext.form.Action.html">Action</a></td></tr>
                     </table>
         <div class="description">
-            A class which handles loading of data from a server into the Fields of
-an <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Ext.form.BasicForm</a>.
-<br><br>
-Instances of this class are only created by a <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a> when
-submitting.
-<br><br>
-A response packet <b>must</b> contain a boolean <tt style="font-weight:bold">success</tt> property, and
-a <tt style="font-weight:bold">data</tt> property. The <tt style="font-weight:bold">data</tt> property contains the
-values of Fields to load. The individual value object for each Field
-is passed to the Field's <a ext:cls="Ext.form.Field" ext:member="setValue" href="output/Ext.form.Field.html#setValue">setValue</a> method.
-<br><br>
-By default, response packets are assumed to be JSON, so a typical response
-packet may look like this:
-<br><br><pre><code>{
+            <p>A class which handles loading of data from a server into the Fields of an <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Ext.form.BasicForm</a>.</p>
+<p>Instances of this class are only created by a <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a> when
+<a ext:cls="Ext.form.BasicForm" ext:member="load" href="output/Ext.form.BasicForm.html#load">load</a>ing.</p>
+<p>A response packet <b>must</b> contain a boolean <tt style="font-weight:bold">success</tt> property, and
+a <tt style="font-weight:bold">data</tt> property. The <tt style="font-weight:bold">data</tt> property
+contains the values of Fields to load. The individual value object for each Field
+is passed to the Field's <a ext:cls="Ext.form.Field" ext:member="setValue" href="output/Ext.form.Field.html#setValue">setValue</a> method.</p>
+<p>By default, response packets are assumed to be JSON, so a typical response
+packet may look like this:</p><pre><code>{
     success: true,
     data: {
         clientName: <em>"Fred. Olsen Lines"</em>,
@@ -38,9 +33,8 @@ packet may look like this:
         portOfDischarge: <em>"OSL"</em>
     }
 }</code></pre>
-<br><br>
-Other data may be placed into the response for processing the the <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a>'s callback
-or event handler methods. The object decoded from this JSON is available in the <a ext:cls="Ext.form.Action.Load" ext:member="result" href="output/Ext.form.Action.Load.html#result">result</a> property.        </div>
+<p>Other data may be placed into the response for processing the <a ext:cls="Ext.form.BasicForm" href="output/Ext.form.BasicForm.html">Form</a>'s callback
+or event handler methods. The object decoded from this JSON is available in the <a ext:cls="Ext.form.Action.Load" ext:member="result" href="output/Ext.form.Action.Load.html#result">result</a> property.</p>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.form.Action.Load-configs"></a>
@@ -86,7 +80,19 @@ or event handler methods. The object decoded from this JSON is available in the 
         </td>
         <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#params" href="output/Ext.form.Action.html#params">Action</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.form.Action.Load-reset"></a>
+            <b>reset</b> : Boolean            <div class="mdesc">
+                        <div class="short">When set to true, causes the Form to be reset on Action success. If specified, this happens before the success callba...</div>
+            <div class="long">
+                When set to <tt><b>true</b></tt>, causes the Form to be <a ext:cls="Ext.form.BasicForm.reset" href="output/Ext.form.BasicForm.reset.html">reset</a> on Action success. If specified, this happens <b>before</b> the <a ext:cls="Ext.form.Action" ext:member="success" href="output/Ext.form.Action.html#success">success</a> callback is called and before the Form's <a ext:cls="Ext.form.BasicForm.actioncomplete" href="output/Ext.form.BasicForm.actioncomplete.html">actioncomplete</a> event fires.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#reset" href="output/Ext.form.Action.html#reset">Action</a></td>
+    </tr>
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action.Load-scope"></a>
@@ -95,7 +101,7 @@ or event handler methods. The object decoded from this JSON is available in the 
         </td>
         <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#scope" href="output/Ext.form.Action.html#scope">Action</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action.Load-success"></a>
@@ -107,7 +113,7 @@ or event handler methods. The object decoded from this JSON is available in the 
         </td>
         <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#success" href="output/Ext.form.Action.html#success">Action</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action.Load-timeout"></a>
@@ -116,7 +122,7 @@ or event handler methods. The object decoded from this JSON is available in the 
         </td>
         <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#timeout" href="output/Ext.form.Action.html#timeout">Action</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action.Load-url"></a>
@@ -125,7 +131,7 @@ or event handler methods. The object decoded from this JSON is available in the 
         </td>
         <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#url" href="output/Ext.form.Action.html#url">Action</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action.Load-waitMsg"></a>
@@ -134,7 +140,7 @@ or event handler methods. The object decoded from this JSON is available in the 
         </td>
         <td class="msource"><a ext:cls="Ext.form.Action" ext:member="#waitMsg" href="output/Ext.form.Action.html#waitMsg">Action</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.Action.Load-waitTitle"></a>

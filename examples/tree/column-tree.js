@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -8,16 +8,16 @@
 
 Ext.onReady(function(){
     var tree = new Ext.tree.ColumnTree({
-        el:'tree-ct',
-        width:552,
-        autoHeight:true,
+        width: 550,
+        height: 300,
         rootVisible:false,
         autoScroll:true,
         title: 'Example Tasks',
+        renderTo: Ext.getBody(),
         
         columns:[{
             header:'Task',
-            width:350,
+            width:330,
             dataIndex:'task'
         },{
             header:'Duration',
@@ -40,5 +40,4 @@ Ext.onReady(function(){
             text:'Tasks'
         })
     });
-    tree.render();
 });

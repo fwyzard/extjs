@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -127,7 +127,7 @@ Ext.extend(Ext.grid.RowExpander, Ext.util.Observable, {
         }
         var record = this.grid.store.getAt(row.rowIndex);
         var body = Ext.fly(row).child('tr:nth(1) div.x-grid3-row-body', true);
-        if(this.fireEvent('beforcollapse', this, record, body, row.rowIndex) !== false){
+        if(this.fireEvent('beforecollapse', this, record, body, row.rowIndex) !== false){
             this.state[record.id] = false;
             Ext.fly(row).replaceClass('x-grid3-row-expanded', 'x-grid3-row-collapsed');
             this.fireEvent('collapse', this, record, body, row.rowIndex);

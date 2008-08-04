@@ -14,8 +14,8 @@ if(Ext.View){
     Ext.View.prototype.emptyText = "";
 }
 
-if(Ext.grid.Grid){
-    Ext.grid.Grid.prototype.ddText = "{0} geselekteerde ry(e)";
+if(Ext.grid.GridPanel){
+    Ext.grid.GridPanel.prototype.ddText = "{0} geselekteerde ry(e)";
 }
 
 if(Ext.TabPanelItem){
@@ -170,10 +170,9 @@ if(Ext.grid.PropertyColumnModel){
     });
 }
 
-if(Ext.layout.BorderLayout.SplitRegion){
+if(Ext.layout.BorderLayout && Ext.layout.BorderLayout.SplitRegion){
     Ext.apply(Ext.layout.BorderLayout.SplitRegion.prototype, {
        splitTip            : "Trek om grootte aan te pas.",
        collapsibleSplitTip : "Trek om grootte aan te pas. Dubbel-klik om weg te steek."
     });
 }
-

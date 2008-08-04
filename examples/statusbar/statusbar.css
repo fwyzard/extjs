@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -11,6 +11,11 @@
 
 #word-status .x-status-text {
     color: #777;
+}
+#word-status .x-status-text-panel .spacer {
+    width: 60px;
+    font-size:0;
+    line-height:0;
 }
 #word-status .x-status-busy {
     padding-left: 25px;

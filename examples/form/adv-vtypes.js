@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -8,49 +8,41 @@
 
 // Add the additional 'advanced' VTypes
 Ext.apply(Ext.form.VTypes, {
-  daterange: function(val, field) {
-    var date = field.parseDate(val);
-    
-    // We need to force the picker to update values to recaluate the disabled dates display
-    var dispUpd = function(picker) {
-      var ad = picker.activeDate;
-      picker.activeDate = null;
-      picker.update(ad);
-    };
-    
-    if (field.startDateField) {
-      var sd = Ext.getCmp(field.startDateField);
-      sd.maxValue = date;
-      if (sd.menu && sd.menu.picker) {
-        sd.menu.picker.maxDate = date;
-        dispUpd(sd.menu.picker);
-      }
-    } else if (field.endDateField) {
-      var ed = Ext.getCmp(field.endDateField);
-      ed.minValue = date;
-      if (ed.menu && ed.menu.picker) {
-        ed.menu.picker.minDate = date;
-        dispUpd(ed.menu.picker);
-      }
-    }
-    /* Always return true since we're only using this vtype
-     * to set the min/max allowed values (these are tested
-     * for after the vtype test)
-     */
-    return true;
-  },
-  
-  password: function(val, field) {
-    if (field.initialPassField) {
-      var pwd = Ext.getCmp(field.initialPassField);
-      return (val == pwd.getValue());
-    }
-    return true;
-  },
-  
-  passwordText: 'Passwords do not match'
-});
+    daterange : function(val, field) {
+        var date = field.parseDate(val);
 
+        if(!date){
+            return;
+        }
+        if (field.startDateField && (!this.dateRangeMax || (date.getTime() != this.dateRangeMax.getTime()))) {
+            var start = Ext.getCmp(field.startDateField);
+            start.setMaxValue(date);
+            start.validate();
+            this.dateRangeMax = date;
+        } 
+        else if (field.endDateField && (!this.dateRangeMin || (date.getTime() != this.dateRangeMin.getTime()))) {
+            var end = Ext.getCmp(field.endDateField);
+            end.setMinValue(date);
+            end.validate();
+            this.dateRangeMin = date;
+        }
+        /*
+         * Always return true since we're only using this vtype to set the
+         * min/max allowed values (these are tested for after the vtype test)
+         */
+        return true;
+    },
+
+    password : function(val, field) {
+        if (field.initialPassField) {
+            var pwd = Ext.getCmp(field.initialPassField);
+            return (val == pwd.getValue());
+        }
+        return true;
+    },
+
+    passwordText : 'Passwords do not match'
+});
 
 Ext.onReady(function(){
 

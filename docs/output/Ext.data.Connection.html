@@ -18,21 +18,28 @@
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
                     </table>
         <div class="description">
-            The class encapsulates a connection to the page's originating domain, allowing requests to be made
-either to a configured URL, or to a URL specified at request time.<br><br>
-<p>
-Requests made by this class are asynchronous, and will return immediately. No data from
+            <p>The class encapsulates a connection to the page's originating domain, allowing requests to be made
+either to a configured URL, or to a URL specified at request time.</p>
+<p>Requests made by this class are asynchronous, and will return immediately. No data from
 the server will be available to the statement immediately following the <a ext:cls="Ext.data.Connection" ext:member="request" href="output/Ext.data.Connection.html#request">request</a> call.
-To process returned data, use a callback in the request options object, or an event listener.</p><br>
-<p>
-Note: If you are doing a file upload, you will not get a normal response object sent back to
-your callback or event handler.  Since the upload is handled via in IFRAME, there is no XMLHttpRequest.
-The response object is created using the innerHTML of the IFRAME's document as the responseText
-property and, if present, the IFRAME's XML document as the responseXML property.</p><br>
-This means that a valid XML or HTML document must be returned. If JSON data is required, it is suggested
-that it be placed either inside a &lt;textarea> in an HTML document and retrieved from the responseText
-using a regex, or inside a CDATA section in an XML document and retrieved from the responseXML using
-standard DOM methods.        </div>
+To process returned data, use a {@link #request-option-success callback} in the request options object,
+or an <a ext:cls="Ext.data.Connection" ext:member="requestcomplete" href="output/Ext.data.Connection.html#requestcomplete">event listener</a>.</p>
+<p>{@link #request-option-isUpload File uploads} are not performed using normal "Ajax" techniques, that
+is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard
+manner with the DOM <tt>&lt;form></tt> element temporarily modified to have its
+<a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
+to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document
+but removed after the return data has been gathered.</p>
+<p>The server response is parsed by the browser to create the document for the IFRAME. If the
+server is using JSON to send the return object, then the
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header
+must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p>
+<p>The response text is retrieved from the document, and a fake XMLHttpRequest object
+is created containing a <tt>responseText</tt> property in order to conform to the
+requirements of event handlers and callbacks.</p>
+<p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a>
+and some server technologies (notably JEE) may require some custom processing in order to
+retrieve parameter names and parameter values from the packet content.</p>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.data.Connection-configs"></a>
@@ -72,7 +79,16 @@ standard DOM methods.        </div>
         </td>
         <td class="msource">Connection</td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.data.Connection-disableCachingParam"></a>
+            <b>disableCachingParam</b> : String            <div class="mdesc">
+                            (Optional) Change the parameter which is sent went disabling caching through a cache buster. Defaults to '_dc'                        </div>
+        </td>
+        <td class="msource">Connection</td>
+    </tr>
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.Connection-extraParams"></a>
@@ -84,7 +100,7 @@ standard DOM methods.        </div>
         </td>
         <td class="msource">Connection</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.Connection-listeners"></a>
@@ -96,7 +112,7 @@ standard DOM methods.        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.Connection-method"></a>
@@ -108,7 +124,7 @@ standard DOM methods.        </div>
         </td>
         <td class="msource">Connection</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.Connection-timeout"></a>
@@ -117,7 +133,7 @@ standard DOM methods.        </div>
         </td>
         <td class="msource">Connection</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.Connection-url"></a>
@@ -369,11 +385,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.data.Connection-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -415,15 +431,18 @@ return...</div>
             <div class="long">
                 <p>Sends an HTTP request to a remote server.</p>
 <p><b>Important:</b> Ajax server requests are asynchronous, and this call will
-return before the response has been recieved. Process any returned data
-in a callback function.    <div class="mdetail-params">
+return before the response has been received. Process any returned data
+in a callback function.</p>
+<p>To execute a callback function in the correct scope, use the <tt>scope</tt> option.</p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>options</code> : Object<div class="sub-desc">An object which may contain the following properties:<ul>
-<li><b>url</b> : String (Optional)<div class="sub-desc">The URL to
-which to send the request. Defaults to configured URL</div></li>
+<li><b>url</b> : String/Function (Optional)<div class="sub-desc">The URL to
+which to send the request, or a function to call which returns a URL string. The scope of the
+function is specified by the <tt>scope</tt> option. Defaults to configured URL.</div></li>
 <li><b>params</b> : Object/String/Function (Optional)<div class="sub-desc">
 An object containing properties which are used as parameters to the
-request, a url encoded string or a function to call to get either.</div></li>
+request, a url encoded string or a function to call to get either. The scope of the function
+is specified by the <tt>scope</tt> option.</div></li>
 <li><b>method</b> : String (Optional)<div class="sub-desc">The HTTP method to use
 for the request. Defaults to the configured method, or if no method was configured,
 "GET" if no parameters are being sent, and "POST" if parameters are being sent. Note that
@@ -434,9 +453,11 @@ called regardless of success or failure and is passed the following
 parameters:<ul>
 <li><b>options</b> : Object<div class="sub-desc">The parameter to the request call.</div></li>
 <li><b>success</b> : Boolean<div class="sub-desc">True if the request succeeded.</div></li>
-<li><b>response</b> : Object<div class="sub-desc">The XMLHttpRequest object containing the response data. See http://www.w3.org/TR/XMLHttpRequest/ for details about accessing elements of the response.</div></li>
+<li><b>response</b> : Object<div class="sub-desc">The XMLHttpRequest object containing the response data. 
+See <a href="http://www.w3.org/TR/XMLHttpRequest/">http://www.w3.org/TR/XMLHttpRequest/</a> for details about 
+accessing elements of the response.</div></li>
 </ul></div></li>
-<li><b>success</b> : Function (Optional)<div class="sub-desc">The function
+<a id="request-option-success"></a><li><b>success</b> : Function (Optional)<div class="sub-desc">The function
 to be called upon success of the request. The callback is passed the following
 parameters:<ul>
 <li><b>response</b> : Object<div class="sub-desc">The XMLHttpRequest object containing the response data.</div></li>
@@ -449,26 +470,27 @@ following parameters:<ul>
 <li><b>options</b> : Object<div class="sub-desc">The parameter to the request call.</div></li>
 </ul></div></li>
 <li><b>scope</b> : Object (Optional)<div class="sub-desc">The scope in
-which to execute the callbacks: The "this" object for the callback function.
+which to execute the callbacks: The "this" object for the callback function. If the <tt>url</tt>, or <tt>params</tt> options were
+specified as functions from which to draw values, then this also serves as the scope for those function calls.
 Defaults to the browser window.</div></li>
-<li><b>form</b> : Object/String (Optional)<div class="sub-desc">A form
-object or id to pull parameters from.</div></li>
-<li><b>isUpload</b> : Boolean (Optional)<div class="sub-dec">True if the form object is a
+<li><b>form</b> : Element/HTMLElement/String (Optional)<div class="sub-desc">The <tt>&lt;form&gt;</tt>
+Element or the id of the <tt>&lt;form&gt;</tt> to pull parameters from.</div></li>
+<a id="request-option-isUpload"></a><li><b>isUpload</b> : Boolean (Optional)<div class="sub-desc">True if the form object is a
 file upload (will usually be automatically detected).
 <p>File uploads are not performed using normal "Ajax" techniques, that is they are <b>not</b>
 performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the
 DOM <tt>&lt;form></tt> element temporarily modified to have its
-{@link http://www.w3.org/TR/REC-html40/present/frames.html#adef-target target} set to refer
+<a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
 to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document
 but removed after the return data has been gathered.</p>
 <p>The server response is parsed by the browser to create the document for the IFRAME. If the
 server is using JSON to send the return object, then the
-{@link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type} header
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header
 must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p>
 <p>The response text is retrieved from the document, and a fake XMLHttpRequest object
 is created containing a <tt>responseText</tt> property in order to conform to the
 requirements of event handlers and callbacks.</p>
-<p>Be aware that file upload packets are sent with the content type {@link http://www.faqs.org/rfcs/rfc2388.html multipart/form}
+<p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a>
 and some server technologies (notably JEE) may require some custom processing in order to
 retrieve parameter names and parameter values from the packet content.</p>
 </div></li>

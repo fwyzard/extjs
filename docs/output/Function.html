@@ -39,7 +39,7 @@ Will create a function that is bound to those 2 args. <b>If a specific scope is 
 callback, use <a ext:cls="Function" ext:member="createDelegate" href="output/Function.html#createDelegate">createDelegate</a> instead.</b> The function returned by createCallback always
 executes in the window scope.
 <p>This method is required when you want to pass arguments to a callback function.  If no arguments
-are needed, you can simply pass a reference to the function as a callback (e.g., callback: myFn).  
+are needed, you can simply pass a reference to the function as a callback (e.g., callback: myFn).
 However, if you tried to pass a function with arguments (e.g., callback: myFn(arg1, arg2)) the function
 would simply execute immediately when the code is parsed. Example usage:
 <pre><code>var sayHi = <b>function</b>(name){
@@ -90,7 +90,7 @@ callback points to obj. Example usage:
 });
 
 <i>// This callback will execute <b>in</b> the scope of the</i>
-<i>// button instance. Clicking the button alerts </i>
+<i>// button instance. Clicking the button alerts</i>
 <i>// <em>"Hi, Fred. You clicked the "</em>Say Hi<em>" button."</em></i>
 btn.on(<em>'click'</em>, sayHi.createDelegate(btn, [<em>'Fred'</em>]));</code></pre>    <div class="mdetail-params">
         <strong>Parameters:</strong>
@@ -111,10 +111,10 @@ if a number the args are inserted at the specified position</div></li>        </
         <td class="sig">
         <a id="Function-createInterceptor"></a>
             <b>createInterceptor</b>(&nbsp;<code>Function fcn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : Function            <div class="mdesc">
-                        <div class="short">Creates an interceptor function. The passed fcn is called before the original one. If it returns false, 
-the original...</div>
+                        <div class="short">Creates an interceptor function. The passed fcn is called before the original one. If it returns false,
+the original ...</div>
             <div class="long">
-                Creates an interceptor function. The passed fcn is called before the original one. If it returns false, 
+                Creates an interceptor function. The passed fcn is called before the original one. If it returns false,
 the original one is not called. The resulting function returns the results of the original function.
 The passed fcn is called with the parameters of the original function. Example usage:
 <pre><code>var sayHi = <b>function</b>(name){
@@ -196,7 +196,7 @@ sayHi(<em>'Fred'</em>);
 <i>// executes after 2 seconds:</i>
 sayHi.defer(2000, <b>this</b>, [<em>'Fred'</em>]);
 
-<i>// <b>this</b> syntax is sometimes useful <b>for</b> deferring </i>
+<i>// <b>this</b> syntax is sometimes useful <b>for</b> deferring</i>
 <i>// execution of an anonymous <b>function</b>:</i>
 (<b>function</b>(){
     alert(<em>'Anonymous'</em>);

@@ -18,8 +18,8 @@
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
                     </table>
         <div class="description">
-            A menu object.  This is the container to which you add all other menu items.  Menu can also serve a as a base class
-when you want a specialzed menu based off of another component (like <a ext:cls="Ext.menu.DateMenu" href="output/Ext.menu.DateMenu.html">Ext.menu.DateMenu</a> for example).        </div>
+            A menu object.  This is the container to which you add all other menu items.  Menu can also serve as a base class
+when you want a specialized menu based off of another component (like <a ext:cls="Ext.menu.DateMenu" href="output/Ext.menu.DateMenu.html">Ext.menu.DateMenu</a> for example).        </div>
         
         <div class="hr"></div>
                 <a id="Ext.menu.Menu-configs"></a>
@@ -62,7 +62,19 @@ when you want a specialzed menu based off of another component (like <a ext:cls=
         </td>
         <td class="msource">Menu</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.menu.Menu-ignoreParentClicks"></a>
+            <b>ignoreParentClicks</b> : Boolean            <div class="mdesc">
+                        <div class="short">True to ignore clicks on any item in this menu that is a parent item (displays a submenu) so that the submenu is not ...</div>
+            <div class="long">
+                True to ignore clicks on any item in this menu that is a parent item (displays a submenu) so that the submenu is not dismissed when clicking the parent item (defaults to false).            </div>
+                        </div>
+        </td>
+        <td class="msource">Menu</td>
+    </tr>
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.menu.Menu-items"></a>
@@ -71,7 +83,7 @@ when you want a specialzed menu based off of another component (like <a ext:cls=
         </td>
         <td class="msource">Menu</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.menu.Menu-listeners"></a>
@@ -83,7 +95,7 @@ when you want a specialzed menu based off of another component (like <a ext:cls=
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.menu.Menu-minWidth"></a>
@@ -92,7 +104,7 @@ when you want a specialzed menu based off of another component (like <a ext:cls=
         </td>
         <td class="msource">Menu</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.menu.Menu-shadow"></a>
@@ -104,7 +116,7 @@ when you want a specialzed menu based off of another component (like <a ext:cls=
         </td>
         <td class="msource">Menu</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.menu.Menu-subMenuAlign"></a>
@@ -169,7 +181,7 @@ Any of the...</div>
                 Addds one or more items of any type supported by the Menu class, or that can be converted into menu items.
 Any of the following are valid:
 <ul>
-<li>Any menu item object based on <a ext:cls="Ext.menu.Item" href="output/Ext.menu.Item.html">Ext.menu.Item</a></li>
+<li>Any menu item object based on <a ext:cls="Ext.menu.BaseItem" href="output/Ext.menu.BaseItem.html">Ext.menu.BaseItem</a></li>
 <li>An HTMLElement object which will be converted to a menu item</li>
 <li>A menu item config object that will be created as a new menu item</li>
 <li>A string, which can either be '-' or 'separator' to add a menu separator, otherwise
@@ -247,9 +259,9 @@ Usage:
         <td class="sig">
         <a id="Ext.menu.Menu-addItem"></a>
             <b>addItem</b>(&nbsp;<code>Ext.menu.Item item</code>&nbsp;) : Ext.menu.Item            <div class="mdesc">
-                        <div class="short">Adds an existing object based on <a ext:cls="Ext.menu.Item" href="output/Ext.menu.Item.html">Ext.menu.Item</a> to the menu</div>
+                        <div class="short">Adds an existing object based on <a ext:cls="Ext.menu.BaseItem" href="output/Ext.menu.BaseItem.html">Ext.menu.BaseItem</a> to the menu</div>
             <div class="long">
-                Adds an existing object based on <a ext:cls="Ext.menu.Item" href="output/Ext.menu.Item.html">Ext.menu.Item</a> to the menu    <div class="mdetail-params">
+                Adds an existing object based on <a ext:cls="Ext.menu.BaseItem" href="output/Ext.menu.BaseItem.html">Ext.menu.BaseItem</a> to the menu    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>item</code> : Ext.menu.Item<div class="sub-desc">The menu item to add</div></li>        </ul>
         <strong>Returns:</strong>
@@ -496,9 +508,9 @@ removing all of the menus items, then destroying the underlying <a ext:cls="Ext.
         <td class="sig">
         <a id="Ext.menu.Menu-insert"></a>
             <b>insert</b>(&nbsp;<code>Number index</code>, <code>Ext.menu.Item item</code>&nbsp;) : Ext.menu.Item            <div class="mdesc">
-                        <div class="short">Inserts an existing object based on <a ext:cls="Ext.menu.Item" href="output/Ext.menu.Item.html">Ext.menu.Item</a> to the menu at a specified index</div>
+                        <div class="short">Inserts an existing object based on <a ext:cls="Ext.menu.BaseItem" href="output/Ext.menu.BaseItem.html">Ext.menu.BaseItem</a> to the menu at a specified index</div>
             <div class="long">
-                Inserts an existing object based on <a ext:cls="Ext.menu.Item" href="output/Ext.menu.Item.html">Ext.menu.Item</a> to the menu at a specified index    <div class="mdetail-params">
+                Inserts an existing object based on <a ext:cls="Ext.menu.BaseItem" href="output/Ext.menu.BaseItem.html">Ext.menu.BaseItem</a> to the menu at a specified index    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>index</code> : Number<div class="sub-desc">The index in the menu's list of current items where the new item should be inserted</div></li><li><code>item</code> : Ext.menu.Item<div class="sub-desc">The menu item to add</div></li>        </ul>
         <strong>Returns:</strong>
@@ -577,11 +589,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.menu.Menu-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>

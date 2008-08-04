@@ -49,12 +49,12 @@
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.util.Format-date"></a>
-            <b>date</b>(&nbsp;<code>Mixed value</code>, <span class="optional" title="Optional">[<code>String format</code>]</span>&nbsp;) : String            <div class="mdesc">
+            <b>date</b>(&nbsp;<code>String/Date value</code>, <span class="optional" title="Optional">[<code>String format</code>]</span>&nbsp;) : String            <div class="mdesc">
                         <div class="short">Parse a value into a formatted date using the specified format pattern.</div>
             <div class="long">
                 Parse a value into a formatted date using the specified format pattern.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>value</code> : Mixed<div class="sub-desc">The value to format</div></li><li><code>format</code> : String<div class="sub-desc">(optional) Any valid date format string (defaults to 'm/d/Y')</div></li>        </ul>
+        <ul><li><code>value</code> : String/Date<div class="sub-desc">The value to format (Strings must conform to the format expected by the javascript Date object's <a href="http://www.w3schools.com/jsref/jsref_parse.asp">parse()</a> method)</div></li><li><code>format</code> : String<div class="sub-desc">(optional) Any valid date format string (defaults to 'm/d/Y')</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>String</code><div class="sub-desc">The formatted date string</div></li>

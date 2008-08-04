@@ -11,16 +11,12 @@ if(Ext.View){
   Ext.View.prototype.emptyText = "";
 }
 
-if(Ext.grid.Grid){
-  Ext.grid.Grid.prototype.ddText = "{0} selected row(s)";
+if(Ext.grid.GridPanel){
+  Ext.grid.GridPanel.prototype.ddText = "{0} selected row(s)";
 }
 
 if(Ext.TabPanelItem){
   Ext.TabPanelItem.prototype.closeText = "Close this tab";
-}
-
-if(Ext.form.Field){
-  Ext.form.Field.prototype.invalidText = "The value in this field is invalid";
 }
 
 if(Ext.LoadMask){
@@ -128,6 +124,10 @@ if(Ext.PagingToolbar){
     displayMsg     : "Displaying {0} - {1} of {2}",
     emptyMsg       : 'No data to display'
   });
+}
+
+if(Ext.form.Field){
+  Ext.form.Field.prototype.invalidText = "The value in this field is invalid";
 }
 
 if(Ext.form.TextField){
@@ -254,6 +254,10 @@ if(Ext.form.HtmlEditor){
   });
 }
 
+if(Ext.form.BasicForm){
+  Ext.form.BasicForm.prototype.waitTitle = "Please wait...";
+}
+
 if(Ext.grid.GridView){
   Ext.apply(Ext.grid.GridView.prototype, {
     sortAscText  : "Sort Ascending",
@@ -280,7 +284,7 @@ if(Ext.grid.PropertyColumnModel){
   });
 }
 
-if(Ext.layout.BorderLayout.SplitRegion){
+if(Ext.layout.BorderLayout && Ext.layout.BorderLayout.SplitRegion){
   Ext.apply(Ext.layout.BorderLayout.SplitRegion.prototype, {
     splitTip            : "Drag to resize.",
     collapsibleSplitTip : "Drag to resize. Double click to hide."

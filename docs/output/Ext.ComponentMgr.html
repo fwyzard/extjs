@@ -59,6 +59,29 @@ events on the MixedCollection to monitor addition or removal.  Read-only.       
                 <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.ComponentMgr-create"></a>
+            <b>create</b>(&nbsp;<code>config {Object}</code>, <code>defaultType {Constructor}</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Creates a new Component from the specified config object using the
+config object's xtype to determine the class to in...</div>
+            <div class="long">
+                Creates a new Component from the specified config object using the
+config object's <a ext:cls="Ext.component" ext:member="xtype" href="output/Ext.component.html#xtype">xtype</a> to determine the class to instantiate.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>{Object}</code> : config<div class="sub-desc">A configuration object for the Component you wish to create.</div></li><li><code>{Constructor}</code> : defaultType<div class="sub-desc">The constructor to provide the default Component type if
+the config object does not contain an xtype. (Optional if the config contains an xtype).</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">ComponentMgr</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.ComponentMgr-get"></a>
             <b>get</b>(&nbsp;<code>String id</code>&nbsp;) : Ext.Component            <div class="mdesc">
                         <div class="short">Returns a component by id</div>
@@ -76,7 +99,7 @@ events on the MixedCollection to monitor addition or removal.  Read-only.       
         </td>
         <td class="msource">ComponentMgr</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ComponentMgr-onAvailable"></a>
@@ -96,7 +119,7 @@ events on the MixedCollection to monitor addition or removal.  Read-only.       
         </td>
         <td class="msource">ComponentMgr</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ComponentMgr-register"></a>
@@ -116,7 +139,7 @@ events on the MixedCollection to monitor addition or removal.  Read-only.       
         </td>
         <td class="msource">ComponentMgr</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ComponentMgr-registerType"></a>
@@ -125,11 +148,11 @@ events on the MixedCollection to monitor addition or removal.  Read-only.       
 Ext.Component.xtype.
 Use this method to register new subclasses...</div>
             <div class="long">
-                Registers a new Component constructor, keyed by a new
-<a ext:cls="Ext.Component" ext:member="xtype" href="output/Ext.Component.html#xtype">Ext.Component.xtype</a>.<br><br>
-Use this method to register new subclasses of <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> so
+                <p>Registers a new Component constructor, keyed by a new
+<a ext:cls="Ext.Component" ext:member="xtype" href="output/Ext.Component.html#xtype">Ext.Component.xtype</a>.</p>
+<p>Use this method to register new subclasses of <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> so
 that lazy instantiation may be used when specifying child Components.
-see <a ext:cls="Ext.Container" ext:member="items" href="output/Ext.Container.html#items">Ext.Container.items</a>    <div class="mdetail-params">
+see <a ext:cls="Ext.Container" ext:member="items" href="output/Ext.Container.html#items">Ext.Container.items</a></p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>xtype</code> : String<div class="sub-desc">The mnemonic string by which the Component class
 may be looked up.</div></li><li><code>cls</code> : Constructor<div class="sub-desc">The new Component class.</div></li>        </ul>
@@ -143,7 +166,7 @@ may be looked up.</div></li><li><code>cls</code> : Constructor<div class="sub-de
         </td>
         <td class="msource">ComponentMgr</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ComponentMgr-unregister"></a>

@@ -1,3 +1,4 @@
-The examples can be browsed by opening index.html in the docs folder.
+The samples can be browsed by opening the examples folder in a web browser.
 
-Some examples use XHR. Those examples will need to be on a webserver to run since XHR can't access the local file system.
+The samples home page (samples.html) along with some of the individual sample pages use XHR to load data. 
+Those samples will need to be on a webserver (http://) to run since XHR can't access the local file system.

@@ -15,17 +15,13 @@
         <div class="description">
             This is the global state manager. By default all components that are "state aware" check this class
 for state information if you don't pass them a custom state provider. In order for this class
-to be useful, it must be initialized with a provider when your application initializes.
+to be useful, it must be initialized with a provider when your application initializes. Example usage:
  <pre><code><i>// <b>in</b> your initialization <b>function</b></i>
 init : <b>function</b>(){
    Ext.state.Manager.setProvider(<b>new</b> Ext.state.CookieProvider());
-   ...
-   <i>// supposed you have a <a ext:cls=<em>"Ext.BorderLayout"</em> href=<em>"output/Ext.BorderLayout.html"</em>>Ext.BorderLayout</a></i>
-   <b>var</b> layout = <b>new</b> Ext.BorderLayout(...);
-   layout.restoreState();
-   <i>// or a {Ext.BasicDialog}</i>
-   <b>var</b> dialog = <b>new</b> Ext.BasicDialog(...);
-   dialog.restoreState();</code></pre><br><br><i>This class is a singleton and cannot be created directly.</i>        </div>
+   <b>var</b> win = <b>new</b> Window(...);
+   win.restoreState();
+}</code></pre><br><br><i>This class is a singleton and cannot be created directly.</i>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.state.Manager-props"></a>

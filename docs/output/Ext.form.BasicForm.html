@@ -54,11 +54,11 @@ To enable normal browser submission of an Ext Form, use the <a ext:cls="Ext.form
         <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
-        <a id="Ext.form.BasicForm-fileUpload."></a>
-            <b>fileUpload.</b> : Boolean            <div class="mdesc">
+        <a id="Ext.form.BasicForm-fileUpload"></a>
+            <b>fileUpload</b> : Boolean            <div class="mdesc">
                         <div class="short">Set to true if this form is a file upload. File uploads are not performed using normal "Ajax" techniques, that is the...</div>
             <div class="long">
-                Set to true if this form is a file upload. <p>File uploads are not performed using normal "Ajax" techniques, that is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the DOM <tt>&lt;form></tt> element temporarily modified to have its {@link http://www.w3.org/TR/REC-html40/present/frames.html#adef-target target} set to refer to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document but removed after the return data has been gathered.</p> <p>The server response is parsed by the browser to create the document for the IFRAME. If the server is using JSON to send the return object, then the {@link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 Content-Type} header must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p> <p>The response text is retrieved from the document, and a fake XMLHttpRequest object is created containing a <tt>responseText</tt> property in order to conform to the requirements of event handlers and callbacks.</p> <p>Be aware that file upload packets are sent with the content type {@link http://www.faqs.org/rfcs/rfc2388.html multipart/form} and some server technologies (notably JEE) may require some custom processing in order to retrieve parameter names and parameter values from the packet content.</p>            </div>
+                Set to true if this form is a file upload. <p>File uploads are not performed using normal "Ajax" techniques, that is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the DOM <tt>&lt;form></tt> element temporarily modified to have its <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document but removed after the return data has been gathered.</p> <p>The server response is parsed by the browser to create the document for the IFRAME. If the server is using JSON to send the return object, then the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p> <p>The response text is retrieved from the document, and a fake XMLHttpRequest object is created containing a <tt>responseText</tt> property in order to conform to the requirements of event handlers and callbacks.</p> <p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a> and some server technologies (notably JEE) may require some custom processing in order to retrieve parameter names and parameter values from the packet content.</p>            </div>
                         </div>
         </td>
         <td class="msource">BasicForm</td>
@@ -479,7 +479,7 @@ to prevent this. If undefined, pre-submission field validation is performed.</p>
                 Returns the fields in this form as an object with key/value pairs as they would be submitted using a standard form submit.
 If multiple fields exist with the same name they are returned as an array.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>asString</code> : Boolean<div class="sub-desc">(optional) false to return the the values as an object (defaults to returning as a string)</div></li>        </ul>
+        <ul><li><code>asString</code> : Boolean<div class="sub-desc">(optional) false to return the values as an object (defaults to returning as a string)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>String/Object</code></li>
@@ -656,11 +656,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.form.BasicForm-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -716,11 +716,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.form.BasicForm-render"></a>
             <b>render</b>() : BasicForm            <div class="mdesc">
-                        <div class="short">Looks at the fields in this form, checks them for an id attribute,
-and calls applyTo on the existing dom element with...</div>
+                        <div class="short">Iterates through the Fields which have been added to this BasicForm,
+checks them for an id attribute, and calls Ext.f...</div>
             <div class="long">
-                Looks at the fields in this form, checks them for an id attribute,
-and calls applyTo on the existing dom element with that id.    <div class="mdetail-params">
+                Iterates through the <a ext:cls="Ext.form.Field" href="output/Ext.form.Field.html">Field</a>s which have been <a ext:cls="Ext.form.BasicForm" ext:member="add" href="output/Ext.form.BasicForm.html#add">add</a>ed to this BasicForm,
+checks them for an id attribute, and calls <a ext:cls="Ext.form.Field" ext:member="applyToMarkup" href="output/Ext.form.Field.html#applyToMarkup">Ext.form.Field.applyToMarkup</a> on the existing dom element with that id.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li>None.</li>        </ul>
         <strong>Returns:</strong>

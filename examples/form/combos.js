@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -19,6 +19,7 @@ Ext.onReady(function(){
         displayField:'state',
         typeAhead: true,
         mode: 'local',
+        forceSelection: true,
         triggerAction: 'all',
         emptyText:'Select a state...',
         selectOnFocus:true,
@@ -34,6 +35,7 @@ Ext.onReady(function(){
 	var comboFromArray = new Ext.form.ComboBox({
 	    store: Ext.exampledata.states,
 	    typeAhead: true,
+        forceSelection: true,
 	    triggerAction: 'all',
 	    emptyText:'Select a state...',
 	    selectOnFocus:true,
@@ -45,6 +47,7 @@ Ext.onReady(function(){
         store: store,
         displayField:'state',
         typeAhead: true,
+        forceSelection: true,
         mode: 'local',
         triggerAction: 'all',
         emptyText:'Select a state...',

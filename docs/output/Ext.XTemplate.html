@@ -122,7 +122,7 @@ can change what <tt>values</tt> is.</li>
 This example demonstrates basic row striping using an inline code block and the <tt>xindex</tt> variable:</p>
 <pre><code>var tpl = <b>new</b> Ext.XTemplate(
     <em>'&lt;p>Name: {name}&lt;/p>'</em>,
-    <em>'&lt;p>Company: {[values.company.toUpperCase() + '</em>, <em>' + values.title]}&lt;/p>'</em>,
+    <em>'&lt;p>Company: {[values.company.toUpperCase() + ", " + values.title]}&lt;/p>'</em>,
     <em>'&lt;p>Kids: '</em>,
     <em>'&lt;tpl <b>for</b>="kids">'</em>,
        <em>'&lt;div class="{[xindex % 2 === 0 ? "even" : "odd"]}">'</em>,

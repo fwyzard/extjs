@@ -17,7 +17,11 @@
             A simple utility class for generically masking elements while loading data.  If the <a ext:cls="Ext.LoadMask" ext:member="store" href="output/Ext.LoadMask.html#store">store</a>
 config option is specified, the masking will be automatically synchronized with the store's loading
 process and the mask element will be cached for reuse.  For all other elements, this mask will replace the
-element's Updater load indicator and will be destroyed after the initial load.        </div>
+element's Updater load indicator and will be destroyed after the initial load.
+<p>Example usage:</p>
+<pre><code><i>// Basic mask:</i>
+<b>var</b> myMask = <b>new</b> Ext.LoadMask(Ext.getBody(), {msg:<em>"Please wait..."</em>});
+myMask.show();</code></pre>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.LoadMask-configs"></a>

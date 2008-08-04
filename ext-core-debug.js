@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -1502,76 +1502,154 @@ Ext.EventManager = function(){
     var resizeEvent, resizeTask, textEvent, textSize;
     var E = Ext.lib.Event;
     var D = Ext.lib.Dom;
+        var xname = 'Ex' + 't';
 
+    var elHash = {};
 
-    var fireDocReady = function(){
-        if(!docReadyState){
-            docReadyState = true;
-            Ext.isReady = true;
-            if(docReadyProcId){
-                clearInterval(docReadyProcId);
+    var addListener = function(el, ename, fn, wrap, scope){
+        var id = Ext.id(el);
+        if(!elHash[id]){
+            elHash[id] = {};
+        }
+        var es = elHash[id];
+        if(!es[ename]){
+            es[ename] = [];
+        }
+        var ls = es[ename];
+        ls.push({
+            id: id,
+            ename: ename,
+            fn: fn,
+            wrap: wrap,
+            scope: scope
+        });
+
+         E.on(el, ename, wrap);
+
+        if(ename == "mousewheel" && el.addEventListener){             el.addEventListener("DOMMouseScroll", wrap, false);
+            E.on(window, 'unload', function(){
+                el.removeEventListener("DOMMouseScroll", wrap, false);
+            });
+        }
+        if(ename == "mousedown" && el == document){             Ext.EventManager.stoppedMouseDownEvent.addListener(wrap);
+        }
+    }
+
+    var removeListener = function(el, ename, fn, scope){
+        el = Ext.getDom(el);
+        var id = Ext.id(el), es = elHash[id], wrap;
+        if(es){
+            var ls = es[ename], l;
+            if(ls){
+                for(var i = 0, len = ls.length; i < len; i++){
+                    l = ls[i];
+                    if(l.fn == fn && (!scope || l.scope == scope)){
+                        wrap = l.wrap;
+                        E.un(el, ename, wrap);
+                        ls.splice(i, 1);
+                        break;
+                    }
+                }
             }
+        }
+        if(ename == "mousewheel" && el.addEventListener && wrap){
+            el.removeEventListener("DOMMouseScroll", wrap, false);
+        }
+        if(ename == "mousedown" && el == document && wrap){             Ext.EventManager.stoppedMouseDownEvent.removeListener(wrap);
+        }
+    }
+
+    var removeAll = function(el){
+        el = Ext.getDom(el);
+        var id = Ext.id(el), es = elHash[id], ls;
+        if(es){
+            for(var ename in es){
+                if(es.hasOwnProperty(ename)){
+                    ls = es[ename];
+                    for(var i = 0, len = ls.length; i < len; i++){
+                        E.un(el, ename, ls[i].wrap);
+                        ls[i] = null;
+                    }
+                }
+                es[ename] = null;
+            }
+            delete elHash[id];
+        }
+    }
+
+     var fireDocReady = function(){
+        if(!docReadyState){
+            docReadyState = Ext.isReady = true;
             if(Ext.isGecko || Ext.isOpera) {
                 document.removeEventListener("DOMContentLoaded", fireDocReady, false);
             }
-            if(Ext.isIE){
-                var defer = document.getElementById("ie-deferred-loader");
-                if(defer){
-                    defer.onreadystatechange = null;
-                    defer.parentNode.removeChild(defer);
-                }
-            }
-            if(docReadyEvent){
-                docReadyEvent.fire();
-                docReadyEvent.clearListeners();
-            }
         }
+        if(docReadyProcId){
+            clearInterval(docReadyProcId);
+            docReadyProcId = null;
+        }
+        if(docReadyEvent){
+            docReadyEvent.fire();
+            docReadyEvent.clearListeners();
+       }
     };
 
     var initDocReady = function(){
         docReadyEvent = new Ext.util.Event();
+
+        if(Ext.isReady){
+            return;
+        }
+
+                E.on(window, 'load', fireDocReady);
+
         if(Ext.isGecko || Ext.isOpera) {
-            document.addEventListener("DOMContentLoaded", fireDocReady, false);
-        }else if(Ext.isIE){
-            document.write("<s"+'cript id="ie-deferred-loader" defer="defer" src="/'+'/:"></s'+"cript>");
-            var defer = document.getElementById("ie-deferred-loader");
-            defer.onreadystatechange = function(){
-                if(this.readyState == "complete"){
-                    fireDocReady();
+            document.addEventListener('DOMContentLoaded', fireDocReady, false);
+        }
+        else if(Ext.isIE){
+            docReadyProcId = setInterval(function(){
+                try{
+                                        Ext.isReady || (document.documentElement.doScroll('left'));
+                }catch(e){
+                    return;
                 }
+                fireDocReady();              }, 5);
+
+			document.onreadystatechange = function(){
+				if(document.readyState == 'complete'){
+					document.onreadystatechange = null;
+					fireDocReady();
+				}
             };
-        }else if(Ext.isSafari){
+        }
+        else if(Ext.isSafari){
             docReadyProcId = setInterval(function(){
                 var rs = document.readyState;
-                if(rs == "complete") {
+                if(rs == 'complete') {
                     fireDocReady();
                  }
             }, 10);
         }
-        
-        E.on(window, "load", fireDocReady);
     };
 
     var createBuffered = function(h, o){
         var task = new Ext.util.DelayedTask(h);
         return function(e){
-            
-            e = new Ext.EventObjectImpl(e);
+                        e = new Ext.EventObjectImpl(e);
             task.delay(o.buffer, h, null, [e]);
         };
     };
 
-    var createSingle = function(h, el, ename, fn){
+    var createSingle = function(h, el, ename, fn, scope){
         return function(e){
-            Ext.EventManager.removeListener(el, ename, fn);
+            Ext.EventManager.removeListener(el, ename, fn, scope);
             h(e);
         };
     };
 
     var createDelayed = function(h, o){
         return function(e){
-            
-            e = new Ext.EventObjectImpl(e);
+                        e = new Ext.EventObjectImpl(e);
             setTimeout(function(){
                 h(e);
             }, o.delay || 10);
@@ -1586,6 +1664,9 @@ Ext.EventManager = function(){
             throw "Error listening for \"" + ename + '\". Element "' + element + '" doesn\'t exist.';
         }
         var h = function(e){
+                        if(!window[xname]){
+                return;
+            }
             e = Ext.EventObject.setEvent(e);
             var t;
             if(o.delegate){
@@ -1616,47 +1697,14 @@ Ext.EventManager = function(){
             h = createDelayed(h, o);
         }
         if(o.single){
-            h = createSingle(h, el, ename, fn);
+            h = createSingle(h, el, ename, fn, scope);
         }
         if(o.buffer){
             h = createBuffered(h, o);
         }
-        fn._handlers = fn._handlers || [];
-        fn._handlers.push([Ext.id(el), ename, h]);
 
-        E.on(el, ename, h);
-        if(ename == "mousewheel" && el.addEventListener){ 
-            el.addEventListener("DOMMouseScroll", h, false);
-            E.on(window, 'unload', function(){
-                el.removeEventListener("DOMMouseScroll", h, false);
-            });
-        }
-        if(ename == "mousedown" && el == document){ 
-            Ext.EventManager.stoppedMouseDownEvent.addListener(h);
-        }
+        addListener(el, ename, fn, h, scope);
         return h;
-    };
-
-    var stopListening = function(el, ename, fn){
-        var id = Ext.id(el), hds = fn._handlers, hd = fn;
-        if(hds){
-            for(var i = 0, len = hds.length; i < len; i++){
-                var h = hds[i];
-                if(h[0] == id && h[1] == ename){
-                    hd = h[2];
-                    hds.splice(i, 1);
-                    break;
-                }
-            }
-        }
-        E.un(el, ename, hd);
-        el = Ext.getDom(el);
-        if(ename == "mousewheel" && el.addEventListener){
-            el.removeEventListener("DOMMouseScroll", hd, false);
-        }
-        if(ename == "mousedown" && el == document){ 
-            Ext.EventManager.stoppedMouseDownEvent.removeListener(hd);
-        }
     };
 
     var propRe = /^(?:scope|delay|buffer|single|stopEvent|preventDefault|stopPropagation|normalized|args|delegate)$/;
@@ -1671,11 +1719,9 @@ Ext.EventManager = function(){
                         continue;
                     }
                     if(typeof o[e] == "function"){
-                        
-                        listen(element, e, o, o[e], o.scope);
+                                                listen(element, e, o, o[e], o.scope);
                     }else{
-                        
-                        listen(element, e, o[e]);
+                                                listen(element, e, o[e]);
                     }
                 }
                 return;
@@ -1684,22 +1730,25 @@ Ext.EventManager = function(){
         },
 
         
-        removeListener : function(element, eventName, fn){
-            return stopListening(element, eventName, fn);
+        removeListener : function(element, eventName, fn, scope){
+            return removeListener(element, eventName, fn, scope);
         },
 
         
-        onDocumentReady : function(fn, scope, options){
-            if(docReadyState){ 
-                docReadyEvent.addListener(fn, scope, options);
-                docReadyEvent.fire();
-                docReadyEvent.clearListeners();
-                return;
-            }
-            if(!docReadyEvent){
+        removeAll : function(element){
+            return removeAll(element);
+        },
+
+        
+         onDocumentReady : function(fn, scope, options){
+			if(!docReadyEvent){
                 initDocReady();
-            }
-            docReadyEvent.addListener(fn, scope, options);
+			}
+			if(docReadyState || Ext.isReady){ 				options || (options = {});
+				fn.defer(options.delay||0, scope);
+			}else{
+				docReadyEvent.addListener(fn, scope, options);
+			}
         },
 
         
@@ -1714,8 +1763,7 @@ Ext.EventManager = function(){
             resizeEvent.addListener(fn, scope, options);
         },
 
-        
-        fireWindowResize : function(){
+                fireWindowResize : function(){
             if(resizeEvent){
                 if((Ext.isIE||Ext.isAir) && resizeTask){
                     resizeTask.delay(50);
@@ -1750,8 +1798,7 @@ Ext.EventManager = function(){
             }
         },
 
-        
-        fireResize : function(){
+                fireResize : function(){
             if(resizeEvent){
                 resizeEvent.fire(D.getViewWidth(), D.getViewHeight());
             }
@@ -1772,54 +1819,49 @@ Ext.EventManager = function(){
 
 Ext.onReady = Ext.EventManager.onDocumentReady;
 
-Ext.onReady(function(){
-    var bd = Ext.getBody();
-    if(!bd){ return; }
 
-    var cls = [
-            Ext.isIE ? "ext-ie " + (Ext.isIE6 ? 'ext-ie6' : 'ext-ie7')
-            : Ext.isGecko ? "ext-gecko"
-            : Ext.isOpera ? "ext-opera"
-            : Ext.isSafari ? "ext-safari" : ""];
+(function(){
+    var initExtCss = function(){
+                var bd = document.body || document.getElementsByTagName('body')[0];
+        if(!bd){ return false; }
+        var cls = [' ',
+                Ext.isIE ? "ext-ie " + (Ext.isIE6 ? 'ext-ie6' : 'ext-ie7')
+                : Ext.isGecko ? "ext-gecko " + (Ext.isGecko2 ? 'ext-gecko2' : 'ext-gecko3')
+                : Ext.isOpera ? "ext-opera"
+                : Ext.isSafari ? "ext-safari" : ""];
 
-    if(Ext.isMac){
-        cls.push("ext-mac");
-    }
-    if(Ext.isLinux){
-        cls.push("ext-linux");
-    }
-    if(Ext.isBorderBox){
-        cls.push('ext-border-box');
-    }
-    if(Ext.isStrict){ 
-        var p = bd.dom.parentNode;
-        if(p){
-            p.className += ' ext-strict';
+        if(Ext.isMac){
+            cls.push("ext-mac");
         }
+        if(Ext.isLinux){
+            cls.push("ext-linux");
+        }
+        if(Ext.isBorderBox){
+            cls.push('ext-border-box');
+        }
+        if(Ext.isStrict){             var p = bd.parentNode;
+            if(p){
+                p.className += ' ext-strict';
+            }
+        }
+        bd.className += cls.join(' ');
+        return true;
     }
-    bd.addClass(cls.join(' '));
-});
+
+    if(!initExtCss()){
+        Ext.onReady(initExtCss);
+    }
+})();
 
 
 Ext.EventObject = function(){
 
     var E = Ext.lib.Event;
 
-    
-    var safariKeys = {
-        63234 : 37, 
-        63235 : 39, 
-        63232 : 38, 
-        63233 : 40, 
-        63276 : 33, 
-        63277 : 34, 
-        63272 : 46, 
-        63273 : 36, 
-        63275 : 35  
-    };
+        var safariKeys = {
+        3 : 13,         63234 : 37,         63235 : 39,         63232 : 38,         63233 : 40,         63276 : 33,         63277 : 34,         63272 : 46,         63273 : 36,         63275 : 35      };
 
-    
-    var btnMap = Ext.isIE ? {1:0,4:1,2:2} :
+        var btnMap = Ext.isIE ? {1:0,4:1,2:2} :
                 (Ext.isSafari ? {1:0,2:1,3:2} : {0:0,1:1,2:2});
 
     Ext.EventObjectImpl = function(e){
@@ -1827,6 +1869,7 @@ Ext.EventObject = function(){
             this.setEvent(e.browserEvent || e);
         }
     };
+
     Ext.EventObjectImpl.prototype = {
         
         browserEvent : null,
@@ -1840,73 +1883,205 @@ Ext.EventObject = function(){
         altKey : false,
 
         
-        BACKSPACE : 8,
+        BACKSPACE: 8,
         
-        TAB : 9,
+        TAB: 9,
         
-        RETURN : 13,
+        NUM_CENTER: 12,
         
-        ENTER : 13,
+        ENTER: 13,
         
-        SHIFT : 16,
+        RETURN: 13,
         
-        CONTROL : 17,
+        SHIFT: 16,
         
-        ESC : 27,
+        CTRL: 17,
+        CONTROL : 17,         
+        ALT: 18,
         
-        SPACE : 32,
+        PAUSE: 19,
         
-        PAGEUP : 33,
+        CAPS_LOCK: 20,
         
-        PAGEDOWN : 34,
+        ESC: 27,
         
-        END : 35,
+        SPACE: 32,
         
-        HOME : 36,
+        PAGE_UP: 33,
+        PAGEUP : 33,         
+        PAGE_DOWN: 34,
+        PAGEDOWN : 34,         
+        END: 35,
         
-        LEFT : 37,
+        HOME: 36,
         
-        UP : 38,
+        LEFT: 37,
         
-        RIGHT : 39,
+        UP: 38,
         
-        DOWN : 40,
+        RIGHT: 39,
         
-        DELETE : 46,
+        DOWN: 40,
         
-        F5 : 116,
+        PRINT_SCREEN: 44,
+        
+        INSERT: 45,
+        
+        DELETE: 46,
+        
+        ZERO: 48,
+        
+        ONE: 49,
+        
+        TWO: 50,
+        
+        THREE: 51,
+        
+        FOUR: 52,
+        
+        FIVE: 53,
+        
+        SIX: 54,
+        
+        SEVEN: 55,
+        
+        EIGHT: 56,
+        
+        NINE: 57,
+        
+        A: 65,
+        
+        B: 66,
+        
+        C: 67,
+        
+        D: 68,
+        
+        E: 69,
+        
+        F: 70,
+        
+        G: 71,
+        
+        H: 72,
+        
+        I: 73,
+        
+        J: 74,
+        
+        K: 75,
+        
+        L: 76,
+        
+        M: 77,
+        
+        N: 78,
+        
+        O: 79,
+        
+        P: 80,
+        
+        Q: 81,
+        
+        R: 82,
+        
+        S: 83,
+        
+        T: 84,
+        
+        U: 85,
+        
+        V: 86,
+        
+        W: 87,
+        
+        X: 88,
+        
+        Y: 89,
+        
+        Z: 90,
+        
+        CONTEXT_MENU: 93,
+        
+        NUM_ZERO: 96,
+        
+        NUM_ONE: 97,
+        
+        NUM_TWO: 98,
+        
+        NUM_THREE: 99,
+        
+        NUM_FOUR: 100,
+        
+        NUM_FIVE: 101,
+        
+        NUM_SIX: 102,
+        
+        NUM_SEVEN: 103,
+        
+        NUM_EIGHT: 104,
+        
+        NUM_NINE: 105,
+        
+        NUM_MULTIPLY: 106,
+        
+        NUM_PLUS: 107,
+        
+        NUM_MINUS: 109,
+        
+        NUM_PERIOD: 110,
+        
+        NUM_DIVISION: 111,
+        
+        F1: 112,
+        
+        F2: 113,
+        
+        F3: 114,
+        
+        F4: 115,
+        
+        F5: 116,
+        
+        F6: 117,
+        
+        F7: 118,
+        
+        F8: 119,
+        
+        F9: 120,
+        
+        F10: 121,
+        
+        F11: 122,
+        
+        F12: 123,
 
            
         setEvent : function(e){
-            if(e == this || (e && e.browserEvent)){ 
-                return e;
+            if(e == this || (e && e.browserEvent)){                 return e;
             }
             this.browserEvent = e;
             if(e){
-                
-                this.button = e.button ? btnMap[e.button] : (e.which ? e.which-1 : -1);
+                                this.button = e.button ? btnMap[e.button] : (e.which ? e.which-1 : -1);
                 if(e.type == 'click' && this.button == -1){
                     this.button = 0;
                 }
                 this.type = e.type;
                 this.shiftKey = e.shiftKey;
-                
-                this.ctrlKey = e.ctrlKey || e.metaKey;
+                                this.ctrlKey = e.ctrlKey || e.metaKey;
                 this.altKey = e.altKey;
-                
-                this.keyCode = e.keyCode;
+                                this.keyCode = e.keyCode;
                 this.charCode = e.charCode;
-                
-                this.target = E.getTarget(e);
-                
-                this.xy = E.getXY(e);
+                                this.target = E.getTarget(e);
+                                this.xy = E.getXY(e);
             }else{
                 this.button = -1;
                 this.shiftKey = false;
                 this.ctrlKey = false;
                 this.altKey = false;
                 this.keyCode = 0;
-                this.charCode =0;
+                this.charCode = 0;
                 this.target = null;
                 this.xy = [0, 0];
             }
@@ -1946,6 +2121,7 @@ Ext.EventObject = function(){
             (k >= 36 && k <= 39) ||
             (k >= 44 && k <= 45);
         },
+
         
         stopPropagation : function(){
             if(this.browserEvent){
@@ -1994,7 +2170,7 @@ Ext.EventObject = function(){
         getTarget : function(selector, maxDepth, returnEl){
             return selector ? Ext.fly(this.target).findParent(selector, maxDepth, returnEl) : (returnEl ? Ext.get(this.target) : this.target);
         },
-        
+
         
         getRelatedTarget : function(){
             if(this.browserEvent){
@@ -2253,7 +2429,7 @@ El.prototype = {
     },
 
     
-    query : function(selector, unique){
+    query : function(selector){
         return Ext.DomQuery.select(selector, this.dom);
     },
 
@@ -2771,14 +2947,14 @@ El.prototype = {
     },
 
     
-    removeListener : function(eventName, fn){
-        Ext.EventManager.removeListener(this.dom,  eventName, fn);
+    removeListener : function(eventName, fn, scope){
+        Ext.EventManager.removeListener(this.dom,  eventName, fn, scope || this);
         return this;
     },
 
     
     removeAllListeners : function(){
-        E.purgeElement(this.dom);
+        Ext.EventManager.removeAll(this.dom);
         return this;
     },
 
@@ -2922,13 +3098,13 @@ El.prototype = {
     },
 
     	setOverflow : function(v){
-    	if(v=='auto' && Ext.isMac && Ext.isGecko){     		this.dom.style.overflow = 'hidden';
+    	if(v=='auto' && Ext.isMac && Ext.isGecko2){     		this.dom.style.overflow = 'hidden';
         	(function(){this.dom.style.overflow = 'auto';}).defer(1, this);
     	}else{
     		this.dom.style.overflow = v;
     	}
 	},
-	
+
     
      setLeftTop : function(left, top){
         this.dom.style.left = this.addUnits(left);
@@ -3467,7 +3643,7 @@ El.prototype = {
     
     createShim : function(){
         var el = document.createElement('iframe');
-        el.frameBorder = 'no';
+        el.frameBorder = '0';
         el.className = 'ext-shim';
         if(Ext.isIE && Ext.isSecure){
             el.src = Ext.SSL_SECURE_URL;
@@ -3915,6 +4091,7 @@ El.prototype = {
         return d.getAttributeNS(ns, name) || d.getAttribute(ns+":"+name) || d.getAttribute(name) || d[name];
     },
 
+    
     getTextWidth : function(text, min, max){
         return (Ext.util.TextMetrics.measure(this.dom, Ext.value(text, this.dom.innerHTML, true)).width).constrain(min || 0, max || 1000000);
     }
@@ -4026,7 +4203,7 @@ El.garbageCollect = function(){
                                                                                                                                                 if(!d || !d.parentNode || (!d.offsetParent && !document.getElementById(eid))){
             delete El.cache[eid];
             if(d && Ext.enableListenerCollection){
-                E.purgeElement(d);
+                Ext.EventManager.removeAll(d);
             }
         }
     }
@@ -5037,6 +5214,10 @@ Ext.extend(Ext.data.Connection, Ext.util.Observable, {
 
     
     disableCaching: true,
+    
+    
+    disableCachingParam: '_dc',
+    
 
     
     request : function(o){
@@ -5087,10 +5268,11 @@ Ext.extend(Ext.data.Connection, Ext.util.Observable, {
                 timeout : o.timeout || this.timeout
             };
 
-            var method = o.method||this.method||(p ? "POST" : "GET");
+            var method = o.method||this.method||((p || o.xmlData || o.jsonData) ? "POST" : "GET");
 
             if(method == 'GET' && (this.disableCaching && o.disableCaching !== false) || o.disableCaching === true){
-                url += (url.indexOf('?') != -1 ? '&' : '?') + '_dc=' + (new Date().getTime());
+                var dcp = o.disableCachingParam || this.disableCachingParam;
+                url += (url.indexOf('?') != -1 ? '&' : '?') + dcp + '=' + (new Date().getTime());
             }
 
             if(typeof o.autoAbort == 'boolean'){                 if(o.autoAbort){
@@ -5255,65 +5437,67 @@ Ext.Ajax = new Ext.data.Connection({
     }
 });
 
-Ext.Updater = function(el, forceNew){
-    el = Ext.get(el);
-    if(!forceNew && el.updateManager){
-        return el.updateManager;
-    }
-    
-    this.el = el;
-    
-    this.defaultUrl = null;
-
-    this.addEvents(
+Ext.Updater = Ext.extend(Ext.util.Observable, {
+    constructor: function(el, forceNew){
+        el = Ext.get(el);
+        if(!forceNew && el.updateManager){
+            return el.updateManager;
+        }
         
-        "beforeupdate",
+        this.el = el;
         
-        "update",
+        this.defaultUrl = null;
+
+        this.addEvents(
+            
+            "beforeupdate",
+            
+            "update",
+            
+            "failure"
+        );
+        var d = Ext.Updater.defaults;
         
-        "failure"
-    );
-    var d = Ext.Updater.defaults;
-    
-    this.sslBlankUrl = d.sslBlankUrl;
-    
-    this.disableCaching = d.disableCaching;
-    
-    this.indicatorText = d.indicatorText;
-    
-    this.showLoadIndicator = d.showLoadIndicator;
-    
-    this.timeout = d.timeout;
-    
-    this.loadScripts = d.loadScripts;
-    
-    this.transaction = null;
-    
-    this.refreshDelegate = this.refresh.createDelegate(this);
-    
-    this.updateDelegate = this.update.createDelegate(this);
-    
-    this.formUpdateDelegate = this.formUpdate.createDelegate(this);
+        this.sslBlankUrl = d.sslBlankUrl;
+        
+        this.disableCaching = d.disableCaching;
+        
+        this.indicatorText = d.indicatorText;
+        
+        this.showLoadIndicator = d.showLoadIndicator;
+        
+        this.timeout = d.timeout;
+        
+        this.loadScripts = d.loadScripts;
+        
+        this.transaction = null;
+        
+        this.refreshDelegate = this.refresh.createDelegate(this);
+        
+        this.updateDelegate = this.update.createDelegate(this);
+        
+        this.formUpdateDelegate = this.formUpdate.createDelegate(this);
 
-    if(!this.renderer){
-     
-    this.renderer = new Ext.Updater.BasicRenderer();
-    }
-    Ext.Updater.superclass.constructor.call(this);
-};
-
-Ext.extend(Ext.Updater, Ext.util.Observable, {
+        if(!this.renderer){
+         
+        this.renderer = this.getDefaultRenderer();
+        }
+        Ext.Updater.superclass.constructor.call(this);
+    },
+    
+    getDefaultRenderer: function() {
+        return new Ext.Updater.BasicRenderer();
+    },
     
     getEl : function(){
         return this.el;
     },
-    
+
     
     update : function(url, params, callback, discardUrl){
         if(this.fireEvent("beforeupdate", this.el, url, params) !== false){
             var cfg, callerScope;
-            if(typeof url == "object"){ 
-                cfg = url;
+            if(typeof url == "object"){                 cfg = url;
                 url = cfg.url;
                 params = params || cfg.params;
                 callback = callback || cfg.callback;
@@ -5333,7 +5517,7 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
                 url = url.call(this);
             }
 
-            var o = Ext.apply(cfg ||{}, {
+            var o = Ext.apply({}, {
                 url : url,
                 params: (typeof params == "function" && callerScope) ? params.createDelegate(callerScope) : params,
                 success: this.processSuccess,
@@ -5350,7 +5534,7 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
                     "scope": callerScope || window,
                     "params": params
                 }
-            });
+            }, cfg);
 
             this.transaction = Ext.Ajax.request(o);
         }
@@ -5412,7 +5596,7 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
     isAutoRefreshing : function(){
        return this.autoRefreshProcId ? true : false;
     },
-    
+
     
     showLoading : function(){
         if(this.showLoadIndicator){
@@ -5420,12 +5604,10 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
         }
     },
 
-    
-    processSuccess : function(response){
+        processSuccess : function(response){
         this.transaction = null;
         if(response.argument.form && response.argument.reset){
-            try{ 
-                response.argument.form.reset();
+            try{                 response.argument.form.reset();
             }catch(e){}
         }
         if(this.loadScripts){
@@ -5437,16 +5619,14 @@ Ext.extend(Ext.Updater, Ext.util.Observable, {
         }
     },
 
-    
-    updateComplete : function(response){
+        updateComplete : function(response){
         this.fireEvent("update", this.el, response);
         if(typeof response.argument.callback == "function"){
             response.argument.callback.call(response.argument.scope, this.el, true, response, response.argument.options);
         }
     },
 
-    
-    processFailure : function(response){
+        processFailure : function(response){
         this.transaction = null;
         this.fireEvent("failure", this.el, response);
         if(typeof response.argument.callback == "function"){

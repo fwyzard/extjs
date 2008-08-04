@@ -11,8 +11,8 @@ if(Ext.View){
    Ext.View.prototype.emptyText = "Ne postoji ni jedan slog";
 }
 
-if(Ext.grid.Grid){
-   Ext.grid.Grid.prototype.ddText = "{0} izabranih redova";
+if(Ext.grid.GridPanel){
+   Ext.grid.GridPanel.prototype.ddText = "{0} izabranih redova";
 }
 
 if(Ext.TabPanelItem){
@@ -165,7 +165,7 @@ if(Ext.grid.PropertyColumnModel){
    });
 }
 
-if(Ext.layout.BorderLayout.SplitRegion){
+if(Ext.layout.BorderLayout && Ext.layout.BorderLayout.SplitRegion){
    Ext.apply(Ext.layout.BorderLayout.SplitRegion.prototype, {
       splitTip            : "Povući za izmenu veličine.",
       collapsibleSplitTip : "Povući za izmenu veličine. Dvostruku klik za sakrivanje."

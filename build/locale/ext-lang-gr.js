@@ -9,8 +9,8 @@ if(Ext.View){
    Ext.View.prototype.emptyText = "";
 }
 
-if(Ext.grid.Grid){
-   Ext.grid.Grid.prototype.ddText = "{0} åðéëåãìÝíç(åò) ãñáììÞ(Ýò)";
+if(Ext.grid.GridPanel){
+   Ext.grid.GridPanel.prototype.ddText = "{0} åðéëåãìÝíç(åò) ãñáììÞ(Ýò)";
 }
 
 if(Ext.TabPanelItem){
@@ -161,7 +161,7 @@ if(Ext.grid.PropertyColumnModel){
    });
 }
 
-if(Ext.layout.BorderLayout.SplitRegion){
+if(Ext.layout.BorderLayout && Ext.layout.BorderLayout.SplitRegion){
    Ext.apply(Ext.layout.BorderLayout.SplitRegion.prototype, {
       splitTip            : "Óýñåôå ãéá áëëáãÞ ìåãÝèïõò.",
       collapsibleSplitTip : "Óýñåôå ãéá áëëáãÞ ìåãÝèïõò. Double click ãéá áðüêñõøç."

@@ -336,7 +336,7 @@ the following parameters:<ul>
 <li>evt : EventObject<div class="sub-desc">The <a ext:cls="Ext.EventObject" href="output/Ext.EventObject.html">EventObject</a> describing the event.</div></li>
 <li>t : Element<div class="sub-desc">The <a ext:cls="Ext.Element" href="output/Ext.Element.html">Element</a> which was the target of the event.
 Note that this may be filtered by using the <tt>delegate</tt> option.</div></li>
-<li>o : Object<div class="sub-desc">The the options object from the addListener call.</div></li>
+<li>o : Object<div class="sub-desc">The options object from the addListener call.</div></li>
 </ul></div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope (The <tt>this</tt> reference) of the handler function. Defaults
 to this Element.</div></li><li><code>options</code> : Object<div class="sub-desc">(optional) An object containing handler configuration properties.
 This may contain any of the following properties:<ul>
@@ -1461,6 +1461,26 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Element-getTextWidth"></a>
+            <b>getTextWidth</b>(&nbsp;<code>String text</code>, <span class="optional" title="Optional">[<code>Number min</code>]</span>, <span class="optional" title="Optional">[<code>Number max</code>]</span>&nbsp;) : Number            <div class="mdesc">
+                        <div class="short">Returns the width in pixels of the passed text, or the width of the text in this Element.</div>
+            <div class="long">
+                Returns the width in pixels of the passed text, or the width of the text in this Element.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>text</code> : String<div class="sub-desc">The text to measure. Defaults to the innerHTML of the element.</div></li><li><code>min</code> : Number<div class="sub-desc">(Optional) The minumum value to return.</div></li><li><code>max</code> : Number<div class="sub-desc">(Optional) The maximum value to return.</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Number</code><div class="sub-desc">The text width in pixels.</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Element</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Element-getTop"></a>
             <b>getTop</b>(&nbsp;<code>Boolean local</code>&nbsp;) : Number            <div class="mdesc">
                         <div class="short">Gets the top Y coordinate</div>
@@ -1478,7 +1498,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-getUpdater"></a>
@@ -1498,7 +1518,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-getValue"></a>
@@ -1518,7 +1538,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-getViewSize"></a>
@@ -1538,7 +1558,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-getWidth"></a>
@@ -1558,7 +1578,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-getX"></a>
@@ -1578,7 +1598,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-getXY"></a>
@@ -1598,7 +1618,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-getY"></a>
@@ -1618,7 +1638,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-hasClass"></a>
@@ -1638,7 +1658,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-hide"></a>
@@ -1658,7 +1678,7 @@ For example, el.getStyles('color', 'font-size', 'width') might return
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-hover"></a>
@@ -1680,7 +1700,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-initDD"></a>
@@ -1700,7 +1720,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-initDDProxy"></a>
@@ -1720,7 +1740,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-initDDTarget"></a>
@@ -1740,7 +1760,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-insertAfter"></a>
@@ -1760,7 +1780,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-insertBefore"></a>
@@ -1780,7 +1800,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-insertFirst"></a>
@@ -1800,7 +1820,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-insertHtml"></a>
@@ -1820,7 +1840,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-insertSibling"></a>
@@ -1840,7 +1860,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-is"></a>
@@ -1860,7 +1880,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-isBorderBox"></a>
@@ -1880,7 +1900,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-isDisplayed"></a>
@@ -1900,7 +1920,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-isMasked"></a>
@@ -1920,7 +1940,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-isScrollable"></a>
@@ -1940,7 +1960,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-isVisible"></a>
@@ -1960,7 +1980,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-last"></a>
@@ -1980,16 +2000,18 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-load"></a>
-            <b>load</b>(&nbsp;<code>String/Function url</code>, <span class="optional" title="Optional">[<code>String/Object params</code>]</span>, <span class="optional" title="Optional">[<code>Function callback</code>]</span>, <span class="optional" title="Optional">[<code>Boolean discardUrl</code>]</span>&nbsp;) : Ext.Element            <div class="mdesc">
-                        <div class="short">Direct access to the Updater <a ext:cls="Ext.Updater" ext:member="update" href="output/Ext.Updater.html#update">Ext.Updater.update</a> method (takes the same parameters).</div>
+            <b>load</b>() : Ext.Element            <div class="mdesc">
+                        <div class="short">Direct access to the Updater <a ext:cls="Ext.Updater" ext:member="update" href="output/Ext.Updater.html#update">Ext.Updater.update</a> method. The method takes the same object
+parameter as <a ext:cls="Ext.Updater" ext:member="update" href="output/Ext.Updater.html#update">Ext.Updater.update</a></div>
             <div class="long">
-                Direct access to the Updater <a ext:cls="Ext.Updater" ext:member="update" href="output/Ext.Updater.html#update">Ext.Updater.update</a> method (takes the same parameters).    <div class="mdetail-params">
+                Direct access to the Updater <a ext:cls="Ext.Updater" ext:member="update" href="output/Ext.Updater.html#update">Ext.Updater.update</a> method. The method takes the same object
+parameter as <a ext:cls="Ext.Updater" ext:member="update" href="output/Ext.Updater.html#update">Ext.Updater.update</a>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>url</code> : String/Function<div class="sub-desc">The url for this request or a function to call to get the url</div></li><li><code>params</code> : String/Object<div class="sub-desc">(optional) The parameters to pass as either a url encoded string "param1=1&amp;param2=2" or an object {param1: 1, param2: 2}</div></li><li><code>callback</code> : Function<div class="sub-desc">(optional) Callback when transaction is complete - called with signature (oElement, bSuccess)</div></li><li><code>discardUrl</code> : Boolean<div class="sub-desc">(optional) By default when you execute an update the defaultUrl is changed to the last used url. If true, it will not store the url.</div></li>        </ul>
+        <ul><li>None.</li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Ext.Element</code><div class="sub-desc">this</div></li>
@@ -2000,7 +2022,7 @@ filters child element mouse events.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-mask"></a>
@@ -2022,7 +2044,7 @@ This method can only be applied to elements which accept child nodes.    <div cl
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-move"></a>
@@ -2031,7 +2053,7 @@ This method can only be applied to elements which accept child nodes.    <div cl
             <div class="long">
                 Move this element relative to its current position.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>direction</code> : String<div class="sub-desc">Possible values are: "l","left" - "r","right" - "t","top","up" - "b","bottom","down".</div></li><li><code>distance</code> : Number<div class="sub-desc">How far to move the element in pixels</div></li><li><code>animate</code> : Boolean/Object<div class="sub-desc">(optional) true for the default animation or a standard Element animation config object</div></li>        </ul>
+        <ul><li><code>direction</code> : String<div class="sub-desc">Possible values are: "l" (or "left"), "r" (or "right"), "t" (or "top", or "up"), "b" (or "bottom", or "down").</div></li><li><code>distance</code> : Number<div class="sub-desc">How far to move the element in pixels</div></li><li><code>animate</code> : Boolean/Object<div class="sub-desc">(optional) true for the default animation or a standard Element animation config object</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Ext.Element</code><div class="sub-desc">this</div></li>
@@ -2042,7 +2064,7 @@ This method can only be applied to elements which accept child nodes.    <div cl
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-moveTo"></a>
@@ -2064,7 +2086,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-next"></a>
@@ -2084,7 +2106,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-on"></a>
@@ -2104,7 +2126,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-parent"></a>
@@ -2124,7 +2146,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-position"></a>
@@ -2146,7 +2168,7 @@ the element positioned relative IF it is not already positioned.    <div class="
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-prev"></a>
@@ -2166,7 +2188,7 @@ the element positioned relative IF it is not already positioned.    <div class="
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-query"></a>
@@ -2186,7 +2208,7 @@ the element positioned relative IF it is not already positioned.    <div class="
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-radioClass"></a>
@@ -2206,7 +2228,7 @@ the element positioned relative IF it is not already positioned.    <div class="
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-relayEvent"></a>
@@ -2229,7 +2251,7 @@ for firing the relayed event</div></li>        </ul>
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-remove"></a>
@@ -2249,7 +2271,7 @@ for firing the relayed event</div></li>        </ul>
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-removeAllListeners"></a>
@@ -2269,7 +2291,7 @@ for firing the relayed event</div></li>        </ul>
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-removeClass"></a>
@@ -2289,11 +2311,11 @@ for firing the relayed event</div></li>        </ul>
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-removeListener"></a>
-            <b>removeListener</b>(&nbsp;<code>String eventName</code>, <code>Function fn</code>&nbsp;) : Ext.Element            <div class="mdesc">
+            <b>removeListener</b>(&nbsp;<code>String eventName</code>, <code>Function fn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : Ext.Element            <div class="mdesc">
                         <div class="short">Removes an event handler from this element.  The shorthand version un is equivalent.  Example:
 el.removeListener('cli...</div>
             <div class="long">
@@ -2302,7 +2324,8 @@ el.removeListener('cli...</div>
 <i>// or</i>
 el.un(<em>'click'</em>, <b>this</b>.handlerFn);</code></pre>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>eventName</code> : String<div class="sub-desc">the type of event to remove</div></li><li><code>fn</code> : Function<div class="sub-desc">the method the event invokes</div></li>        </ul>
+        <ul><li><code>eventName</code> : String<div class="sub-desc">the type of event to remove</div></li><li><code>fn</code> : Function<div class="sub-desc">the method the event invokes</div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope (The <tt>this</tt> reference) of the handler function. Defaults
+to this Element.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Ext.Element</code><div class="sub-desc">this</div></li>
@@ -2313,7 +2336,7 @@ el.un(<em>'click'</em>, <b>this</b>.handlerFn);</code></pre>    <div class="mdet
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-repaint"></a>
@@ -2333,7 +2356,7 @@ el.un(<em>'click'</em>, <b>this</b>.handlerFn);</code></pre>    <div class="mdet
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-replace"></a>
@@ -2353,7 +2376,7 @@ el.un(<em>'click'</em>, <b>this</b>.handlerFn);</code></pre>    <div class="mdet
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-replaceClass"></a>
@@ -2373,7 +2396,7 @@ el.un(<em>'click'</em>, <b>this</b>.handlerFn);</code></pre>    <div class="mdet
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-replaceWith"></a>
@@ -2393,7 +2416,7 @@ el.un(<em>'click'</em>, <b>this</b>.handlerFn);</code></pre>    <div class="mdet
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-scroll"></a>
@@ -2404,7 +2427,7 @@ within this element's s...</div>
                 Scrolls this element the specified direction. Does bounds checking to make sure the scroll is
 within this element's scrollable range.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>direction</code> : String<div class="sub-desc">Possible values are: "l","left" - "r","right" - "t","top","up" - "b","bottom","down".</div></li><li><code>distance</code> : Number<div class="sub-desc">How far to scroll the element in pixels</div></li><li><code>animate</code> : Boolean/Object<div class="sub-desc">(optional) true for the default animation or a standard Element animation config object</div></li>        </ul>
+        <ul><li><code>direction</code> : String<div class="sub-desc">Possible values are: "l" (or "left"), "r" (or "right"), "t" (or "top", or "up"), "b" (or "bottom", or "down").</div></li><li><code>distance</code> : Number<div class="sub-desc">How far to scroll the element in pixels</div></li><li><code>animate</code> : Boolean/Object<div class="sub-desc">(optional) true for the default animation or a standard Element animation config object</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Boolean</code><div class="sub-desc">Returns true if a scroll was triggered or false if the element was scrolled as far as it could go.</div></li>
@@ -2415,7 +2438,7 @@ within this element's scrollable range.    <div class="mdetail-params">
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-scrollIntoView"></a>
@@ -2436,7 +2459,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-scrollTo"></a>
@@ -2456,7 +2479,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-select"></a>
@@ -2476,7 +2499,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-set"></a>
@@ -2496,7 +2519,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setBottom"></a>
@@ -2516,7 +2539,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setBounds"></a>
@@ -2536,7 +2559,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setBox"></a>
@@ -2556,7 +2579,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setDisplayed"></a>
@@ -2576,7 +2599,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setHeight"></a>
@@ -2596,7 +2619,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setLeft"></a>
@@ -2616,7 +2639,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setLeftTop"></a>
@@ -2636,7 +2659,7 @@ string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Bool
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setLocation"></a>
@@ -2658,7 +2681,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setOpacity"></a>
@@ -2678,7 +2701,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setPositioning"></a>
@@ -2698,14 +2721,14 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setRegion"></a>
             <b>setRegion</b>(&nbsp;<code>Ext.lib.Region region</code>, <span class="optional" title="Optional">[<code>Boolean/Object animate</code>]</span>&nbsp;) : Ext.Element            <div class="mdesc">
-                        <div class="short">Sets the element's position and size the the specified region. If animation is true then width, height, x and y will ...</div>
+                        <div class="short">Sets the element's position and size the specified region. If animation is true then width, height, x and y will be a...</div>
             <div class="long">
-                Sets the element's position and size the the specified region. If animation is true then width, height, x and y will be animated concurrently.    <div class="mdetail-params">
+                Sets the element's position and size the specified region. If animation is true then width, height, x and y will be animated concurrently.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>region</code> : Ext.lib.Region<div class="sub-desc">The region to fill</div></li><li><code>animate</code> : Boolean/Object<div class="sub-desc">(optional) true for the default animation or a standard Element animation config object</div></li>        </ul>
         <strong>Returns:</strong>
@@ -2718,7 +2741,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setRight"></a>
@@ -2738,7 +2761,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setSize"></a>
@@ -2758,7 +2781,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setStyle"></a>
@@ -2778,7 +2801,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setTop"></a>
@@ -2798,7 +2821,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setVisibilityMode"></a>
@@ -2820,7 +2843,7 @@ will use this to determine whether to set the visibility or the display property
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setVisible"></a>
@@ -2842,7 +2865,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setWidth"></a>
@@ -2862,7 +2885,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setX"></a>
@@ -2882,7 +2905,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setXY"></a>
@@ -2904,7 +2927,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-setY"></a>
@@ -2924,7 +2947,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-show"></a>
@@ -2944,7 +2967,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-swallowEvent"></a>
@@ -2964,7 +2987,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-toggle"></a>
@@ -2984,7 +3007,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-toggleClass"></a>
@@ -3004,7 +3027,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-translatePoints"></a>
@@ -3024,7 +3047,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-un"></a>
@@ -3044,7 +3067,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-unclip"></a>
@@ -3064,7 +3087,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-unmask"></a>
@@ -3084,7 +3107,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-unselectable"></a>
@@ -3104,7 +3127,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-up"></a>
@@ -3126,7 +3149,7 @@ This is a shortcut for findParentNode() that always returns an Ext.Element.    <
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-update"></a>
@@ -3146,7 +3169,7 @@ This is a shortcut for findParentNode() that always returns an Ext.Element.    <
         </td>
         <td class="msource">Element</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-wrap"></a>

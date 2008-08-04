@@ -84,12 +84,12 @@ All methods return <i>this</i> and can be chained.
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CompositeElement-contains"></a>
-            <b>contains</b>() : Boolean            <div class="mdesc">
+            <b>contains</b>(&nbsp;<code>el {Mixed}</code>&nbsp;) : Boolean            <div class="mdesc">
                         <div class="short">Returns true if this composite contains the passed element</div>
             <div class="long">
                 Returns true if this composite contains the passed element    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
+        <ul><li><code>{Mixed}</code> : el<div class="sub-desc">The id of an element, or an Ext.Element, or an HtmlElement to find within the composite collection.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Boolean</code></li>
@@ -204,15 +204,15 @@ All methods return <i>this</i> and can be chained.
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.CompositeElement-indexOf"></a>
-            <b>indexOf</b>() : Boolean            <div class="mdesc">
-                        <div class="short">Returns true if this composite contains the passed element</div>
+            <b>indexOf</b>(&nbsp;<code>el {Mixed}</code>&nbsp;) : Number            <div class="mdesc">
+                        <div class="short">Find the index of the passed element within the composite collection.</div>
             <div class="long">
-                Returns true if this composite contains the passed element    <div class="mdetail-params">
+                Find the index of the passed element within the composite collection.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
+        <ul><li><code>{Mixed}</code> : el<div class="sub-desc">The id of an element, or an Ext.Element, or an HtmlElement to find within the composite collection.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Boolean</code></li>
+            <li><code>Number</code><div class="sub-desc">The index of the passed Ext.Element in the composite collection, or -1 if not found.</div></li>
         </ul>
     </div>
                 </div>

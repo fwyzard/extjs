@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -13,6 +13,11 @@ Ext.onReady(function(){
 	  eq: 'img/equals.png'
 	};
 	Ext.grid.filter.StringFilter.prototype.icon = 'img/find.png';
+    
+    // NOTE: This is an example showing simple state management. During development,
+    // it is generally best to disable state management as dynamically-generated ids
+    // can change across page loads, leading to unpredictable results.  The developer
+    // should ensure that stable state ids are set for stateful components in real apps.
 	Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
 	  
 	var ds = new Ext.data.JsonStore({

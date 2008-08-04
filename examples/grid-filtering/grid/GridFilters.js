@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -55,6 +55,11 @@ Ext.extend(Ext.grid.GridFilters, Ext.util.Observable, {
 	 * True to show the filter menus
 	 */
 	showMenu: true,
+    /**
+     * @cfg {String} filtersText
+     * The text displayed for the "Filters" menu item
+     */
+    filtersText: 'Filters',
 
 	init: function(grid){
     if(grid instanceof Ext.grid.GridPanel){
@@ -124,7 +129,7 @@ Ext.extend(Ext.grid.GridFilters, Ext.util.Observable, {
 			
 			this.sep  = hmenu.addSeparator();
 			this.menu = hmenu.add(new Ext.menu.CheckItem({
-					text: 'Filters',
+					text: this.filtersText,
 					menu: new Ext.menu.Menu()
 				}));
 			this.menu.on('checkchange', this.onCheckChange, this);

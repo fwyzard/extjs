@@ -72,6 +72,24 @@
         <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.grid.GroupingView-cellSelector"></a>
+            <b>cellSelector</b> : String            <div class="mdesc">
+                            The selector used to find cells internally                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#cellSelector" href="output/Ext.grid.GridView.html#cellSelector">GridView</a></td>
+    </tr>
+        <tr class="config-row inherited">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GroupingView-cellSelectorDepth"></a>
+            <b>cellSelectorDepth</b> : Number            <div class="mdesc">
+                            The number of levels to search for cells in event delegation (defaults to 4)                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#cellSelectorDepth" href="output/Ext.grid.GridView.html#cellSelectorDepth">GridView</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.grid.GroupingView-deferEmptyText"></a>
             <b>deferEmptyText</b> : Boolean            <div class="mdesc">
                             True to defer emptyText being applied until the store's first load                        </div>
@@ -216,6 +234,24 @@
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
+        <tr class="config-row inherited">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GroupingView-rowSelector"></a>
+            <b>rowSelector</b> : String            <div class="mdesc">
+                            The selector used to find rows internally                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#rowSelector" href="output/Ext.grid.GridView.html#rowSelector">GridView</a></td>
+    </tr>
+        <tr class="config-row inherited alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GroupingView-rowSelectorDepth"></a>
+            <b>rowSelectorDepth</b> : Number            <div class="mdesc">
+                            The number of levels to search for rows in event delegation (defaults to 10)                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#rowSelectorDepth" href="output/Ext.grid.GridView.html#rowSelectorDepth">GridView</a></td>
+    </tr>
         <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
@@ -263,13 +299,23 @@
         <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.grid.GroupingView-dragZone"></a>
+            <b>dragZone</b> : Ext.grid.GridDragZone
+<p><b>This            <div class="mdesc">
+                                                    </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#dragZone" href="output/Ext.grid.GridView.html#dragZone">GridView</a></td>
+    </tr>
+        <tr class="property-row inherited">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.grid.GroupingView-scrollOffset"></a>
             <b>scrollOffset</b> : Number            <div class="mdesc">
                             The amount of space to reserve for the scrollbar (defaults to 19 pixels)                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#scrollOffset" href="output/Ext.grid.GridView.html#scrollOffset">GridView</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GroupingView-sortAscText"></a>
@@ -278,7 +324,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#sortAscText" href="output/Ext.grid.GridView.html#sortAscText">GridView</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GroupingView-sortClasses"></a>
@@ -287,7 +333,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#sortClasses" href="output/Ext.grid.GridView.html#sortClasses">GridView</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GroupingView-sortDescText"></a>
@@ -709,11 +755,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.grid.GroupingView-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>

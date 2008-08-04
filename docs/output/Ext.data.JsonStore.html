@@ -18,7 +18,7 @@
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.data.Store" ext:member="" href="output/Ext.data.Store.html">Store</a></td></tr>
                     </table>
         <div class="description">
-            Small helper class to make creating Stores for remotely-loaded JSON data easier. JsonStore is pre-configured 
+            Small helper class to make creating Stores for remotely-loaded JSON data easier. JsonStore is pre-configured
 with a built-in <a ext:cls="Ext.data.HttpProxy" href="output/Ext.data.HttpProxy.html">Ext.data.HttpProxy</a> and <a ext:cls="Ext.data.JsonReader" href="output/Ext.data.JsonReader.html">Ext.data.JsonReader</a>.  If you require some other proxy/reader
 combination then you'll have to create a basic <a ext:cls="Ext.data.Store" href="output/Ext.data.Store.html">Ext.data.Store</a> configured as needed.<br/>
 <pre><code>var store = <b>new</b> Ext.data.JsonStore({
@@ -96,16 +96,7 @@ JsonReader.</b>        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
-        <tr class="config-row inherited alt">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
-        <a id="Ext.data.JsonStore-proxy"></a>
-            <b>proxy</b> : Ext.data.DataProxy            <div class="mdesc">
-                            The Proxy object which provides access to a data object.                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#proxy" href="output/Ext.data.Store.html#proxy">Store</a></td>
-    </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.JsonStore-pruneModifiedRecords"></a>
@@ -116,18 +107,6 @@ JsonReader.</b>        </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#pruneModifiedRecords" href="output/Ext.data.Store.html#pruneModifiedRecords">Store</a></td>
-    </tr>
-        <tr class="config-row inherited alt expandable">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
-        <a id="Ext.data.JsonStore-reader"></a>
-            <b>reader</b> : Ext.data.DataReader            <div class="mdesc">
-                        <div class="short">The DataReader object which processes the data object and returns an Array of Ext.data.Record objects which are cache...</div>
-            <div class="long">
-                The DataReader object which processes the data object and returns an Array of Ext.data.Record objects which are cached keyed by their <em>id</em> property.            </div>
-                        </div>
-        </td>
-        <td class="msource"><a ext:cls="Ext.data.Store" ext:member="#reader" href="output/Ext.data.Store.html#reader">Store</a></td>
     </tr>
         <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -238,9 +217,9 @@ were used to load the current Record cache.            </div>
         <td class="sig">
         <a id="Ext.data.JsonStore-add"></a>
             <b>add</b>(&nbsp;<code>Ext.data.Record[] records</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Add Records to the Store and fires the add event.</div>
+                        <div class="short">Add Records to the Store and fires the <a ext:cls="Ext.data.Store" ext:member="add" href="output/Ext.data.Store.html#add">add</a> event.</div>
             <div class="long">
-                Add Records to the Store and fires the add event.    <div class="mdetail-params">
+                Add Records to the Store and fires the <a ext:cls="Ext.data.Store" ext:member="add" href="output/Ext.data.Store.html#add">add</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>records</code> : Ext.data.Record[]<div class="sub-desc">An Array of Ext.data.Record objects to add to the cache.</div></li>        </ul>
         <strong>Returns:</strong>
@@ -345,11 +324,11 @@ Or a shorthand syntax:<br>
         <td class="sig">
         <a id="Ext.data.JsonStore-addSorted"></a>
             <b>addSorted</b>(&nbsp;<code>Ext.data.Record record</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">(Local sort only) Inserts the passed the record in the Store at the index where it
-should go based on the current sor...</div>
+                        <div class="short">(Local sort only) Inserts the passed Record into the Store at the index where it
+should go based on the current sort ...</div>
             <div class="long">
-                (Local sort only) Inserts the passed the record in the Store at the index where it
-should go based on the current sort information    <div class="mdetail-params">
+                (Local sort only) Inserts the passed Record into the Store at the index where it
+should go based on the current sort information.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>record</code> : Ext.data.Record<div class="sub-desc"></div></li>        </ul>
         <strong>Returns:</strong>
@@ -774,9 +753,9 @@ the dataset size. For remote data sources, this is provided by a query on the se
         <td class="sig">
         <a id="Ext.data.JsonStore-insert"></a>
             <b>insert</b>(&nbsp;<code>Number index</code>, <code>Ext.data.Record[] records</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Inserts Records to the Store at the given index and fires the add event.</div>
+                        <div class="short">Inserts Records into the Store at the given index and fires the <a ext:cls="Ext.data.Store" ext:member="add" href="output/Ext.data.Store.html#add">add</a> event.</div>
             <div class="long">
-                Inserts Records to the Store at the given index and fires the add event.    <div class="mdetail-params">
+                Inserts Records into the Store at the given index and fires the <a ext:cls="Ext.data.Store" ext:member="add" href="output/Ext.data.Store.html#add">add</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>index</code> : Number<div class="sub-desc">The start index at which to insert the passed Records.</div></li><li><code>records</code> : Ext.data.Record[]<div class="sub-desc">An Array of Ext.data.Record objects to add to the cache.</div></li>        </ul>
         <strong>Returns:</strong>
@@ -850,10 +829,10 @@ passed the following arguments:<ul>
         <td class="sig">
         <a id="Ext.data.JsonStore-loadData"></a>
             <b>loadData</b>(&nbsp;<code>Object data</code>, <span class="optional" title="Optional">[<code>Boolean append</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Loads data from a passed data block. A Reader which understands the format of the data
-must have been configured in t...</div>
+                        <div class="short">Loads data from a passed data block and fires the load event. A Reader which understands the format of the data
+must ...</div>
             <div class="long">
-                Loads data from a passed data block. A Reader which understands the format of the data
+                Loads data from a passed data block and fires the <a ext:cls="Ext.data.Store" ext:member="load" href="output/Ext.data.Store.html#load">load</a> event. A Reader which understands the format of the data
 must have been configured in the constructor.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>data</code> : Object<div class="sub-desc">The data block from which to read the Records. The format of the data expected
@@ -982,11 +961,11 @@ to test for filtering. Access field values using <a ext:cls="Ext.data.Record" ex
         <td class="sig">
         <a id="Ext.data.JsonStore-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -1026,9 +1005,9 @@ the most recently used options are reused).</div></li>        </ul>
         <td class="sig">
         <a id="Ext.data.JsonStore-remove"></a>
             <b>remove</b>(&nbsp;<code>Ext.data.Record record</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Remove a Record from the Store and fires the remove event.</div>
+                        <div class="short">Remove a Record from the Store and fires the <a ext:cls="Ext.data.Store" ext:member="remove" href="output/Ext.data.Store.html#remove">remove</a> event.</div>
             <div class="long">
-                Remove a Record from the Store and fires the remove event.    <div class="mdetail-params">
+                Remove a Record from the Store and fires the <a ext:cls="Ext.data.Store" ext:member="remove" href="output/Ext.data.Store.html#remove">remove</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>record</code> : Ext.data.Record<div class="sub-desc">Th Ext.data.Record object to remove from the cache.</div></li>        </ul>
         <strong>Returns:</strong>
@@ -1046,9 +1025,9 @@ the most recently used options are reused).</div></li>        </ul>
         <td class="sig">
         <a id="Ext.data.JsonStore-removeAll"></a>
             <b>removeAll</b>() : void            <div class="mdesc">
-                        <div class="short">Remove all Records from the Store and fires the clear event.</div>
+                        <div class="short">Remove all Records from the Store and fires the <a ext:cls="Ext.data.Store" ext:member="clear" href="output/Ext.data.Store.html#clear">clear</a> event.</div>
             <div class="long">
-                Remove all Records from the Store and fires the clear event.    <div class="mdetail-params">
+                Remove all Records from the Store and fires the <a ext:cls="Ext.data.Store" ext:member="clear" href="output/Ext.data.Store.html#clear">clear</a> event.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li>None.</li>        </ul>
         <strong>Returns:</strong>

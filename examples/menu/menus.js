@@ -1,5 +1,5 @@
 /*
- * Ext JS Library 2.1
+ * Ext JS Library 2.2
  * Copyright(c) 2006-2008, Ext JS, LLC.
  * licensing@extjs.com
  * 
@@ -90,7 +90,7 @@ Ext.onReady(function(){
         new Ext.Toolbar.MenuButton({
             text: 'Split Button',
             handler: onButtonClick,
-            tooltip: {text:'This is a QuickTip with autoHide set to false and a title', title:'Tip Title', autoHide:false},
+            tooltip: {text:'This is a an example QuickTip for a toolbar item', title:'Tip Title'},
             iconCls: 'blist',
             // Menus can be built/referenced by using nested menu config objects
             menu : {items: [

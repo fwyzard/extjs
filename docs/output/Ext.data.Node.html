@@ -346,10 +346,10 @@ the cascade is stopped on that branch.    <div class="mdetail-params">
         <td class="sig">
         <a id="Ext.data.Node-eachChild"></a>
             <b>eachChild</b>(&nbsp;<code>Function fn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>, <span class="optional" title="Optional">[<code>Array args</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Interates the child nodes of this node, calling the specified function with each node. The scope (this) of
-function c...</div>
+                        <div class="short">Iterates the child nodes of this node, calling the specified function with each node. The scope (this) of
+function ca...</div>
             <div class="long">
-                Interates the child nodes of this node, calling the specified function with each node. The scope (<i>this</i>) of
+                Iterates the child nodes of this node, calling the specified function with each node. The scope (<i>this</i>) of
 function call will be the scope provided or the current node. The arguments to the function
 will be the args provided or the current node. If the function returns false at any point,
 the iteration stops.    <div class="mdetail-params">
@@ -487,7 +487,27 @@ returns true.    <div class="mdetail-params">
         </td>
         <td class="msource">Node</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.data.Node-hasChildNodes"></a>
+            <b>hasChildNodes</b>() : Boolean            <div class="mdesc">
+                        <div class="short">Returns true if this node has one or more child nodes, else false.</div>
+            <div class="long">
+                Returns true if this node has one or more child nodes, else false.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Boolean</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Node</td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.Node-hasListener"></a>
@@ -507,7 +527,7 @@ returns true.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#hasListener" href="output/Ext.util.Observable.html#hasListener">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.Node-indexOf"></a>
@@ -527,7 +547,7 @@ returns true.    <div class="mdetail-params">
         </td>
         <td class="msource">Node</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.Node-insertBefore"></a>
@@ -547,7 +567,7 @@ returns true.    <div class="mdetail-params">
         </td>
         <td class="msource">Node</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.data.Node-isAncestor"></a>
@@ -557,6 +577,28 @@ returns true.    <div class="mdetail-params">
                 Returns true if the passed node is an ancestor (at any point) of this node.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>node</code> : Node<div class="sub-desc"></div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Boolean</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Node</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.data.Node-isExpandable"></a>
+            <b>isExpandable</b>() : Boolean            <div class="mdesc">
+                        <div class="short">Returns true if this node has one or more child nodes, or if the expandable
+node attribute is explicitly specified as...</div>
+            <div class="long">
+                Returns true if this node has one or more child nodes, or if the <tt>expandable</tt>
+node attribute is explicitly specified as true (see <a ext:cls="Ext.data.Node" ext:member="attributes" href="output/Ext.data.Node.html#attributes">attributes</a>), otherwise returns false.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Boolean</code></li>
@@ -693,11 +735,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.data.Node-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>

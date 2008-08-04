@@ -84,7 +84,7 @@ equivalent to providing an implementation for the <a ext:cls="Ext.util.MixedColl
                 Adds an item to the collection. Fires the <a ext:cls="Ext.util.MixedCollection" ext:member="add" href="output/Ext.util.MixedCollection.html#add">add</a> event when complete.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>key</code> : String<div class="sub-desc"><p>The key to associate with the item, or the new item.</p>
-<p>If you supplied a {@link #getKey) implementation for this MixedCollection, or if the key
+<p>If you supplied a <a ext:cls="Ext.util.MixedCollection" ext:member="getKey" href="output/Ext.util.MixedCollection.html#getKey">getKey</a> implementation for this MixedCollection, or if the key
 of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection
 will be able to <i>derive</i> the key for the new item. In this case just pass the new item in
 this parameter.</p></div></li><li><code>o</code> : Object<div class="sub-desc">The item to add.</div></li>        </ul>
@@ -818,11 +818,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.util.MixedCollection-relayEvents"></a>
             <b>relayEvents</b>(&nbsp;<code>Object o</code>, <code>Array events</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Relays selected events from this Observable to a different Observable</div>
+                        <div class="short">Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.</div>
             <div class="long">
-                Relays selected events from this Observable to a different Observable    <div class="mdetail-params">
+                Relays selected events from the specified Observable as if the events were fired by <tt><b>this</b></tt>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable to relay events to</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay</div></li>        </ul>
+        <ul><li><code>o</code> : Object<div class="sub-desc">The Observable whose events this object is to relay.</div></li><li><code>events</code> : Array<div class="sub-desc">Array of event names to relay.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -838,9 +838,9 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.util.MixedCollection-remove"></a>
             <b>remove</b>(&nbsp;<code>Object o</code>&nbsp;) : Object            <div class="mdesc">
-                        <div class="short">Removed an item from the collection.</div>
+                        <div class="short">Remove an item from the collection.</div>
             <div class="long">
-                Removed an item from the collection.    <div class="mdetail-params">
+                Remove an item from the collection.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>o</code> : Object<div class="sub-desc">The item to remove.</div></li>        </ul>
         <strong>Returns:</strong>
@@ -923,7 +923,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
                 Replaces an item in the collection. Fires the <a ext:cls="Ext.util.MixedCollection" ext:member="replace" href="output/Ext.util.MixedCollection.html#replace">replace</a> event when complete.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>key</code> : String<div class="sub-desc"><p>The key associated with the item to replace, or the replacement item.</p>
-<p>If you supplied a {@link #getKey) implementation for this MixedCollection, or if the key
+<p>If you supplied a <a ext:cls="Ext.util.MixedCollection" ext:member="getKey" href="output/Ext.util.MixedCollection.html#getKey">getKey</a> implementation for this MixedCollection, or if the key
 of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection
 will be able to <i>derive</i> the key of the replacement item. If you want to replace an item
 with one having the same key value, then just pass the replacement item in this parameter.</p></div></li><li><code>{Object}</code> : o<div class="sub-desc">o (optional) If the first parameter passed was a key, the item to associate
