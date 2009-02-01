@@ -14,15 +14,47 @@
                 <h1>Class Ext.Container</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">Container.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/Container.js" target="_blank">Container.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Container</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.Panel" href="output/Ext.Panel.html">Panel</a>, <a ext:cls="Ext.Viewport" href="output/Ext.Viewport.html">Viewport</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.BoxComponent" ext:member="" href="output/Ext.BoxComponent.html">BoxComponent</a></td></tr>
                     </table>
         <div class="description">
-            <p>Base class for any <a ext:cls="Ext.BoxComponent" href="output/Ext.BoxComponent.html">Ext.BoxComponent</a> that can contain other components. This class is intended
-to be extended and should generally not need to be created directly via the new keyword. <a ext:cls="Ext.Panel" href="output/Ext.Panel.html">Ext.Panel</a>,
-<a ext:cls="Ext.Window" href="output/Ext.Window.html">Ext.Window</a> and <a ext:cls="Ext.TabPanel" href="output/Ext.TabPanel.html">Ext.TabPanel</a> are the most commonly used Container classes.</p>
+            *
+<p>Base class for any <a ext:cls="Ext.BoxComponent" href="output/Ext.BoxComponent.html">Ext.BoxComponent</a> that can contain other components. The most commonly
+used Container classes are <a ext:cls="Ext.Panel" href="output/Ext.Panel.html">Ext.Panel</a>, <a ext:cls="Ext.Window" href="output/Ext.Window.html">Ext.Window</a> and <a ext:cls="Ext.TabPanel" href="output/Ext.TabPanel.html">Ext.TabPanel</a>, but you can
+create a lightweight Container to encapsulate an HTML element that is created to your
+specifications at render time by using the <a ext:cls="Ext.Component" ext:member="autoEl" href="output/Ext.Component.html#autoEl">autoEl</a> config option
+which takes the form of a <a ext:cls="Ext.DomHelper" href="output/Ext.DomHelper.html">DomHelper</a> specification. If you do not need
+the capabilities offered by the above mentioned classes, for instance embedded
+<a ext:cls="Ext.layout.ColumnLayout" href="output/Ext.layout.ColumnLayout.html">column</a> layouts inside FormPanels, then this is a useful technique.</p>
+<p>The code below illustrates both how to explicitly <i>create</i> a Container, and how to implicitly
+create one using the <b><tt>'container'</tt></b> xtype:<pre><code>var embeddedColumns = <b>new</b> Ext.Container({
+    autoEl: {},
+    layout: <em>'column'</em>,
+    defaults: {
+        xtype: <em>'container'</em>,
+        autoEl: {},
+        layout: <em>'form'</em>,
+        columnWidth: 0.5,
+        style: {
+            padding: <em>'10px'</em>
+        }
+    },
+    items: [{
+        items: {
+            xtype: <em>'datefield'</em>,
+            name: <em>'startDate'</em>,
+            fieldLabel: <em>'Start date'</em>
+        }
+    }, {
+        items: {
+            xtype: <em>'datefield'</em>,
+            name: <em>'endDate'</em>,
+            fieldLabel: <em>'End date'</em>
+        }
+    }]
+});</code></pre></p>
 Containers handle the basic behavior of containing items, namely adding, inserting and removing them.
 The specific layout logic required to visually render contained items is delegated to any one of the different
 <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> classes available.</p>
@@ -50,7 +82,7 @@ myGrid = <b>new</b> Ext.grid.GridPanel({
 });
 
 myTabPanel.add(myGrid);
-myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
+myTabPanel.setActiveTab(myGrid);</code></pre>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.Container-configs"></a>
@@ -123,9 +155,9 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         <td class="sig">
         <a id="Ext.Container-autoHeight"></a>
             <b>autoHeight</b> : Boolean            <div class="mdesc">
-                        <div class="short">True to use height:'auto', false to use fixed height. Note: although many components inherit this config option, not ...</div>
+                        <div class="short">True to use height:'auto', false to use fixed height (defaults to false). Note: Although many components inherit this...</div>
             <div class="long">
-                True to use height:'auto', false to use fixed height. Note: although many components inherit this config option, not all will function as expected with a height of 'auto'. (defaults to false).            </div>
+                True to use height:'auto', false to use fixed height (defaults to false). <b>Note</b>: Although many components inherit this config option, not all will function as expected with a height of 'auto'. Setting autoHeight:true means that the browser will manage height based on the element's contents, and that Ext will not manage it at all.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#autoHeight" href="output/Ext.BoxComponent.html#autoHeight">BoxComponent</a></td>
@@ -147,9 +179,9 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         <td class="sig">
         <a id="Ext.Container-autoWidth"></a>
             <b>autoWidth</b> : Boolean            <div class="mdesc">
-                        <div class="short">True to use width:'auto', false to use fixed width. Note: although many components inherit this config option, not al...</div>
+                        <div class="short">True to use width:'auto', false to use fixed width (defaults to false). Note: Although many components inherit this c...</div>
             <div class="long">
-                True to use width:'auto', false to use fixed width. Note: although many components inherit this config option, not all will function as expected with a width of 'auto'. (defaults to false).            </div>
+                True to use width:'auto', false to use fixed width (defaults to false). <b>Note</b>: Although many components inherit this config option, not all will function as expected with a width of 'auto'. Setting autoWidth:true means that the browser will manage width based on the element's contents, and that Ext will not manage it at all.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#autoWidth" href="output/Ext.BoxComponent.html#autoWidth">BoxComponent</a></td>
@@ -169,6 +201,18 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Container-clearCls"></a>
+            <b>clearCls</b> : String            <div class="mdesc">
+                        <div class="short">The CSS class used to provide field clearing (defaults to 'x-form-clear-left'). This config is only used when this Co...</div>
+            <div class="long">
+                The CSS class used to provide field clearing (defaults to 'x-form-clear-left'). <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#clearCls" href="output/Ext.Component.html#clearCls">Component</a></td>
+    </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Container-cls"></a>
             <b>cls</b> : String            <div class="mdesc">
                         <div class="short">An optional extra CSS class that will be added to this component's Element (defaults to ''). This can be useful for a...</div>
@@ -178,7 +222,7 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#cls" href="output/Ext.Component.html#cls">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-ctCls"></a>
@@ -190,19 +234,19 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#ctCls" href="output/Ext.Component.html#ctCls">Component</a></td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-defaultType"></a>
             <b>defaultType</b> : String            <div class="mdesc">
                         <div class="short">The default xtype of child Components to create in this Container when a child item is specified as a raw configurati...</div>
             <div class="long">
-                <p>The default <a ext:cls="Ext.Component" href="output/Ext.Component.html">xtype</a> of child Components to create in this Container when a child item is specified as a raw configuration object, rather than as an instantiated Component.</p> <p>This usually defaults to 'panel', but for <a ext:cls="Ext.form.FormPanel" href="output/Ext.form.FormPanel.html">Ext.form.FormPanel</a> and <a ext:cls="Ext.form.FieldSet" href="output/Ext.form.FieldSet.html">Ext.form.FieldSet</a>, the defaultType is 'textfield'.</p>            </div>
+                <p>The default <a ext:cls="Ext.Component" href="output/Ext.Component.html">xtype</a> of child Components to create in this Container when a child item is specified as a raw configuration object, rather than as an instantiated Component.</p> <p>Defaults to 'panel'.</p>            </div>
                         </div>
         </td>
         <td class="msource">Container</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-defaults"></a>
@@ -214,7 +258,7 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         </td>
         <td class="msource">Container</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-disabled"></a>
@@ -223,7 +267,7 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-disabledClass"></a>
@@ -231,6 +275,25 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
                             CSS class added to the component when it is disabled (defaults to "x-item-disabled").                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabledClass" href="output/Ext.Component.html#disabledClass">Component</a></td>
+    </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Container-fieldLabel"></a>
+            <b>fieldLabel</b> : String            <div class="mdesc">
+                        <div class="short">The label text to display next to this Component (defaults to '') This config is only used when this Component is ren...</div>
+            <div class="long">
+                The label text to display next to this Component (defaults to '') <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#fieldLabel" href="output/Ext.Component.html#fieldLabel">Component</a></td>
     </tr>
         <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -265,16 +328,35 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Container-hideLabel"></a>
+            <b>hideLabel</b> : Boolean            <div class="mdesc">
+                        <div class="short">True to completely hide the label element (defaults to false). By default, even if you do not specify a fieldLabel th...</div>
+            <div class="long">
+                True to completely hide the label element (defaults to false). By default, even if you do not specify a <a ext:cls="fieldLabel" href="output/fieldLabel.html">fieldLabel</a> the space will still be reserved so that the field will line up with other fields that do have labels. Setting this to true will cause the field to not reserve that space. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>
+        hideLabel: true
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideLabel" href="output/Ext.Component.html#hideLabel">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Container-hideMode"></a>
             <b>hideMode</b> : String            <div class="mdesc">
-                        <div class="short">How this component should hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset posi...</div>
+                        <div class="short">How this component should be hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset p...</div>
             <div class="long">
-                How this component should hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset position) and "display" (css display) - defaults to "display".            </div>
+                <p>How this component should be hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset position) and "display" (css display) - defaults to "display".</p> <p>For Containers which may be hidden and shown as part of a <a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">card layout</a> Container such as a <a ext:cls="Ext.TabPanel" href="output/Ext.TabPanel.html">TabPanel</a>, it is recommended that hideMode is configured as "offsets". This ensures that hidden Components still have height and width so that layout managers can perform measurements when calculating layouts.</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideMode" href="output/Ext.Component.html#hideMode">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-hideParent"></a>
@@ -286,14 +368,45 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideParent" href="output/Ext.Component.html#hideParent">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-id"></a>
             <b>id</b> : String            <div class="mdesc">
-                            The unique id of this component (defaults to an auto-assigned id).                        </div>
+                        <div class="short">The unique id of this component (defaults to an auto-assigned id). You should assign an id if you need to be able to ...</div>
+            <div class="long">
+                The unique id of this component (defaults to an auto-assigned id). You should assign an id if you need to be able to access the component later and you do not have an object reference available (e.g., using <a ext:cls="Ext.ComponentMgr" ext:member="getCmp" href="output/Ext.ComponentMgr.html#getCmp">Ext.ComponentMgr.getCmp</a>). Note that this id will also be used as the element id for the containing HTML element that is rendered to the page for this component. This allows you to write id-based CSS rules to style the specific instance of this component uniquely, and also to select sub-elements using this component's id as the parent.            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#id" href="output/Ext.Component.html#id">Component</a></td>
+    </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Container-itemCls"></a>
+            <b>itemCls</b> : String            <div class="mdesc">
+                        <div class="short">An additional CSS class to apply to the wrapper's form item element of this field (defaults to the container's itemCl...</div>
+            <div class="long">
+                An additional CSS class to apply to the wrapper's form item element of this field (defaults to the container's itemCls value if set, or ''). Since it is applied to the item wrapper, it allows you to write standard CSS rules that can apply to the field, the label (if specified) or any other element within the markup for the field. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code><i>// Apply a style to the field's label:</i>
+&lt;style>
+    .required .x-form-item-label {font-weight:bold;color:red;}
+&lt;/style>
+
+<b>new</b> Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>,
+        itemCls: <em>'required'</em> <i>//<b>this</b> label will be styled</i>
+    },{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Favorite Color'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#itemCls" href="output/Ext.Component.html#itemCls">Component</a></td>
     </tr>
         <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -307,6 +420,46 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         </td>
         <td class="msource">Container</td>
     </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Container-labelSeparator"></a>
+            <b>labelSeparator</b> : String            <div class="mdesc">
+                        <div class="short">The standard separator to display after the text of each form label (defaults to the value of Ext.layout.FormLayout.l...</div>
+            <div class="long">
+                The standard separator to display after the text of each form label (defaults to the value of <a ext:cls="Ext.layout.FormLayout" ext:member="labelSeparator" href="output/Ext.layout.FormLayout.html#labelSeparator">Ext.layout.FormLayout.labelSeparator</a>, which is a colon ':' by default). To display no separator for this field's label specify empty string ''. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>,
+        labelSeparator: <em>'...'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#labelSeparator" href="output/Ext.Component.html#labelSeparator">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Container-labelStyle"></a>
+            <b>labelStyle</b> : String            <div class="mdesc">
+                        <div class="short">A CSS style specification to apply directly to this field's label (defaults to the container's labelStyle value if se...</div>
+            <div class="long">
+                A CSS style specification to apply directly to this field's label (defaults to the container's labelStyle value if set, or '').<code></code>. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>,
+        labelStyle: <em>'font-weight:bold;'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#labelStyle" href="output/Ext.Component.html#labelStyle">Component</a></td>
+    </tr>
         <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
@@ -314,7 +467,7 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
             <b>layout</b> : String            <div class="mdesc">
                         <div class="short">The layout type to be used in this container. If not specified, a default Ext.layout.ContainerLayout will be created ...</div>
             <div class="long">
-                The layout type to be used in this container. If not specified, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.ContainerLayout.html">Ext.layout.ContainerLayout</a> will be created and used. Valid values are: absolute, accordion, anchor, border, card, column, fit, form and table. Specific config values for the chosen layout type can be specified using <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">layoutConfig</a>.            </div>
+                The layout type to be used in this container. If not specified, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.ContainerLayout.html">Ext.layout.ContainerLayout</a> will be created and used. Specific config values for the chosen layout type can be specified using <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">layoutConfig</a>. Valid values are:<ul class="mdetail-params"> <li>absolute</li> <li>accordion</li> <li>anchor</li> <li>border</li> <li>card</li> <li>column</li> <li>fit</li> <li>form</li> <li>table</li></ul>            </div>
                         </div>
         </td>
         <td class="msource">Container</td>
@@ -336,9 +489,9 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         <td class="sig">
         <a id="Ext.Container-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
@@ -426,9 +579,9 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
         <td class="sig">
         <a id="Ext.Container-stateId"></a>
             <b>stateId</b> : String            <div class="mdesc">
-                        <div class="short">The unique id for this component to use for state management purposes (defaults to the component id). See stateful fo...</div>
+                        <div class="short">The unique id for this component to use for state management purposes (defaults to the component id if one was set, o...</div>
             <div class="long">
-                The unique id for this component to use for state management purposes (defaults to the component id). <p>See <a ext:cls="Ext.Component" ext:member="stateful" href="output/Ext.Component.html#stateful">stateful</a> for an explanation of saving and restoring Component state.</p>            </div>
+                The unique id for this component to use for state management purposes (defaults to the component id if one was set, otherwise null if the component is using a generated id). <p>See <a ext:cls="Ext.Component" ext:member="stateful" href="output/Ext.Component.html#stateful">stateful</a> for an explanation of saving and restoring Component state.</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
@@ -440,7 +593,7 @@ myTabPanel.setActiveItem(myGrid);</code></pre>        </div>
             <b>stateful</b> : Boolean            <div class="mdesc">
                         <div class="short">A flag which causes the Component to attempt to restore the state of internal properties from a saved state on startu...</div>
             <div class="long">
-                A flag which causes the Component to attempt to restore the state of internal properties from a saved state on startup.<p> For state saving to work, the state manager's provider must have been set to an implementation of <a ext:cls="Ext.state.Provider" href="output/Ext.state.Provider.html">Ext.state.Provider</a> which overrides the <a ext:cls="Ext.state.Provider" ext:member="set" href="output/Ext.state.Provider.html#set">set</a> and <a ext:cls="Ext.state.Provider" ext:member="get" href="output/Ext.state.Provider.html#get">get</a> methods to save and recall name/value pairs. A built-in implementation, <a ext:cls="Ext.state.CookieProvider" href="output/Ext.state.CookieProvider.html">Ext.state.CookieProvider</a> is available.</p> <p>To set the state provider for the current page:</p> <pre><code>Ext.state.Manager.setProvider(<b>new</b> Ext.state.CookieProvider());</code></pre> <p>Components attempt to save state when one of the events listed in the <a ext:cls="Ext.Component" ext:member="stateEvents" href="output/Ext.Component.html#stateEvents">stateEvents</a> configuration fires.</p> <p>You can perform extra processing on state save and restore by attaching handlers to the <a ext:cls="Ext.Component" ext:member="beforestaterestore" href="output/Ext.Component.html#beforestaterestore">beforestaterestore</a>, <a ext:cls="staterestore" href="output/staterestore.html">staterestore</a>, <a ext:cls="beforestatesave" href="output/beforestatesave.html">beforestatesave</a> and <a ext:cls="statesave" href="output/statesave.html">statesave</a> events</p>            </div>
+                <p>A flag which causes the Component to attempt to restore the state of internal properties from a saved state on startup. The component must have either a <a ext:cls="Ext.Component" ext:member="stateId" href="output/Ext.Component.html#stateId">stateId</a> or <a ext:cls="Ext.Component" ext:member="id" href="output/Ext.Component.html#id">id</a> assigned for state to be managed. Auto-generated ids are not guaranteed to be stable across page loads and cannot be relied upon to save and restore the same state for a component.<p> For state saving to work, the state manager's provider must have been set to an implementation of <a ext:cls="Ext.state.Provider" href="output/Ext.state.Provider.html">Ext.state.Provider</a> which overrides the <a ext:cls="Ext.state.Provider" ext:member="set" href="output/Ext.state.Provider.html#set">set</a> and <a ext:cls="Ext.state.Provider" ext:member="get" href="output/Ext.state.Provider.html#get">get</a> methods to save and recall name/value pairs. A built-in implementation, <a ext:cls="Ext.state.CookieProvider" href="output/Ext.state.CookieProvider.html">Ext.state.CookieProvider</a> is available.</p> <p>To set the state provider for the current page:</p> <pre><code>Ext.state.Manager.setProvider(<b>new</b> Ext.state.CookieProvider());</code></pre> <p>Components attempt to save state when one of the events listed in the <a ext:cls="Ext.Component" ext:member="stateEvents" href="output/Ext.Component.html#stateEvents">stateEvents</a> configuration fires.</p> <p>You can perform extra processing on state save and restore by attaching handlers to the <a ext:cls="Ext.Component" ext:member="beforestaterestore" href="output/Ext.Component.html#beforestaterestore">beforestaterestore</a>, <a ext:cls="Ext.Component" ext:member="staterestore" href="output/Ext.Component.html#staterestore">staterestore</a>, <a ext:cls="Ext.Component" ext:member="beforestatesave" href="output/Ext.Component.html#beforestatesave">beforestatesave</a> and <a ext:cls="Ext.Component" ext:member="statesave" href="output/Ext.Component.html#statesave">statesave</a> events</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
@@ -967,12 +1120,13 @@ true, the component will be included in the results. The passed function is call
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-findByType"></a>
-            <b>findByType</b>(&nbsp;<code>String/Class xtype</code>&nbsp;) : Array            <div class="mdesc">
+            <b>findByType</b>(&nbsp;<code>String/Class xtype</code>, <span class="optional" title="Optional">[<code>Boolean shallow</code>]</span>&nbsp;) : Array            <div class="mdesc">
                         <div class="short">Find a component under this container at any level by xtype or class</div>
             <div class="long">
                 Find a component under this container at any level by xtype or class    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>xtype</code> : String/Class<div class="sub-desc">The xtype string for a component, or the class of the component directly</div></li>        </ul>
+        <ul><li><code>xtype</code> : String/Class<div class="sub-desc">The xtype string for a component, or the class of the component directly</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this Component is descended from the xtype (this is
+the default), or true to check whether this Component is directly of the specified xtype.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Array</code><div class="sub-desc">Array of Ext.Components</div></li>
@@ -987,7 +1141,7 @@ true, the component will be included in the results. The passed function is call
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-findParentBy"></a>
-            <b>findParentBy</b>(&nbsp;<code>Function fcn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : Array            <div class="mdesc">
+            <b>findParentBy</b>(&nbsp;<code>Function fcn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : Ext.Container            <div class="mdesc">
                         <div class="short">Find a container above this component at any level by a custom function. If the passed function returns
 true, the con...</div>
             <div class="long">
@@ -997,7 +1151,7 @@ true, the container will be returned. The passed function is called with the arg
         <ul><li><code>fcn</code> : Function<div class="sub-desc"></div></li><li><code>scope</code> : Object<div class="sub-desc">(optional)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Array</code><div class="sub-desc">Array of Ext.Components</div></li>
+            <li><code>Ext.Container</code><div class="sub-desc">The first Container for which the custom function returns true</div></li>
         </ul>
     </div>
                 </div>
@@ -1009,7 +1163,7 @@ true, the container will be returned. The passed function is called with the arg
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-findParentByType"></a>
-            <b>findParentByType</b>(&nbsp;<code>String/Class xtype</code>&nbsp;) : Container            <div class="mdesc">
+            <b>findParentByType</b>(&nbsp;<code>String/Class xtype</code>&nbsp;) : Ext.Container            <div class="mdesc">
                         <div class="short">Find a container above this component at any level by xtype or class</div>
             <div class="long">
                 Find a container above this component at any level by xtype or class    <div class="mdetail-params">
@@ -1017,7 +1171,7 @@ true, the container will be returned. The passed function is called with the arg
         <ul><li><code>xtype</code> : String/Class<div class="sub-desc">The xtype string for a component, or the class of the component directly</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Container</code><div class="sub-desc">The found container</div></li>
+            <li><code>Ext.Container</code><div class="sub-desc">The first Container which matches the given xtype or class</div></li>
         </ul>
     </div>
                 </div>
@@ -1187,7 +1341,31 @@ set, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.C
         </td>
         <td class="msource">Container</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Container-getLayoutTarget"></a>
+            <b>getLayoutTarget</b>() : Ext.Element            <div class="mdesc">
+                        <div class="short">Returns the Element to be used to contain the child Components of this Container.
+An implementation is provided which...</div>
+            <div class="long">
+                <p>Returns the Element to be used to contain the child Components of this Container.</p>
+<p>An implementation is provided which returns the Container's <a ext:cls="Ext.Container" ext:member="getEl" href="output/Ext.Container.html#getEl">Element</a>, but
+if there is a more complex structure to a Container, this may be overridden to return
+the element into which the <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> renders child Components.</p>    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Ext.Element</code><div class="sub-desc">The Element to render child Components into.</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Container</td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-getPosition"></a>
@@ -1207,7 +1385,7 @@ set, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.C
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#getPosition" href="output/Ext.BoxComponent.html#getPosition">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-getSize"></a>
@@ -1227,7 +1405,7 @@ set, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.C
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#getSize" href="output/Ext.BoxComponent.html#getSize">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-getXType"></a>
@@ -1251,7 +1429,7 @@ alert(t.getXType());  // alerts <em>'textfield'</em></code></pre>    <div class=
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#getXType" href="output/Ext.Component.html#getXType">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-getXTypes"></a>
@@ -1279,7 +1457,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#getXTypes" href="output/Ext.Component.html#getXTypes">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-hasListener"></a>
@@ -1299,7 +1477,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#hasListener" href="output/Ext.util.Observable.html#hasListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-hide"></a>
@@ -1319,7 +1497,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'</pre></code>   
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hide" href="output/Ext.Component.html#hide">Component</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-insert"></a>
@@ -1351,7 +1529,7 @@ For a list of all available xtypes, see <a ext:cls="Ext.Component" href="output/
         </td>
         <td class="msource">Container</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-isVisible"></a>
@@ -1371,7 +1549,7 @@ For a list of all available xtypes, see <a ext:cls="Ext.Component" href="output/
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isVisible" href="output/Ext.Component.html#isVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-isXType"></a>
@@ -1402,7 +1580,7 @@ the default), or true to check whether this Component is directly of the specifi
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#isXType" href="output/Ext.Component.html#isXType">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-on"></a>
@@ -1423,7 +1601,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-purgeListeners"></a>
@@ -1443,7 +1621,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-relayEvents"></a>
@@ -1463,11 +1641,11 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Container-remove"></a>
-            <b>remove</b>(&nbsp;<code>Component/String component</code>, <span class="optional" title="Optional">[<code>Boolean autoDestroy</code>]</span>&nbsp;) : void            <div class="mdesc">
+            <b>remove</b>(&nbsp;<code>Component/String component</code>, <span class="optional" title="Optional">[<code>Boolean autoDestroy</code>]</span>&nbsp;) : Ext.Component            <div class="mdesc">
                         <div class="short">Removes a component from this container.  Fires the beforeremove event before removing, then fires
 the remove event a...</div>
             <div class="long">
@@ -1478,7 +1656,28 @@ the <a ext:cls="Ext.Container" ext:member="remove" href="output/Ext.Container.ht
 Defaults to the value of this Container's <a ext:cls="Ext.Container" ext:member="autoDestroy" href="output/Ext.Container.html#autoDestroy">autoDestroy</a> config.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>void</code></li>
+            <li><code>Ext.Component</code><div class="sub-desc">component The Component that was removed.</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Container</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Container-removeAll"></a>
+            <b>removeAll</b>(&nbsp;<span class="optional" title="Optional">[<code>Boolean autoDestroy</code>]</span>&nbsp;) : Array            <div class="mdesc">
+                        <div class="short">Removes all components from this container.</div>
+            <div class="long">
+                Removes all components from this container.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>autoDestroy</code> : Boolean<div class="sub-desc">(optional) True to automatically invoke the removed Component's <a ext:cls="Ext.Component" ext:member="destroy" href="output/Ext.Component.html#destroy">Ext.Component.destroy</a> function.
+Defaults to the value of this Container's <a ext:cls="Ext.Container" ext:member="autoDestroy" href="output/Ext.Container.html#autoDestroy">autoDestroy</a> config.</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Array</code><div class="sub-desc">Array of the destroyed components</div></li>
         </ul>
     </div>
                 </div>
@@ -1531,10 +1730,10 @@ Defaults to the value of this Container's <a ext:cls="Ext.Container" ext:member=
         <td class="sig">
         <a id="Ext.Container-render"></a>
             <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Element/HTMLElement/String container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Render this Components into the passed HTML element.
-If you are using a Container object to house this Component, the...</div>
+                        <div class="short">Render this Component into the passed HTML element.
+If you are using a Container object to house this Component, then...</div>
             <div class="long">
-                <p>Render this Components into the passed HTML element.</p>
+                <p>Render this Component into the passed HTML element.</p>
 <p><b>If you are using a <a ext:cls="Ext.Container" href="output/Ext.Container.html">Container</a> object to house this Component, then
 do not use the render method.</b></p>
 <p>A Container's child Components are rendered by that Container's
@@ -1552,7 +1751,7 @@ If you expect child items to be sized in response to user interactions, you must
 configure the Container with a layout manager which creates and manages the type of layout you
 have in mind.</p>
 <p><b>Omitting the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config means that a basic
-layout manager is used which does nothnig but render child components sequentially into the
+layout manager is used which does nothing but render child components sequentially into the
 Container. No sizing or positioning will be performed in this situation.</b></p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>container</code> : Element/HTMLElement/String<div class="sub-desc">(optional) The element this Component should be

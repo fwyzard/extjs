@@ -8,13 +8,14 @@
                 <h1>Class Ext.Element</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">Element.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/Element.js" target="_blank">Element.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Element</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.Layer" href="output/Ext.Layer.html">Layer</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
         <div class="description">
-            Represents an Element in the DOM.<br><br>
+            *
+Represents an Element in the DOM.<br><br>
 Usage:<br>
 <pre><code><i>// by id</i>
 <b>var</b> el = Ext.get(<em>"my-div"</em>);
@@ -1193,7 +1194,7 @@ if a width has not been set using CSS.    <div class="mdetail-params">
         <a id="Ext.Element-getFrameWidth"></a>
             <b>getFrameWidth</b>(&nbsp;<code>String sides</code>&nbsp;) : Number            <div class="mdesc">
                         <div class="short">Returns the sum width of the padding and borders for the passed "sides". See getBorderWidth()
-     for more informati...</div>
+     for more informat...</div>
             <div class="long">
                 Returns the sum width of the padding and borders for the passed "sides". See getBorderWidth()
      for more information about the sides.    <div class="mdetail-params">
@@ -2447,7 +2448,7 @@ within this element's scrollable range.    <div class="mdetail-params">
             <div class="long">
                 Scrolls this element into view within the passed container.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>container</code> : Mixed<div class="sub-desc">(optional) The container element to scroll (defaults to document.body). Should be a 
+        <ul><li><code>container</code> : Mixed<div class="sub-desc">(optional) The container element to scroll (defaults to document.body). Should be a
 string (id), dom node, or Ext.Element.</div></li><li><code>hscroll</code> : Boolean<div class="sub-desc">(optional) False to disable horizontal scroll (defaults to true)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
@@ -2971,12 +2972,12 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-swallowEvent"></a>
-            <b>swallowEvent</b>(&nbsp;<code>String eventName</code>, <span class="optional" title="Optional">[<code>Boolean preventDefault</code>]</span>&nbsp;) : Ext.Element            <div class="mdesc">
-                        <div class="short">Stops the specified event from bubbling and optionally prevents the default action</div>
+            <b>swallowEvent</b>(&nbsp;<code>String/Array eventName</code>, <span class="optional" title="Optional">[<code>Boolean preventDefault</code>]</span>&nbsp;) : Ext.Element            <div class="mdesc">
+                        <div class="short">Stops the specified event(s) from bubbling and optionally prevents the default action</div>
             <div class="long">
-                Stops the specified event from bubbling and optionally prevents the default action    <div class="mdetail-params">
+                Stops the specified event(s) from bubbling and optionally prevents the default action    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>eventName</code> : String<div class="sub-desc"></div></li><li><code>preventDefault</code> : Boolean<div class="sub-desc">(optional) true to prevent the default action too</div></li>        </ul>
+        <ul><li><code>eventName</code> : String/Array<div class="sub-desc">an event / array of events to stop from bubbling</div></li><li><code>preventDefault</code> : Boolean<div class="sub-desc">(optional) true to prevent the default action too</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Ext.Element</code><div class="sub-desc">this</div></li>
@@ -3051,12 +3052,13 @@ The element must be part of the DOM tree to have page coordinates (display:none 
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Element-un"></a>
-            <b>un</b>(&nbsp;<code>String eventName</code>, <code>Function fn</code>&nbsp;) : Ext.Element            <div class="mdesc">
+            <b>un</b>(&nbsp;<code>String eventName</code>, <code>Function fn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : Ext.Element            <div class="mdesc">
                         <div class="short">Removes an event handler from this element (shorthand for <a ext:cls="Ext.Element" ext:member="removeListener" href="output/Ext.Element.html#removeListener">removeListener</a>).</div>
             <div class="long">
                 Removes an event handler from this element (shorthand for <a ext:cls="Ext.Element" ext:member="removeListener" href="output/Ext.Element.html#removeListener">removeListener</a>).    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>eventName</code> : String<div class="sub-desc">the type of event to remove</div></li><li><code>fn</code> : Function<div class="sub-desc">the method the event invokes</div></li>        </ul>
+        <ul><li><code>eventName</code> : String<div class="sub-desc">the type of event to remove</div></li><li><code>fn</code> : Function<div class="sub-desc">the method the event invokes</div></li><li><code>scope</code> : Object<div class="sub-desc">(optional) The scope (The <tt>this</tt> reference) of the handler function. Defaults
+to this Element.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Ext.Element</code><div class="sub-desc">this</div></li>

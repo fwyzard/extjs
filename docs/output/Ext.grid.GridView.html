@@ -12,13 +12,14 @@
                 <h1>Class Ext.grid.GridView</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.grid</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">GridView.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/GridView.js" target="_blank">GridView.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">GridView</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.grid.GroupingView" href="output/Ext.grid.GroupingView.html">GroupingView</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
                     </table>
         <div class="description">
-            <p>This class encapsulates the user interface of an <a ext:cls="Ext.grid.GridPanel" href="output/Ext.grid.GridPanel.html">Ext.grid.GridPanel</a>.
+            *
+<p>This class encapsulates the user interface of an <a ext:cls="Ext.grid.GridPanel" href="output/Ext.grid.GridPanel.html">Ext.grid.GridPanel</a>.
 Methods of this class may be used to access user interface elements to enable
 special display effects. Do not change the DOM structure of the user interface.</p>
 <p>This class does not provide ways to manipulate the underlying data. The data
@@ -89,12 +90,15 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-forceFit"></a>
             <b>forceFit</b> : Boolean            <div class="mdesc">
-                            True to auto expand/contract the size of the columns to fit the grid width and prevent horizontal scrolling.                        </div>
+                        <div class="short">True to auto expand/contract the size of the columns to fit the grid width and prevent horizontal scrolling. This opt...</div>
+            <div class="long">
+                True to auto expand/contract the size of the columns to fit the grid width and prevent horizontal scrolling. This option overrides any (@link Ext.grid.ColumnModel#width width} settings in the ColumnModel.            </div>
+                        </div>
         </td>
         <td class="msource">GridView</td>
     </tr>
@@ -103,9 +107,9 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         <td class="sig">
         <a id="Ext.grid.GridView-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
@@ -155,7 +159,21 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="property-row">
+        <tr class="property-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GridView-mainBody"></a>
+            <b>mainBody</b> : Ext.Element            <div class="mdesc">
+                        <div class="short">The GridView's body Element which encapsulates all rows in the Grid. Element. Read-only.
+This Element is only availab...</div>
+            <div class="long">
+                The GridView's body Element which encapsulates all rows in the Grid. <a ext:cls="Ext.Element" href="output/Ext.Element.html">Element</a>. Read-only.
+<p>This Element is only available after the GridPanel has been rendered.</p>            </div>
+                        </div>
+        </td>
+        <td class="msource">GridView</td>
+    </tr>
+        <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-scrollOffset"></a>
@@ -164,7 +182,7 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="property-row alt">
+        <tr class="property-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-sortAscText"></a>
@@ -173,7 +191,7 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="property-row">
+        <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-sortClasses"></a>
@@ -182,7 +200,7 @@ model of a Grid is held in an <a ext:cls="Ext.data.Store" href="output/Ext.data.
         </td>
         <td class="msource">GridView</td>
     </tr>
-        <tr class="property-row alt">
+        <tr class="property-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GridView-sortDescText"></a>
@@ -305,6 +323,46 @@ Or a shorthand syntax:<br>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#addListener" href="output/Ext.util.Observable.html#addListener">Observable</a></td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GridView-findRow"></a>
+            <b>findRow</b>(&nbsp;<code>Element el</code>&nbsp;) : The            <div class="mdesc">
+                        <div class="short">Return the HtmlElement representing the grid row which contains the passed element.</div>
+            <div class="long">
+                Return the HtmlElement representing the grid row which contains the passed element.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>el</code> : Element<div class="sub-desc">The target element</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>The</code><div class="sub-desc">row element, or null if the target element is not within a row of this GridView.</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">GridView</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GridView-findRowIndex"></a>
+            <b>findRowIndex</b>(&nbsp;<code>Element el</code>&nbsp;) : The            <div class="mdesc">
+                        <div class="short">Return the index of the grid row which contains the passed element.</div>
+            <div class="long">
+                Return the index of the grid row which contains the passed element.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>el</code> : Element<div class="sub-desc">The target element</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>The</code><div class="sub-desc">row index, or <b>false</b> if the target element is not within a row of this GridView.</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">GridView</td>
     </tr>
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

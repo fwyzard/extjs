@@ -8,12 +8,13 @@
                 <h1>Class Ext.QuickTips</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">QuickTips.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/QuickTips.js" target="_blank">QuickTips.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">QuickTips</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
         <div class="description">
-            <p>Provides attractive and customizable tooltips for any element. The QuickTips
+            *
+<p>Provides attractive and customizable tooltips for any element. The QuickTips
 singleton is used to configure and manage tooltips globally for multiple elements
 in a generic manner.  To create individual tooltips with maximum customizability,
 you should consider either <a ext:cls="Ext.Tip" href="output/Ext.Tip.html">Ext.Tip</a> or <a ext:cls="Ext.ToolTip" href="output/Ext.ToolTip.html">Ext.ToolTip</a>.</p>
@@ -53,7 +54,7 @@ Ext.apply(Ext.QuickTips.getQuickTip(), {
 });
 
 <i>// Manually register a quick tip <b>for</b> a specific element</i>
-q.register({
+Ext.QuickTips.register({
     target: <em>'my-div'</em>,
     title: <em>'My Tooltip'</em>,
     text: <em>'This tooltip was added <b>in</b> code'</em>,

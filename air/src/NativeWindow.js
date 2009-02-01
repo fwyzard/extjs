@@ -1,6 +1,6 @@
 /*
- * Ext JS Library 0.20
- * Copyright(c) 2006-2008, Ext JS, LLC.
+ * Ext JS Library 0.30
+ * Copyright(c) 2006-2009, Ext JS, LLC.
  * licensing@extjs.com
  * 
  * http://extjs.com/license
@@ -83,7 +83,12 @@ Ext.air.NativeWindow = function(config){
 		options.transparent = this.transparent;
 		
 		this.loader = window.runtime.flash.html.HTMLLoader.createRootWindow(false, options, false);
-		this.loader.load(new air.URLRequest(this.file));
+		if (this.file) {
+			this.loader.load(new air.URLRequest(this.file));	
+		} else {
+			this.loader.loadString(this.html || '');
+		}
+		
 	
 		this.instance = this.loader.window.nativeWindow;
 	}else{
@@ -272,6 +277,34 @@ Ext.extend(Ext.air.NativeWindow, Ext.air.NativeObservable, {
 		this.x = this.instance.x = x;
 		this.y = this.instance.y = y;	
 	},
+	/**
+	 * Enter full-screen mode for the window.
+	 * @param {Boolean} nonInteractive (optional) Boolean flag to allow the full screen window to be interactive or not. By default this is false.
+	 * Example Code:
+	 * var win = new Ext.air.NativeWindow({instance: Ext.air.NativeWindow.getRootWindow()});
+	 * win.fullscreen();
+	 */
+	fullscreen: function(nonInteractive) {
+		var SDS = runtime.flash.display.StageDisplayState;
+		this.instance.stage.displayState = nonInteractive ? SDS.FULL_SCREEN : SDS.FULL_SCREEN_INTERACTIVE; 
+	},
+	
+	bringToFront: function() {
+		this.instance.orderToFront();
+	},
+	
+	bringInFrontOf: function(win) {
+		this.instance.orderInFrontOf(win.instance ? win.instance : win);
+	},
+	
+	sendToBack: function() {
+		this.instance.orderToBack();
+	},
+	
+	sendBehind: function(win) {
+		this.instance.orderInBackOf(win.instance ? win.instance : win);
+	},
+	
 	
 	/**
 	 * @param {Number} width

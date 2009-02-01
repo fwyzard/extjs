@@ -13,44 +13,45 @@
                 <h1>Class Ext.layout.FormLayout</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.layout</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">FormLayout.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/FormLayout.js" target="_blank">FormLayout.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">FormLayout</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.layout.AnchorLayout" ext:member="" href="output/Ext.layout.AnchorLayout.html">AnchorLayout</a></td></tr>
                     </table>
         <div class="description">
-            <p>This is a layout specifically designed for creating forms.
-This class can be extended or created via the layout:'form' <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">Ext.Container.layout</a> config,
-and should generally not need to be created directly via the new keyword.  However, when used in an application,
-it will usually be preferrable to use a <a ext:cls="Ext.form.FormPanel" href="output/Ext.form.FormPanel.html">Ext.form.FormPanel</a> (which automatically uses FormLayout as its layout
+            *
+<p>This layout manager is specifically designed for rendering and managing child Components of forms.
+It is responsible for rendering the labels of <a ext:cls="Ext.form.Field" href="output/Ext.form.Field.html">Field</a>s.</p>
+<p>This layout manager is used when a Container is configured with the layout:'form' <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config,
+and should generally not need to be created directly via the new keyword. In an application,
+it will usually be preferrable to use a <a ext:cls="Ext.form.FormPanel" href="output/Ext.form.FormPanel.html">FormPanel</a> (which automatically uses FormLayout as its layout
 class) since it also provides built-in functionality for loading, validating and submitting the form.</p>
 <p>Note that when creating a layout via config, the layout-specific config properties must be passed in via
-the <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">Ext.Container.layoutConfig</a> object which will then be applied internally to the layout.  The container
-using the FormLayout can also supply the following form-specific config properties which will be applied by the layout:
-<ul>
-<li><b>hideLabels</b>: (Boolean) True to hide field labels by default (defaults to false)</li>
-<li><b>itemCls</b>: (String) A CSS class to add to the div wrapper that contains each field label
-and field element (the default class is 'x-form-item' and itemCls will be added to that)</li>
-<li><b>labelAlign</b>: (String) The default label alignment.  The default value is empty string ''
-for left alignment, but specifying 'top' will align the labels above the fields.</li>
-<li><b>labelPad</b>: (Number) The default padding in pixels for field labels (defaults to 5).  labelPad only
-applies if labelWidth is also specified, otherwise it will be ignored.</li>
-<li><b>labelWidth</b>: (Number) The default width in pixels of field labels (defaults to 100)</li>
-</ul></p>
+the <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">layoutConfig</a> object which will then be applied internally to the layout.</p>
+<p>The <a ext:cls="Ext.Container" href="output/Ext.Container.html">Container</a> <i>using</i> the FormLayout can also accept the following layout-specific config
+properties:
+<div class="mdetail-params"><ul>
+<li><b>hideLabels</b>: (Boolean)<div class="sub-desc">True to hide field labels by default (defaults to false)</div></li>
+<li><b>labelAlign</b>: (String)<div class="sub-desc">The default label alignment.  The default value is empty string ''
+for left alignment, but specifying 'top' will align the labels above the fields.</div></li>
+<li><b>labelPad</b>: (Number)<div class="sub-desc">The default padding in pixels for field labels (defaults to 5).  labelPad only
+applies if labelWidth is also specified, otherwise it will be ignored.</div></li>
+<li><b>labelWidth</b>: (Number)<div class="sub-desc">The default width in pixels of field labels (defaults to 100)</div></li>
+</ul></div></p>
 <p>Any type of components can be added to a FormLayout, but items that inherit from <a ext:cls="Ext.form.Field" href="output/Ext.form.Field.html">Ext.form.Field</a>
 can also supply the following field-specific config properties:
-<ul>
-<li><b>clearCls</b>: (String) The CSS class to apply to the special clearing div rendered directly after each
-form field wrapper (defaults to 'x-form-clear-left')</li>
-<li><b>fieldLabel</b>: (String) The text to display as the label for this field (defaults to '')</li>
-<li><b>hideLabel</b>: (Boolean) True to hide the label and separator for this field (defaults to false).</li>
-<li><b>itemCls</b>: (String) A CSS class to add to the div wrapper that contains this field label
+<div class="mdetail-params"><ul>
+<li><b>clearCls</b>: (String)<div class="sub-desc">The CSS class to apply to the special clearing div rendered directly after each
+form field wrapper (defaults to 'x-form-clear-left')</div></li>
+<li><b>fieldLabel</b>: (String)<div class="sub-desc">The text to display as the label for this field (defaults to '')</div></li>
+<li><b>hideLabel</b>: (Boolean)<div class="sub-desc">True to hide the label and separator for this field (defaults to false).</div></li>
+<li><b>itemCls</b>: (String)<div class="sub-desc">A CSS class to add to the div wrapper that contains this field label
 and field element (the default class is 'x-form-item' and itemCls will be added to that).  If supplied,
-itemCls at the field level will override the default itemCls supplied at the container level.</li>
-<li><b>labelSeparator</b>: (String) The separator to display after the text of the label for this field
-(defaults to a colon ':' or the layout's value for <a ext:cls="Ext.layout.FormLayout" ext:member="labelSeparator" href="output/Ext.layout.FormLayout.html#labelSeparator">labelSeparator</a>).  To hide the separator use empty string ''.</li>
-<li><b>labelStyle</b>: (String) A CSS style specification string to add to the field label for this field
-(defaults to '' or the layout's value for <a ext:cls="Ext.layout.FormLayout" ext:member="labelStyle" href="output/Ext.layout.FormLayout.html#labelStyle">labelStyle</a>).</li>
-</ul>
+itemCls at the field level will override the default itemCls supplied at the container level.</div></li>
+<li><b>labelSeparator</b>: (String)<div class="sub-desc">The separator to display after the text of the label for this field
+(defaults to a colon ':' or the layout's value for <a ext:cls="Ext.layout.FormLayout" ext:member="labelSeparator" href="output/Ext.layout.FormLayout.html#labelSeparator">labelSeparator</a>).  To hide the separator use empty string ''.</div></li>
+<li><b>labelStyle</b>: (String)<div class="sub-desc">A CSS style specification string to add to the field label for this field
+(defaults to '' or the layout's value for <a ext:cls="Ext.layout.FormLayout" ext:member="labelStyle" href="output/Ext.layout.FormLayout.html#labelStyle">labelStyle</a>).</div></li>
+</ul></div></p>
 Example usage:</p>
 <pre><code><i>// Required <b>if</b> showing validation messages</i>
 Ext.QuickTips.init();
@@ -105,16 +106,7 @@ Ext.QuickTips.init();
                 <th class="sig-header" colspan="2">Config Options</th>
                 <th class="msource-header">Defined By</th>
             </tr>
-                <tr class="config-row">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
-        <a id="Ext.layout.FormLayout-elementStyle"></a>
-            <b>elementStyle</b> : String            <div class="mdesc">
-                            A CSS style specification string to add to each field element in this layout (defaults to '').                        </div>
-        </td>
-        <td class="msource">FormLayout</td>
-    </tr>
-        <tr class="config-row inherited alt expandable">
+                <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.layout.FormLayout-extraCls"></a>
@@ -126,7 +118,7 @@ Ext.QuickTips.init();
         </td>
         <td class="msource"><a ext:cls="Ext.layout.ContainerLayout" ext:member="#extraCls" href="output/Ext.layout.ContainerLayout.html#extraCls">ContainerLayout</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.layout.FormLayout-labelSeparator"></a>
@@ -135,15 +127,6 @@ Ext.QuickTips.init();
             <div class="long">
                 The standard separator to display after the text of each form label (defaults to a colon ':'). To turn off separators for all fields in this layout by default specify empty string '' (if the labelSeparator value is explicitly set at the field level, those will still be displayed).            </div>
                         </div>
-        </td>
-        <td class="msource">FormLayout</td>
-    </tr>
-        <tr class="config-row alt">
-        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
-        <td class="sig">
-        <a id="Ext.layout.FormLayout-labelStyle"></a>
-            <b>labelStyle</b> : String            <div class="mdesc">
-                            A CSS style specification string to add to each field label in this layout (defaults to '').                        </div>
         </td>
         <td class="msource">FormLayout</td>
     </tr>

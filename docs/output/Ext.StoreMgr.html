@@ -12,12 +12,13 @@
                 <h1>Class Ext.StoreMgr</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">StoreMgr.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/StoreMgr.js" target="_blank">StoreMgr.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">StoreMgr</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.MixedCollection" ext:member="" href="output/Ext.util.MixedCollection.html">MixedCollection</a></td></tr>
                     </table>
         <div class="description">
-            The default global group of stores.<br><br><i>This class is a singleton and cannot be created directly.</i>        </div>
+            *
+The default global group of stores.<br><br><i>This class is a singleton and cannot be created directly.</i>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.StoreMgr-props"></a>
@@ -186,9 +187,9 @@ Or a shorthand syntax:<br>
         <td class="sig">
         <a id="Ext.StoreMgr-clone"></a>
             <b>clone</b>() : MixedCollection            <div class="mdesc">
-                        <div class="short">Creates a duplicate of this collection</div>
+                        <div class="short">Creates a shallow copy of this collection</div>
             <div class="long">
-                Creates a duplicate of this collection    <div class="mdetail-params">
+                Creates a shallow copy of this collection    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li>None.</li>        </ul>
         <strong>Returns:</strong>
@@ -577,7 +578,7 @@ mc.add(otherEl);</code></pre>    <div class="mdetail-params">
         <ul><li><code>o</code> : Object<div class="sub-desc">The item to find the index of.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Number</code><div class="sub-desc">index of the item.</div></li>
+            <li><code>Number</code><div class="sub-desc">index of the item. Returns -1 if not found.</div></li>
         </ul>
     </div>
                 </div>

@@ -13,12 +13,13 @@
                 <h1>Class Ext.layout.Accordion</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.layout</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">AccordionLayout.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/AccordionLayout.js" target="_blank">AccordionLayout.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Accordion</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.layout.FitLayout" ext:member="" href="output/Ext.layout.FitLayout.html">FitLayout</a></td></tr>
                     </table>
         <div class="description">
-            <p>This is a layout that contains multiple panels in an expandable accordion style such that only one
+            *
+<p>This is a layout that contains multiple panels in an expandable accordion style such that only one
 panel can be open at any given time.  Each panel has built-in support for expanding and collapsing.
 This class is intended to be extended or created via the layout:'accordion' <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">Ext.Container.layout</a>
 config, and should generally not need to be created directly via the new keyword.</p>
@@ -82,12 +83,15 @@ Example usage:</p>
         </td>
         <td class="msource">Accordion</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.layout.Accordion-autoWidth"></a>
             <b>autoWidth</b> : Boolean            <div class="mdesc">
-                            True to set each contained item's width to 'auto', false to use the item's current width (defaults to true).                        </div>
+                        <div class="short">True to set each contained item's width to 'auto', false to use the item's current width (defaults to true). Note tha...</div>
+            <div class="long">
+                True to set each contained item's width to 'auto', false to use the item's current width (defaults to true). Note that some components, in particular the <a ext:cls="Ext.grid.GridPanel" href="output/Ext.grid.GridPanel.html">grid</a>, will not function properly within layouts if they have auto width, so in such cases this config should be set to false.            </div>
+                        </div>
         </td>
         <td class="msource">Accordion</td>
     </tr>

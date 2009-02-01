@@ -8,7 +8,7 @@
                 <h1>Class Ext</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Global</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">Ext.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/Ext.js" target="_blank">Ext.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Ext</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
@@ -104,13 +104,22 @@ Note: this only happens if enableGarbageCollector is true.            </div>
         <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext-isChrome"></a>
+            <b>isChrome</b> : Boolean            <div class="mdesc">
+                            True if the detected browser is Chrome.                        </div>
+        </td>
+        <td class="msource">Ext</td>
+    </tr>
+        <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext-isGecko"></a>
             <b>isGecko</b> : Boolean            <div class="mdesc">
                             True if the detected browser uses the Gecko layout engine (e.g. Mozilla, Firefox).                        </div>
         </td>
         <td class="msource">Ext</td>
     </tr>
-        <tr class="property-row">
+        <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext-isGecko2"></a>
@@ -119,7 +128,7 @@ Note: this only happens if enableGarbageCollector is true.            </div>
         </td>
         <td class="msource">Ext</td>
     </tr>
-        <tr class="property-row alt">
+        <tr class="property-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext-isGecko3"></a>
@@ -128,7 +137,7 @@ Note: this only happens if enableGarbageCollector is true.            </div>
         </td>
         <td class="msource">Ext</td>
     </tr>
-        <tr class="property-row">
+        <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext-isIE"></a>
@@ -137,7 +146,7 @@ Note: this only happens if enableGarbageCollector is true.            </div>
         </td>
         <td class="msource">Ext</td>
     </tr>
-        <tr class="property-row alt">
+        <tr class="property-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext-isIE6"></a>
@@ -146,12 +155,21 @@ Note: this only happens if enableGarbageCollector is true.            </div>
         </td>
         <td class="msource">Ext</td>
     </tr>
-        <tr class="property-row">
+        <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext-isIE7"></a>
             <b>isIE7</b> : Boolean            <div class="mdesc">
                             True if the detected browser is Internet Explorer 7.x.                        </div>
+        </td>
+        <td class="msource">Ext</td>
+    </tr>
+        <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext-isIE8"></a>
+            <b>isIE8</b> : Boolean            <div class="mdesc">
+                            True if the detected browser is Internet Explorer 8.x.                        </div>
         </td>
         <td class="msource">Ext</td>
     </tr>
@@ -692,11 +710,11 @@ Shorthand of <a ext:cls="Ext.Element" ext:member="get" href="output/Ext.Element.
         <td class="sig">
         <a id="Ext-isEmpty"></a>
             <b>isEmpty</b>(&nbsp;<code>Mixed value</code>, <span class="optional" title="Optional">[<code>Boolean allowBlank</code>]</span>&nbsp;) : Boolean            <div class="mdesc">
-                        <div class="short">Returns true if the passed value is null, undefined or an empty string (optional).</div>
+                        <div class="short">Returns true if the passed value is null, undefined or an empty string.</div>
             <div class="long">
-                Returns true if the passed value is null, undefined or an empty string (optional).    <div class="mdetail-params">
+                Returns true if the passed value is null, undefined or an empty string.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>value</code> : Mixed<div class="sub-desc">The value to test</div></li><li><code>allowBlank</code> : Boolean<div class="sub-desc">(optional) Pass true if an empty string is not considered empty</div></li>        </ul>
+        <ul><li><code>value</code> : Mixed<div class="sub-desc">The value to test</div></li><li><code>allowBlank</code> : Boolean<div class="sub-desc">(optional) true to allow empty strings (defaults to false)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Boolean</code></li>
@@ -755,13 +773,12 @@ Company.data.CustomStore = <b>function</b>(config) { ... }</code></pre>    <div 
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext-onReady"></a>
-            <b>onReady</b>(&nbsp;<code>Function fn</code>, <code>Object scope</code>, <code>boolean override</code>&nbsp;) : void            <div class="mdesc">
+            <b>onReady</b>(&nbsp;<code>Function fn</code>, <code>Object scope</code>, <span class="optional" title="Optional">[<code>boolean options</code>]</span>&nbsp;) : void            <div class="mdesc">
                         <div class="short">Fires when the document is ready (before onload and before images are loaded).  Shorthand of Ext.EventManager.onDocum...</div>
             <div class="long">
                 Fires when the document is ready (before onload and before images are loaded).  Shorthand of <a ext:cls="Ext.EventManager" ext:member="onDocumentReady" href="output/Ext.EventManager.html#onDocumentReady">Ext.EventManager.onDocumentReady</a>.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>fn</code> : Function<div class="sub-desc">The method the event invokes</div></li><li><code>scope</code> : Object<div class="sub-desc">An object that becomes the scope of the handler</div></li><li><code>override</code> : boolean<div class="sub-desc">If true, the obj passed in becomes
-the execution scope of the listener</div></li>        </ul>
+        <ul><li><code>fn</code> : Function<div class="sub-desc">The method the event invokes</div></li><li><code>scope</code> : Object<div class="sub-desc">An object that becomes the scope of the handler</div></li><li><code>options</code> : boolean<div class="sub-desc">(optional) An object containing standard <a ext:cls="Ext" ext:member="addListener" href="output/Ext.html#addListener">addListener</a> options</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>
@@ -896,6 +913,7 @@ return false otherwise it returns one of the following values:<ul>
 <li><b>string</b>: If the object passed is a string</li>
 <li><b>number</b>: If the object passed is a number</li>
 <li><b>boolean</b>: If the object passed is a boolean value</li>
+<li><b>date</b>: If the object passed is a Date object</li>
 <li><b>function</b>: If the object passed is a function reference</li>
 <li><b>object</b>: If the object passed is an object</li>
 <li><b>array</b>: If the object passed is an array</li>
@@ -921,9 +939,10 @@ return false otherwise it returns one of the following values:<ul>
         <td class="sig">
         <a id="Ext-urlDecode"></a>
             <b>urlDecode</b>(&nbsp;<code>String string</code>, <span class="optional" title="Optional">[<code>Boolean overwrite</code>]</span>&nbsp;) : Object            <div class="mdesc">
-                        <div class="short">Takes an encoded URL and and converts it to an object. e.g. Ext.urlDecode("foo=1&bar=2"); would return {foo: 1, bar: ...</div>
+                        <div class="short">Takes an encoded URL and and converts it to an object. e.g. Ext.urlDecode("foo=1&bar=2"); would return {foo: "1", bar...</div>
             <div class="long">
-                Takes an encoded URL and and converts it to an object. e.g. Ext.urlDecode("foo=1&bar=2"); would return {foo: 1, bar: 2} or Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", true); would return {foo: 1, bar: [2, 3, 4]}.    <div class="mdetail-params">
+                Takes an encoded URL and and converts it to an object. e.g. Ext.urlDecode("foo=1&bar=2"); would return {foo: "1", bar: "2"}
+or Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); would return {foo: "1", bar: ["2", "3", "4"]}.    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>string</code> : String<div class="sub-desc"></div></li><li><code>overwrite</code> : Boolean<div class="sub-desc">(optional) Items of the same name will overwrite previous values instead of creating an an array (Defaults to false).</div></li>        </ul>
         <strong>Returns:</strong>
@@ -949,6 +968,27 @@ return false otherwise it returns one of the following values:<ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>String</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">Ext</td>
+    </tr>
+        <tr class="method-row expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext-value"></a>
+            <b>value</b>(&nbsp;<code>Mixed value</code>, <code>Mixed defaultValue</code>, <span class="optional" title="Optional">[<code>Boolean allowBlank</code>]</span>&nbsp;) : Mixed            <div class="mdesc">
+                        <div class="short">Utility method for validating that a value is non-empty (i.e. i) not null, ii) not undefined, and iii) not an empty s...</div>
+            <div class="long">
+                Utility method for validating that a value is non-empty (i.e. i) not null, ii) not undefined, and iii) not an empty string), 
+returning the specified default value if it is.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>value</code> : Mixed<div class="sub-desc">The value to test</div></li><li><code>defaultValue</code> : Mixed<div class="sub-desc">The value to return if the original value is empty</div></li><li><code>allowBlank</code> : Boolean<div class="sub-desc">(optional) true to allow empty strings (defaults to false)</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Mixed</code><div class="sub-desc">value, if non-empty, else defaultValue</div></li>
         </ul>
     </div>
                 </div>

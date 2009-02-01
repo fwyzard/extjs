@@ -13,12 +13,13 @@
                 <h1>Class Ext.ColorPalette</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">ColorPalette.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/ColorPalette.js" target="_blank">ColorPalette.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">ColorPalette</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.Component" ext:member="" href="output/Ext.Component.html">Component</a></td></tr>
                     </table>
         <div class="description">
-            Simple color palette class for choosing colors.  The palette can be rendered to any container.<br />
+            *
+Simple color palette class for choosing colors.  The palette can be rendered to any container.<br />
 Here's an example of typical usage:
 <pre><code>var cp = <b>new</b> Ext.ColorPalette({value:<em>'993300'</em>});  <i>// initial selected color</i>
 cp.render(<em>'my-div'</em>);
@@ -80,6 +81,18 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.ColorPalette-clearCls"></a>
+            <b>clearCls</b> : String            <div class="mdesc">
+                        <div class="short">The CSS class used to provide field clearing (defaults to 'x-form-clear-left'). This config is only used when this Co...</div>
+            <div class="long">
+                The CSS class used to provide field clearing (defaults to 'x-form-clear-left'). <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#clearCls" href="output/Ext.Component.html#clearCls">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.ColorPalette-cls"></a>
             <b>cls</b> : String            <div class="mdesc">
                         <div class="short">An optional extra CSS class that will be added to this component's Element (defaults to ''). This can be useful for a...</div>
@@ -89,7 +102,7 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#cls" href="output/Ext.Component.html#cls">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-ctCls"></a>
@@ -101,7 +114,7 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#ctCls" href="output/Ext.Component.html#ctCls">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-disabled"></a>
@@ -110,7 +123,7 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-disabledClass"></a>
@@ -118,6 +131,25 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
                             CSS class added to the component when it is disabled (defaults to "x-item-disabled").                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabledClass" href="output/Ext.Component.html#disabledClass">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.ColorPalette-fieldLabel"></a>
+            <b>fieldLabel</b> : String            <div class="mdesc">
+                        <div class="short">The label text to display next to this Component (defaults to '') This config is only used when this Component is ren...</div>
+            <div class="long">
+                The label text to display next to this Component (defaults to '') <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#fieldLabel" href="output/Ext.Component.html#fieldLabel">Component</a></td>
     </tr>
         <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -131,16 +163,35 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.ColorPalette-hideLabel"></a>
+            <b>hideLabel</b> : Boolean            <div class="mdesc">
+                        <div class="short">True to completely hide the label element (defaults to false). By default, even if you do not specify a fieldLabel th...</div>
+            <div class="long">
+                True to completely hide the label element (defaults to false). By default, even if you do not specify a <a ext:cls="fieldLabel" href="output/fieldLabel.html">fieldLabel</a> the space will still be reserved so that the field will line up with other fields that do have labels. Setting this to true will cause the field to not reserve that space. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>
+        hideLabel: true
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideLabel" href="output/Ext.Component.html#hideLabel">Component</a></td>
+    </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.ColorPalette-hideMode"></a>
             <b>hideMode</b> : String            <div class="mdesc">
-                        <div class="short">How this component should hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset posi...</div>
+                        <div class="short">How this component should be hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset p...</div>
             <div class="long">
-                How this component should hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset position) and "display" (css display) - defaults to "display".            </div>
+                <p>How this component should be hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset position) and "display" (css display) - defaults to "display".</p> <p>For Containers which may be hidden and shown as part of a <a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">card layout</a> Container such as a <a ext:cls="Ext.TabPanel" href="output/Ext.TabPanel.html">TabPanel</a>, it is recommended that hideMode is configured as "offsets". This ensures that hidden Components still have height and width so that layout managers can perform measurements when calculating layouts.</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideMode" href="output/Ext.Component.html#hideMode">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-hideParent"></a>
@@ -152,16 +203,19 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideParent" href="output/Ext.Component.html#hideParent">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-id"></a>
             <b>id</b> : String            <div class="mdesc">
-                            The unique id of this component (defaults to an auto-assigned id).                        </div>
+                        <div class="short">The unique id of this component (defaults to an auto-assigned id). You should assign an id if you need to be able to ...</div>
+            <div class="long">
+                The unique id of this component (defaults to an auto-assigned id). You should assign an id if you need to be able to access the component later and you do not have an object reference available (e.g., using <a ext:cls="Ext.ComponentMgr" ext:member="getCmp" href="output/Ext.ComponentMgr.html#getCmp">Ext.ComponentMgr.getCmp</a>). Note that this id will also be used as the element id for the containing HTML element that is rendered to the page for this component. This allows you to write id-based CSS rules to style the specific instance of this component uniquely, and also to select sub-elements using this component's id as the parent.            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#id" href="output/Ext.Component.html#id">Component</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-itemCls"></a>
@@ -170,19 +224,59 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource">ColorPalette</td>
     </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.ColorPalette-labelSeparator"></a>
+            <b>labelSeparator</b> : String            <div class="mdesc">
+                        <div class="short">The standard separator to display after the text of each form label (defaults to the value of Ext.layout.FormLayout.l...</div>
+            <div class="long">
+                The standard separator to display after the text of each form label (defaults to the value of <a ext:cls="Ext.layout.FormLayout" ext:member="labelSeparator" href="output/Ext.layout.FormLayout.html#labelSeparator">Ext.layout.FormLayout.labelSeparator</a>, which is a colon ':' by default). To display no separator for this field's label specify empty string ''. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>,
+        labelSeparator: <em>'...'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#labelSeparator" href="output/Ext.Component.html#labelSeparator">Component</a></td>
+    </tr>
         <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.ColorPalette-labelStyle"></a>
+            <b>labelStyle</b> : String            <div class="mdesc">
+                        <div class="short">A CSS style specification to apply directly to this field's label (defaults to the container's labelStyle value if se...</div>
+            <div class="long">
+                A CSS style specification to apply directly to this field's label (defaults to the container's labelStyle value if set, or '').<code></code>. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>,
+        labelStyle: <em>'font-weight:bold;'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#labelStyle" href="output/Ext.Component.html#labelStyle">Component</a></td>
+    </tr>
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-overCls"></a>
@@ -194,7 +288,7 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-plugins"></a>
@@ -206,7 +300,7 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-renderTo"></a>
@@ -218,7 +312,7 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-stateEvents"></a>
@@ -230,31 +324,31 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateEvents" href="output/Ext.Component.html#stateEvents">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-stateId"></a>
             <b>stateId</b> : String            <div class="mdesc">
-                        <div class="short">The unique id for this component to use for state management purposes (defaults to the component id). See stateful fo...</div>
+                        <div class="short">The unique id for this component to use for state management purposes (defaults to the component id if one was set, o...</div>
             <div class="long">
-                The unique id for this component to use for state management purposes (defaults to the component id). <p>See <a ext:cls="Ext.Component" ext:member="stateful" href="output/Ext.Component.html#stateful">stateful</a> for an explanation of saving and restoring Component state.</p>            </div>
+                The unique id for this component to use for state management purposes (defaults to the component id if one was set, otherwise null if the component is using a generated id). <p>See <a ext:cls="Ext.Component" ext:member="stateful" href="output/Ext.Component.html#stateful">stateful</a> for an explanation of saving and restoring Component state.</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-stateful"></a>
             <b>stateful</b> : Boolean            <div class="mdesc">
                         <div class="short">A flag which causes the Component to attempt to restore the state of internal properties from a saved state on startu...</div>
             <div class="long">
-                A flag which causes the Component to attempt to restore the state of internal properties from a saved state on startup.<p> For state saving to work, the state manager's provider must have been set to an implementation of <a ext:cls="Ext.state.Provider" href="output/Ext.state.Provider.html">Ext.state.Provider</a> which overrides the <a ext:cls="Ext.state.Provider" ext:member="set" href="output/Ext.state.Provider.html#set">set</a> and <a ext:cls="Ext.state.Provider" ext:member="get" href="output/Ext.state.Provider.html#get">get</a> methods to save and recall name/value pairs. A built-in implementation, <a ext:cls="Ext.state.CookieProvider" href="output/Ext.state.CookieProvider.html">Ext.state.CookieProvider</a> is available.</p> <p>To set the state provider for the current page:</p> <pre><code>Ext.state.Manager.setProvider(<b>new</b> Ext.state.CookieProvider());</code></pre> <p>Components attempt to save state when one of the events listed in the <a ext:cls="Ext.Component" ext:member="stateEvents" href="output/Ext.Component.html#stateEvents">stateEvents</a> configuration fires.</p> <p>You can perform extra processing on state save and restore by attaching handlers to the <a ext:cls="Ext.Component" ext:member="beforestaterestore" href="output/Ext.Component.html#beforestaterestore">beforestaterestore</a>, <a ext:cls="staterestore" href="output/staterestore.html">staterestore</a>, <a ext:cls="beforestatesave" href="output/beforestatesave.html">beforestatesave</a> and <a ext:cls="statesave" href="output/statesave.html">statesave</a> events</p>            </div>
+                <p>A flag which causes the Component to attempt to restore the state of internal properties from a saved state on startup. The component must have either a <a ext:cls="Ext.Component" ext:member="stateId" href="output/Ext.Component.html#stateId">stateId</a> or <a ext:cls="Ext.Component" ext:member="id" href="output/Ext.Component.html#id">id</a> assigned for state to be managed. Auto-generated ids are not guaranteed to be stable across page loads and cannot be relied upon to save and restore the same state for a component.<p> For state saving to work, the state manager's provider must have been set to an implementation of <a ext:cls="Ext.state.Provider" href="output/Ext.state.Provider.html">Ext.state.Provider</a> which overrides the <a ext:cls="Ext.state.Provider" ext:member="set" href="output/Ext.state.Provider.html#set">set</a> and <a ext:cls="Ext.state.Provider" ext:member="get" href="output/Ext.state.Provider.html#get">get</a> methods to save and recall name/value pairs. A built-in implementation, <a ext:cls="Ext.state.CookieProvider" href="output/Ext.state.CookieProvider.html">Ext.state.CookieProvider</a> is available.</p> <p>To set the state provider for the current page:</p> <pre><code>Ext.state.Manager.setProvider(<b>new</b> Ext.state.CookieProvider());</code></pre> <p>Components attempt to save state when one of the events listed in the <a ext:cls="Ext.Component" ext:member="stateEvents" href="output/Ext.Component.html#stateEvents">stateEvents</a> configuration fires.</p> <p>You can perform extra processing on state save and restore by attaching handlers to the <a ext:cls="Ext.Component" ext:member="beforestaterestore" href="output/Ext.Component.html#beforestaterestore">beforestaterestore</a>, <a ext:cls="Ext.Component" ext:member="staterestore" href="output/Ext.Component.html#staterestore">staterestore</a>, <a ext:cls="Ext.Component" ext:member="beforestatesave" href="output/Ext.Component.html#beforestatesave">beforestatesave</a> and <a ext:cls="Ext.Component" ext:member="statesave" href="output/Ext.Component.html#statesave">statesave</a> events</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-style"></a>
@@ -266,7 +360,7 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#style" href="output/Ext.Component.html#style">Component</a></td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-tpl"></a>
@@ -275,7 +369,7 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource">ColorPalette</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-value"></a>
@@ -287,7 +381,7 @@ cp.on(<em>'select'</em>, <b>function</b>(palette, selColor){
         </td>
         <td class="msource">ColorPalette</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-xtype"></a>
@@ -625,7 +719,7 @@ should usually not need to be called directly.    <div class="mdetail-params">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-findParentBy"></a>
-            <b>findParentBy</b>(&nbsp;<code>Function fcn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : Array            <div class="mdesc">
+            <b>findParentBy</b>(&nbsp;<code>Function fcn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : Ext.Container            <div class="mdesc">
                         <div class="short">Find a container above this component at any level by a custom function. If the passed function returns
 true, the con...</div>
             <div class="long">
@@ -635,7 +729,7 @@ true, the container will be returned. The passed function is called with the arg
         <ul><li><code>fcn</code> : Function<div class="sub-desc"></div></li><li><code>scope</code> : Object<div class="sub-desc">(optional)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Array</code><div class="sub-desc">Array of Ext.Components</div></li>
+            <li><code>Ext.Container</code><div class="sub-desc">The first Container for which the custom function returns true</div></li>
         </ul>
     </div>
                 </div>
@@ -647,7 +741,7 @@ true, the container will be returned. The passed function is called with the arg
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ColorPalette-findParentByType"></a>
-            <b>findParentByType</b>(&nbsp;<code>String/Class xtype</code>&nbsp;) : Container            <div class="mdesc">
+            <b>findParentByType</b>(&nbsp;<code>String/Class xtype</code>&nbsp;) : Ext.Container            <div class="mdesc">
                         <div class="short">Find a container above this component at any level by xtype or class</div>
             <div class="long">
                 Find a container above this component at any level by xtype or class    <div class="mdetail-params">
@@ -655,7 +749,7 @@ true, the container will be returned. The passed function is called with the arg
         <ul><li><code>xtype</code> : String/Class<div class="sub-desc">The xtype string for a component, or the class of the component directly</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Container</code><div class="sub-desc">The found container</div></li>
+            <li><code>Ext.Container</code><div class="sub-desc">The first Container which matches the given xtype or class</div></li>
         </ul>
     </div>
                 </div>
@@ -1012,10 +1106,10 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.ColorPalette-render"></a>
             <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Element/HTMLElement/String container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Render this Components into the passed HTML element.
-If you are using a Container object to house this Component, the...</div>
+                        <div class="short">Render this Component into the passed HTML element.
+If you are using a Container object to house this Component, then...</div>
             <div class="long">
-                <p>Render this Components into the passed HTML element.</p>
+                <p>Render this Component into the passed HTML element.</p>
 <p><b>If you are using a <a ext:cls="Ext.Container" href="output/Ext.Container.html">Container</a> object to house this Component, then
 do not use the render method.</b></p>
 <p>A Container's child Components are rendered by that Container's
@@ -1033,7 +1127,7 @@ If you expect child items to be sized in response to user interactions, you must
 configure the Container with a layout manager which creates and manages the type of layout you
 have in mind.</p>
 <p><b>Omitting the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config means that a basic
-layout manager is used which does nothnig but render child components sequentially into the
+layout manager is used which does nothing but render child components sequentially into the
 Container. No sizing or positioning will be performed in this situation.</b></p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>container</code> : Element/HTMLElement/String<div class="sub-desc">(optional) The element this Component should be

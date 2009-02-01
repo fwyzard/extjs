@@ -12,13 +12,14 @@
                 <h1>Class Ext.data.JsonReader</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.data</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">JsonReader.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/JsonReader.js" target="_blank">JsonReader.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">JsonReader</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.data.ArrayReader" href="output/Ext.data.ArrayReader.html">ArrayReader</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.data.DataReader" ext:member="" href="output/Ext.data.DataReader.html">DataReader</a></td></tr>
                     </table>
         <div class="description">
-            Data reader class to create an Array of <a ext:cls="Ext.data.Record" href="output/Ext.data.Record.html">Ext.data.Record</a> objects from a JSON response
+            *
+Data reader class to create an Array of <a ext:cls="Ext.data.Record" href="output/Ext.data.Record.html">Ext.data.Record</a> objects from a JSON response
 based on mappings in a provided <a ext:cls="Ext.data.Record" href="output/Ext.data.Record.html">Ext.data.Record</a> constructor.<br>
 <p>
 Example code:
@@ -34,16 +35,20 @@ Example code:
 <p>
 This would consume a JSON object of the form:
 <pre><code>{
-    <em>'results'</em>: 2,
-    <em>'rows'</em>: [
-        { <em>'id'</em>: 1, <em>'firstname'</em>: <em>'Bill'</em>, occupation: <em>'Gardener'</em> },         <i>// a row object</i>
-        { <em>'id'</em>: 2, <em>'firstname'</em>: <em>'Ben'</em> , occupation: <em>'Horticulturalist'</em> }  <i>// another row object</i>
+    results: 2,
+    rows: [
+        { id: 1, firstname: <em>'Bill'</em>, occupation: <em>'Gardener'</em> },         <i>// a row object</i>
+        { id: 2, firstname: <em>'Ben'</em> , occupation: <em>'Horticulturalist'</em> }  <i>// another row object</i>
     ]
 }</code></pre>
 <p>It is possible to change a JsonReader's metadata at any time by including a
 <b><tt>metaData</tt></b> property in the data object. If this is detected in the
-object, a <a ext:cls="Ext.data.Store" href="output/Ext.data.Store.html">Store</a> object using this Reader will fire its
-<a ext:cls="Ext.data.Store" ext:member="metachange" href="output/Ext.data.Store.html#metachange">metachange</a> event.</p>
+object, a <a ext:cls="Ext.data.Store" href="output/Ext.data.Store.html">Store</a> object using this Reader will reconfigure
+itself to use the newly provided field definition and fire its
+<a ext:cls="Ext.data.Store" ext:member="metachange" href="output/Ext.data.Store.html#metachange">metachange</a> event. In
+undergoing this change, the Store sets its <a ext:cls="Ext.data.Store" ext:member="sortInfo" href="output/Ext.data.Store.html#sortInfo">sortInfo</a> property
+from the <tt>sortInfo</tt> property in the new metadata. Note that reconfiguring a Store
+potentially invalidates objects which may refer to Fields or Records which no longer exist.</p>
 <p>The <b><tt>metaData</tt></b> property may contain any of the configuration
 options for this class. Additionally, it may contain a <b><tt>fields</tt></b>
 property which the JsonReader will use as an argument to <a ext:cls="Ext.data.Record" ext:member="create" href="output/Ext.data.Record.html#create">Ext.data.Record.create</a>
@@ -58,17 +63,20 @@ having to code the creation of the Record constructor, you would create the
 JsonReader like this:</p><pre><code>var myReader = <b>new</b> Ext.data.JsonReader();</code></pre>
 <p>The first data packet from the server would configure the reader by
 containing a metaData property as well as the data:</p><pre><code>{
-  <em>'metaData'</em>: {
-    totalProperty: <em>'results'</em>,
-    root: <em>'rows'</em>,
-    id: <em>'id'</em>,
-    fields: [
-      {name: <em>'name'</em>},
-      {name: <em>'occupation'</em>} ]
-   },
-  <em>'results'</em>: 2, <em>'rows'</em>: [
-    { <em>'id'</em>: 1, <em>'name'</em>: <em>'Bill'</em>, occupation: <em>'Gardener'</em> },
-    { <em>'id'</em>: 2, <em>'name'</em>: <em>'Ben'</em>, occupation: <em>'Horticulturalist'</em> } ]
+    metaData: {
+        totalProperty: <em>'results'</em>,
+        root: <em>'rows'</em>,
+        id: <em>'id'</em>,
+        fields: [
+            {name: <em>'name'</em>},
+            {name: <em>'occupation'</em>}
+        ]
+    },
+    results: 2,
+    rows: [
+        { <em>'id'</em>: 1, <em>'name'</em>: <em>'Bill'</em>, occupation: <em>'Gardener'</em> },
+        { <em>'id'</em>: 2, <em>'name'</em>: <em>'Ben'</em>, occupation: <em>'Horticulturalist'</em> }
+    ]
 }</code></pre>        </div>
         
         <div class="hr"></div>

@@ -13,12 +13,13 @@
                 <h1>Class Ext.grid.GroupingView</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.grid</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">GroupingView.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/GroupingView.js" target="_blank">GroupingView.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">GroupingView</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.grid.GridView" ext:member="" href="output/Ext.grid.GridView.html">GridView</a></td></tr>
                     </table>
         <div class="description">
-            Adds the ability for single level grouping to the grid.
+            *
+Adds the ability for single level grouping to the grid.
 <pre><code>var grid = <b>new</b> Ext.grid.GridPanel({
     <i>// A groupingStore is required <b>for</b> a GroupingView</i>
     store: <b>new</b> Ext.data.GroupingStore({
@@ -153,12 +154,15 @@
         </td>
         <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#enableRowBody" href="output/Ext.grid.GridView.html#enableRowBody">GridView</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GroupingView-forceFit"></a>
             <b>forceFit</b> : Boolean            <div class="mdesc">
-                            True to auto expand/contract the size of the columns to fit the grid width and prevent horizontal scrolling.                        </div>
+                        <div class="short">True to auto expand/contract the size of the columns to fit the grid width and prevent horizontal scrolling. This opt...</div>
+            <div class="long">
+                True to auto expand/contract the size of the columns to fit the grid width and prevent horizontal scrolling. This option overrides any (@link Ext.grid.ColumnModel#width width} settings in the ColumnModel.            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#forceFit" href="output/Ext.grid.GridView.html#forceFit">GridView</a></td>
     </tr>
@@ -227,9 +231,9 @@
         <td class="sig">
         <a id="Ext.grid.GroupingView-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
@@ -306,7 +310,21 @@
         </td>
         <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#dragZone" href="output/Ext.grid.GridView.html#dragZone">GridView</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GroupingView-mainBody"></a>
+            <b>mainBody</b> : Ext.Element            <div class="mdesc">
+                        <div class="short">The GridView's body Element which encapsulates all rows in the Grid. Element. Read-only.
+This Element is only availab...</div>
+            <div class="long">
+                The GridView's body Element which encapsulates all rows in the Grid. <a ext:cls="Ext.Element" href="output/Ext.Element.html">Element</a>. Read-only.
+<p>This Element is only available after the GridPanel has been rendered.</p>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#mainBody" href="output/Ext.grid.GridView.html#mainBody">GridView</a></td>
+    </tr>
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GroupingView-scrollOffset"></a>
@@ -315,7 +333,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#scrollOffset" href="output/Ext.grid.GridView.html#scrollOffset">GridView</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GroupingView-sortAscText"></a>
@@ -324,7 +342,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#sortAscText" href="output/Ext.grid.GridView.html#sortAscText">GridView</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GroupingView-sortClasses"></a>
@@ -333,7 +351,7 @@
         </td>
         <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#sortClasses" href="output/Ext.grid.GridView.html#sortClasses">GridView</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.GroupingView-sortDescText"></a>
@@ -496,6 +514,46 @@ Or a shorthand syntax:<br>
                         </div>
         </td>
         <td class="msource">GroupingView</td>
+    </tr>
+        <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GroupingView-findRow"></a>
+            <b>findRow</b>(&nbsp;<code>Element el</code>&nbsp;) : The            <div class="mdesc">
+                        <div class="short">Return the HtmlElement representing the grid row which contains the passed element.</div>
+            <div class="long">
+                Return the HtmlElement representing the grid row which contains the passed element.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>el</code> : Element<div class="sub-desc">The target element</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>The</code><div class="sub-desc">row element, or null if the target element is not within a row of this GridView.</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#findRow" href="output/Ext.grid.GridView.html#findRow">GridView</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.grid.GroupingView-findRowIndex"></a>
+            <b>findRowIndex</b>(&nbsp;<code>Element el</code>&nbsp;) : The            <div class="mdesc">
+                        <div class="short">Return the index of the grid row which contains the passed element.</div>
+            <div class="long">
+                Return the index of the grid row which contains the passed element.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>el</code> : Element<div class="sub-desc">The target element</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>The</code><div class="sub-desc">row index, or <b>false</b> if the target element is not within a row of this GridView.</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.grid.GridView" ext:member="#findRowIndex" href="output/Ext.grid.GridView.html#findRowIndex">GridView</a></td>
     </tr>
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

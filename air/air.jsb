@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<project path="" name="Ext AIR Support Library" author="Ext JS, LLC" version="0.20" copyright="Ext JS Library $version&#xD;&#xA;Copyright(c) 2006-2008, $author.&#xD;&#xA;licensing@extjs.com&#xD;&#xA;&#xD;&#xA;http://extjs.com/license" output="C:\apps\www\deploy\ext-2.1\air\" source="True" source-dir="$output" minify="False" min-dir="$output\build" doc="False" doc-dir="$output\docs" master="true" master-file="$output\yui-ext.js" zip="true" zip-file="$output\yuo-ext.$version.zip">
+<project path="" name="Ext AIR Support Library" author="Ext JS, LLC" version="0.30" copyright="Ext JS Library $version&#xD;&#xA;Copyright(c) 2006-2009, $author.&#xD;&#xA;licensing@extjs.com&#xD;&#xA;&#xD;&#xA;http://extjs.com/license" output="E:\apps\www\deploy\ext-2.2.1\air\" source="True" source-dir="$output" minify="False" min-dir="$output\build" doc="False" doc-dir="$output\docs" master="true" master-file="$output\yui-ext.js" zip="true" zip-file="$output\yuo-ext.$version.zip">
   <directory name="" />
   <file name="resources\icons\extlogo128.png" path="resources\icons" />
   <file name="resources\icons\extlogo16.png" path="resources\icons" />
@@ -323,10 +323,10 @@
   <target name="ext-air" file="$output\ext-air.js" debug="False" shorthand="False" shorthand-list="YAHOO.util.Dom.setStyle&#xD;&#xA;YAHOO.util.Dom.getStyle&#xD;&#xA;YAHOO.util.Dom.getRegion&#xD;&#xA;YAHOO.util.Dom.getViewportHeight&#xD;&#xA;YAHOO.util.Dom.getViewportWidth&#xD;&#xA;YAHOO.util.Dom.get&#xD;&#xA;YAHOO.util.Dom.getXY&#xD;&#xA;YAHOO.util.Dom.setXY&#xD;&#xA;YAHOO.util.CustomEvent&#xD;&#xA;YAHOO.util.Event.addListener&#xD;&#xA;YAHOO.util.Event.getEvent&#xD;&#xA;YAHOO.util.Event.getTarget&#xD;&#xA;YAHOO.util.Event.preventDefault&#xD;&#xA;YAHOO.util.Event.stopEvent&#xD;&#xA;YAHOO.util.Event.stopPropagation&#xD;&#xA;YAHOO.util.Event.stopEvent&#xD;&#xA;YAHOO.util.Anim&#xD;&#xA;YAHOO.util.Motion&#xD;&#xA;YAHOO.util.Connect.asyncRequest&#xD;&#xA;YAHOO.util.Connect.setForm&#xD;&#xA;YAHOO.util.Dom&#xD;&#xA;YAHOO.util.Event">
     <include name="src\ext-air-adapter.js" />
     <include name="src\FileProvider.js" />
-    <include name="src\MainWindow.js" />
     <include name="src\NativeObservable.js" />
     <include name="src\NativeWindow.js" />
     <include name="src\sql\Connection.js" />
+    <include name="src\sql\SQLiteStore.js" />
     <include name="src\sql\Table.js" />
     <include name="src\sql\Proxy.js" />
     <include name="src\sql\AirConnection.js" />
@@ -334,6 +334,13 @@
     <include name="src\NativeDD.js" />
     <include name="src\Sound.js" />
     <include name="src\SystemMenu.js" />
+    <include name="src\MusicPlayer.js" />
+    <include name="src\Notify.js" />
+    <include name="src\Clipboard.js" />
+    <include name="src\App.js" />
+    <include name="src\Debug.js" />
+    <include name="src\FileTreeLoader.js" />
+    <include name="src\VideoPanel.js" />
   </target>
   <file name="samples\tasks\adobe\AIRAliases.js" path="samples\tasks\adobe" />
   <file name="samples\tasks\adobe\AIRIntrospector.js" path="samples\tasks\adobe" />
@@ -367,13 +374,21 @@
   <file name="src\sql\AirConnection.js" path="src\sql" />
   <file name="src\sql\Connection.js" path="src\sql" />
   <file name="src\sql\Proxy.js" path="src\sql" />
+  <file name="src\sql\SQLiteStore.js" path="src\sql" />
   <file name="src\sql\Table.js" path="src\sql" />
+  <file name="src\App.js" path="src" />
+  <file name="src\Clipboard.js" path="src" />
+  <file name="src\Debug.js" path="src" />
   <file name="src\ext-air-adapter.js" path="src" />
   <file name="src\FileProvider.js" path="src" />
+  <file name="src\FileTreeLoader.js" path="src" />
   <file name="src\NativeDD.js" path="src" />
   <file name="src\NativeObservable.js" path="src" />
   <file name="src\NativeWindow.js" path="src" />
+  <file name="src\Notify.js" path="src" />
   <file name="src\Sound.js" path="src" />
   <file name="src\SystemMenu.js" path="src" />
   <file name="src\SystemTray.js" path="src" />
+  <file name="src\MusicPlayer.js" path="src" />
+  <file name="src\VideoPanel.js" path="src" />
 </project>

@@ -12,7 +12,7 @@
                 <h1>Class Ext.layout.BorderLayout.SplitRegion</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.layout</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">BorderLayout.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/BorderLayout.js" target="_blank">BorderLayout.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">BorderLayout.SplitRegion</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.layout.BorderLayout.Region" ext:member="" href="output/Ext.layout.BorderLayout.Region.html">BorderLayout.Region</a></td></tr>
                     </table>
@@ -56,9 +56,15 @@
         <td class="sig">
         <a id="Ext.layout.BorderLayout.SplitRegion-cmargins"></a>
             <b>cmargins</b> : Object            <div class="mdesc">
-                        <div class="short">An object containing margins to apply to the region's collapsed element in the format {left: (left margin), top: (top...</div>
+                        <div class="short">An object containing margins to apply to the region when in the collapsed state in the format:{
+    top: (top margin)...</div>
             <div class="long">
-                An object containing margins to apply to the region's collapsed element in the format {left: (left margin), top: (top margin), right: (right margin), bottom: (bottom margin)}            </div>
+                An object containing margins to apply to the region when in the collapsed state in the format:<pre><code>{
+    top: (top margin),
+    right: (right margin),
+    bottom: (bottom margin)
+    left: (left margin),
+}</code></pre> <p>May also be a string containing space-separated, numeric margin values. The order of the sides associated with each value matches the way CSS processes margin values.</p> <p><ul> <li>If there is only one value, it applies to all sides.</li> <li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li> <li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li> <li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li> </ul></p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.layout.BorderLayout.Region" ext:member="#cmargins" href="output/Ext.layout.BorderLayout.Region.html#cmargins">BorderLayout.Region</a></td>
@@ -128,9 +134,15 @@
         <td class="sig">
         <a id="Ext.layout.BorderLayout.SplitRegion-margins"></a>
             <b>margins</b> : Object            <div class="mdesc">
-                        <div class="short">An object containing margins to apply to the region in the format {left: (left margin), top: (top margin), right: (ri...</div>
+                        <div class="short">An object containing margins to apply to the region when in the expanded state in the format:{
+    top: (top margin),...</div>
             <div class="long">
-                An object containing margins to apply to the region in the format {left: (left margin), top: (top margin), right: (right margin), bottom: (bottom margin)}            </div>
+                An object containing margins to apply to the region when in the expanded state in the format:<pre><code>{
+    top: (top margin),
+    right: (right margin),
+    bottom: (bottom margin)
+    left: (left margin),
+}</code></pre> <p>May also be a string containing space-separated, numeric margin values. The order of the sides associated with each value matches the way CSS processes margin values:</p> <p><ul> <li>If there is only one value, it applies to all sides.</li> <li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li> <li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li> <li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li> </ul></p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.layout.BorderLayout.Region" ext:member="#margins" href="output/Ext.layout.BorderLayout.Region.html#margins">BorderLayout.Region</a></td>
@@ -205,6 +217,25 @@
                             True if this region is collapsed. Read-only.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.layout.BorderLayout.Region" ext:member="#isCollapsed" href="output/Ext.layout.BorderLayout.Region.html#isCollapsed">BorderLayout.Region</a></td>
+    </tr>
+        <tr class="property-row inherited alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.layout.BorderLayout.SplitRegion-layout"></a>
+            <b>layout</b> : Layout            <div class="mdesc">
+                            
+This region's layout.  Read-only.                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.layout.BorderLayout.Region" ext:member="#layout" href="output/Ext.layout.BorderLayout.Region.html#layout">BorderLayout.Region</a></td>
+    </tr>
+        <tr class="property-row inherited">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.layout.BorderLayout.SplitRegion-panel"></a>
+            <b>panel</b> : Ext.Panel            <div class="mdesc">
+                            This region's panel.  Read-only.                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.layout.BorderLayout.Region" ext:member="#panel" href="output/Ext.layout.BorderLayout.Region.html#panel">BorderLayout.Region</a></td>
     </tr>
         <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>

@@ -12,12 +12,13 @@
                 <h1>Class Ext.tree.TreeLoader</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.tree</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">TreeLoader.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/TreeLoader.js" target="_blank">TreeLoader.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">TreeLoader</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
                     </table>
         <div class="description">
-            A TreeLoader provides for lazy loading of an <a ext:cls="Ext.tree.TreeNode" href="output/Ext.tree.TreeNode.html">Ext.tree.TreeNode</a>'s child
+            *
+A TreeLoader provides for lazy loading of an <a ext:cls="Ext.tree.TreeNode" href="output/Ext.tree.TreeNode.html">Ext.tree.TreeNode</a>'s child
 nodes from a specified URL. The response must be a JavaScript Array definition
 whose elements are node definition objects. eg:
 <pre><code>[{
@@ -101,9 +102,9 @@ the value of the Node's "category" attribute.        </div>
         <td class="sig">
         <a id="Ext.tree.TreeLoader-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
@@ -268,12 +269,31 @@ Or a shorthand syntax:<br>
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeLoader-createNode"></a>
-            <b>createNode</b>() : void            <div class="mdesc">
-                        <div class="short">Override this function for custom TreeNode node implementation</div>
+            <b>createNode</b>(&nbsp;<code>attr {Object}</code>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Override this function for custom TreeNode node implementation, or to
+modify the attributes at creation time.
+Example...</div>
             <div class="long">
-                Override this function for custom TreeNode node implementation    <div class="mdetail-params">
+                <p>Override this function for custom TreeNode node implementation, or to
+modify the attributes at creation time.</p>
+Example:<code><pre>new Ext.tree.TreePanel({
+    ...
+    new Ext.tree.TreeLoader({
+        url: 'dataUrl',
+        createNode: function(attr) {
+//          Allow consolidation consignments to have
+//          consignments dropped into them.
+            if (attr.isConsolidation) {
+                attr.iconCls = 'x-consol',
+                attr.allowDrop = true;
+            }
+            return Ext.tree.TreeLoader.prototype.call(this, attr);
+        }
+    }),
+    ...
+});</pre></code>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
+        <ul><li><code>{Object}</code> : attr<div class="sub-desc">The attributes from which to create the new node.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>

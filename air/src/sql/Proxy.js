@@ -1,11 +1,25 @@
 /*
- * Ext JS Library 0.20
- * Copyright(c) 2006-2008, Ext JS, LLC.
+ * Ext JS Library 0.30
+ * Copyright(c) 2006-2009, Ext JS, LLC.
  * licensing@extjs.com
  * 
  * http://extjs.com/license
  */
 
+/**
+ * @class Ext.sql.Proxy
+ * @extends Ext.data.DataProxy
+ * An implementation of {@link Ext.data.DataProxy} that reads from a SQLLite
+ * database.
+ *
+ * @constructor
+ * @param {Object} conn an {@link Ext.sql.Connection} object
+ * @param {String} table The name of the database table
+ * @param {String} keyName The primary key of the table
+ * @param {Ext.data.Store} store The datastore to bind to
+ * @param {Boolean} readonly By default all changes to the store will be persisted
+ * to the database. Set this to true to override to make the store readonly.
+ */
 Ext.sql.Proxy = function(conn, table, keyName, store, readonly){
     Ext.sql.Proxy.superclass.constructor.call(this);
     this.conn = conn;

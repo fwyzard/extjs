@@ -8,20 +8,20 @@
                 <h1>Class Ext.ComponentMgr</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">ComponentMgr.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/ComponentMgr.js" target="_blank">ComponentMgr.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">ComponentMgr</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
         <div class="description">
-            <p>Provides a registry of all Components (specifically subclasses of
-<a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a>) on a page so that they can be easily accessed by
-component id (see <a ext:cls="Ext.getCmp" href="output/Ext.getCmp.html">Ext.getCmp</a>).</p>
+            *
+<p>Provides a registry of all Components (instances of <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a> or any subclass
+thereof) on a page so that they can be easily accessed by component id (see <a ext:cls="Ext.ComponentMgr" ext:member="get" href="output/Ext.ComponentMgr.html#get">get</a>, or
+the convenience method <a ext:cls="Ext" ext:member="getCmp" href="output/Ext.html#getCmp">Ext.getCmp</a>).</p>
 <p>This object also provides a registry of available Component <i>classes</i>
-indexed by a mnemonic code known as the Component's <a ext:cls="Ext.Component" ext:member="xtype" href="output/Ext.Component.html#xtype">Ext.Component.xtype</a>.
+indexed by a mnemonic code known as the Component's <a ext:cls="Ext.Component" ext:member="xtype" href="output/Ext.Component.html#xtype">xtype</a>.
 The <tt>xtype</tt> provides a way to avoid instantiating child Components
 when creating a full, nested config object for a complete Ext page.</p>
-<p>
-A child Component may be specified simply as a <i>config object</i>
+<p>A child Component may be specified simply as a <i>config object</i>
 as long as the correct xtype is specified so that if and when the Component
 needs rendering, the correct type can be looked up for lazy instantiation.</p>
 <p>For a list of all available xtypes, see <a ext:cls="Ext.Component" href="output/Ext.Component.html">Ext.Component</a>.</p><br><br><i>This class is a singleton and cannot be created directly.</i>        </div>
@@ -60,7 +60,7 @@ events on the MixedCollection to monitor addition or removal.  Read-only.       
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.ComponentMgr-create"></a>
-            <b>create</b>(&nbsp;<code>config {Object}</code>, <code>defaultType {Constructor}</code>&nbsp;) : void            <div class="mdesc">
+            <b>create</b>(&nbsp;<code>config {Object}</code>, <code>defaultType {Constructor}</code>&nbsp;) : Ext.Component            <div class="mdesc">
                         <div class="short">Creates a new Component from the specified config object using the
 config object's xtype to determine the class to in...</div>
             <div class="long">
@@ -71,7 +71,7 @@ config object's <a ext:cls="Ext.component" ext:member="xtype" href="output/Ext.c
 the config object does not contain an xtype. (Optional if the config contains an xtype).</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>void</code></li>
+            <li><code>Ext.Component</code><div class="sub-desc">The newly instantiated Component.</div></li>
         </ul>
     </div>
                 </div>

@@ -1,6 +1,6 @@
 /*
- * Ext JS Library 0.20
- * Copyright(c) 2006-2008, Ext JS, LLC.
+ * Ext JS Library 0.30
+ * Copyright(c) 2006-2009, Ext JS, LLC.
  * licensing@extjs.com
  * 
  * http://extjs.com/license
@@ -792,6 +792,43 @@ Ext.ColorPalette.prototype.tpl = new Ext.XTemplate(
 );
 
 
+// Unique task ids, if the time isn't unique enough, the addition 
+// of random chars should be
+Ext.uniqueId = function(){
+	var t = String(new Date().getTime()).substr(4);
+	var s = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	for(var i = 0; i < 4; i++){
+		t += s.charAt(Math.floor(Math.random()*26));
+	}
+	return t;
+};
 
+Ext.data.JsonReader.override({
+    getJsonAccessor: function(){
+        var re = /[\[\.]/;
+        return function(expr) {
+            try {
+		if (re.test(expr)) {
+			var arr = expr.split('.');
+			var ln = arr.length;
+			return function(obj) {				
+				var l = obj;
+				for (var i = 0; i < ln; i++) {
+					l = l[arr[i]];
+				}
+				return l;				
+			};
+		} else {
+			return function(obj){
+				return obj[expr];
+			};
+		}
+            } catch(e){
+		Ext.air.dir(e);
+	    }
+            return Ext.emptyFn;
+        };
+    }()
+});
 
 

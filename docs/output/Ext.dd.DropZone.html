@@ -14,13 +14,14 @@
                 <h1>Class Ext.dd.DropZone</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.dd</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">DropZone.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/DropZone.js" target="_blank">DropZone.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">DropZone</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.tree.TreeDropZone" href="output/Ext.tree.TreeDropZone.html">TreeDropZone</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.dd.DropTarget" ext:member="" href="output/Ext.dd.DropTarget.html">DropTarget</a></td></tr>
                     </table>
         <div class="description">
-            This class provides a container DD instance that proxies for multiple child node targets.<br />
+            *
+This class provides a container DD instance that proxies for multiple child node targets.<br />
 By default, this class requires that child nodes accepting drop are registered with <a ext:cls="Ext.dd.Registry" href="output/Ext.dd.Registry.html">Ext.dd.Registry</a>.        </div>
         
         <div class="hr"></div>
@@ -202,7 +203,7 @@ following value which prevents drag operations from being initiated by &lt;a> el
         <td class="sig">
         <a id="Ext.dd.DropZone-isTarget"></a>
             <b>isTarget</b> : boolean            <div class="mdesc">
-                            By default, all insances can be a drop target.  This can be disabled by
+                            By default, all instances can be a drop target.  This can be disabled by
 setting isTarget to false.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#isTarget" href="output/Ext.dd.DragDrop.html#isTarget">DragDrop</a></td>
@@ -222,7 +223,21 @@ when the page changes            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#maintainOffset" href="output/Ext.dd.DragDrop.html#maintainOffset">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited alt">
+        <tr class="property-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.dd.DropZone-moveOnly"></a>
+            <b>moveOnly</b> : boolean            <div class="mdesc">
+                        <div class="short">When set to true, other DD objects in cooperating DDGroups do not receive
+notification events when this DD object is ...</div>
+            <div class="long">
+                When set to true, other DD objects in cooperating DDGroups do not receive
+notification events when this DD object is dragged over them. Defaults to false.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#moveOnly" href="output/Ext.dd.DragDrop.html#moveOnly">DragDrop</a></td>
+    </tr>
+        <tr class="property-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropZone-padding"></a>
@@ -232,7 +247,7 @@ the drop zone intersection with this object.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#padding" href="output/Ext.dd.DragDrop.html#padding">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited expandable">
+        <tr class="property-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropZone-primaryButtonOnly"></a>
@@ -248,7 +263,7 @@ by the browser            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#primaryButtonOnly" href="output/Ext.dd.DragDrop.html#primaryButtonOnly">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited alt expandable">
+        <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropZone-xTicks"></a>
@@ -263,7 +278,7 @@ when you define a tick interval.            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#xTicks" href="output/Ext.dd.DragDrop.html#xTicks">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited expandable">
+        <tr class="property-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.dd.DropZone-yTicks"></a>

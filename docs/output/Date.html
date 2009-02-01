@@ -8,12 +8,13 @@
                 <h1>Class Date</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Global</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">Date.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/Date.js" target="_blank">Date.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Date</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
         <div class="description">
-            The date parsing and format syntax is a subset of
+            *
+The date parsing and format syntax is a subset of
 <a href="http://www.php.net/date">PHP's date() function</a>, and the formats that are
 supported will provide results equivalent to their PHP versions.
 The following is a list of all currently supported formats:
@@ -46,18 +47,18 @@ The following is a list of all currently supported formats:
   H     24-hour format of an hour with leading zeros                              00 to 23
   i     Minutes, with leading zeros                                               00 to 59
   s     Seconds, with leading zeros                                               00 to 59
-  u     Milliseconds, with leading zeroes (arbitrary number of digits allowed)    Examples:
-                                                                                  001 (i.e. 1ms) or
-                                                                                  100 (i.e. 100ms) or
-                                                                                  999 (i.e. 999ms) or
-                                                                                  999876543210 (i.e. 999.876543210ms)
+  u     Decimal fraction of a second                                              Examples:
+        (minimum 1 digit, arbitrary number of digits allowed)                     001 (i.e. 0.001s) or
+                                                                                  100 (i.e. 0.100s) or
+                                                                                  999 (i.e. 0.999s) or
+                                                                                  999876543210 (i.e. 0.999876543210s)
   O     Difference to Greenwich time (GMT) in hours and minutes                   Example: +1030
   P     Difference to Greenwich time (GMT) with colon between hours and minutes   Example: -08:00
   T     Timezone abbreviation of the machine running the code                     Examples: EST, MDT, PDT ...
   Z     Timezone offset in seconds (negative if west of UTC, positive if east)    -43200 to 50400
-  c     ISO 8601 date (note: milliseconds, if present, must be specified with     Examples:
-        at least 1 digit. There is no limit to how many digits the millisecond    2007-04-17T15:19:21+08:00 or
-        value may contain. see http://www.w3.org/TR/NOTE-datetime for more info)  2008-03-16T16:18:22Z or
+  c     ISO 8601 date (note: the decimal fraction of a second, if specified,      Examples:
+        must contain at least 1 digit. There is no limit on the maximum number    2007-04-17T15:19:21+08:00 or
+        of digits allowed. see http://www.w3.org/TR/NOTE-datetime for more info)  2008-03-16T16:18:22Z or
                                                                                   2009-02-15T17:17:23.9+01:00 or
                                                                                   2010-01-14T18:16:24,999876543-07:00
   U     Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)                1193432466 or -2138434463</pre>

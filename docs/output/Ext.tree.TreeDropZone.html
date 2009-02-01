@@ -15,12 +15,12 @@
                 <h1>Class Ext.tree.TreeDropZone</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.tree</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">TreeDropZone.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/TreeDropZone.js" target="_blank">TreeDropZone.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">TreeDropZone</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.dd.DropZone" ext:member="" href="output/Ext.dd.DropZone.html">DropZone</a></td></tr>
                     </table>
         <div class="description">
-                    </div>
+            *        </div>
         
         <div class="hr"></div>
                 <a id="Ext.tree.TreeDropZone-configs"></a>
@@ -257,7 +257,7 @@ following value which prevents drag operations from being initiated by &lt;a> el
         <td class="sig">
         <a id="Ext.tree.TreeDropZone-isTarget"></a>
             <b>isTarget</b> : boolean            <div class="mdesc">
-                            By default, all insances can be a drop target.  This can be disabled by
+                            By default, all instances can be a drop target.  This can be disabled by
 setting isTarget to false.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#isTarget" href="output/Ext.dd.DragDrop.html#isTarget">DragDrop</a></td>
@@ -277,7 +277,21 @@ when the page changes            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#maintainOffset" href="output/Ext.dd.DragDrop.html#maintainOffset">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited">
+        <tr class="property-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.tree.TreeDropZone-moveOnly"></a>
+            <b>moveOnly</b> : boolean            <div class="mdesc">
+                        <div class="short">When set to true, other DD objects in cooperating DDGroups do not receive
+notification events when this DD object is ...</div>
+            <div class="long">
+                When set to true, other DD objects in cooperating DDGroups do not receive
+notification events when this DD object is dragged over them. Defaults to false.            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#moveOnly" href="output/Ext.dd.DragDrop.html#moveOnly">DragDrop</a></td>
+    </tr>
+        <tr class="property-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeDropZone-padding"></a>
@@ -287,7 +301,7 @@ the drop zone intersection with this object.                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#padding" href="output/Ext.dd.DragDrop.html#padding">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited alt expandable">
+        <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeDropZone-primaryButtonOnly"></a>
@@ -303,7 +317,7 @@ by the browser            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#primaryButtonOnly" href="output/Ext.dd.DragDrop.html#primaryButtonOnly">DragDrop</a></td>
     </tr>
-        <tr class="property-row">
+        <tr class="property-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeDropZone-tree"></a>
@@ -312,7 +326,7 @@ by the browser            </div>
         </td>
         <td class="msource">TreeDropZone</td>
     </tr>
-        <tr class="property-row inherited alt expandable">
+        <tr class="property-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeDropZone-xTicks"></a>
@@ -327,7 +341,7 @@ when you define a tick interval.            </div>
         </td>
         <td class="msource"><a ext:cls="Ext.dd.DragDrop" ext:member="#xTicks" href="output/Ext.dd.DragDrop.html#xTicks">DragDrop</a></td>
     </tr>
-        <tr class="property-row inherited expandable">
+        <tr class="property-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.tree.TreeDropZone-yTicks"></a>

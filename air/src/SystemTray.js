@@ -1,31 +1,44 @@
 /*
- * Ext JS Library 0.20
- * Copyright(c) 2006-2008, Ext JS, LLC.
+ * Ext JS Library 0.30
+ * Copyright(c) 2006-2009, Ext JS, LLC.
  * licensing@extjs.com
  * 
  * http://extjs.com/license
  */
 
+/**
+ * @class Ext.air.SystemTray
+ * @singleton
+ *
+ * 
+ *
+ */
 Ext.air.SystemTray = function(){
 	var app = air.NativeApplication.nativeApplication;
 	var icon, isWindows = false, bitmaps;
 	
 	// windows
 	if(air.NativeApplication.supportsSystemTrayIcon) {
-        icon = app.icon;
-		isWindows = true;
-    }
+                icon = app.icon;
+                isWindows = true;
+        }
     
 	// mac
-    if(air.NativeApplication.supportsDockIcon) {
-		icon = app.icon;
-    }
+        if(air.NativeApplication.supportsDockIcon) {
+            icon = app.icon;
+        }
 	
 	return {
-		
+		/**
+                 * Sets the Icon and tooltip for the currently running application in the
+                 * SystemTray or Dock depending on the operating system.
+                 * @param {String} icon Icon to load with a URLRequest
+                 * @param {String} tooltip Tooltip to use when mousing over the icon
+                 * @param {Boolean} initWithIcon Boolean to initialize with icon immediately
+                 */
 		setIcon : function(icon, tooltip, initWithIcon){
 			if(!icon){ // not supported OS
-				return;
+                        	return;
 			}
 			var loader = new air.Loader();
 			loader.contentLoaderInfo.addEventListener(air.Event.COMPLETE, function(e){
@@ -34,12 +47,19 @@ Ext.air.SystemTray = function(){
 					icon.bitmaps = bitmaps;
 				}
 			});
-        	loader.load(new air.URLRequest(icon));
+                        
+                        loader.load(new air.URLRequest(icon));
 			if(tooltip && air.NativeApplication.supportsSystemTrayIcon) {
 				app.icon.tooltip = tooltip;
 			}
 		},
 		
+                /**
+                 * Bounce the OS X dock icon. Accepts a priority to notify the user
+                 * whether the event which has just occurred is informational (single bounce)
+                 * or critcal (continual bounce).
+                 * @param priority {air.NotificationType} The priorities are air.NotificationType.INFORMATIONAL and air.NotificationType.CRITICAL.
+                 */
 		bounce : function(priority){
 			icon.bounce(priority);
 		},
@@ -50,6 +70,9 @@ Ext.air.SystemTray = function(){
 			});
 		},
 		
+                /**
+                 * Hide the custom icon
+                 */
 		hideIcon : function(){
 			if(!icon){ // not supported OS
 				return;
@@ -57,6 +80,9 @@ Ext.air.SystemTray = function(){
 			icon.bitmaps = [];
 		},
 		
+                /**
+                 * Show the custom icon
+                 */
 		showIcon : function(){
 			if(!icon){ // not supported OS
 				return;
@@ -64,6 +90,10 @@ Ext.air.SystemTray = function(){
 			icon.bitmaps = bitmaps;
 		},
 		
+                /**
+                 * Sets a menu for the icon
+                 * @param {Array} actions Configurations for Ext.air.MenuItem's
+                 */
 		setMenu: function(actions, _parentMenu){
 			if(!icon){ // not supported OS
 				return;

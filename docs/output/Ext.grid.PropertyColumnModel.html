@@ -13,7 +13,7 @@
                 <h1>Class Ext.grid.PropertyColumnModel</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.grid</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">PropertyGrid.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/PropertyGrid.js" target="_blank">PropertyGrid.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">PropertyColumnModel</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.grid.ColumnModel" ext:member="" href="output/Ext.grid.ColumnModel.html">ColumnModel</a></td></tr>
                     </table>
@@ -123,9 +123,9 @@
         <td class="sig">
         <a id="Ext.grid.PropertyColumnModel-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
@@ -184,12 +184,15 @@
         </td>
         <td class="msource"><a ext:cls="Ext.grid.ColumnModel" ext:member="#tooltip" href="output/Ext.grid.ColumnModel.html#tooltip">ColumnModel</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.PropertyColumnModel-width"></a>
             <b>width</b> : Number            <div class="mdesc">
-                            (optional) The initial width in pixels of the column.                        </div>
+                        <div class="short">(optional) The initial width in pixels of the column. This is ignored if the Grid's view is configured with forceFit ...</div>
+            <div class="long">
+                (optional) The initial width in pixels of the column. This is ignored if the Grid's <a ext:cls="Ext.grid.GridView" href="output/Ext.grid.GridView.html">view</a> is configured with <a ext:cls="Ext.grid.GridView" ext:member="forceFit" href="output/Ext.grid.GridView.html#forceFit">forceFit</a> true.            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.grid.ColumnModel" ext:member="#width" href="output/Ext.grid.ColumnModel.html#width">ColumnModel</a></td>
     </tr>
@@ -378,7 +381,7 @@ Or a shorthand syntax:<br>
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.PropertyColumnModel-getCellEditor"></a>
-            <b>getCellEditor</b>(&nbsp;<code>Number colIndex</code>, <code>Number rowIndex</code>&nbsp;) : Object            <div class="mdesc">
+            <b>getCellEditor</b>(&nbsp;<code>Number colIndex</code>, <code>Number rowIndex</code>&nbsp;) : Ext.Editor            <div class="mdesc">
                         <div class="short">Returns the editor defined for the cell/column.</div>
             <div class="long">
                 Returns the editor defined for the cell/column.    <div class="mdetail-params">
@@ -386,7 +389,7 @@ Or a shorthand syntax:<br>
         <ul><li><code>colIndex</code> : Number<div class="sub-desc">The column index</div></li><li><code>rowIndex</code> : Number<div class="sub-desc">The row index</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Object</code></li>
+            <li><code>Ext.Editor</code><div class="sub-desc">The {@link Ext.Editor Editor} that was created to wrap the {@link Ext.form.Field Field} used to edit the cell.</div></li>
         </ul>
     </div>
                 </div>
@@ -418,12 +421,12 @@ Or a shorthand syntax:<br>
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.grid.PropertyColumnModel-getColumnCount"></a>
-            <b>getColumnCount</b>() : Number            <div class="mdesc">
+            <b>getColumnCount</b>(&nbsp;<code>Boolean visibleOnly</code>&nbsp;) : Number            <div class="mdesc">
                         <div class="short">Returns the number of columns.</div>
             <div class="long">
                 Returns the number of columns.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li>None.</li>        </ul>
+        <ul><li><code>visibleOnly</code> : Boolean<div class="sub-desc">Optional. Pass as true to only include visible columns.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Number</code></li>
@@ -942,11 +945,15 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="sig">
         <a id="Ext.grid.PropertyColumnModel-setConfig"></a>
             <b>setConfig</b>(&nbsp;<code>Array config</code>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Reconfigures this column model</div>
+                        <div class="short">Reconfigures this column model according to the passed Array of column definition objects. For a description of
+the i...</div>
             <div class="long">
-                Reconfigures this column model    <div class="mdetail-params">
+                <p>Reconfigures this column model according to the passed Array of column definition objects. For a description of
+the individual properties of a column definition object, see the <a href="#Ext.grid.ColumnModel-configs">Config Options</a>.</p>
+<p>Causes the <a ext:cls="Ext.grid.ColumnModel" ext:member="configchange" href="output/Ext.grid.ColumnModel.html#configchange">configchange</a> event to be fired. A <a ext:cls="Ext.grid.GridPanel" href="output/Ext.grid.GridPanel.html">GridPanel</a> using
+this ColumnModel will listen for this event and refresh its UI automatically.</p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>config</code> : Array<div class="sub-desc">Array of Column configs</div></li>        </ul>
+        <ul><li><code>config</code> : Array<div class="sub-desc">Array of Column definition objects.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>void</code></li>

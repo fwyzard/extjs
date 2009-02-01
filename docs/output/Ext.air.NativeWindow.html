@@ -13,12 +13,13 @@
                 <h1>Class Ext.air.NativeWindow</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.air</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">NativeWindow.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/NativeWindow.js" target="_blank">NativeWindow.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">NativeWindow</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.air.NativeObservable" ext:member="" href="output/Ext.air.NativeObservable.html">NativeObservable</a></td></tr>
                     </table>
         <div class="description">
-            Wraps the AIR NativeWindow class to give an Ext friendly API. <br/><br/>This class also adds 
+            *
+Wraps the AIR NativeWindow class to give an Ext friendly API. <br/><br/>This class also adds 
 automatic state management (position and size) for the window (by id) and it can be used 
 for easily creating "minimize to system tray" for the main window in your application.<br/><br/>
 Note: Many of the config options for this class can only be applied to NEW windows. Passing 
@@ -64,9 +65,9 @@ in an existing instance of a window along with those config options will have no
         <td class="sig">
         <a id="Ext.air.NativeWindow-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
@@ -399,6 +400,29 @@ Or a shorthand syntax:<br>
         <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.air.NativeWindow-fullscreen"></a>
+            <b>fullscreen</b>(&nbsp;<span class="optional" title="Optional">[<code>Boolean nonInteractive</code>]</span>&nbsp;) : void            <div class="mdesc">
+                        <div class="short">Enter full-screen mode for the window.</div>
+            <div class="long">
+                Enter full-screen mode for the window.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>nonInteractive</code> : Boolean<div class="sub-desc">(optional) Boolean flag to allow the full screen window to be interactive or not. By default this is false.
+Example Code:
+var win = new Ext.air.NativeWindow({instance: Ext.air.NativeWindow.getRootWindow()});
+win.fullscreen();</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource">NativeWindow</td>
+    </tr>
+        <tr class="method-row alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.air.NativeWindow-getCenterXY"></a>
             <b>getCenterXY</b>() : x:            <div class="mdesc">
                         <div class="short">Returns the x/y coordinates for centering the windw on the screen</div>
@@ -416,7 +440,7 @@ Or a shorthand syntax:<br>
         </td>
         <td class="msource">NativeWindow</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-getNative"></a>
@@ -436,7 +460,7 @@ Or a shorthand syntax:<br>
         </td>
         <td class="msource">NativeWindow</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-hasListener"></a>
@@ -456,7 +480,7 @@ Or a shorthand syntax:<br>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#hasListener" href="output/Ext.util.Observable.html#hasListener">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-hide"></a>
@@ -476,7 +500,7 @@ Or a shorthand syntax:<br>
         </td>
         <td class="msource">NativeWindow</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-isMaximized"></a>
@@ -496,7 +520,7 @@ Or a shorthand syntax:<br>
         </td>
         <td class="msource">NativeWindow</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-isMinimized"></a>
@@ -516,7 +540,7 @@ Or a shorthand syntax:<br>
         </td>
         <td class="msource">NativeWindow</td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-moveTo"></a>
@@ -536,7 +560,7 @@ Or a shorthand syntax:<br>
         </td>
         <td class="msource">NativeWindow</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-on"></a>
@@ -557,7 +581,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#on" href="output/Ext.util.Observable.html#on">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-purgeListeners"></a>
@@ -577,7 +601,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#purgeListeners" href="output/Ext.util.Observable.html#purgeListeners">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-relayEvents"></a>
@@ -597,7 +621,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#relayEvents" href="output/Ext.util.Observable.html#relayEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-removeListener"></a>
@@ -617,7 +641,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-resize"></a>
@@ -637,7 +661,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">NativeWindow</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-resumeEvents"></a>
@@ -657,7 +681,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-show"></a>
@@ -677,7 +701,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource">NativeWindow</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-suspendEvents"></a>
@@ -697,7 +721,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.air.NativeWindow-un"></a>

@@ -12,12 +12,13 @@
                 <h1>Class Ext.Updater</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">UpdateManager.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/UpdateManager.js" target="_blank">UpdateManager.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Updater</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
                     </table>
         <div class="description">
-            Provides AJAX-style update capabilities for Element objects.  Updater can be used to <a ext:cls="Ext.Updater" ext:member="update" href="output/Ext.Updater.html#update">update</a> an Element once,
+            *
+Provides AJAX-style update capabilities for Element objects.  Updater can be used to <a ext:cls="Ext.Updater" ext:member="update" href="output/Ext.Updater.html#update">update</a> an Element once,
 or you can use <a ext:cls="Ext.Updater" ext:member="startAutoRefresh" href="output/Ext.Updater.html#startAutoRefresh">startAutoRefresh</a> to set up an auto-updating Element on a specific interval.<br><br>
 Usage:<br>
 <pre><code><i>// Get it from a Ext.Element object</i>
@@ -59,9 +60,9 @@ Ext.get(<em>"foo"</em>).load({
         <td class="sig">
         <a id="Ext.Updater-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
@@ -381,9 +382,18 @@ Or a shorthand syntax:<br>
                         <div class="short">Performs an async form post, updating this element with the response. If the form has the attribute
 enctype="multipar...</div>
             <div class="long">
-                Performs an async form post, updating this element with the response. If the form has the attribute
-enctype="multipart/form-data", it assumes it's a file upload.
-Uses this.sslBlankUrl for SSL file uploads to prevent IE security warning.    <div class="mdetail-params">
+                <p>Performs an async form post, updating this element with the response. If the form has the attribute
+enctype="<a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form-data</a>", it assumes it's a file upload.
+Uses this.sslBlankUrl for SSL file uploads to prevent IE security warning.</p>
+<p>File uploads are not performed using normal "Ajax" techniques, that is they are <b>not</b>
+performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the
+DOM <tt>&lt;form></tt> element temporarily modified to have its
+<a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
+to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document
+but removed after the return data has been gathered.</p>
+<p>Be aware that file upload packets, sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form-data</a>
+and some server technologies (notably JEE) may require some custom processing in order to
+retrieve parameter names and parameter values from the packet content.</p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>form</code> : String/HTMLElement<div class="sub-desc">The form Id or form element</div></li><li><code>url</code> : String<div class="sub-desc">(optional) The url to pass the form to. If omitted the action attribute on the form will be used.</div></li><li><code>reset</code> : Boolean<div class="sub-desc">(optional) Whether to try to reset the form after the update</div></li><li><code>callback</code> : Function<div class="sub-desc">(optional) Callback when transaction is complete. The following
 parameters are passed:<ul>

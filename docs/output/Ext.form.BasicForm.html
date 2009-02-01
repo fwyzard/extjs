@@ -12,15 +12,34 @@
                 <h1>Class Ext.form.BasicForm</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.form</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">BasicForm.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/BasicForm.js" target="_blank">BasicForm.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">BasicForm</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.util.Observable" ext:member="" href="output/Ext.util.Observable.html">Observable</a></td></tr>
                     </table>
         <div class="description">
-            Supplies the functionality to do "actions" on forms and initialize Ext.form.Field types on existing markup.
-<br><br>
-By default, Ext Forms are submitted through Ajax, using <a ext:cls="Ext.form.Action" href="output/Ext.form.Action.html">Ext.form.Action</a>.
-To enable normal browser submission of an Ext Form, use the <a ext:cls="Ext.form.BasicForm" ext:member="standardSubmit" href="output/Ext.form.BasicForm.html#standardSubmit">standardSubmit</a> config option.        </div>
+            *
+<p>Encapsulates the DOM &lt;form> element at the heart of the <a ext:cls="Ext.form.FormPanel" href="output/Ext.form.FormPanel.html">FormPanel</a> class, and provides
+input field management, validation, submission, and form loading services.</p>
+<p>By default, Ext Forms are submitted through Ajax, using an instance of <a ext:cls="Ext.form.Action.Submit" href="output/Ext.form.Action.Submit.html">Ext.form.Action.Submit</a>.
+To enable normal browser submission of an Ext Form, use the <a ext:cls="Ext.form.BasicForm" ext:member="standardSubmit" href="output/Ext.form.BasicForm.html#standardSubmit">standardSubmit</a> config option.</p>
+<p><h3>File Uploads</h3><a ext:cls="Ext.form.BasicForm" ext:member="fileUpload" href="output/Ext.form.BasicForm.html#fileUpload">File uploads</a> are not performed using Ajax submission, that
+is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard
+manner with the DOM <tt>&lt;form></tt> element temporarily modified to have its
+<a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
+to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document
+but removed after the return data has been gathered.</p>
+<p>The server response is parsed by the browser to create the document for the IFRAME. If the
+server is using JSON to send the return object, then the
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header
+must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p>
+<p>Characters which are significant to an HTML parser must be sent as HTML entities, so encode
+"&lt;" as "&amp;lt;", "&amp;" as "&amp;amp;" etc.</p>
+<p>The response text is retrieved from the document, and a fake XMLHttpRequest object
+is created containing a <tt>responseText</tt> property in order to conform to the
+requirements of event handlers and callbacks.</p>
+<p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a>
+and some server technologies (notably JEE) may require some custom processing in order to
+retrieve parameter names and parameter values from the packet content.</p>        </div>
         
         <div class="hr"></div>
                 <a id="Ext.form.BasicForm-configs"></a>
@@ -44,9 +63,11 @@ To enable normal browser submission of an Ext Form, use the <a ext:cls="Ext.form
         <td class="sig">
         <a id="Ext.form.BasicForm-errorReader"></a>
             <b>errorReader</b> : DataReader            <div class="mdesc">
-                        <div class="short">An Ext.data.DataReader (e.g. Ext.data.XmlReader) to be used to read data when reading validation errors on "submit" a...</div>
+                        <div class="short">An Ext.data.DataReader (e.g. Ext.data.XmlReader) to be used to read field error messages returned from "submit" actio...</div>
             <div class="long">
-                An Ext.data.DataReader (e.g. <a ext:cls="Ext.data.XmlReader" href="output/Ext.data.XmlReader.html">Ext.data.XmlReader</a>) to be used to read data when reading validation errors on "submit" actions. This is completely optional as there is built-in support for processing JSON.            </div>
+                <p>An Ext.data.DataReader (e.g. <a ext:cls="Ext.data.XmlReader" href="output/Ext.data.XmlReader.html">Ext.data.XmlReader</a>) to be used to read field error messages returned from "submit" actions. This is completely optional as there is built-in support for processing JSON.</p> <p>The Records which provide messages for the invalid Fields must use the Field name (or id) as the Record ID, and must contain a field called "msg" which contains the error message.</p> <p>The errorReader does not have to be a full-blown implementation of a DataReader. It simply needs to implement a <tt>read(xhr)</tt> function which returns an Array of Records in an object with the following structure:<pre><code>{
+    records: recordArray
+}</code></pre>            </div>
                         </div>
         </td>
         <td class="msource">BasicForm</td>
@@ -58,7 +79,7 @@ To enable normal browser submission of an Ext Form, use the <a ext:cls="Ext.form
             <b>fileUpload</b> : Boolean            <div class="mdesc">
                         <div class="short">Set to true if this form is a file upload. File uploads are not performed using normal "Ajax" techniques, that is the...</div>
             <div class="long">
-                Set to true if this form is a file upload. <p>File uploads are not performed using normal "Ajax" techniques, that is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the DOM <tt>&lt;form></tt> element temporarily modified to have its <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document but removed after the return data has been gathered.</p> <p>The server response is parsed by the browser to create the document for the IFRAME. If the server is using JSON to send the return object, then the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p> <p>The response text is retrieved from the document, and a fake XMLHttpRequest object is created containing a <tt>responseText</tt> property in order to conform to the requirements of event handlers and callbacks.</p> <p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a> and some server technologies (notably JEE) may require some custom processing in order to retrieve parameter names and parameter values from the packet content.</p>            </div>
+                Set to true if this form is a file upload. <p>File uploads are not performed using normal "Ajax" techniques, that is they are <b>not</b> performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the DOM <tt>&lt;form></tt> element temporarily modified to have its <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document but removed after the return data has been gathered.</p> <p>The server response is parsed by the browser to create the document for the IFRAME. If the server is using JSON to send the return object, then the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p> <p>Characters which are significant to an HTML parser must be sent as HTML entities, so encode "&lt;" as "&amp;lt;", "&amp;" as "&amp;amp;" etc.</p> <p>The response text is retrieved from the document, and a fake XMLHttpRequest object is created containing a <tt>responseText</tt> property in order to conform to the requirements of event handlers and callbacks.</p> <p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a> and some server technologies (notably JEE) may require some custom processing in order to retrieve parameter names and parameter values from the packet content.</p>            </div>
                         </div>
         </td>
         <td class="msource">BasicForm</td>
@@ -68,9 +89,9 @@ To enable normal browser submission of an Ext Form, use the <a ext:cls="Ext.form
         <td class="sig">
         <a id="Ext.form.BasicForm-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
@@ -96,12 +117,15 @@ To enable normal browser submission of an Ext Form, use the <a ext:cls="Ext.form
         </td>
         <td class="msource">BasicForm</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.form.BasicForm-standardSubmit"></a>
             <b>standardSubmit</b> : Boolean            <div class="mdesc">
-                            If set to true, standard HTML form submits are used instead of XHR (Ajax) style form submissions. (defaults to false)                        </div>
+                        <div class="short">If set to true, standard HTML form submits are used instead of XHR (Ajax) style form submissions. (defaults to false)...</div>
+            <div class="long">
+                If set to true, standard HTML form submits are used instead of XHR (Ajax) style form submissions. (defaults to false)<br> <p><b>Note:</b> When using standardSubmit, any the options to <a ext:cls="Ext.form.BasicForm" ext:member="submit" href="output/Ext.form.BasicForm.html#submit">submit</a> are ignored because Ext's Ajax infrastracture is bypassed. To pass extra parameters, you will need to create hidden fields within the form.</p>            </div>
+                        </div>
         </td>
         <td class="msource">BasicForm</td>
     </tr>
@@ -189,9 +213,16 @@ element by passing it or its id or mask the form itself by passing in true.     
         <td class="sig">
         <a id="Ext.form.BasicForm-add"></a>
             <b>add</b>(&nbsp;<code>Field field1</code>, <span class="optional" title="Optional">[<code>Field field2</code>]</span>, <span class="optional" title="Optional">[<code>Field etc</code>]</span>&nbsp;) : BasicForm            <div class="mdesc">
-                        <div class="short">Add Ext.form components to this form.</div>
+                        <div class="short">Add Ext.form Components to this form's Collection. This does not result in rendering of
+the passed Component, it just...</div>
             <div class="long">
-                Add Ext.form components to this form.    <div class="mdetail-params">
+                Add Ext.form Components to this form's Collection. This does not result in rendering of
+the passed Component, it just enables the form to validate Fields, and distribute values to
+Fields.
+<p><b>You will not usually call this function. In order to be rendered, a Field must be added
+to a <a ext:cls="Ext.Container" href="output/Ext.Container.html">Container</a>, usually an <a ext:cls="Ext.form.FormPanel" href="output/Ext.form.FormPanel.html">FormPanel</a>.
+The FormPanel to which the field is added takes care of adding the Field to the BasicForm's
+collection.</b></p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>field1</code> : Field<div class="sub-desc"></div></li><li><code>field2</code> : Field<div class="sub-desc">(optional)</div></li><li><code>etc</code> : Field<div class="sub-desc">(optional)</div></li>        </ul>
         <strong>Returns:</strong>
@@ -377,19 +408,16 @@ to the form's method, or POST if not defined)</p></li>
 <li><b>headers</b> : Object<p style="margin-left:1em">Request headers to set for the action
 (defaults to the form's default headers)</p></li>
 <li><b>success</b> : Function<p style="margin-left:1em">The callback that will
-be invoked after a successful response. Note that this is HTTP success
-(the transaction was sent and received correctly), but the resulting response data
-can still contain data errors. The function is passed the following parameters:<ul>
+be invoked after a successful response. The function is passed the following parameters:<ul>
 <li><code>form</code> : Ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
-<li><code>action</code> : Ext.form.Action<div class="sub-desc">The Action class. The <a ext:cls="Ext.form.Action" ext:member="result" href="output/Ext.form.Action.html#result">result</a>
+<li><code>action</code> : Ext.form.Action<div class="sub-desc">The <a ext:cls="Ext.form.Action" href="output/Ext.form.Action.html">Action</a> object which performed the operation. The <a ext:cls="Ext.form.Action" ext:member="result" href="output/Ext.form.Action.html#result">result</a>
 property of this object may be examined to perform custom postprocessing.</div></li>
 </ul></p></li>
 <li><b>failure</b> : Function<p style="margin-left:1em">The callback that will
-be invoked after a failed transaction attempt. Note that this is HTTP failure,
-which means a non-successful HTTP code was returned from the server. The function
+be invoked after a failed transaction attempt. The function
 is passed the following parameters:<ul>
 <li><code>form</code> : Ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
-<li><code>action</code> : Ext.form.Action<div class="sub-desc">The Action class. If an Ajax
+<li><code>action</code> : Ext.form.Action<div class="sub-desc">The <a ext:cls="Ext.form.Action" href="output/Ext.form.Action.html">Action</a> object which performed the operation. If an Ajax
 error ocurred, the failure type will be in <a ext:cls="Ext.form.Action" ext:member="failureType" href="output/Ext.form.Action.html#failureType">failureType</a>. The <a ext:cls="Ext.form.Action" ext:member="result" href="output/Ext.form.Action.html#result">result</a>
 property of this object may be examined to perform custom postprocessing.</div></li>
 </ul></p></li>
@@ -476,8 +504,11 @@ to prevent this. If undefined, pre-submission field validation is performed.</p>
             <b>getValues</b>(&nbsp;<span class="optional" title="Optional">[<code>Boolean asString</code>]</span>&nbsp;) : String/Object            <div class="mdesc">
                         <div class="short">Returns the fields in this form as an object with key/value pairs as they would be submitted using a standard form su...</div>
             <div class="long">
-                Returns the fields in this form as an object with key/value pairs as they would be submitted using a standard form submit.
-If multiple fields exist with the same name they are returned as an array.    <div class="mdetail-params">
+                <p>Returns the fields in this form as an object with key/value pairs as they would be submitted using a standard form submit.
+If multiple fields exist with the same name they are returned as an array.</p>
+<p><b>Note:</b> The values are collected from all enabled HTML input elements within the form, <u>not</u> from
+the Ext Field objects. This means that all returned values are Strings (or Arrays of Strings) and that the the
+value can potentionally be the emptyText of a field.</p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>asString</code> : Boolean<div class="sub-desc">(optional) false to return the values as an object (defaults to returning as a string)</div></li>        </ul>
         <strong>Returns:</strong>
@@ -809,7 +840,38 @@ or an object hash of the form:<br><br><code><pre>{
             <div class="long">
                 Shortcut to do a submit action.    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>options</code> : Object<div class="sub-desc">The options to pass to the action (see <a ext:cls="Ext.form.BasicForm" ext:member="doAction" href="output/Ext.form.BasicForm.html#doAction">doAction</a> for details)</div></li>        </ul>
+        <ul><li><code>options</code> : Object<div class="sub-desc">The options to pass to the action (see <a ext:cls="Ext.form.BasicForm" ext:member="doAction" href="output/Ext.form.BasicForm.html#doAction">doAction</a> for details).<br>
+<p><b>Note:</b> this is ignored when using the <a ext:cls="Ext.form.BasicForm" ext:member="standardSubmit" href="output/Ext.form.BasicForm.html#standardSubmit">standardSubmit</a> option.</p>
+<p>The following code:</p><pre><code>myFormPanel.getForm().submit({
+    clientValidation: true,
+    url: <em>'updateConsignment.php'</em>,
+    params: {
+        newStatus: <em>'delivered'</em>
+    },
+    success: <b>function</b>(form, action) {
+       Ext.Msg.alert(<em>"Success"</em>, action.result.msg);
+    },
+    failure: <b>function</b>(form, action) {
+        <b>switch</b> (action.failureType) {
+            <b>case</b> Ext.form.Action.CLIENT_INVALID:
+                Ext.Msg.alert(<em>"Failure"</em>, <em>"Form fields may not be submitted <b>with</b> invalid values"</em>);
+                <b>break</b>;
+            <b>case</b> Ext.form.Action.CONNECT_FAILURE:
+                Ext.Msg.alert(<em>"Failure"</em>, <em>"Ajax communication failed"</em>);
+                <b>break</b>;
+            <b>case</b> Ext.form.Action.SERVER_INVALID:
+               Ext.Msg.alert(<em>"Failure"</em>, action.result.msg);
+       }
+    }
+});</code></pre>
+would process the following server response for a successful submission:<pre><code>{
+    success: true,
+    msg: <em>'Consignment updated'</em>
+}</code></pre>
+and the following server response for a failed submission:<pre><code>{
+    success: false,
+    msg: <em>'You <b>do</b> not have permission to perform <b>this</b> operation'</em>
+}</code></pre></div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>BasicForm</code><div class="sub-desc">this</div></li>

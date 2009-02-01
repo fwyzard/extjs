@@ -9,7 +9,7 @@
                 <h1>Class Ext.layout.BorderLayout.Region</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.layout</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">BorderLayout.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/BorderLayout.js" target="_blank">BorderLayout.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">BorderLayout.Region</td></tr>
                         <tr><td class="label">Subclasses:</td><td class="hd-info"><a ext:cls="Ext.layout.BorderLayout.SplitRegion" href="output/Ext.layout.BorderLayout.SplitRegion.html">BorderLayout.SplitRegion</a></td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
@@ -57,9 +57,15 @@ regions, see <a ext:cls="Ext.layout.BorderLayout.SplitRegion" href="output/Ext.l
         <td class="sig">
         <a id="Ext.layout.BorderLayout.Region-cmargins"></a>
             <b>cmargins</b> : Object            <div class="mdesc">
-                        <div class="short">An object containing margins to apply to the region's collapsed element in the format {left: (left margin), top: (top...</div>
+                        <div class="short">An object containing margins to apply to the region when in the collapsed state in the format:{
+    top: (top margin)...</div>
             <div class="long">
-                An object containing margins to apply to the region's collapsed element in the format {left: (left margin), top: (top margin), right: (right margin), bottom: (bottom margin)}            </div>
+                An object containing margins to apply to the region when in the collapsed state in the format:<pre><code>{
+    top: (top margin),
+    right: (right margin),
+    bottom: (bottom margin)
+    left: (left margin),
+}</code></pre> <p>May also be a string containing space-separated, numeric margin values. The order of the sides associated with each value matches the way CSS processes margin values.</p> <p><ul> <li>If there is only one value, it applies to all sides.</li> <li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li> <li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li> <li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li> </ul></p>            </div>
                         </div>
         </td>
         <td class="msource">BorderLayout.Region</td>
@@ -117,9 +123,15 @@ regions, see <a ext:cls="Ext.layout.BorderLayout.SplitRegion" href="output/Ext.l
         <td class="sig">
         <a id="Ext.layout.BorderLayout.Region-margins"></a>
             <b>margins</b> : Object            <div class="mdesc">
-                        <div class="short">An object containing margins to apply to the region in the format {left: (left margin), top: (top margin), right: (ri...</div>
+                        <div class="short">An object containing margins to apply to the region when in the expanded state in the format:{
+    top: (top margin),...</div>
             <div class="long">
-                An object containing margins to apply to the region in the format {left: (left margin), top: (top margin), right: (right margin), bottom: (bottom margin)}            </div>
+                An object containing margins to apply to the region when in the expanded state in the format:<pre><code>{
+    top: (top margin),
+    right: (right margin),
+    bottom: (bottom margin)
+    left: (left margin),
+}</code></pre> <p>May also be a string containing space-separated, numeric margin values. The order of the sides associated with each value matches the way CSS processes margin values:</p> <p><ul> <li>If there is only one value, it applies to all sides.</li> <li>If there are two values, the top and bottom borders are set to the first value and the right and left are set to the second.</li> <li>If there are three values, the top is set to the first value, the left and right are set to the second, and the bottom is set to the third.</li> <li>If there are four values, they apply to the top, right, bottom, and left, respectively.</li> </ul></p>            </div>
                         </div>
         </td>
         <td class="msource">BorderLayout.Region</td>
@@ -168,6 +180,25 @@ regions, see <a ext:cls="Ext.layout.BorderLayout.SplitRegion" href="output/Ext.l
         <a id="Ext.layout.BorderLayout.Region-isCollapsed"></a>
             <b>isCollapsed</b> : Boolean            <div class="mdesc">
                             True if this region is collapsed. Read-only.                        </div>
+        </td>
+        <td class="msource">BorderLayout.Region</td>
+    </tr>
+        <tr class="property-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.layout.BorderLayout.Region-layout"></a>
+            <b>layout</b> : Layout            <div class="mdesc">
+                            
+This region's layout.  Read-only.                        </div>
+        </td>
+        <td class="msource">BorderLayout.Region</td>
+    </tr>
+        <tr class="property-row">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.layout.BorderLayout.Region-panel"></a>
+            <b>panel</b> : Ext.Panel            <div class="mdesc">
+                            This region's panel.  Read-only.                        </div>
         </td>
         <td class="msource">BorderLayout.Region</td>
     </tr>

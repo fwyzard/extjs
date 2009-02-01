@@ -12,12 +12,13 @@
                 <h1>Class Ext.layout.BorderLayout</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext.layout</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">BorderLayout.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/BorderLayout.js" target="_blank">BorderLayout.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">BorderLayout</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.layout.ContainerLayout" ext:member="" href="output/Ext.layout.ContainerLayout.html">ContainerLayout</a></td></tr>
                     </table>
         <div class="description">
-            <p>This is a multi-pane, application-oriented UI layout style that supports multiple nested panels, automatic
+            *
+<p>This is a multi-pane, application-oriented UI layout style that supports multiple nested panels, automatic
 split bars between regions and built-in expanding and collapsing of regions.
 This class is intended to be extended or created via the layout:'border' <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">Ext.Container.layout</a> config,
 and should generally not need to be created directly via the new keyword.</p>
@@ -25,7 +26,8 @@ and should generally not need to be created directly via the new keyword.</p>
 for customizing the BorderLayout are at the <a ext:cls="Ext.layout.BorderLayout.Region" href="output/Ext.layout.BorderLayout.Region.html">Ext.layout.BorderLayout.Region</a> and
 <a ext:cls="Ext.layout.BorderLayout.SplitRegion" href="output/Ext.layout.BorderLayout.SplitRegion.html">Ext.layout.BorderLayout.SplitRegion</a> levels.</p>
 <p><b>The regions of a BorderLayout are fixed at render time and thereafter, no regions may be removed or
-added.</b></p>
+added. The BorderLayout must have a center region, which will always fill the remaining space not used by
+the other regions in the layout.</b></p>
 <p>Example usage:</p>
 <pre><code>var border = <b>new</b> Ext.Panel({
     title: <em>'Border Layout'</em>,

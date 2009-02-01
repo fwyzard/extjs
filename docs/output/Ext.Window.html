@@ -16,15 +16,16 @@
                 <h1>Class Ext.Window</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">Window.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/Window.js" target="_blank">Window.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">Window</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.Panel" ext:member="" href="output/Ext.Panel.html">Panel</a></td></tr>
                     </table>
         <div class="description">
-            A specialized panel intended for use as an application window.  Windows are floated and draggable by default, and
+            *
+A specialized panel intended for use as an application window.  Windows are floated and draggable by default, and
 also provide specific behavior like the ability to maximize and restore (with an event for minimizing, since the
 minimize behavior is application-specific).  Windows can also be linked to a <a ext:cls="Ext.WindowGroup" href="output/Ext.WindowGroup.html">Ext.WindowGroup</a> or managed
-by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.WindowManager</a> to provide grouping, activation, to front/back and other application-specific behavior.        </div>
+by the <a ext:cls="Ext.WindowMgr" href="output/Ext.WindowMgr.html">Ext.WindowMgr</a> to provide grouping, activation, to front/back and other application-specific behavior.        </div>
         
         <div class="hr"></div>
                 <a id="Ext.Window-configs"></a>
@@ -103,16 +104,29 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Window-autoEl"></a>
+            <b>autoEl</b> : String/Object            <div class="mdesc">
+                        <div class="short">A tag name or DomHelper spec to create an element with. This is intended to create shorthand utility components inlin...</div>
+            <div class="long">
+                A tag name or DomHelper spec to create an element with. This is intended to create shorthand utility components inline via JSON. It should not be used for higher level components which already create their own elements. Example usage: <pre><code>{xtype:<em>'box'</em>, autoEl: <em>'div'</em>, cls:<em>'my-class'</em>}
+{xtype:<em>'box'</em>, autoEl: {tag:<em>'blockquote'</em>, html:<em>'autoEl is cool!'</em>}} // <b>with</b> DomHelper</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#autoEl" href="output/Ext.Component.html#autoEl">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Window-autoHeight"></a>
             <b>autoHeight</b> : Boolean            <div class="mdesc">
-                        <div class="short">True to use height:'auto', false to use fixed height. Note: although many components inherit this config option, not ...</div>
+                        <div class="short">True to use height:'auto', false to use fixed height (defaults to false). Note: Although many components inherit this...</div>
             <div class="long">
-                True to use height:'auto', false to use fixed height. Note: although many components inherit this config option, not all will function as expected with a height of 'auto'. (defaults to false).            </div>
+                True to use height:'auto', false to use fixed height (defaults to false). <b>Note</b>: Although many components inherit this config option, not all will function as expected with a height of 'auto'. Setting autoHeight:true means that the browser will manage height based on the element's contents, and that Ext will not manage it at all.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#autoHeight" href="output/Ext.BoxComponent.html#autoHeight">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-autoLoad"></a>
@@ -124,7 +138,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#autoLoad" href="output/Ext.Panel.html#autoLoad">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-autoScroll"></a>
@@ -136,7 +150,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#autoScroll" href="output/Ext.Panel.html#autoScroll">Panel</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-autoShow"></a>
@@ -148,7 +162,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#autoShow" href="output/Ext.Component.html#autoShow">Component</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-baseCls"></a>
@@ -157,19 +171,19 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-bbar"></a>
             <b>bbar</b> : Object/Array            <div class="mdesc">
-                        <div class="short">The bottom toolbar of the panel. This can be a Ext.Toolbar object, a toolbar config, or an array of buttons/button co...</div>
+                        <div class="short">The bottom toolbar of the panel. This can be either an Ext.Toolbar object or an array of buttons/button configs to be...</div>
             <div class="long">
-                The bottom toolbar of the panel. This can be a <a ext:cls="Ext.Toolbar" href="output/Ext.Toolbar.html">Ext.Toolbar</a> object, a toolbar config, or an array of buttons/button configs to be added to the toolbar. Note that this is not available as a property after render. To access the bottom toolbar after render, use <a ext:cls="Ext.Panel" ext:member="getBottomToolbar" href="output/Ext.Panel.html#getBottomToolbar">getBottomToolbar</a>.            </div>
+                The bottom toolbar of the panel. This can be either an <a ext:cls="Ext.Toolbar" href="output/Ext.Toolbar.html">Ext.Toolbar</a> object or an array of buttons/button configs to be added to the toolbar. Note that this is not available as a property after render. To access the bottom toolbar after render, use <a ext:cls="Ext.Panel" ext:member="getBottomToolbar" href="output/Ext.Panel.html#getBottomToolbar">getBottomToolbar</a>.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#bbar" href="output/Ext.Panel.html#bbar">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-bodyBorder"></a>
@@ -180,6 +194,46 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#bodyBorder" href="output/Ext.Panel.html#bodyBorder">Panel</a></td>
+    </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Window-bodyCfg"></a>
+            <b>bodyCfg</b> : Object            <div class="mdesc">
+                        <div class="short">A DomHelper configuration object specifying the element structure of this Panel's body Element. This may be used to f...</div>
+            <div class="long">
+                <p>A <a ext:cls="Ext.DomHelper" href="output/Ext.DomHelper.html">DomHelper</a> configuration object specifying the element structure of this Panel's <a ext:cls="Ext.Panel" ext:member="body" href="output/Ext.Panel.html#body">body</a> Element.</p> <p>This may be used to force the body Element to use a different form of markup than is created automatically. An example of this might be to create a child Panel containing custom content, such as a header, or forcing centering of all Panel content by having the body be a &lt;center&gt; element:</p><code><pre>new Ext.Panel({
+    title: 'New Message',
+    collapsible: true,
+    renderTo: Ext.getBody(),
+    width: 400,
+    bodyCfg: {
+        tag: 'center',
+        cls: 'x-panel-body'
+    },
+    items: [{
+        border: false,
+        header: false,
+        bodyCfg: {tag: 'h2', html: 'Message'}
+    }, {
+        xtype: 'textarea',
+        style: {
+            width: '95%',
+            marginBottom: '10px'
+        }
+    },
+        new Ext.Button({
+            text: 'Send',
+            minWidth: '100',
+            style: {
+                marginBottom: '10px'
+            }
+        })
+    ]
+});</pre></code>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Panel" ext:member="#bodyCfg" href="output/Ext.Panel.html#bodyCfg">Panel</a></td>
     </tr>
         <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -235,7 +289,19 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#buttons" href="output/Ext.Panel.html#buttons">Panel</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Window-clearCls"></a>
+            <b>clearCls</b> : String            <div class="mdesc">
+                        <div class="short">The CSS class used to provide field clearing (defaults to 'x-form-clear-left'). This config is only used when this Co...</div>
+            <div class="long">
+                The CSS class used to provide field clearing (defaults to 'x-form-clear-left'). <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#clearCls" href="output/Ext.Component.html#clearCls">Component</a></td>
+    </tr>
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-closable"></a>
@@ -247,7 +313,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-closeAction"></a>
@@ -259,7 +325,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-cls"></a>
@@ -271,7 +337,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#cls" href="output/Ext.Component.html#cls">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-collapseFirst"></a>
@@ -283,16 +349,19 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#collapseFirst" href="output/Ext.Panel.html#collapseFirst">Panel</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-collapsed"></a>
             <b>collapsed</b> : Boolean            <div class="mdesc">
-                            True to render the panel collapsed, false to render it expanded (defaults to false).                        </div>
+                        <div class="short">True to render the window collapsed, false to render it expanded (defaults to false). Note that if expandOnShow is tr...</div>
+            <div class="long">
+                True to render the window collapsed, false to render it expanded (defaults to false). Note that if <a ext:cls="Ext.Window" ext:member="expandOnShow" href="output/Ext.Window.html#expandOnShow">expandOnShow</a> is true (the default) it will override the <tt>collapsed</tt> config and the window will always be expanded when shown.            </div>
+                        </div>
         </td>
-        <td class="msource"><a ext:cls="Ext.Panel" ext:member="#collapsed" href="output/Ext.Panel.html#collapsed">Panel</a></td>
+        <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-collapsedCls"></a>
@@ -301,7 +370,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#collapsedCls" href="output/Ext.Panel.html#collapsedCls">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-collapsible"></a>
@@ -313,7 +382,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#collapsible" href="output/Ext.Panel.html#collapsible">Panel</a></td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-constrain"></a>
@@ -325,7 +394,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-constrainHeader"></a>
@@ -337,16 +406,19 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-contentEl"></a>
             <b>contentEl</b> : String            <div class="mdesc">
-                            The id of an existing HTML node to use as the panel's body content (defaults to '').                        </div>
+                        <div class="short">The id of an existing HTML node to use as the panel's body content (defaults to ''). The specified Element is appende...</div>
+            <div class="long">
+                The id of an existing HTML node to use as the panel's body content (defaults to ''). The specified Element is appended to the Panel's body Element by the Panel's afterRender method <i>after any configured <a ext:cls="Ext.Panel" ext:member="html" href="output/Ext.Panel.html#html">HTML</a> has been inserted</i>, and so the document will not contain this HTML at the time the render event is fired.            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#contentEl" href="output/Ext.Panel.html#contentEl">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-ctCls"></a>
@@ -358,7 +430,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#ctCls" href="output/Ext.Component.html#ctCls">Component</a></td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-defaultButton"></a>
@@ -367,19 +439,19 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-defaultType"></a>
             <b>defaultType</b> : String            <div class="mdesc">
                         <div class="short">The default xtype of child Components to create in this Container when a child item is specified as a raw configurati...</div>
             <div class="long">
-                <p>The default <a ext:cls="Ext.Component" href="output/Ext.Component.html">xtype</a> of child Components to create in this Container when a child item is specified as a raw configuration object, rather than as an instantiated Component.</p> <p>This usually defaults to 'panel', but for <a ext:cls="Ext.form.FormPanel" href="output/Ext.form.FormPanel.html">Ext.form.FormPanel</a> and <a ext:cls="Ext.form.FieldSet" href="output/Ext.form.FieldSet.html">Ext.form.FieldSet</a>, the defaultType is 'textfield'.</p>            </div>
+                <p>The default <a ext:cls="Ext.Component" href="output/Ext.Component.html">xtype</a> of child Components to create in this Container when a child item is specified as a raw configuration object, rather than as an instantiated Component.</p> <p>Defaults to 'panel'.</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#defaultType" href="output/Ext.Container.html#defaultType">Container</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-defaults"></a>
@@ -391,7 +463,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#defaults" href="output/Ext.Container.html#defaults">Container</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-disabled"></a>
@@ -400,7 +472,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabled" href="output/Ext.Component.html#disabled">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-disabledClass"></a>
@@ -409,7 +481,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#disabledClass" href="output/Ext.Component.html#disabledClass">Component</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-draggable"></a>
@@ -421,7 +493,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-elements"></a>
@@ -433,17 +505,36 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-expandOnShow"></a>
             <b>expandOnShow</b> : Boolean            <div class="mdesc">
                         <div class="short">True to always expand the window when it is displayed, false to keep it in its current state (which may be collapsed)...</div>
             <div class="long">
-                True to always expand the window when it is displayed, false to keep it in its current state (which may be collapsed) when displayed (defaults to true).            </div>
+                True to always expand the window when it is displayed, false to keep it in its current state (which may be <a ext:cls="Ext.Window" ext:member="collapsed" href="output/Ext.Window.html#collapsed">collapsed</a>) when displayed (defaults to true).            </div>
                         </div>
         </td>
         <td class="msource">Window</td>
+    </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Window-fieldLabel"></a>
+            <b>fieldLabel</b> : String            <div class="mdesc">
+                        <div class="short">The label text to display next to this Component (defaults to '') This config is only used when this Component is ren...</div>
+            <div class="long">
+                The label text to display next to this Component (defaults to '') <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#fieldLabel" href="output/Ext.Component.html#fieldLabel">Component</a></td>
     </tr>
         <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -520,16 +611,35 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Window-hideLabel"></a>
+            <b>hideLabel</b> : Boolean            <div class="mdesc">
+                        <div class="short">True to completely hide the label element (defaults to false). By default, even if you do not specify a fieldLabel th...</div>
+            <div class="long">
+                True to completely hide the label element (defaults to false). By default, even if you do not specify a <a ext:cls="fieldLabel" href="output/fieldLabel.html">fieldLabel</a> the space will still be reserved so that the field will line up with other fields that do have labels. Setting this to true will cause the field to not reserve that space. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>
+        hideLabel: true
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideLabel" href="output/Ext.Component.html#hideLabel">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Window-hideMode"></a>
             <b>hideMode</b> : String            <div class="mdesc">
-                        <div class="short">How this component should hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset posi...</div>
+                        <div class="short">How this component should be hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset p...</div>
             <div class="long">
-                How this component should hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset position) and "display" (css display) - defaults to "display".            </div>
+                <p>How this component should be hidden. Supported values are "visibility" (css visibility), "offsets" (negative offset position) and "display" (css display) - defaults to "display".</p> <p>For Containers which may be hidden and shown as part of a <a ext:cls="Ext.layout.CardLayout" href="output/Ext.layout.CardLayout.html">card layout</a> Container such as a <a ext:cls="Ext.TabPanel" href="output/Ext.TabPanel.html">TabPanel</a>, it is recommended that hideMode is configured as "offsets". This ensures that hidden Components still have height and width so that layout managers can perform measurements when calculating layouts.</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideMode" href="output/Ext.Component.html#hideMode">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-hideParent"></a>
@@ -541,16 +651,19 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#hideParent" href="output/Ext.Component.html#hideParent">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-html"></a>
             <b>html</b> : String/Object            <div class="mdesc">
-                            An HTML fragment, or a <a ext:cls="Ext.DomHelper" href="output/Ext.DomHelper.html">DomHelper</a> specification to use as the panel's body content (defaults to '').                        </div>
+                        <div class="short">An HTML fragment, or a DomHelper specification to use as the panel's body content (defaults to ''). The HTML content ...</div>
+            <div class="long">
+                An HTML fragment, or a <a ext:cls="Ext.DomHelper" href="output/Ext.DomHelper.html">DomHelper</a> specification to use as the panel's body content (defaults to ''). The HTML content is added by the Panel's afterRender method, and so the document will not contain this HTML at the time the render event is fired. This content is inserted into the body <i>before</i> any configured <a ext:cls="Ext.Panel" ext:member="contentEl" href="output/Ext.Panel.html#contentEl">contentEl</a> is appended.            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#html" href="output/Ext.Panel.html#html">Panel</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-iconCls"></a>
@@ -562,14 +675,45 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#iconCls" href="output/Ext.Panel.html#iconCls">Panel</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-id"></a>
             <b>id</b> : String            <div class="mdesc">
-                            The unique id of this component (defaults to an auto-assigned id).                        </div>
+                        <div class="short">The unique id of this component (defaults to an auto-assigned id). You should assign an id if you need to be able to ...</div>
+            <div class="long">
+                The unique id of this component (defaults to an auto-assigned id). You should assign an id if you need to be able to access the component later and you do not have an object reference available (e.g., using <a ext:cls="Ext.ComponentMgr" ext:member="getCmp" href="output/Ext.ComponentMgr.html#getCmp">Ext.ComponentMgr.getCmp</a>). Note that this id will also be used as the element id for the containing HTML element that is rendered to the page for this component. This allows you to write id-based CSS rules to style the specific instance of this component uniquely, and also to select sub-elements using this component's id as the parent.            </div>
+                        </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#id" href="output/Ext.Component.html#id">Component</a></td>
+    </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Window-itemCls"></a>
+            <b>itemCls</b> : String            <div class="mdesc">
+                        <div class="short">An additional CSS class to apply to the wrapper's form item element of this field (defaults to the container's itemCl...</div>
+            <div class="long">
+                An additional CSS class to apply to the wrapper's form item element of this field (defaults to the container's itemCls value if set, or ''). Since it is applied to the item wrapper, it allows you to write standard CSS rules that can apply to the field, the label (if specified) or any other element within the markup for the field. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code><i>// Apply a style to the field's label:</i>
+&lt;style>
+    .required .x-form-item-label {font-weight:bold;color:red;}
+&lt;/style>
+
+<b>new</b> Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>,
+        itemCls: <em>'required'</em> <i>//<b>this</b> label will be styled</i>
+    },{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Favorite Color'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#itemCls" href="output/Ext.Component.html#itemCls">Component</a></td>
     </tr>
         <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -598,11 +742,51 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Window-labelSeparator"></a>
+            <b>labelSeparator</b> : String            <div class="mdesc">
+                        <div class="short">The standard separator to display after the text of each form label (defaults to the value of Ext.layout.FormLayout.l...</div>
+            <div class="long">
+                The standard separator to display after the text of each form label (defaults to the value of <a ext:cls="Ext.layout.FormLayout" ext:member="labelSeparator" href="output/Ext.layout.FormLayout.html#labelSeparator">Ext.layout.FormLayout.labelSeparator</a>, which is a colon ':' by default). To display no separator for this field's label specify empty string ''. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>,
+        labelSeparator: <em>'...'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#labelSeparator" href="output/Ext.Component.html#labelSeparator">Component</a></td>
+    </tr>
+        <tr class="config-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Window-labelStyle"></a>
+            <b>labelStyle</b> : String            <div class="mdesc">
+                        <div class="short">A CSS style specification to apply directly to this field's label (defaults to the container's labelStyle value if se...</div>
+            <div class="long">
+                A CSS style specification to apply directly to this field's label (defaults to the container's labelStyle value if set, or '').<code></code>. <p><b>This config is only used when this Component is rendered by a Container which has been configured to use the <a ext:cls="Ext.form.FormLayout" href="output/Ext.form.FormLayout.html">FormLayout</a> layout manager.</b></p> Example use:<pre><code>new Ext.FormPanel({
+    height: 100,
+    renderTo: Ext.getBody(),
+    items: [{
+        xtype: <em>'textfield'</em>,
+        fieldLabel: <em>'Name'</em>,
+        labelStyle: <em>'font-weight:bold;'</em>
+    }]
+});</code></pre>            </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Component" ext:member="#labelStyle" href="output/Ext.Component.html#labelStyle">Component</a></td>
+    </tr>
+        <tr class="config-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Window-layout"></a>
             <b>layout</b> : String            <div class="mdesc">
                         <div class="short">The layout type to be used in this container. If not specified, a default Ext.layout.ContainerLayout will be created ...</div>
             <div class="long">
-                The layout type to be used in this container. If not specified, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.ContainerLayout.html">Ext.layout.ContainerLayout</a> will be created and used. Valid values are: absolute, accordion, anchor, border, card, column, fit, form and table. Specific config values for the chosen layout type can be specified using <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">layoutConfig</a>.            </div>
+                The layout type to be used in this container. If not specified, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.ContainerLayout.html">Ext.layout.ContainerLayout</a> will be created and used. Specific config values for the chosen layout type can be specified using <a ext:cls="Ext.Container" ext:member="layoutConfig" href="output/Ext.Container.html#layoutConfig">layoutConfig</a>. Valid values are:<ul class="mdetail-params"> <li>absolute</li> <li>accordion</li> <li>anchor</li> <li>border</li> <li>card</li> <li>column</li> <li>fit</li> <li>form</li> <li>table</li></ul>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#layout" href="output/Ext.Container.html#layout">Container</a></td>
@@ -624,9 +808,9 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         <td class="sig">
         <a id="Ext.Window-listeners"></a>
             <b>listeners</b> : Object            <div class="mdesc">
-                        <div class="short">A config object containing one or more event handlers to be added to this object during initialization. This should b...</div>
+                        <div class="short">(optional) A config object containing one or more event handlers to be added to this object during initialization. Th...</div>
             <div class="long">
-                A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
+                (optional) A config object containing one or more event handlers to be added to this object during initialization. This should be a valid listeners config object as specified in the <a ext:cls="Ext.util.Observable" ext:member="addListener" href="output/Ext.util.Observable.html#addListener">addListener</a> example for attaching multiple handlers at once.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#listeners" href="output/Ext.util.Observable.html#listeners">Observable</a></td>
@@ -664,7 +848,16 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row alt">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Window-maximized"></a>
+            <b>maximized</b> : Boolean            <div class="mdesc">
+                            True to initially display the window in a maximized state. (Defaults to false).                        </div>
+        </td>
+        <td class="msource">Window</td>
+    </tr>
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-minButtonWidth"></a>
@@ -673,7 +866,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#minButtonWidth" href="output/Ext.Panel.html#minButtonWidth">Panel</a></td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-minHeight"></a>
@@ -682,7 +875,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-minWidth"></a>
@@ -691,7 +884,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-minimizable"></a>
@@ -703,7 +896,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row alt expandable">
+        <tr class="config-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-modal"></a>
@@ -715,7 +908,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-onEsc"></a>
@@ -727,7 +920,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-overCls"></a>
@@ -739,7 +932,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#overCls" href="output/Ext.Component.html#overCls">Component</a></td>
     </tr>
-        <tr class="config-row inherited">
+        <tr class="config-row inherited alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-pageX"></a>
@@ -748,7 +941,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageX" href="output/Ext.BoxComponent.html#pageX">BoxComponent</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-pageY"></a>
@@ -757,7 +950,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#pageY" href="output/Ext.BoxComponent.html#pageY">BoxComponent</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-plain"></a>
@@ -769,7 +962,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-plugins"></a>
@@ -781,7 +974,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#plugins" href="output/Ext.Component.html#plugins">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-renderTo"></a>
@@ -793,7 +986,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#renderTo" href="output/Ext.Component.html#renderTo">Component</a></td>
     </tr>
-        <tr class="config-row alt">
+        <tr class="config-row">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-resizable"></a>
@@ -802,7 +995,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row">
+        <tr class="config-row alt">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-resizeHandles"></a>
@@ -811,7 +1004,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-shadow"></a>
@@ -823,7 +1016,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#shadow" href="output/Ext.Panel.html#shadow">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-shadowOffset"></a>
@@ -835,7 +1028,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#shadowOffset" href="output/Ext.Panel.html#shadowOffset">Panel</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-shim"></a>
@@ -847,7 +1040,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#shim" href="output/Ext.Panel.html#shim">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-stateEvents"></a>
@@ -859,31 +1052,31 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateEvents" href="output/Ext.Component.html#stateEvents">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-stateId"></a>
             <b>stateId</b> : String            <div class="mdesc">
-                        <div class="short">The unique id for this component to use for state management purposes (defaults to the component id). See stateful fo...</div>
+                        <div class="short">The unique id for this component to use for state management purposes (defaults to the component id if one was set, o...</div>
             <div class="long">
-                The unique id for this component to use for state management purposes (defaults to the component id). <p>See <a ext:cls="Ext.Component" ext:member="stateful" href="output/Ext.Component.html#stateful">stateful</a> for an explanation of saving and restoring Component state.</p>            </div>
+                The unique id for this component to use for state management purposes (defaults to the component id if one was set, otherwise null if the component is using a generated id). <p>See <a ext:cls="Ext.Component" ext:member="stateful" href="output/Ext.Component.html#stateful">stateful</a> for an explanation of saving and restoring Component state.</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateId" href="output/Ext.Component.html#stateId">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-stateful"></a>
             <b>stateful</b> : Boolean            <div class="mdesc">
                         <div class="short">A flag which causes the Component to attempt to restore the state of internal properties from a saved state on startu...</div>
             <div class="long">
-                A flag which causes the Component to attempt to restore the state of internal properties from a saved state on startup.<p> For state saving to work, the state manager's provider must have been set to an implementation of <a ext:cls="Ext.state.Provider" href="output/Ext.state.Provider.html">Ext.state.Provider</a> which overrides the <a ext:cls="Ext.state.Provider" ext:member="set" href="output/Ext.state.Provider.html#set">set</a> and <a ext:cls="Ext.state.Provider" ext:member="get" href="output/Ext.state.Provider.html#get">get</a> methods to save and recall name/value pairs. A built-in implementation, <a ext:cls="Ext.state.CookieProvider" href="output/Ext.state.CookieProvider.html">Ext.state.CookieProvider</a> is available.</p> <p>To set the state provider for the current page:</p> <pre><code>Ext.state.Manager.setProvider(<b>new</b> Ext.state.CookieProvider());</code></pre> <p>Components attempt to save state when one of the events listed in the <a ext:cls="Ext.Component" ext:member="stateEvents" href="output/Ext.Component.html#stateEvents">stateEvents</a> configuration fires.</p> <p>You can perform extra processing on state save and restore by attaching handlers to the <a ext:cls="Ext.Component" ext:member="beforestaterestore" href="output/Ext.Component.html#beforestaterestore">beforestaterestore</a>, <a ext:cls="staterestore" href="output/staterestore.html">staterestore</a>, <a ext:cls="beforestatesave" href="output/beforestatesave.html">beforestatesave</a> and <a ext:cls="statesave" href="output/statesave.html">statesave</a> events</p>            </div>
+                <p>A flag which causes the Component to attempt to restore the state of internal properties from a saved state on startup. The component must have either a <a ext:cls="Ext.Component" ext:member="stateId" href="output/Ext.Component.html#stateId">stateId</a> or <a ext:cls="Ext.Component" ext:member="id" href="output/Ext.Component.html#id">id</a> assigned for state to be managed. Auto-generated ids are not guaranteed to be stable across page loads and cannot be relied upon to save and restore the same state for a component.<p> For state saving to work, the state manager's provider must have been set to an implementation of <a ext:cls="Ext.state.Provider" href="output/Ext.state.Provider.html">Ext.state.Provider</a> which overrides the <a ext:cls="Ext.state.Provider" ext:member="set" href="output/Ext.state.Provider.html#set">set</a> and <a ext:cls="Ext.state.Provider" ext:member="get" href="output/Ext.state.Provider.html#get">get</a> methods to save and recall name/value pairs. A built-in implementation, <a ext:cls="Ext.state.CookieProvider" href="output/Ext.state.CookieProvider.html">Ext.state.CookieProvider</a> is available.</p> <p>To set the state provider for the current page:</p> <pre><code>Ext.state.Manager.setProvider(<b>new</b> Ext.state.CookieProvider());</code></pre> <p>Components attempt to save state when one of the events listed in the <a ext:cls="Ext.Component" ext:member="stateEvents" href="output/Ext.Component.html#stateEvents">stateEvents</a> configuration fires.</p> <p>You can perform extra processing on state save and restore by attaching handlers to the <a ext:cls="Ext.Component" ext:member="beforestaterestore" href="output/Ext.Component.html#beforestaterestore">beforestaterestore</a>, <a ext:cls="Ext.Component" ext:member="staterestore" href="output/Ext.Component.html#staterestore">staterestore</a>, <a ext:cls="Ext.Component" ext:member="beforestatesave" href="output/Ext.Component.html#beforestatesave">beforestatesave</a> and <a ext:cls="Ext.Component" ext:member="statesave" href="output/Ext.Component.html#statesave">statesave</a> events</p>            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#stateful" href="output/Ext.Component.html#stateful">Component</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-style"></a>
@@ -895,7 +1088,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#style" href="output/Ext.Component.html#style">Component</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-tabTip"></a>
@@ -907,19 +1100,19 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#tabTip" href="output/Ext.Panel.html#tabTip">Panel</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-tbar"></a>
             <b>tbar</b> : Object/Array            <div class="mdesc">
-                        <div class="short">The top toolbar of the panel. This can be a Ext.Toolbar object, a toolbar config, or an array of buttons/button confi...</div>
+                        <div class="short">The top toolbar of the panel. This can be either an Ext.Toolbar object or an array of buttons/button configs to be ad...</div>
             <div class="long">
-                The top toolbar of the panel. This can be a <a ext:cls="Ext.Toolbar" href="output/Ext.Toolbar.html">Ext.Toolbar</a> object, a toolbar config, or an array of buttons/button configs to be added to the toolbar. Note that this is not available as a property after render. To access the top toolbar after render, use <a ext:cls="Ext.Panel" ext:member="getTopToolbar" href="output/Ext.Panel.html#getTopToolbar">getTopToolbar</a>.            </div>
+                The top toolbar of the panel. This can be either an <a ext:cls="Ext.Toolbar" href="output/Ext.Toolbar.html">Ext.Toolbar</a> object or an array of buttons/button configs to be added to the toolbar. Note that this is not available as a property after render. To access the top toolbar after render, use <a ext:cls="Ext.Panel" ext:member="getTopToolbar" href="output/Ext.Panel.html#getTopToolbar">getTopToolbar</a>.            </div>
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#tbar" href="output/Ext.Panel.html#tbar">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-title"></a>
@@ -931,7 +1124,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#title" href="output/Ext.Panel.html#title">Panel</a></td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-titleCollapse"></a>
@@ -943,7 +1136,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#titleCollapse" href="output/Ext.Panel.html#titleCollapse">Panel</a></td>
     </tr>
-        <tr class="config-row inherited expandable">
+        <tr class="config-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-tools"></a>
@@ -962,7 +1155,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#tools" href="output/Ext.Panel.html#tools">Panel</a></td>
     </tr>
-        <tr class="config-row inherited alt">
+        <tr class="config-row inherited">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-width"></a>
@@ -971,7 +1164,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#width" href="output/Ext.BoxComponent.html#width">BoxComponent</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-x"></a>
@@ -983,7 +1176,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="config-row inherited alt expandable">
+        <tr class="config-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-xtype"></a>
@@ -995,7 +1188,7 @@ by the <a ext:cls="Ext.WindowManager" href="output/Ext.WindowManager.html">Ext.W
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#xtype" href="output/Ext.Component.html#xtype">Component</a></td>
     </tr>
-        <tr class="config-row expandable">
+        <tr class="config-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-y"></a>
@@ -1717,12 +1910,13 @@ true, the component will be included in the results. The passed function is call
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-findByType"></a>
-            <b>findByType</b>(&nbsp;<code>String/Class xtype</code>&nbsp;) : Array            <div class="mdesc">
+            <b>findByType</b>(&nbsp;<code>String/Class xtype</code>, <span class="optional" title="Optional">[<code>Boolean shallow</code>]</span>&nbsp;) : Array            <div class="mdesc">
                         <div class="short">Find a component under this container at any level by xtype or class</div>
             <div class="long">
                 Find a component under this container at any level by xtype or class    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>xtype</code> : String/Class<div class="sub-desc">The xtype string for a component, or the class of the component directly</div></li>        </ul>
+        <ul><li><code>xtype</code> : String/Class<div class="sub-desc">The xtype string for a component, or the class of the component directly</div></li><li><code>shallow</code> : Boolean<div class="sub-desc">(optional) False to check whether this Component is descended from the xtype (this is
+the default), or true to check whether this Component is directly of the specified xtype.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Array</code><div class="sub-desc">Array of Ext.Components</div></li>
@@ -1737,7 +1931,7 @@ true, the component will be included in the results. The passed function is call
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-findParentBy"></a>
-            <b>findParentBy</b>(&nbsp;<code>Function fcn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : Array            <div class="mdesc">
+            <b>findParentBy</b>(&nbsp;<code>Function fcn</code>, <span class="optional" title="Optional">[<code>Object scope</code>]</span>&nbsp;) : Ext.Container            <div class="mdesc">
                         <div class="short">Find a container above this component at any level by a custom function. If the passed function returns
 true, the con...</div>
             <div class="long">
@@ -1747,7 +1941,7 @@ true, the container will be returned. The passed function is called with the arg
         <ul><li><code>fcn</code> : Function<div class="sub-desc"></div></li><li><code>scope</code> : Object<div class="sub-desc">(optional)</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Array</code><div class="sub-desc">Array of Ext.Components</div></li>
+            <li><code>Ext.Container</code><div class="sub-desc">The first Container for which the custom function returns true</div></li>
         </ul>
     </div>
                 </div>
@@ -1759,7 +1953,7 @@ true, the container will be returned. The passed function is called with the arg
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-findParentByType"></a>
-            <b>findParentByType</b>(&nbsp;<code>String/Class xtype</code>&nbsp;) : Container            <div class="mdesc">
+            <b>findParentByType</b>(&nbsp;<code>String/Class xtype</code>&nbsp;) : Ext.Container            <div class="mdesc">
                         <div class="short">Find a container above this component at any level by xtype or class</div>
             <div class="long">
                 Find a container above this component at any level by xtype or class    <div class="mdetail-params">
@@ -1767,7 +1961,7 @@ true, the container will be returned. The passed function is called with the arg
         <ul><li><code>xtype</code> : String/Class<div class="sub-desc">The xtype string for a component, or the class of the component directly</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>Container</code><div class="sub-desc">The found container</div></li>
+            <li><code>Ext.Container</code><div class="sub-desc">The first Container which matches the given xtype or class</div></li>
         </ul>
     </div>
                 </div>
@@ -2050,6 +2244,30 @@ set, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.C
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
+        <a id="Ext.Window-getLayoutTarget"></a>
+            <b>getLayoutTarget</b>() : Ext.Element            <div class="mdesc">
+                        <div class="short">Returns the Element to be used to contain the child Components of this Container.
+An implementation is provided which...</div>
+            <div class="long">
+                <p>Returns the Element to be used to contain the child Components of this Container.</p>
+<p>An implementation is provided which returns the Container's <a ext:cls="Ext.Container" ext:member="getEl" href="output/Ext.Container.html#getEl">Element</a>, but
+if there is a more complex structure to a Container, this may be overridden to return
+the element into which the <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> renders child Components.</p>    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li>None.</li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Ext.Element</code><div class="sub-desc">The Element to render child Components into.</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Container" ext:member="#getLayoutTarget" href="output/Ext.Container.html#getLayoutTarget">Container</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
         <a id="Ext.Window-getPosition"></a>
             <b>getPosition</b>(&nbsp;<span class="optional" title="Optional">[<code>Boolean local</code>]</span>&nbsp;) : Array            <div class="mdesc">
                         <div class="short">Gets the current XY position of the component's underlying element.</div>
@@ -2067,7 +2285,7 @@ set, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.C
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#getPosition" href="output/Ext.BoxComponent.html#getPosition">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-getSize"></a>
@@ -2086,6 +2304,26 @@ set, a default <a ext:cls="Ext.layout.ContainerLayout" href="output/Ext.layout.C
                         </div>
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#getSize" href="output/Ext.BoxComponent.html#getSize">BoxComponent</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Window-getTool"></a>
+            <b>getTool</b>(&nbsp;<code>String id</code>&nbsp;) : Object            <div class="mdesc">
+                        <div class="short">Retrieve a tool by id.</div>
+            <div class="long">
+                Retrieve a tool by id.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>id</code> : String<div class="sub-desc"></div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Object</code><div class="sub-desc">tool</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Panel" ext:member="#getTool" href="output/Ext.Panel.html#getTool">Panel</a></td>
     </tr>
         <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
@@ -2447,7 +2685,7 @@ function. The handler function's "this" context.</div></li><li><code>options</co
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-remove"></a>
-            <b>remove</b>(&nbsp;<code>Component/String component</code>, <span class="optional" title="Optional">[<code>Boolean autoDestroy</code>]</span>&nbsp;) : void            <div class="mdesc">
+            <b>remove</b>(&nbsp;<code>Component/String component</code>, <span class="optional" title="Optional">[<code>Boolean autoDestroy</code>]</span>&nbsp;) : Ext.Component            <div class="mdesc">
                         <div class="short">Removes a component from this container.  Fires the beforeremove event before removing, then fires
 the remove event a...</div>
             <div class="long">
@@ -2458,7 +2696,7 @@ the <a ext:cls="Ext.Container" ext:member="remove" href="output/Ext.Container.ht
 Defaults to the value of this Container's <a ext:cls="Ext.Container" ext:member="autoDestroy" href="output/Ext.Container.html#autoDestroy">autoDestroy</a> config.</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
-            <li><code>void</code></li>
+            <li><code>Ext.Component</code><div class="sub-desc">component The Component that was removed.</div></li>
         </ul>
     </div>
                 </div>
@@ -2467,6 +2705,27 @@ Defaults to the value of this Container's <a ext:cls="Ext.Container" ext:member=
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#remove" href="output/Ext.Container.html#remove">Container</a></td>
     </tr>
         <tr class="method-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Window-removeAll"></a>
+            <b>removeAll</b>(&nbsp;<span class="optional" title="Optional">[<code>Boolean autoDestroy</code>]</span>&nbsp;) : Array            <div class="mdesc">
+                        <div class="short">Removes all components from this container.</div>
+            <div class="long">
+                Removes all components from this container.    <div class="mdetail-params">
+        <strong>Parameters:</strong>
+        <ul><li><code>autoDestroy</code> : Boolean<div class="sub-desc">(optional) True to automatically invoke the removed Component's <a ext:cls="Ext.Component" ext:member="destroy" href="output/Ext.Component.html#destroy">Ext.Component.destroy</a> function.
+Defaults to the value of this Container's <a ext:cls="Ext.Container" ext:member="autoDestroy" href="output/Ext.Container.html#autoDestroy">autoDestroy</a> config.</div></li>        </ul>
+        <strong>Returns:</strong>
+        <ul>
+            <li><code>Array</code><div class="sub-desc">Array of the destroyed components</div></li>
+        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Container" ext:member="#removeAll" href="output/Ext.Container.html#removeAll">Container</a></td>
+    </tr>
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-removeClass"></a>
@@ -2486,7 +2745,7 @@ Defaults to the value of this Container's <a ext:cls="Ext.Container" ext:member=
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#removeClass" href="output/Ext.Component.html#removeClass">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-removeListener"></a>
@@ -2506,15 +2765,15 @@ Defaults to the value of this Container's <a ext:cls="Ext.Container" ext:member=
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#removeListener" href="output/Ext.util.Observable.html#removeListener">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-render"></a>
             <b>render</b>(&nbsp;<span class="optional" title="Optional">[<code>Element/HTMLElement/String container</code>]</span>, <span class="optional" title="Optional">[<code>String/Number position</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Render this Components into the passed HTML element.
-If you are using a Container object to house this Component, the...</div>
+                        <div class="short">Render this Component into the passed HTML element.
+If you are using a Container object to house this Component, then...</div>
             <div class="long">
-                <p>Render this Components into the passed HTML element.</p>
+                <p>Render this Component into the passed HTML element.</p>
 <p><b>If you are using a <a ext:cls="Ext.Container" href="output/Ext.Container.html">Container</a> object to house this Component, then
 do not use the render method.</b></p>
 <p>A Container's child Components are rendered by that Container's
@@ -2532,7 +2791,7 @@ If you expect child items to be sized in response to user interactions, you must
 configure the Container with a layout manager which creates and manages the type of layout you
 have in mind.</p>
 <p><b>Omitting the Container's <a ext:cls="Ext.Container" ext:member="layout" href="output/Ext.Container.html#layout">layout</a> config means that a basic
-layout manager is used which does nothnig but render child components sequentially into the
+layout manager is used which does nothing but render child components sequentially into the
 Container. No sizing or positioning will be performed in this situation.</b></p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>container</code> : Element/HTMLElement/String<div class="sub-desc">(optional) The element this Component should be
@@ -2548,7 +2807,7 @@ which this component will be inserted (defaults to appending to the end of the c
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#render" href="output/Ext.Component.html#render">Component</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-restore"></a>
@@ -2570,7 +2829,7 @@ the 'restore' tool button with the 'maximize' tool button.    <div class="mdetai
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-resumeEvents"></a>
@@ -2590,7 +2849,7 @@ the 'restore' tool button with the 'maximize' tool button.    <div class="mdetai
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#resumeEvents" href="output/Ext.util.Observable.html#resumeEvents">Observable</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setActive"></a>
@@ -2612,7 +2871,7 @@ fires the <a ext:cls="Ext.Window" ext:member="activate" href="output/Ext.Window.
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setAnimateTarget"></a>
@@ -2632,7 +2891,7 @@ fires the <a ext:cls="Ext.Window" ext:member="activate" href="output/Ext.Window.
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setDisabled"></a>
@@ -2652,7 +2911,7 @@ fires the <a ext:cls="Ext.Window" ext:member="activate" href="output/Ext.Window.
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setDisabled" href="output/Ext.Component.html#setDisabled">Component</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setHeight"></a>
@@ -2672,7 +2931,7 @@ fires the <a ext:cls="Ext.Window" ext:member="activate" href="output/Ext.Window.
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setHeight" href="output/Ext.BoxComponent.html#setHeight">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setIconClass"></a>
@@ -2694,7 +2953,7 @@ icon class if one has already been set.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#setIconClass" href="output/Ext.Panel.html#setIconClass">Panel</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setPagePosition"></a>
@@ -2716,7 +2975,7 @@ This method fires the <a ext:cls="Ext.BoxComponent" ext:member="move" href="outp
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setPagePosition" href="output/Ext.BoxComponent.html#setPagePosition">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setPosition"></a>
@@ -2738,7 +2997,7 @@ This method fires the <a ext:cls="Ext.BoxComponent" ext:member="move" href="outp
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setPosition" href="output/Ext.BoxComponent.html#setPosition">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setSize"></a>
@@ -2760,14 +3019,18 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setSize" href="output/Ext.BoxComponent.html#setSize">BoxComponent</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setTitle"></a>
             <b>setTitle</b>(&nbsp;<code>String title</code>, <span class="optional" title="Optional">[<code>String iconCls</code>]</span>&nbsp;) : void            <div class="mdesc">
-                        <div class="short">Sets the title text for the panel and optionally the icon class.</div>
+                        <div class="short">Sets the title text for the panel and optionally the icon class.
+In order to be able to set the title, a header eleme...</div>
             <div class="long">
-                Sets the title text for the panel and optionally the icon class.    <div class="mdetail-params">
+                <p>Sets the title text for the panel and optionally the icon class.</p>
+<p>In order to be able to set the title, a header element must have been created
+for the Panel. This is triggered either by configuring the Panel with a non-blank title,
+or configuring it with <tt><b><a ext:cls="Ext.Panel" ext:member="header" href="output/Ext.Panel.html#header">header</a>: true</b></tt>.</p>    <div class="mdetail-params">
         <strong>Parameters:</strong>
         <ul><li><code>title</code> : String<div class="sub-desc">The title text to set</div></li><li><code>iconCls</code> : String<div class="sub-desc">(optional) iconCls A user-defined CSS class that provides the icon image for this panel</div></li>        </ul>
         <strong>Returns:</strong>
@@ -2780,7 +3043,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#setTitle" href="output/Ext.Panel.html#setTitle">Panel</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setVisible"></a>
@@ -2800,7 +3063,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#setVisible" href="output/Ext.Component.html#setVisible">Component</a></td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-setWidth"></a>
@@ -2820,7 +3083,7 @@ either width and height as separate numeric arguments, or you can pass a size ob
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#setWidth" href="output/Ext.BoxComponent.html#setWidth">BoxComponent</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-show"></a>
@@ -2841,7 +3104,7 @@ animate while opening (defaults to undefined with no animation)</div></li><li><c
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-suspendEvents"></a>
@@ -2861,7 +3124,7 @@ animate while opening (defaults to undefined with no animation)</div></li><li><c
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#suspendEvents" href="output/Ext.util.Observable.html#suspendEvents">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-syncSize"></a>
@@ -2881,7 +3144,7 @@ animate while opening (defaults to undefined with no animation)</div></li><li><c
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#syncSize" href="output/Ext.BoxComponent.html#syncSize">BoxComponent</a></td>
     </tr>
-        <tr class="method-row expandable">
+        <tr class="method-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-toBack"></a>
@@ -2901,7 +3164,7 @@ animate while opening (defaults to undefined with no animation)</div></li><li><c
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-toFront"></a>
@@ -2921,7 +3184,7 @@ animate while opening (defaults to undefined with no animation)</div></li><li><c
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-toggleCollapse"></a>
@@ -2942,7 +3205,7 @@ animate while opening (defaults to undefined with no animation)</div></li><li><c
         </td>
         <td class="msource"><a ext:cls="Ext.Panel" ext:member="#toggleCollapse" href="output/Ext.Panel.html#toggleCollapse">Panel</a></td>
     </tr>
-        <tr class="method-row alt expandable">
+        <tr class="method-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-toggleMaximize"></a>
@@ -2964,7 +3227,7 @@ state of the window.    <div class="mdetail-params">
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="method-row inherited expandable">
+        <tr class="method-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-un"></a>
@@ -2984,7 +3247,7 @@ state of the window.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.util.Observable" ext:member="#un" href="output/Ext.util.Observable.html#un">Observable</a></td>
     </tr>
-        <tr class="method-row inherited alt expandable">
+        <tr class="method-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-updateBox"></a>
@@ -3391,7 +3654,23 @@ Fires after the window has been visually deactivated via <a ext:cls="setActive" 
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-hide" href="output/Ext.Component.html#event-hide">Component</a></td>
     </tr>
-        <tr class="event-row alt expandable">
+        <tr class="event-row inherited alt expandable">
+        <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+        <td class="sig">
+        <a id="Ext.Window-iconchange"></a>
+            <b>iconchange</b> : (&nbsp;<code>Ext.Panel p</code>, <code>String The</code>, <code>String The</code>&nbsp;)            <div class="mdesc">
+                        <div class="short">Fires after the Panel icon class has been set or changed.</div>
+            <div class="long">
+                Fires after the Panel icon class has been set or changed.    <div class="mdetail-params">
+        <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
+        <ul><li><code>p</code> : Ext.Panel<div class="sub-desc">the Panel which has had its icon class changed.</div></li><li><code>The</code> : String<div class="sub-desc">new icon class.</div></li><li><code>The</code> : String<div class="sub-desc">old icon class.</div></li>        </ul>
+    </div>
+                </div>
+                        </div>
+        </td>
+        <td class="msource"><a ext:cls="Ext.Panel" ext:member="#event-iconchange" href="output/Ext.Panel.html#event-iconchange">Panel</a></td>
+    </tr>
+        <tr class="event-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-maximize"></a>
@@ -3407,7 +3686,7 @@ Fires after the window has been visually deactivated via <a ext:cls="setActive" 
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="event-row expandable">
+        <tr class="event-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-minimize"></a>
@@ -3423,7 +3702,7 @@ Fires after the window has been visually deactivated via <a ext:cls="setActive" 
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="event-row inherited alt expandable">
+        <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-move"></a>
@@ -3439,7 +3718,7 @@ Fires after the window has been visually deactivated via <a ext:cls="setActive" 
         </td>
         <td class="msource"><a ext:cls="Ext.BoxComponent" ext:member="#event-move" href="output/Ext.BoxComponent.html#event-move">BoxComponent</a></td>
     </tr>
-        <tr class="event-row inherited expandable">
+        <tr class="event-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-remove"></a>
@@ -3455,7 +3734,7 @@ Fires after the window has been visually deactivated via <a ext:cls="setActive" 
         </td>
         <td class="msource"><a ext:cls="Ext.Container" ext:member="#event-remove" href="output/Ext.Container.html#event-remove">Container</a></td>
     </tr>
-        <tr class="event-row inherited alt expandable">
+        <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-render"></a>
@@ -3471,7 +3750,7 @@ Fires after the window has been visually deactivated via <a ext:cls="setActive" 
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-render" href="output/Ext.Component.html#event-render">Component</a></td>
     </tr>
-        <tr class="event-row expandable">
+        <tr class="event-row alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-resize"></a>
@@ -3489,7 +3768,7 @@ Fires after the window has been resized.    <div class="mdetail-params">
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="event-row alt expandable">
+        <tr class="event-row expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-restore"></a>
@@ -3505,7 +3784,7 @@ Fires after the window has been resized.    <div class="mdetail-params">
         </td>
         <td class="msource">Window</td>
     </tr>
-        <tr class="event-row inherited expandable">
+        <tr class="event-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-show"></a>
@@ -3521,7 +3800,7 @@ Fires after the window has been resized.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-show" href="output/Ext.Component.html#event-show">Component</a></td>
     </tr>
-        <tr class="event-row inherited alt expandable">
+        <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-staterestore"></a>
@@ -3537,7 +3816,7 @@ Fires after the window has been resized.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-staterestore" href="output/Ext.Component.html#event-staterestore">Component</a></td>
     </tr>
-        <tr class="event-row inherited expandable">
+        <tr class="event-row inherited alt expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-statesave"></a>
@@ -3553,7 +3832,7 @@ Fires after the window has been resized.    <div class="mdetail-params">
         </td>
         <td class="msource"><a ext:cls="Ext.Component" ext:member="#event-statesave" href="output/Ext.Component.html#event-statesave">Component</a></td>
     </tr>
-        <tr class="event-row inherited alt expandable">
+        <tr class="event-row inherited expandable">
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.Window-titlechange"></a>

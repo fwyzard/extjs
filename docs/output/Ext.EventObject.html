@@ -8,7 +8,7 @@
                 <h1>Class Ext.EventObject</h1>
         <table cellspacing="0">
             <tr><td class="label">Package:</td><td class="hd-info">Ext</td></tr>
-            <tr><td class="label">Defined In:</td><td class="hd-info">EventManager.js</td></tr>
+            <tr><td class="label">Defined In:</td><td class="hd-info"><a href="../src/EventManager.js" target="_blank">EventManager.js</a></td></tr>
             <tr><td class="label">Class:</td><td class="hd-info">EventObject</td></tr>
                                     <tr><td class="label">Extends:</td><td class="hd-info">Object</td></tr>
                     </table>
@@ -1136,11 +1136,10 @@ Example:
         <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
         <td class="sig">
         <a id="Ext.EventObject-within"></a>
-            <b>within</b>(&nbsp;<code>Mixed el</code>, <span class="optional" title="Optional">[<code>Boolean related</code>]</span>&nbsp;) : Boolean            <div class="mdesc">
-                        <div class="short">Returns true if the target of this event is a child of el.  If the target is el, it returns false.
-Example usage:// H...</div>
+            <b>within</b>(&nbsp;<code>Mixed el</code>, <span class="optional" title="Optional">[<code>Boolean related</code>]</span>, <code>Boolean allowEl</code>&nbsp;) : Boolean            <div class="mdesc">
+                        <div class="short">Returns true if the target of this event is a child of el.  Unless the allowEl parameter is set, it will return false...</div>
             <div class="long">
-                Returns true if the target of this event is a child of el.  If the target is el, it returns false.
+                Returns true if the target of this event is a child of el.  Unless the allowEl parameter is set, it will return false if if the target is el.
 Example usage:<pre><code><i>// Handle click on any child of an element</i>
 Ext.getBody().on(<em>'click'</em>, <b>function</b>(e){
     <b>if</b>(e.within(<em>'some-el'</em>)){
@@ -1155,7 +1154,7 @@ Ext.getBody().on(<em>'click'</em>, <b>function</b>(e,t){
     }
 });</code></pre>    <div class="mdetail-params">
         <strong>Parameters:</strong>
-        <ul><li><code>el</code> : Mixed<div class="sub-desc">The id, DOM element or Ext.Element to check</div></li><li><code>related</code> : Boolean<div class="sub-desc">(optional) true to test if the related target is within el instead of the target</div></li>        </ul>
+        <ul><li><code>el</code> : Mixed<div class="sub-desc">The id, DOM element or Ext.Element to check</div></li><li><code>related</code> : Boolean<div class="sub-desc">(optional) true to test if the related target is within el instead of the target</div></li><li><code>allowEl</code> : Boolean<div class="sub-desc">{optional} true to also check if the passed element is the target or related target</div></li>        </ul>
         <strong>Returns:</strong>
         <ul>
             <li><code>Boolean</code></li>
