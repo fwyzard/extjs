@@ -1,8 +1,0 @@
-#!/bin/sh
-#find . -name *.html -exec svn propset svn:mime-type text/html {} +
-find . -name *.htm -exec svn propset svn:mime-type text/html {} +
-find . -name *.png -exec svn propset svn:mime-type image/png {} +
-find . -name *.gif -exec svn propset svn:mime-type image/gif {} +
-find . -name *.jpg -exec svn propset svn:mime-type image/jpg {} +
-find . -name *.js -exec svn propset svn:mime-type text/javascript {} +
-find . -name *.css -exec svn propset svn:mime-type text/css {} +
