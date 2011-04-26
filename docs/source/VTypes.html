@@ -1,31 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>The source code</title>
-  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
-  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
-  <style type="text/css">
-    .highlight { display: block; background-color: #ddd; }
-  </style>
-  <script type="text/javascript">
-    function highlight() {
-      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
-    }
-  </script>
-</head>
-<body onload="prettyPrint(); highlight();">
-  <pre class="prettyprint lang-js"><span id='Ext-form-VTypes'>/**
-</span> * @class Ext.form.VTypes
+<!DOCTYPE html><html><head><title>Sencha Documentation Project</title><link rel="stylesheet" href="../reset.css" type="text/css"><link rel="stylesheet" href="../prettify.css" type="text/css"><link rel="stylesheet" href="../prettify_sa.css" type="text/css"><script type="text/javascript" src="../prettify.js"></script></head><body onload="prettyPrint()"><pre class="prettyprint"><pre><span id='Ext-form.field.VTypes'>/**
+</span> * @class Ext.form.field.VTypes
  * &lt;p&gt;This is a singleton object which contains a set of commonly used field validation functions.
  * The validations provided are basic and intended to be easily customizable and extended.&lt;/p&gt;
- * &lt;p&gt;To add custom VTypes specify the &lt;code&gt;{@link Ext.form.TextField#vtype vtype}&lt;/code&gt; validation
+ * &lt;p&gt;To add custom VTypes specify the &lt;code&gt;{@link Ext.form.field.Text#vtype vtype}&lt;/code&gt; validation
  * test function, and optionally specify any corresponding error text to display and any keystroke
  * filtering mask to apply. For example:&lt;/p&gt;
  * &lt;pre&gt;&lt;code&gt;
 // custom Vtype for vtype:'time'
 var timeTest = /^([1-9]|1[0-9]):([0-5][0-9])(\s[a|p]m)$/i;
-Ext.apply(Ext.form.VTypes, {
+Ext.apply(Ext.form.field.VTypes, {
     //  vtype validation function
     time: function(val, field) {
         return timeTest.test(val);
@@ -39,7 +22,7 @@ Ext.apply(Ext.form.VTypes, {
  * Another example:
  * &lt;pre&gt;&lt;code&gt;
 // custom Vtype for vtype:'IPAddress'
-Ext.apply(Ext.form.VTypes, {
+Ext.apply(Ext.form.field.VTypes, {
     IPAddress:  function(v) {
         return /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(v);
     },
@@ -49,16 +32,19 @@ Ext.apply(Ext.form.VTypes, {
  * &lt;/code&gt;&lt;/pre&gt;
  * @singleton
  */
-Ext.form.VTypes = function(){
+Ext.define('Ext.form.field.VTypes', (function(){
     // closure these in so they are only created once.
     var alpha = /^[a-zA-Z_]+$/,
         alphanum = /^[a-zA-Z0-9_]+$/,
-        email = /^(\w+)([\-+.\'][\w]+)*@(\w[\-\w]*\.){1,5}([A-Za-z]){2,6}$/,
+        email = /^(\w+)([\-+.][\w]+)*@(\w[\-\w]*\.){1,5}([A-Za-z]){2,6}$/,
         url = /(((^https?)|(^ftp)):\/\/([\-\w]+\.)+\w{2,3}(\/[%\-\w]+(\.\w{2,})?)*(([\w\-\.\?\\\/+@&amp;#;`~=%!]*)(\.\w{2,})?)*\/?)/i;
 
     // All these messages and functions are configurable
     return {
-<span id='Ext-form-VTypes-method-email'>        /**
+        singleton: true,
+        alternateClassName: 'Ext.form.VTypes',
+
+<span id='Ext-form.field.VTypes-method-email'>        /**
 </span>         * The function used to validate email addresses.  Note that this is a very basic validation -- complete
          * validation per the email RFC specifications is very complex and beyond the scope of this class, although
          * this function can be overridden if a more comprehensive validation scheme is desired.  See the validation
@@ -72,21 +58,21 @@ Ext.form.VTypes = function(){
         'email' : function(v){
             return email.test(v);
         },
-<span id='Ext-form-VTypes-property-emailText'>        /**
+<span id='Ext-form.field.VTypes-property-emailText'>        /**
 </span>         * The error text to display when the email validation function returns false.  Defaults to:
          * &lt;tt&gt;'This field should be an e-mail address in the format &quot;user@example.com&quot;'&lt;/tt&gt;
          * @type String
          */
         'emailText' : 'This field should be an e-mail address in the format &quot;user@example.com&quot;',
-<span id='Ext-form-VTypes-property-emailMask'>        /**
+<span id='Ext-form.field.VTypes-property-emailMask'>        /**
 </span>         * The keystroke filter mask to be applied on email input.  See the {@link #email} method for
          * information about more complex email validation. Defaults to:
-         * &lt;tt&gt;/[a-z0-9_\.\-\+\'@]/i&lt;/tt&gt;
+         * &lt;tt&gt;/[a-z0-9_\.\-@]/i&lt;/tt&gt;
          * @type RegExp
          */
-        'emailMask' : /[a-z0-9_\.\-\+\'@]/i,
+        'emailMask' : /[a-z0-9_\.\-@\+]/i,
 
-<span id='Ext-form-VTypes-method-url'>        /**
+<span id='Ext-form.field.VTypes-method-url'>        /**
 </span>         * The function used to validate URLs
          * @param {String} value The URL
          * @return {Boolean} true if the RegExp test passed, and false if not.
@@ -94,14 +80,14 @@ Ext.form.VTypes = function(){
         'url' : function(v){
             return url.test(v);
         },
-<span id='Ext-form-VTypes-property-urlText'>        /**
+<span id='Ext-form.field.VTypes-property-urlText'>        /**
 </span>         * The error text to display when the url validation function returns false.  Defaults to:
          * &lt;tt&gt;'This field should be a URL in the format &quot;http:/'+'/www.example.com&quot;'&lt;/tt&gt;
          * @type String
          */
         'urlText' : 'This field should be a URL in the format &quot;http:/'+'/www.example.com&quot;',
 
-<span id='Ext-form-VTypes-method-alpha'>        /**
+<span id='Ext-form.field.VTypes-method-alpha'>        /**
 </span>         * The function used to validate alpha values
          * @param {String} value The value
          * @return {Boolean} true if the RegExp test passed, and false if not.
@@ -109,20 +95,20 @@ Ext.form.VTypes = function(){
         'alpha' : function(v){
             return alpha.test(v);
         },
-<span id='Ext-form-VTypes-property-alphaText'>        /**
+<span id='Ext-form.field.VTypes-property-alphaText'>        /**
 </span>         * The error text to display when the alpha validation function returns false.  Defaults to:
          * &lt;tt&gt;'This field should only contain letters and _'&lt;/tt&gt;
          * @type String
          */
         'alphaText' : 'This field should only contain letters and _',
-<span id='Ext-form-VTypes-property-alphaMask'>        /**
+<span id='Ext-form.field.VTypes-property-alphaMask'>        /**
 </span>         * The keystroke filter mask to be applied on alpha input.  Defaults to:
          * &lt;tt&gt;/[a-z_]/i&lt;/tt&gt;
          * @type RegExp
          */
         'alphaMask' : /[a-z_]/i,
 
-<span id='Ext-form-VTypes-method-alphanum'>        /**
+<span id='Ext-form.field.VTypes-method-alphanum'>        /**
 </span>         * The function used to validate alphanumeric values
          * @param {String} value The value
          * @return {Boolean} true if the RegExp test passed, and false if not.
@@ -130,20 +116,18 @@ Ext.form.VTypes = function(){
         'alphanum' : function(v){
             return alphanum.test(v);
         },
-<span id='Ext-form-VTypes-property-alphanumText'>        /**
+<span id='Ext-form.field.VTypes-property-alphanumText'>        /**
 </span>         * The error text to display when the alphanumeric validation function returns false.  Defaults to:
          * &lt;tt&gt;'This field should only contain letters, numbers and _'&lt;/tt&gt;
          * @type String
          */
         'alphanumText' : 'This field should only contain letters, numbers and _',
-<span id='Ext-form-VTypes-property-alphanumMask'>        /**
+<span id='Ext-form.field.VTypes-property-alphanumMask'>        /**
 </span>         * The keystroke filter mask to be applied on alphanumeric input.  Defaults to:
          * &lt;tt&gt;/[a-z0-9_]/i&lt;/tt&gt;
          * @type RegExp
          */
         'alphanumMask' : /[a-z0-9_]/i
     };
-}();
-</pre>
-</body>
-</html>
+})());
+</pre></pre></body></html>

@@ -1,54 +1,21 @@
-/*
-This file is part of Ext JS 3.4
-
-Copyright (c) 2011-2013 Sencha Inc
-
-Contact:  http://www.sencha.com/contact
-
-GNU General Public License Usage
-This file may be used under the terms of the GNU General Public License version 3.0 as
-published by the Free Software Foundation and appearing in the file LICENSE included in the
-packaging of this file.
-
-Please review the following information to ensure the GNU General Public License version 3.0
-requirements will be met: http://www.gnu.org/copyleft/gpl.html.
-
-If you are unsure which license is appropriate for your use, please contact the sales department
-at http://www.sencha.com/contact.
-
-Build date: 2013-04-03 15:07:25
-*/
 /**
- @class Ext.util.ClickRepeater
- @extends Ext.util.Observable
-
- A wrapper class which can be applied to any element. Fires a "click" event while the
- mouse is pressed. The interval between firings may be specified in the config but
- defaults to 20 milliseconds.
-
- Optionally, a CSS class may be applied to the element during the time it is pressed.
-
- @cfg {Mixed} el The element to act as a button.
- @cfg {Number} delay The initial delay before the repeating event begins firing.
- Similar to an autorepeat key delay.
- @cfg {Number} interval The interval between firings of the "click" event. Default 20 ms.
- @cfg {String} pressClass A CSS class name to be applied to the element while pressed.
- @cfg {Boolean} accelerate True if autorepeating should start slowly and accelerate.
-           "interval" and "delay" are ignored.
- @cfg {Boolean} preventDefault True to prevent the default click event
- @cfg {Boolean} stopDefault True to stop the default click event
-
- @history
-    2007-02-02 jvs Original code contributed by Nige "Animal" White
-    2007-02-02 jvs Renamed to ClickRepeater
-    2007-02-03 jvs Modifications for FF Mac and Safari
-
- @constructor
- @param {Mixed} el The element to listen on
- @param {Object} config
+ * @class Ext.util.ClickRepeater
+ * @extends Ext.util.Observable
+ *
+ * A wrapper class which can be applied to any element. Fires a "click" event while the
+ * mouse is pressed. The interval between firings may be specified in the config but
+ * defaults to 20 milliseconds.
+ *
+ * Optionally, a CSS class may be applied to the element during the time it is pressed.
+ *
+ * @constructor
+ * @param {Mixed} el The element to listen on
+ * @param {Object} config
  */
-Ext.util.ClickRepeater = Ext.extend(Ext.util.Observable, {
-    
+
+Ext.define('Ext.util.ClickRepeater', {
+    extend: 'Ext.util.Observable',
+
     constructor : function(el, config){
         this.el = Ext.get(el);
         this.el.unselectable();
@@ -89,13 +56,42 @@ Ext.util.ClickRepeater = Ext.extend(Ext.util.Observable, {
             this.on("click", this.handler,  this.scope || this);
         }
 
-        Ext.util.ClickRepeater.superclass.constructor.call(this);        
+        this.callParent();
     },
-    
+
+    /**
+     * @cfg {Mixed} el The element to act as a button.
+     */
+
+    /**
+     * @cfg {String} pressedCls A CSS class name to be applied to the element while pressed.
+     */
+
+    /**
+     * @cfg {Boolean} accelerate True if autorepeating should start slowly and accelerate.
+     * "interval" and "delay" are ignored.
+     */
+
+    /**
+     * @cfg {Number} interval The interval between firings of the "click" event. Default 20 ms.
+     */
     interval : 20,
+
+    /**
+     * @cfg {Number} delay The initial delay before the repeating event begins firing.
+     * Similar to an autorepeat key delay.
+     */
     delay: 250,
+
+    /**
+     * @cfg {Boolean} preventDefault True to prevent the default click event
+     */
     preventDefault : true,
+    /**
+     * @cfg {Boolean} stopDefault True to stop the default click event
+     */
     stopDefault : false,
+
     timer : 0,
 
     /**
@@ -120,8 +116,8 @@ Ext.util.ClickRepeater = Ext.extend(Ext.util.Observable, {
     disable: function(/* private */ force){
         if(force || !this.disabled){
             clearTimeout(this.timer);
-            if(this.pressClass){
-                this.el.removeClass(this.pressClass);
+            if(this.pressedCls){
+                this.el.removeCls(this.pressedCls);
             }
             Ext.getDoc().un('mouseup', this.handleMouseUp, this);
             this.el.removeAllListeners();
@@ -150,7 +146,7 @@ Ext.util.ClickRepeater = Ext.extend(Ext.util.Observable, {
     destroy : function() {
         this.disable(true);
         Ext.destroy(this.el);
-        this.purgeListeners();
+        this.clearListeners();
     },
 
     handleDblClick : function(e){
@@ -165,8 +161,8 @@ Ext.util.ClickRepeater = Ext.extend(Ext.util.Observable, {
     handleMouseDown : function(e){
         clearTimeout(this.timer);
         this.el.blur();
-        if(this.pressClass){
-            this.el.addClass(this.pressClass);
+        if(this.pressedCls){
+            this.el.addCls(this.pressedCls);
         }
         this.mousedownTime = new Date();
 
@@ -180,14 +176,19 @@ Ext.util.ClickRepeater = Ext.extend(Ext.util.Observable, {
         if (this.accelerate) {
             this.delay = 400;
         }
-        this.timer = this.click.defer(this.delay || this.interval, this, [e]);
+
+        // Re-wrap the event object in a non-shared object, so it doesn't lose its context if
+        // the global shared EventObject gets a new Event put into it before the timer fires.
+        e = new Ext.EventObjectImpl(e);
+
+        this.timer =  Ext.defer(this.click, this.delay || this.interval, this, [e]);
     },
 
     // private
     click : function(e){
         this.fireEvent("click", this, e);
-        this.timer = this.click.defer(this.accelerate ?
-            this.easeOutExpo(this.mousedownTime.getElapsed(),
+        this.timer =  Ext.defer(this.click, this.accelerate ?
+            this.easeOutExpo(Ext.Date.getElapsed(this.mousedownTime),
                 400,
                 -390,
                 12000) :
@@ -201,8 +202,8 @@ Ext.util.ClickRepeater = Ext.extend(Ext.util.Observable, {
     // private
     handleMouseOut : function(){
         clearTimeout(this.timer);
-        if(this.pressClass){
-            this.el.removeClass(this.pressClass);
+        if(this.pressedCls){
+            this.el.removeCls(this.pressedCls);
         }
         this.el.on("mouseover", this.handleMouseReturn, this);
     },
@@ -210,8 +211,8 @@ Ext.util.ClickRepeater = Ext.extend(Ext.util.Observable, {
     // private
     handleMouseReturn : function(){
         this.el.un("mouseover", this.handleMouseReturn, this);
-        if(this.pressClass){
-            this.el.addClass(this.pressClass);
+        if(this.pressedCls){
+            this.el.addCls(this.pressedCls);
         }
         this.click();
     },
@@ -222,7 +223,9 @@ Ext.util.ClickRepeater = Ext.extend(Ext.util.Observable, {
         this.el.un("mouseover", this.handleMouseReturn, this);
         this.el.un("mouseout", this.handleMouseOut, this);
         Ext.getDoc().un("mouseup", this.handleMouseUp, this);
-        this.el.removeClass(this.pressClass);
+        if(this.pressedCls){
+            this.el.removeCls(this.pressedCls);
+        }
         this.fireEvent("mouseup", this, e);
     }
 });

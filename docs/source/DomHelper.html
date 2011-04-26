@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>The source code</title>
-  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
-  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
-  <style type="text/css">
-    .highlight { display: block; background-color: #ddd; }
-  </style>
-  <script type="text/javascript">
-    function highlight() {
-      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
-    }
-  </script>
-</head>
-<body onload="prettyPrint(); highlight();">
-  <pre class="prettyprint lang-js"><span id='Ext-DomHelper'>/**
-</span> * @class Ext.DomHelper
+<!DOCTYPE html><html><head><title>Sencha Documentation Project</title><link rel="stylesheet" href="../reset.css" type="text/css"><link rel="stylesheet" href="../prettify.css" type="text/css"><link rel="stylesheet" href="../prettify_sa.css" type="text/css"><script type="text/javascript" src="../prettify.js"></script></head><body onload="prettyPrint()"><pre class="prettyprint"><pre><span id='Ext-core.DomHelper'>/**
+</span> * @class Ext.core.DomHelper
  * &lt;p&gt;The DomHelper class provides a layer of abstraction from DOM and transparently supports creating
  * elements via DOM or using HTML fragments. It also has the ability to create HTML fragment templates
  * from your DOM building code.&lt;/p&gt;
@@ -50,7 +33,7 @@
  * &lt;p&gt;This is an example, where an unordered list with 3 children items is appended to an existing
  * element with id &lt;tt&gt;'my-div'&lt;/tt&gt;:&lt;br&gt;
  &lt;pre&gt;&lt;code&gt;
-var dh = Ext.DomHelper; // create shorthand alias
+var dh = Ext.core.DomHelper; // create shorthand alias
 // specification object
 var spec = {
     id: 'my-ul',
@@ -94,19 +77,19 @@ for(var i = 0; i &lt; 5, i++){
  * &lt;p&gt;An example using a template:&lt;pre&gt;&lt;code&gt;
 var html = '&lt;a id=&quot;{0}&quot; href=&quot;{1}&quot; class=&quot;nav&quot;&gt;{2}&lt;/a&gt;';
 
-var tpl = new Ext.DomHelper.createTemplate(html);
-tpl.append('blog-roll', ['link1', 'http://www.jackslocum.com/', &quot;Jack&amp;#39;s Site&quot;]);
+var tpl = new Ext.core.DomHelper.createTemplate(html);
+tpl.append('blog-roll', ['link1', 'http://www.edspencer.net/', &quot;Ed&amp;#39;s Site&quot;]);
 tpl.append('blog-roll', ['link2', 'http://www.dustindiaz.com/', &quot;Dustin&amp;#39;s Site&quot;]);
  * &lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
  *
  * &lt;p&gt;The same example using named parameters:&lt;pre&gt;&lt;code&gt;
 var html = '&lt;a id=&quot;{id}&quot; href=&quot;{url}&quot; class=&quot;nav&quot;&gt;{text}&lt;/a&gt;';
 
-var tpl = new Ext.DomHelper.createTemplate(html);
+var tpl = new Ext.core.DomHelper.createTemplate(html);
 tpl.append('blog-roll', {
     id: 'link1',
-    url: 'http://www.jackslocum.com/',
-    text: &quot;Jack&amp;#39;s Site&quot;
+    url: 'http://www.edspencer.net/',
+    text: &quot;Ed&amp;#39;s Site&quot;
 });
 tpl.append('blog-roll', {
     id: 'link2',
@@ -126,7 +109,7 @@ tpl.append('blog-roll', {
  * &lt;pre&gt;&lt;code&gt;
 var html = '&lt;a id=&quot;{id}&quot; href=&quot;{url}&quot; class=&quot;nav&quot;&gt;{text}&lt;/a&gt;';
 
-var tpl = new Ext.DomHelper.createTemplate(html);
+var tpl = new Ext.core.DomHelper.createTemplate(html);
 tpl.compile();
 
 //... use template like normal
@@ -139,17 +122,17 @@ tpl.compile();
  * then the string is used as innerHTML. If {@link #useDom} is &lt;tt&gt;true&lt;/tt&gt;, a string specification
  * results in the creation of a text node. Usage:&lt;/p&gt;
  * &lt;pre&gt;&lt;code&gt;
-Ext.DomHelper.useDom = true; // force it to use DOM; reduces performance
+Ext.core.DomHelper.useDom = true; // force it to use DOM; reduces performance
  * &lt;/code&gt;&lt;/pre&gt;
  * @singleton
  */
-Ext.DomHelper = function(){
+Ext.ns('Ext.core');
+Ext.core.DomHelper = function(){
     var tempTableEl = null,
         emptyTags = /^(?:br|frame|hr|img|input|link|meta|range|spacer|wbr|area|param|col)$/i,
         tableRe = /^table|tbody|tr|td$/i,
         confRe = /tag|children|cn|html$/i,
         tableElRe = /td|tr|tbody/i,
-        cssRe = /([a-z0-9-]+)\s*:\s*([^;\s]+(?:\s*[^;\s]+)*);?/gi,
         endRe = /end/i,
         pub,
         // kill repeat to save bytes
@@ -166,8 +149,65 @@ Ext.DomHelper = function(){
 
     // private
     function doInsert(el, o, returnElement, pos, sibling, append){
-        var newNode = pub.insertHtml(pos, Ext.getDom(el), createHtml(o));
+        el = Ext.getDom(el);
+        var newNode;
+        if (pub.useDom) {
+            newNode = createDom(o, null);
+            if (append) {
+                el.appendChild(newNode);
+            } else {
+                (sibling == 'firstChild' ? el : el.parentNode).insertBefore(newNode, el[sibling] || el);
+            }
+        } else {
+            newNode = Ext.core.DomHelper.insertHtml(pos, el, Ext.core.DomHelper.createHtml(o));
+        }
         return returnElement ? Ext.get(newNode, true) : newNode;
+    }
+    
+    function createDom(o, parentNode){
+        var el,
+            doc = document,
+            useSet,
+            attr,
+            val,
+            cn;
+
+        if (Ext.isArray(o)) {                       // Allow Arrays of siblings to be inserted
+            el = doc.createDocumentFragment(); // in one shot using a DocumentFragment
+            for (var i = 0, l = o.length; i &lt; l; i++) {
+                createDom(o[i], el);
+            }
+        } else if (typeof o == 'string') {         // Allow a string as a child spec.
+            el = doc.createTextNode(o);
+        } else {
+            el = doc.createElement( o.tag || 'div' );
+            useSet = !!el.setAttribute; // In IE some elements don't have setAttribute
+            for (attr in o) {
+                if(!confRe.test(attr)){
+                    val = o[attr];
+                    if(attr == 'cls'){
+                        el.className = val;
+                    }else{
+                        if(useSet){
+                            el.setAttribute(attr, val);
+                        }else{
+                            el[attr] = val;
+                        }
+                    }
+                }
+            }
+            Ext.core.DomHelper.applyStyles(el, o.style);
+
+            if ((cn = o.children || o.cn)) {
+                createDom(cn, el);
+            } else if (o.html) {
+                el.innerHTML = o.html;
+            }
+        }
+        if(parentNode){
+           parentNode.appendChild(el);
+        }
+        return el;
     }
 
     // build as innerHTML where available
@@ -176,16 +216,17 @@ Ext.DomHelper = function(){
             attr,
             val,
             key,
-            cn;
+            cn,
+            i;
 
         if(typeof o == &quot;string&quot;){
             b = o;
         } else if (Ext.isArray(o)) {
-            for (var i=0; i &lt; o.length; i++) {
+            for (i=0; i &lt; o.length; i++) {
                 if(o[i]) {
                     b += createHtml(o[i]);
                 }
-            };
+            }
         } else {
             b += '&lt;' + (o.tag = o.tag || 'div');
             for (attr in o) {
@@ -195,13 +236,13 @@ Ext.DomHelper = function(){
                         b += ' ' + attr + '=&quot;';
                         for (key in val) {
                             b += key + ':' + val[key] + ';';
-                        };
+                        }
                         b += '&quot;';
                     }else{
                         b += ' ' + ({cls : 'class', htmlFor : 'for'}[attr] || attr) + '=&quot;' + val + '&quot;';
                     }
                 }
-            };
+            }
             // Now either just close the tag or try to add children and close the tag.
             if (emptyTags.test(o.tag)) {
                 b += '/&gt;';
@@ -227,7 +268,8 @@ Ext.DomHelper = function(){
             el = el.firstChild;
         }
 //      If the result is multiple siblings, then encapsulate them into one fragment.
-        if(ns = el.nextSibling){
+        ns = el.nextSibling;
+        if (ns){
             var df = document.createDocumentFragment();
             while(el){
                 ns = el.nextSibling;
@@ -239,7 +281,7 @@ Ext.DomHelper = function(){
         return el;
     }
 
-<span id='global-method-insertIntoTable'>    /**
+<span id='Ext-core.DomHelper-method-insertIntoTable'>    /**
 </span>     * @ignore
      * Nasty code for IE's broken table implementation
      */
@@ -251,7 +293,7 @@ Ext.DomHelper = function(){
 
         if(tag == 'td' &amp;&amp; (where == afterbegin || where == beforeend) ||
            !tableElRe.test(tag) &amp;&amp; (where == beforebegin || where == afterend)) {
-            return;
+            return null;
         }
         before = where == beforebegin ? el :
                  where == afterend ? el.nextSibling :
@@ -272,8 +314,8 @@ Ext.DomHelper = function(){
         el.insertBefore(node, before);
         return node;
     }
-
-<span id='global-method-createContextualFragment'>    /**
+    
+<span id='Ext-core.DomHelper-method-createContextualFragment'>    /**
 </span>     * @ignore
      * Fix for IE9 createContextualFragment missing method
      */   
@@ -286,16 +328,16 @@ Ext.DomHelper = function(){
         div.innerHTML = html;
         childNodes = div.childNodes;
         length = childNodes.length;
-        
+
         for (; i &lt; length; i++) {
             fragment.appendChild(childNodes[i].cloneNode(true));
         }
-        
+
         return fragment;
     }
     
     pub = {
-<span id='Ext-DomHelper-method-markup'>        /**
+<span id='Ext-core.DomHelper-method-markup'>        /**
 </span>         * Returns the markup for the passed Element(s) config.
          * @param {Object} o The DOM object spec (and children)
          * @return {String}
@@ -304,7 +346,7 @@ Ext.DomHelper = function(){
             return createHtml(o);
         },
 
-<span id='Ext-DomHelper-method-applyStyles'>        /**
+<span id='Ext-core.DomHelper-method-applyStyles'>        /**
 </span>         * Applies a style specification to an element.
          * @param {String/HTMLElement} el The element to apply styles to
          * @param {String/Object/Function} styles A style specification string e.g. 'width:100px', or object in the form {width:'100px'}, or
@@ -312,32 +354,23 @@ Ext.DomHelper = function(){
          */
         applyStyles : function(el, styles){
             if (styles) {
-                var matches;
-
                 el = Ext.fly(el);
                 if (typeof styles == &quot;function&quot;) {
                     styles = styles.call();
                 }
                 if (typeof styles == &quot;string&quot;) {
-<span id='Ext-DomHelper-property-lastIndex'>                    /**
-</span>                     * Since we're using the g flag on the regex, we need to set the lastIndex.
-                     * This automatically happens on some implementations, but not others, see:
-                     * http://stackoverflow.com/questions/2645273/javascript-regular-expression-literal-persists-between-function-calls
-                     * http://blog.stevenlevithan.com/archives/fixing-javascript-regexp
-                     */
-                    cssRe.lastIndex = 0;
-                    while ((matches = cssRe.exec(styles))) {
-                        el.setStyle(matches[1], matches[2]);
-                    }
-                } else if (typeof styles == &quot;object&quot;) {
+                    styles = Ext.core.Element.parseStyles(styles);
+                }
+                if (typeof styles == &quot;object&quot;) {
                     el.setStyle(styles);
                 }
             }
         },
-<span id='Ext-DomHelper-method-insertHtml'>        /**
+
+<span id='Ext-core.DomHelper-method-insertHtml'>        /**
 </span>         * Inserts an HTML fragment into the DOM.
          * @param {String} where Where to insert the html in relation to el - beforeBegin, afterBegin, beforeEnd, afterEnd.
-         * @param {HTMLElement} el The context element
+         * @param {HTMLElement/TextNode} el The context element
          * @param {String} html The HTML fragment
          * @return {HTMLElement} The new node
          */
@@ -354,11 +387,13 @@ Ext.DomHelper = function(){
             // add these here because they are used in both branches of the condition.
             hash[beforebegin] = ['BeforeBegin', 'previousSibling'];
             hash[afterend] = ['AfterEnd', 'nextSibling'];
-
+            
+            // if IE and context element is an HTMLElement
             if (el.insertAdjacentHTML) {
                 if(tableRe.test(el.tagName) &amp;&amp; (rs = insertIntoTable(el.tagName.toLowerCase(), where, el, html))){
                     return rs;
                 }
+                
                 // add these two to the hash.
                 hash[afterbegin] = ['AfterBegin', 'firstChild'];
                 hash[beforeend] = ['BeforeEnd', 'lastChild'];
@@ -366,29 +401,34 @@ Ext.DomHelper = function(){
                     el.insertAdjacentHTML(hashVal[0], html);
                     return el[hashVal[1]];
                 }
+            // if (not IE and context element is an HTMLElement) or TextNode
             } else {
-                range = el.ownerDocument.createRange();
+                // we cannot insert anything inside a textnode so...
+                if (Ext.isTextNode(el)) {
+                    where = where === 'afterbegin' ? 'beforebegin' : where; 
+                    where = where === 'beforeend' ? 'afterend' : where;
+                }
+                range = Ext.supports.CreateContextualFragment ? el.ownerDocument.createRange() : undefined;
                 setStart = 'setStart' + (endRe.test(where) ? 'After' : 'Before');
                 if (hash[where]) {
-                    range[setStart](el);
-                    if (!range.createContextualFragment) {
-                        frag = createContextualFragment(html);
-                    }
-                    else {
+                    if (range) {
+                        range[setStart](el);
                         frag = range.createContextualFragment(html);
+                    } else {
+                        frag = createContextualFragment(html);
                     }
                     el.parentNode.insertBefore(frag, where == beforebegin ? el : el.nextSibling);
                     return el[(where == beforebegin ? 'previous' : 'next') + 'Sibling'];
                 } else {
                     rangeEl = (where == afterbegin ? 'first' : 'last') + 'Child';
                     if (el.firstChild) {
-                        range[setStart](el[rangeEl]);
-                        if (!range.createContextualFragment) {
+                        if (range) {
+                            range[setStart](el[rangeEl]);
+                            frag = range.createContextualFragment(html);
+                        } else {
                             frag = createContextualFragment(html);
                         }
-                        else {
-                            frag = range.createContextualFragment(html);
-                        }
+                        
                         if(where == afterbegin){
                             el.insertBefore(frag, el.firstChild);
                         }else{
@@ -400,59 +440,67 @@ Ext.DomHelper = function(){
                     return el[rangeEl];
                 }
             }
-            throw 'Illegal insertion point -&gt; &quot;' + where + '&quot;';
+            //&lt;debug&gt;
+            Ext.Error.raise({
+                sourceClass: 'Ext.core.DomHelper',
+                sourceMethod: 'insertHtml',
+                htmlToInsert: html,
+                targetElement: el,
+                msg: 'Illegal insertion point reached: &quot;' + where + '&quot;'
+            });
+            //&lt;/debug&gt;
         },
 
-<span id='Ext-DomHelper-method-insertBefore'>        /**
+<span id='Ext-core.DomHelper-method-insertBefore'>        /**
 </span>         * Creates new DOM element(s) and inserts them before el.
          * @param {Mixed} el The context element
          * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
-         * @return {HTMLElement/Ext.Element} The new node
+         * @param {Boolean} returnElement (optional) true to return a Ext.core.Element
+         * @return {HTMLElement/Ext.core.Element} The new node
          */
         insertBefore : function(el, o, returnElement){
             return doInsert(el, o, returnElement, beforebegin);
         },
 
-<span id='Ext-DomHelper-method-insertAfter'>        /**
+<span id='Ext-core.DomHelper-method-insertAfter'>        /**
 </span>         * Creates new DOM element(s) and inserts them after el.
          * @param {Mixed} el The context element
          * @param {Object} o The DOM object spec (and children)
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
-         * @return {HTMLElement/Ext.Element} The new node
+         * @param {Boolean} returnElement (optional) true to return a Ext.core.Element
+         * @return {HTMLElement/Ext.core.Element} The new node
          */
         insertAfter : function(el, o, returnElement){
             return doInsert(el, o, returnElement, afterend, 'nextSibling');
         },
 
-<span id='Ext-DomHelper-method-insertFirst'>        /**
+<span id='Ext-core.DomHelper-method-insertFirst'>        /**
 </span>         * Creates new DOM element(s) and inserts them as the first child of el.
          * @param {Mixed} el The context element
          * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
-         * @return {HTMLElement/Ext.Element} The new node
+         * @param {Boolean} returnElement (optional) true to return a Ext.core.Element
+         * @return {HTMLElement/Ext.core.Element} The new node
          */
         insertFirst : function(el, o, returnElement){
             return doInsert(el, o, returnElement, afterbegin, 'firstChild');
         },
 
-<span id='Ext-DomHelper-method-append'>        /**
+<span id='Ext-core.DomHelper-method-append'>        /**
 </span>         * Creates new DOM element(s) and appends them to el.
          * @param {Mixed} el The context element
          * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
-         * @return {HTMLElement/Ext.Element} The new node
+         * @param {Boolean} returnElement (optional) true to return a Ext.core.Element
+         * @return {HTMLElement/Ext.core.Element} The new node
          */
         append : function(el, o, returnElement){
             return doInsert(el, o, returnElement, beforeend, '', true);
         },
 
-<span id='Ext-DomHelper-method-overwrite'>        /**
+<span id='Ext-core.DomHelper-method-overwrite'>        /**
 </span>         * Creates new DOM element(s) and overwrites the contents of el with them.
          * @param {Mixed} el The context element
          * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
-         * @return {HTMLElement/Ext.Element} The new node
+         * @param {Boolean} returnElement (optional) true to return a Ext.core.Element
+         * @return {HTMLElement/Ext.core.Element} The new node
          */
         overwrite : function(el, o, returnElement){
             el = Ext.getDom(el);
@@ -460,10 +508,28 @@ Ext.DomHelper = function(){
             return returnElement ? Ext.get(el.firstChild) : el.firstChild;
         },
 
-        createHtml : createHtml
+        createHtml : createHtml,
+        
+<span id='Ext-core.DomHelper-property-createDom'>        /**
+</span>         * Creates new DOM element(s) without inserting them to the document.
+         * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
+         * @return {HTMLElement} The new uninserted node
+         */
+        createDom: createDom,
+        
+<span id='Ext-core.DomHelper-property-useDom'>        /** True to force the use of DOM instead of html fragments @type Boolean */
+</span>        useDom : false,
+        
+<span id='Ext-core.DomHelper-method-createTemplate'>        /**
+</span>         * Creates a new Ext.Template from the DOM object spec.
+         * @param {Object} o The DOM object spec (and children)
+         * @return {Ext.Template} The new template
+         */
+        createTemplate : function(o){
+            var html = Ext.core.DomHelper.createHtml(o);
+            return Ext.create('Ext.Template', html);
+        }
     };
     return pub;
 }();
-</pre>
-</body>
-</html>
+</pre></pre></body></html>

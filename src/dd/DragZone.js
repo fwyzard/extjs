@@ -1,23 +1,3 @@
-/*
-This file is part of Ext JS 3.4
-
-Copyright (c) 2011-2013 Sencha Inc
-
-Contact:  http://www.sencha.com/contact
-
-GNU General Public License Usage
-This file may be used under the terms of the GNU General Public License version 3.0 as
-published by the Free Software Foundation and appearing in the file LICENSE included in the
-packaging of this file.
-
-Please review the following information to ensure the GNU General Public License version 3.0
-requirements will be met: http://www.gnu.org/copyleft/gpl.html.
-
-If you are unsure which license is appropriate for your use, please contact the sales department
-at http://www.sencha.com/contact.
-
-Build date: 2013-04-03 15:07:25
-*/
 /**
  * @class Ext.dd.DragZone
  * @extends Ext.dd.DragSource
@@ -26,7 +6,7 @@ Build date: 2013-04-03 15:07:25
  * any DOM structure you wish. The DOM element to show in the proxy is provided by either a
  * provided implementation of {@link #getDragData}, or by registered draggables registered with {@link Ext.dd.Registry}</p>
  * <p>If you wish to provide draggability for an arbitrary number of DOM nodes, each of which represent some
- * application object (For example nodes in a {@link Ext.DataView DataView}) then use of this class
+ * application object (For example nodes in a {@link Ext.view.View DataView}) then use of this class
  * is the most efficient way to "activate" those nodes.</p>
  * <p>By default, this class requires that draggable child nodes are registered with {@link Ext.dd.Registry}.
  * However a simpler way to allow a DragZone to manage any number of draggable elements is to configure
@@ -57,7 +37,7 @@ myDataView.on('render', function(v) {
                     sourceEl: sourceEl,
                     repairXY: Ext.fly(sourceEl).getXY(),
                     sourceStore: v.store,
-                    draggedRecord: v.{@link Ext.DataView#getRecord getRecord}(sourceEl)
+                    draggedRecord: v.{@link Ext.view.View#getRecord getRecord}(sourceEl)
                 }
             }
         },
@@ -76,15 +56,17 @@ myDataView.on('render', function(v) {
  * @param {Mixed} el The container element
  * @param {Object} config
  */
-Ext.dd.DragZone = Ext.extend(Ext.dd.DragSource, {
-    
+Ext.define('Ext.dd.DragZone', {
+
+    extend: 'Ext.dd.DragSource',
+
     constructor : function(el, config){
-        Ext.dd.DragZone.superclass.constructor.call(this, el, config);
-        if(this.containerScroll){
+        this.callParent([el, config]);
+        if (this.containerScroll) {
             Ext.dd.ScrollManager.register(this.el);
         }
     },
-    
+
     /**
      * This property contains the data representing the dragged object. This data is set up by the implementation
      * of the {@link #getDragData} method. It must contain a <tt>ddel</tt> property, but can contain
@@ -92,13 +74,10 @@ Ext.dd.DragZone = Ext.extend(Ext.dd.DragSource, {
      * @type Object
      * @property dragData
      */
+
     /**
      * @cfg {Boolean} containerScroll True to register this container with the Scrollmanager
      * for auto scrolling during drag operations.
-     */
-    /**
-     * @cfg {String} hlColor The color to use when visually highlighting the drag source in the afterRepair
-     * method after a failed drop (defaults to "c3daf9" - light blue)
      */
 
     /**
@@ -112,7 +91,7 @@ Ext.dd.DragZone = Ext.extend(Ext.dd.DragSource, {
     getDragData : function(e){
         return Ext.dd.Registry.getHandleFromEvent(e);
     },
-    
+
     /**
      * Called once drag threshold has been reached to initialize the proxy element. By default, it clones the
      * this.dragData.ddel
@@ -125,15 +104,16 @@ Ext.dd.DragZone = Ext.extend(Ext.dd.DragSource, {
         this.onStartDrag(x, y);
         return true;
     },
-    
+
     /**
-     * Called after a repair of an invalid drop. By default, highlights this.dragData.ddel 
+     * Called after a repair of an invalid drop. By default, highlights this.dragData.ddel
      */
     afterRepair : function(){
-        if(Ext.enableFx){
-            Ext.Element.fly(this.dragData.ddel).highlight(this.hlColor || "c3daf9");
+        var me = this;
+        if (Ext.enableFx) {
+            Ext.fly(me.dragData.ddel).highlight(me.repairHighlightColor);
         }
-        this.dragging = false;
+        me.dragging = false;
     },
 
     /**
@@ -143,12 +123,12 @@ Ext.dd.DragZone = Ext.extend(Ext.dd.DragSource, {
      * @return {Array} The xy location (e.g. [100, 200])
      */
     getRepairXY : function(e){
-        return Ext.Element.fly(this.dragData.ddel).getXY();  
+        return Ext.core.Element.fly(this.dragData.ddel).getXY();
     },
-    
+
     destroy : function(){
-        Ext.dd.DragZone.superclass.destroy.call(this);
-        if(this.containerScroll){
+        this.callParent();
+        if (this.containerScroll) {
             Ext.dd.ScrollManager.unregister(this.el);
         }
     }

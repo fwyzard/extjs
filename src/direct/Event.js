@@ -1,48 +1,34 @@
-/*
-This file is part of Ext JS 3.4
-
-Copyright (c) 2011-2013 Sencha Inc
-
-Contact:  http://www.sencha.com/contact
-
-GNU General Public License Usage
-This file may be used under the terms of the GNU General Public License version 3.0 as
-published by the Free Software Foundation and appearing in the file LICENSE included in the
-packaging of this file.
-
-Please review the following information to ensure the GNU General Public License version 3.0
-requirements will be met: http://www.gnu.org/copyleft/gpl.html.
-
-If you are unsure which license is appropriate for your use, please contact the sales department
-at http://www.sencha.com/contact.
-
-Build date: 2013-04-03 15:07:25
-*/
-Ext.Direct.Event = function(config){
-    Ext.apply(this, config);
-};
-
-Ext.Direct.Event.prototype = {
+/**
+ * @class Ext.direct.Event
+ * A base class for all Ext.direct events. An event is
+ * created after some kind of interaction with the server.
+ * The event class is essentially just a data structure
+ * to hold a direct response.
+ * 
+ * @constructor
+ * @param {Object} config The config object
+ */
+Ext.define('Ext.direct.Event', {
+    
+    /* Begin Definitions */
+   
+    alias: 'direct.event',
+    
+    requires: ['Ext.direct.Manager'],
+    
+    /* End Definitions */
+   
     status: true,
+    
+    constructor: function(config) {
+        Ext.apply(this, config);
+    },
+    
+    /**
+     * Return the raw data for this event.
+     * @return {Object} The data from the event
+     */
     getData: function(){
         return this.data;
     }
-};
-
-Ext.Direct.RemotingEvent = Ext.extend(Ext.Direct.Event, {
-    type: 'rpc',
-    getTransaction: function(){
-        return this.transaction || Ext.Direct.getTransaction(this.tid);
-    }
 });
-
-Ext.Direct.ExceptionEvent = Ext.extend(Ext.Direct.RemotingEvent, {
-    status: false,
-    type: 'exception'
-});
-
-Ext.Direct.eventTypes = {
-    'rpc':  Ext.Direct.RemotingEvent,
-    'event':  Ext.Direct.Event,
-    'exception':  Ext.Direct.ExceptionEvent
-};
