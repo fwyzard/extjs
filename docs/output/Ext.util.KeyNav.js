@@ -1,235 +1,454 @@
 Ext.data.JsonP.Ext_util_KeyNav({
-  "tagname": "class",
-  "name": "Ext.util.KeyNav",
-  "doc": "<p>Provides a convenient wrapper for normalized keyboard navigation.  KeyNav allows you to bind\nnavigation keys to function calls that will get called when the keys are pressed, providing an easy\nway to implement custom navigation schemes for any UI component.</p>\n\n\n<p>The following are all of the possible keys that can be implemented: enter, space, left, right, up, down, tab, esc,\npageUp, pageDown, del, backspace, home, end.  Usage:</p>\n\n\n\n\n<pre><code>var nav = new Ext.util.KeyNav(\"my-element\", {\n    \"left\" : function(e){\n        this.moveLeft(e.ctrlKey);\n    },\n    \"right\" : function(e){\n        this.moveRight(e.ctrlKey);\n    },\n    \"enter\" : function(e){\n        this.save();\n    },\n    scope : this\n});\n</code></pre>\n\n",
-  "extends": null,
-  "mixins": [
-
-  ],
-  "alternateClassNames": [
-    "Ext.KeyNav"
-  ],
-  "xtype": null,
-  "author": null,
-  "docauthor": null,
-  "singleton": false,
-  "private": false,
-  "cfg": [
-    {
-      "tagname": "cfg",
-      "name": "defaultEventAction",
-      "member": "Ext.util.KeyNav",
-      "type": "String",
-      "doc": "<p>The method to call on the <a href=\"#/api/Ext.EventObject\" rel=\"Ext.EventObject\" class=\"docClass\">Ext.EventObject</a> after this KeyNav intercepts a key.  Valid values are\n<a href=\"#/api/Ext.EventObject-method-stopEvent\" rel=\"Ext.EventObject-method-stopEvent\" class=\"docClass\">Ext.EventObject.stopEvent</a>, <a href=\"#/api/Ext.EventObject-method-preventDefault\" rel=\"Ext.EventObject-method-preventDefault\" class=\"docClass\">Ext.EventObject.preventDefault</a> and\n<a href=\"#/api/Ext.EventObject-method-stopPropagation\" rel=\"Ext.EventObject-method-stopPropagation\" class=\"docClass\">Ext.EventObject.stopPropagation</a> (defaults to 'stopEvent')</p>\n",
-      "private": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-      "linenr": 108,
-      "html_filename": "KeyNav2.html",
-      "href": "KeyNav2.html#Ext-util-KeyNav-cfg-defaultEventAction",
-      "shortDoc": "The method to call on the Ext.EventObject after this KeyNav intercepts a key.  Valid values are\nExt.EventObject.stopE..."
-    },
-    {
-      "tagname": "cfg",
-      "name": "disabled",
-      "member": "Ext.util.KeyNav",
-      "type": "Boolean",
-      "doc": "<p>True to disable this KeyNav instance (defaults to false)</p>\n",
-      "private": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-      "linenr": 102,
-      "html_filename": "KeyNav2.html",
-      "href": "KeyNav2.html#Ext-util-KeyNav-cfg-disabled"
-    },
-    {
-      "tagname": "cfg",
-      "name": "forceKeyDown",
-      "member": "Ext.util.KeyNav",
-      "type": "Boolean",
-      "doc": "<p>Handle the keydown event instead of keypress (defaults to false).  KeyNav automatically does this for IE since\nIE does not propagate special keys on keypress, but setting this to true will force other browsers to also\nhandle keydown instead of keypress.</p>\n",
-      "private": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-      "linenr": 116,
-      "html_filename": "KeyNav2.html",
-      "href": "KeyNav2.html#Ext-util-KeyNav-cfg-forceKeyDown",
-      "shortDoc": "Handle the keydown event instead of keypress (defaults to false).  KeyNav automatically does this for IE since\nIE doe..."
-    }
-  ],
-  "method": [
-    {
-      "tagname": "method",
-      "name": "KeyNav",
-      "member": "Ext.util.KeyNav",
-      "doc": "\n",
-      "params": [
-        {
-          "type": "Mixed",
-          "name": "el",
-          "doc": "<p>The element to bind to</p>\n",
-          "optional": false
-        },
-        {
-          "type": "Object",
-          "name": "config",
-          "doc": "<p>The config</p>\n",
-          "optional": false
-        }
-      ],
-      "return": {
-        "type": "void",
-        "doc": "\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-      "linenr": 1,
-      "html_filename": "KeyNav2.html",
-      "href": "KeyNav2.html#Ext-util-KeyNav-method-constructor",
-      "shortDoc": "\n"
-    },
-    {
-      "tagname": "method",
-      "name": "destroy",
-      "member": "Ext.util.KeyNav",
-      "doc": "<p>Destroy this KeyNav (this is the same as calling disable).</p>\n",
-      "params": [
-        {
-          "type": "Boolean",
-          "name": "removeEl",
-          "doc": "<p>True to remove the element associated with this KeyNav.</p>\n",
-          "optional": false
-        }
-      ],
-      "return": {
-        "type": "void",
-        "doc": "\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-      "linenr": 124,
-      "html_filename": "KeyNav2.html",
-      "href": "KeyNav2.html#Ext-util-KeyNav-method-destroy",
-      "shortDoc": "<p>Destroy this KeyNav (this is the same as calling disable).</p>\n"
-    },
-    {
-      "tagname": "method",
-      "name": "disable",
-      "member": "Ext.util.KeyNav",
-      "doc": "<p>Disable this KeyNav</p>\n",
-      "params": [
-
-      ],
-      "return": {
-        "type": "void",
-        "doc": "\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-      "linenr": 141,
-      "html_filename": "KeyNav2.html",
-      "href": "KeyNav2.html#Ext-util-KeyNav-method-disable",
-      "shortDoc": "<p>Disable this KeyNav</p>\n"
-    },
-    {
-      "tagname": "method",
-      "name": "enable",
-      "member": "Ext.util.KeyNav",
-      "doc": "<p>Enable this KeyNav</p>\n",
-      "params": [
-
-      ],
-      "return": {
-        "type": "void",
-        "doc": "\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-      "linenr": 133,
-      "html_filename": "KeyNav2.html",
-      "href": "KeyNav2.html#Ext-util-KeyNav-method-enable",
-      "shortDoc": "<p>Enable this KeyNav</p>\n"
-    },
-    {
-      "tagname": "method",
-      "name": "getKeyEvent",
-      "member": "Ext.util.KeyNav",
-      "doc": "<p>Determines the event to bind to listen for keys. Depends on the <a href=\"#/api/Ext.util.KeyNav-cfg-forceKeyDown\" rel=\"Ext.util.KeyNav-cfg-forceKeyDown\" class=\"docClass\">forceKeyDown</a> setting,\nas well as the useKeyDown option on the EventManager.</p>\n",
-      "params": [
-        {
-          "type": "Object",
-          "name": "forceKeyDown",
-          "doc": "\n",
-          "optional": false
-        }
-      ],
-      "return": {
-        "type": "String",
-        "doc": "<p>The type of event to listen for.</p>\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-      "linenr": 158,
-      "html_filename": "KeyNav2.html",
-      "href": "KeyNav2.html#Ext-util-KeyNav-method-getKeyEvent",
-      "shortDoc": "Determines the event to bind to listen for keys. Depends on the forceKeyDown setting,\nas well as the useKeyDown optio..."
-    },
-    {
-      "tagname": "method",
-      "name": "setDisabled",
-      "member": "Ext.util.KeyNav",
-      "doc": "<p>Convenience function for setting disabled/enabled by boolean.</p>\n",
-      "params": [
-        {
-          "type": "Boolean",
-          "name": "disabled",
-          "doc": "\n",
-          "optional": false
-        }
-      ],
-      "return": {
-        "type": "void",
-        "doc": "\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-      "linenr": 149,
-      "html_filename": "KeyNav2.html",
-      "href": "KeyNav2.html#Ext-util-KeyNav-method-setDisabled",
-      "shortDoc": "<p>Convenience function for setting disabled/enabled by boolean.</p>\n"
-    }
-  ],
-  "property": [
-
-  ],
-  "event": [
-
-  ],
-  "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/util/KeyNav.js",
-  "linenr": 1,
-  "html_filename": "KeyNav2.html",
-  "href": "KeyNav2.html#Ext-util-KeyNav",
-  "cssVar": [
-
-  ],
-  "cssMixin": [
-
-  ],
-  "component": false,
-  "superclasses": [
-
-  ],
-  "subclasses": [
-    "Ext.menu.KeyNav",
-    "Ext.view.BoundListKeyNav"
-  ],
   "mixedInto": [
 
   ],
+  "superclasses": [
+    "Ext.Base"
+  ],
+  "inheritable": false,
+  "subclasses": [
+    "Ext.view.BoundListKeyNav"
+  ],
+  "deprecated": null,
   "allMixins": [
 
-  ]
+  ],
+  "href": "KeyNav.html#Ext-util-KeyNav",
+  "members": {
+    "cfg": [
+      {
+        "inheritable": false,
+        "type": "String",
+        "deprecated": null,
+        "href": "KeyNav.html#Ext-util-KeyNav-cfg-defaultEventAction",
+        "protected": false,
+        "tagname": "cfg",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+        "private": false,
+        "shortDoc": "The method to call on the Ext.EventObject after this KeyNav intercepts a key. ...",
+        "static": false,
+        "name": "defaultEventAction",
+        "owner": "Ext.util.KeyNav",
+        "doc": "<p>The method to call on the <a href=\"#/api/Ext.EventObject\" rel=\"Ext.EventObject\" class=\"docClass\">Ext.EventObject</a> after this KeyNav intercepts a key.  Valid values are\n<a href=\"#/api/Ext.EventObject-method-stopEvent\" rel=\"Ext.EventObject-method-stopEvent\" class=\"docClass\">Ext.EventObject.stopEvent</a>, <a href=\"#/api/Ext.EventObject-method-preventDefault\" rel=\"Ext.EventObject-method-preventDefault\" class=\"docClass\">Ext.EventObject.preventDefault</a> and\n<a href=\"#/api/Ext.EventObject-method-stopPropagation\" rel=\"Ext.EventObject-method-stopPropagation\" class=\"docClass\">Ext.EventObject.stopPropagation</a> (defaults to 'stopEvent')</p>\n",
+        "linenr": 110,
+        "html_filename": "KeyNav.html"
+      },
+      {
+        "inheritable": false,
+        "type": "Boolean",
+        "deprecated": null,
+        "href": "KeyNav.html#Ext-util-KeyNav-cfg-disabled",
+        "protected": false,
+        "tagname": "cfg",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+        "private": false,
+        "static": false,
+        "name": "disabled",
+        "owner": "Ext.util.KeyNav",
+        "doc": "<p>True to disable this KeyNav instance (defaults to false)</p>\n",
+        "linenr": 104,
+        "html_filename": "KeyNav.html"
+      },
+      {
+        "inheritable": false,
+        "type": "Boolean",
+        "deprecated": null,
+        "href": "KeyNav.html#Ext-util-KeyNav-cfg-forceKeyDown",
+        "protected": false,
+        "tagname": "cfg",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+        "private": false,
+        "shortDoc": "Handle the keydown event instead of keypress (defaults to false). ...",
+        "static": false,
+        "name": "forceKeyDown",
+        "owner": "Ext.util.KeyNav",
+        "doc": "<p>Handle the keydown event instead of keypress (defaults to false).  KeyNav automatically does this for IE since\nIE does not propagate special keys on keypress, but setting this to true will force other browsers to also\nhandle keydown instead of keypress.</p>\n",
+        "linenr": 118,
+        "html_filename": "KeyNav.html"
+      }
+    ],
+    "method": [
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+          {
+            "type": "Mixed",
+            "optional": false,
+            "doc": "<p>The element to bind to</p>\n",
+            "name": "el"
+          },
+          {
+            "type": "Object",
+            "optional": false,
+            "doc": "<p>The config</p>\n",
+            "name": "config"
+          }
+        ],
+        "href": "KeyNav.html#Ext-util-KeyNav-method-constructor",
+        "return": {
+          "type": "Object",
+          "doc": "\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+        "private": false,
+        "shortDoc": "Creates new KeyNav. ...",
+        "static": false,
+        "name": "constructor",
+        "owner": "Ext.util.KeyNav",
+        "doc": "<p>Creates new KeyNav.</p>\n",
+        "linenr": 48,
+        "html_filename": "KeyNav.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+          {
+            "type": "Array/Arguments",
+            "optional": false,
+            "doc": "<p>The arguments, either an array or the <code>arguments</code> object</p>\n",
+            "name": "args"
+          }
+        ],
+        "href": "Base3.html#Ext-Base-method-callOverridden",
+        "return": {
+          "type": "Mixed",
+          "doc": "<p>Returns the result after calling the overridden method</p>\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/core/src/class/Base.js",
+        "private": false,
+        "shortDoc": "Call the original method that was previously overridden with Ext.Base.override\n\nExt.define('My.Cat', {\n    constructo...",
+        "static": false,
+        "name": "callOverridden",
+        "owner": "Ext.Base",
+        "doc": "<p>Call the original method that was previously overridden with Ext.Base.override</p>\n\n<pre><code>Ext.define('My.Cat', {\n    constructor: function() {\n        alert(\"I'm a cat!\");\n\n        return this;\n    }\n});\n\nMy.Cat.override({\n    constructor: function() {\n        alert(\"I'm going to be a cat!\");\n\n        var instance = this.callOverridden();\n\n        alert(\"Meeeeoooowwww\");\n\n        return instance;\n    }\n});\n\nvar kitty = new My.Cat(); // alerts \"I'm going to be a cat!\"\n                          // alerts \"I'm a cat!\"\n                          // alerts \"Meeeeoooowwww\"\n</code></pre>\n",
+        "linenr": 269,
+        "html_filename": "Base3.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+          {
+            "type": "Array/Arguments",
+            "optional": false,
+            "doc": "<p>The arguments, either an array or the <code>arguments</code> object\nfrom the current method, for example: <code>this.callParent(arguments)</code></p>\n",
+            "name": "args"
+          }
+        ],
+        "href": "Base3.html#Ext-Base-method-callParent",
+        "return": {
+          "type": "Mixed",
+          "doc": "<p>Returns the result from the superclass' method</p>\n"
+        },
+        "protected": true,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/core/src/class/Base.js",
+        "private": false,
+        "shortDoc": "Call the parent's overridden method. ...",
+        "static": false,
+        "name": "callParent",
+        "owner": "Ext.Base",
+        "doc": "<p>Call the parent's overridden method. For example:</p>\n\n<pre><code>Ext.define('My.own.A', {\n    constructor: function(test) {\n        alert(test);\n    }\n});\n\nExt.define('My.own.B', {\n    extend: 'My.own.A',\n\n    constructor: function(test) {\n        alert(test);\n\n        this.callParent([test + 1]);\n    }\n});\n\nExt.define('My.own.C', {\n    extend: 'My.own.B',\n\n    constructor: function() {\n        alert(\"Going to call parent's overriden constructor...\");\n\n        this.callParent(arguments);\n    }\n});\n\nvar a = new My.own.A(1); // alerts '1'\nvar b = new My.own.B(1); // alerts '1', then alerts '2'\nvar c = new My.own.C(2); // alerts \"Going to call parent's overriden constructor...\"\n                         // alerts '2', then alerts '3'\n</code></pre>\n",
+        "linenr": 124,
+        "html_filename": "Base3.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+          {
+            "type": "Boolean",
+            "optional": false,
+            "doc": "<p>True to remove the element associated with this KeyNav.</p>\n",
+            "name": "removeEl"
+          }
+        ],
+        "href": "KeyNav.html#Ext-util-KeyNav-method-destroy",
+        "return": {
+          "type": "void",
+          "doc": "\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+        "private": false,
+        "shortDoc": "Destroy this KeyNav (this is the same as calling disable). ...",
+        "static": false,
+        "name": "destroy",
+        "owner": "Ext.util.KeyNav",
+        "doc": "<p>Destroy this KeyNav (this is the same as calling disable).</p>\n",
+        "linenr": 126,
+        "html_filename": "KeyNav.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+
+        ],
+        "href": "KeyNav.html#Ext-util-KeyNav-method-disable",
+        "return": {
+          "type": "void",
+          "doc": "\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+        "private": false,
+        "shortDoc": "Disable this KeyNav ...",
+        "static": false,
+        "name": "disable",
+        "owner": "Ext.util.KeyNav",
+        "doc": "<p>Disable this KeyNav</p>\n",
+        "linenr": 143,
+        "html_filename": "KeyNav.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+
+        ],
+        "href": "KeyNav.html#Ext-util-KeyNav-method-enable",
+        "return": {
+          "type": "void",
+          "doc": "\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+        "private": false,
+        "shortDoc": "Enable this KeyNav ...",
+        "static": false,
+        "name": "enable",
+        "owner": "Ext.util.KeyNav",
+        "doc": "<p>Enable this KeyNav</p>\n",
+        "linenr": 135,
+        "html_filename": "KeyNav.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+          {
+            "type": "Object",
+            "optional": false,
+            "doc": "\n",
+            "name": "forceKeyDown"
+          }
+        ],
+        "href": "KeyNav.html#Ext-util-KeyNav-method-getKeyEvent",
+        "return": {
+          "type": "String",
+          "doc": "<p>The type of event to listen for.</p>\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+        "private": false,
+        "shortDoc": "Determines the event to bind to listen for keys. ...",
+        "static": false,
+        "name": "getKeyEvent",
+        "owner": "Ext.util.KeyNav",
+        "doc": "<p>Determines the event to bind to listen for keys. Depends on the <a href=\"#/api/Ext.util.KeyNav-cfg-forceKeyDown\" rel=\"Ext.util.KeyNav-cfg-forceKeyDown\" class=\"docClass\">forceKeyDown</a> setting,\nas well as the useKeyDown option on the EventManager.</p>\n",
+        "linenr": 160,
+        "html_filename": "KeyNav.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+
+        ],
+        "href": "Base3.html#Ext-Base-method-getName",
+        "return": {
+          "type": "String",
+          "doc": "<p>className</p>\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/core/src/class/Base.js",
+        "private": false,
+        "shortDoc": "Get the current class' name in string format. ...",
+        "static": false,
+        "name": "getName",
+        "owner": "Ext.Base",
+        "doc": "<p>Get the current class' name in string format.</p>\n\n<pre><code>Ext.define('My.cool.Class', {\n    constructor: function() {\n        alert(this.self.getName()); // alerts 'My.cool.Class'\n    }\n});\n\nMy.cool.Class.getName(); // 'My.cool.Class'\n</code></pre>\n",
+        "linenr": 631,
+        "html_filename": "Base3.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+          {
+            "type": "Object",
+            "optional": false,
+            "doc": "\n",
+            "name": "config"
+          }
+        ],
+        "href": "Base3.html#Ext-Base-method-initConfig",
+        "return": {
+          "type": "Object",
+          "doc": "<p>mixins The mixin prototypes as key - value pairs</p>\n"
+        },
+        "protected": true,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/core/src/class/Base.js",
+        "private": false,
+        "shortDoc": "Initialize configuration for this class. ...",
+        "static": false,
+        "name": "initConfig",
+        "owner": "Ext.Base",
+        "doc": "<p>Initialize configuration for this class. a typical example:</p>\n\n<pre><code>Ext.define('My.awesome.Class', {\n    // The default config\n    config: {\n        name: 'Awesome',\n        isAwesome: true\n    },\n\n    constructor: function(config) {\n        this.initConfig(config);\n\n        return this;\n    }\n});\n\nvar awesome = new My.awesome.Class({\n    name: 'Super Awesome'\n});\n\nalert(awesome.getName()); // 'Super Awesome'\n</code></pre>\n",
+        "linenr": 63,
+        "html_filename": "Base3.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+          {
+            "type": "Boolean",
+            "optional": false,
+            "doc": "\n",
+            "name": "disabled"
+          }
+        ],
+        "href": "KeyNav.html#Ext-util-KeyNav-method-setDisabled",
+        "return": {
+          "type": "void",
+          "doc": "\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+        "private": false,
+        "shortDoc": "Convenience function for setting disabled/enabled by boolean. ...",
+        "static": false,
+        "name": "setDisabled",
+        "owner": "Ext.util.KeyNav",
+        "doc": "<p>Convenience function for setting disabled/enabled by boolean.</p>\n",
+        "linenr": 151,
+        "html_filename": "KeyNav.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+
+        ],
+        "href": "Base3.html#Ext-Base-method-statics",
+        "return": {
+          "type": "Class",
+          "doc": "\n"
+        },
+        "protected": true,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/core/src/class/Base.js",
+        "private": false,
+        "shortDoc": "Get the reference to the class from which this object was instantiated. ...",
+        "static": false,
+        "name": "statics",
+        "owner": "Ext.Base",
+        "doc": "<p>Get the reference to the class from which this object was instantiated. Note that unlike <a href=\"#/api/Ext.Base-property-self\" rel=\"Ext.Base-property-self\" class=\"docClass\">Ext.Base.self</a>,\n<code>this.statics()</code> is scope-independent and it always returns the class from which it was called, regardless of what\n<code>this</code> points to during run-time</p>\n\n<pre><code>Ext.define('My.Cat', {\n    statics: {\n        totalCreated: 0,\n        speciesName: 'Cat' // My.Cat.speciesName = 'Cat'\n    },\n\n    constructor: function() {\n        var statics = this.statics();\n\n        alert(statics.speciesName);     // always equals to 'Cat' no matter what 'this' refers to\n                                        // equivalent to: My.Cat.speciesName\n\n        alert(this.self.speciesName);   // dependent on 'this'\n\n        statics.totalCreated++;\n\n        return this;\n    },\n\n    clone: function() {\n        var cloned = new this.self;                      // dependent on 'this'\n\n        cloned.groupName = this.statics().speciesName;   // equivalent to: My.Cat.speciesName\n\n        return cloned;\n    }\n});\n\n\nExt.define('My.SnowLeopard', {\n    extend: 'My.Cat',\n\n    statics: {\n        speciesName: 'Snow Leopard'     // My.SnowLeopard.speciesName = 'Snow Leopard'\n    },\n\n    constructor: function() {\n        this.callParent();\n    }\n});\n\nvar cat = new My.Cat();                 // alerts 'Cat', then alerts 'Cat'\n\nvar snowLeopard = new My.SnowLeopard(); // alerts 'Cat', then alerts 'Snow Leopard'\n\nvar clone = snowLeopard.clone();\nalert(Ext.getClassName(clone));         // alerts 'My.SnowLeopard'\nalert(clone.groupName);                 // alerts 'Cat'\n\nalert(My.Cat.totalCreated);             // alerts 3\n</code></pre>\n",
+        "linenr": 199,
+        "html_filename": "Base3.html"
+      }
+    ],
+    "event": [
+
+    ],
+    "css_var": [
+
+    ],
+    "css_mixin": [
+
+    ],
+    "property": [
+      {
+        "inheritable": false,
+        "type": "Class",
+        "deprecated": null,
+        "href": "Base3.html#Ext-Base-property-self",
+        "protected": true,
+        "tagname": "property",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/core/src/class/Base.js",
+        "private": false,
+        "shortDoc": "Get the reference to the current class from which this object was instantiated. ...",
+        "static": false,
+        "name": "self",
+        "owner": "Ext.Base",
+        "doc": "<p>Get the reference to the current class from which this object was instantiated. Unlike <a href=\"#/api/Ext.Base-method-statics\" rel=\"Ext.Base-method-statics\" class=\"docClass\">Ext.Base.statics</a>,\n<code>this.self</code> is scope-dependent and it's meant to be used for dynamic inheritance. See <a href=\"#/api/Ext.Base-method-statics\" rel=\"Ext.Base-method-statics\" class=\"docClass\">Ext.Base.statics</a>\nfor a detailed comparison</p>\n\n<pre><code>Ext.define('My.Cat', {\n    statics: {\n        speciesName: 'Cat' // My.Cat.speciesName = 'Cat'\n    },\n\n    constructor: function() {\n        alert(this.self.speciesName); / dependent on 'this'\n\n        return this;\n    },\n\n    clone: function() {\n        return new this.self();\n    }\n});\n\n\nExt.define('My.SnowLeopard', {\n    extend: 'My.Cat',\n    statics: {\n        speciesName: 'Snow Leopard'         // My.SnowLeopard.speciesName = 'Snow Leopard'\n    }\n});\n\nvar cat = new My.Cat();                     // alerts 'Cat'\nvar snowLeopard = new My.SnowLeopard();     // alerts 'Snow Leopard'\n\nvar clone = snowLeopard.clone();\nalert(Ext.getClassName(clone));             // alerts 'My.SnowLeopard'\n</code></pre>\n",
+        "linenr": 18,
+        "html_filename": "Base3.html"
+      }
+    ]
+  },
+  "singleton": false,
+  "protected": false,
+  "tagname": "class",
+  "mixins": [
+
+  ],
+  "alias": null,
+  "author": null,
+  "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/util/KeyNav.js",
+  "private": false,
+  "alternateClassNames": [
+    "Ext.KeyNav"
+  ],
+  "static": false,
+  "name": "Ext.util.KeyNav",
+  "doc": "<p>Provides a convenient wrapper for normalized keyboard navigation.  KeyNav allows you to bind\nnavigation keys to function calls that will get called when the keys are pressed, providing an easy\nway to implement custom navigation schemes for any UI component.</p>\n\n\n<p>The following are all of the possible keys that can be implemented: enter, space, left, right, up, down, tab, esc,\npageUp, pageDown, del, backspace, home, end.  Usage:</p>\n\n\n\n\n<pre><code>var nav = new Ext.util.KeyNav(\"my-element\", {\n    \"left\" : function(e){\n        this.moveLeft(e.ctrlKey);\n    },\n    \"right\" : function(e){\n        this.moveRight(e.ctrlKey);\n    },\n    \"enter\" : function(e){\n        this.save();\n    },\n    scope : this\n});\n</code></pre>\n\n",
+  "docauthor": null,
+  "component": false,
+  "linenr": 1,
+  "xtypes": [
+
+  ],
+  "html_filename": "KeyNav.html",
+  "statics": {
+    "cfg": [
+
+    ],
+    "method": [
+
+    ],
+    "event": [
+
+    ],
+    "css_var": [
+
+    ],
+    "css_mixin": [
+
+    ],
+    "property": [
+
+    ]
+  },
+  "extends": "Ext.Base"
 });

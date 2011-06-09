@@ -1,3 +1,17 @@
+/*
+
+This file is part of Ext JS 4
+
+Copyright (c) 2011 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as published by the Free Software Foundation and appearing in the file LICENSE included in the packaging of this file.  Please review the following information to ensure the GNU General Public License version 3.0 requirements will be met: http://www.gnu.org/copyleft/gpl.html.
+
+If you are unsure which license is appropriate for your use, please contact the sales department at http://www.sencha.com/contact.
+
+*/
 /**
  * @class Ext.container.AbstractContainer
  * @extends Ext.Component
@@ -174,6 +188,14 @@ items: [
 
     isContainer : true,
 
+    /**
+     * The number of container layout calls made on this object.
+     * @property layoutCounter
+     * @type {Number}
+     * @private
+     */
+    layoutCounter : 0,
+
     baseCls: Ext.baseCSSPrefix + 'container',
 
     /**
@@ -292,6 +314,20 @@ items: [
         this.callParent();
     },
 
+    renderChildren: function () {
+        var me = this,
+            layout = me.getLayout();
+
+        me.callParent();
+        // this component's elements exist, so now create the child components' elements
+
+        if (layout) {
+            me.suspendLayout = true;
+            layout.renderChildren();
+            delete me.suspendLayout;
+        }
+    },
+
     // @private
     setLayout : function(layout) {
         var currentLayout = this.layout;
@@ -329,7 +365,7 @@ items: [
 
         if (me.rendered && layout && !me.suspendLayout) {
             // If either dimension is being auto-set, then it requires a ComponentLayout to be run.
-            if ((!Ext.isNumber(me.width) || !Ext.isNumber(me.height)) && me.componentLayout.type !== 'autocomponent') {
+            if (!me.isFixedWidth() || !me.isFixedHeight()) {
                 // Only run the ComponentLayout if it is not already in progress
                 if (me.componentLayout.layoutBusy !== true) {
                     me.doComponentLayout();
@@ -338,7 +374,7 @@ items: [
                     }
                 }
             }
-            // Both dimensions defined, run a ContainerLayout
+            // Both dimensions set, either by configuration, or by an owning layout, run a ContainerLayout
             else {
                 // Only run the ContainerLayout if it is not already in progress
                 if (layout.layoutBusy !== true) {
@@ -352,6 +388,7 @@ items: [
 
     // @private
     afterLayout : function(layout) {
+        ++this.layoutCounter;
         this.fireEvent('afterlayout', this, layout);
     },
 
@@ -675,9 +712,11 @@ for more details.
             }
         }
 
-        // Resume Layouts now that all items have been removed and do a single layout
+        // Resume Layouts now that all items have been removed and do a single layout (if we removed anything!)
         me.suspendLayout = false;
-        me.doLayout();
+        if (len) {
+            me.doLayout();
+        }
         return items;
     },
 

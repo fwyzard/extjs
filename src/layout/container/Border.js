@@ -1,3 +1,17 @@
+/*
+
+This file is part of Ext JS 4
+
+Copyright (c) 2011 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as published by the Free Software Foundation and appearing in the file LICENSE included in the packaging of this file.  Please review the following information to ensure the GNU General Public License version 3.0 requirements will be met: http://www.gnu.org/copyleft/gpl.html.
+
+If you are unsure which license is appropriate for your use, please contact the sales department at http://www.sencha.com/contact.
+
+*/
 /**
  * @class Ext.layout.container.Border
  * @extends Ext.layout.container.Container
@@ -79,8 +93,6 @@ Ext.define('Ext.layout.container.Border', {
 
     bindToOwnerCtContainer: true,
 
-    fixedLayout: false,
-
     percentageRe: /(\d+)%/,
 
     slideDirection: {
@@ -136,6 +148,8 @@ Ext.define('Ext.layout.container.Border', {
 
         // Delegate this operation to the shadow "V" or "H" box layout.
         this.shadowLayout.beforeLayout();
+
+        // note: don't call base because that does a renderItems again
     },
 
     renderItems: function(items, target) {
@@ -148,6 +162,22 @@ Ext.define('Ext.layout.container.Border', {
         //<debug>
         Ext.Error.raise('This should not be called');
         //</debug>
+    },
+
+    renderChildren: function() {
+        if (!this.borderLayoutInitialized) {
+            this.initializeBorderLayout();
+        }
+
+        this.shadowLayout.renderChildren();
+    },
+
+    /*
+     * Gathers items for a layout operation. Injected into child Box layouts through configuration.
+     * We must not include child items which are floated over the layout (are primed with a slide out animation)
+     */
+    getVisibleItems: function() {
+        return Ext.ComponentQuery.query(':not([slideOutAnim])', this.callParent(arguments));
     },
 
     initializeBorderLayout: function() {
@@ -240,7 +270,8 @@ Ext.define('Ext.layout.container.Border', {
                     maintainFlex: true,
                     layout: {
                         type: 'hbox',
-                        align: 'stretch'
+                        align: 'stretch',
+                        getVisibleItems: me.getVisibleItems
                     }
                 }));
                 hBoxItems.push(regions.center);
@@ -294,7 +325,8 @@ Ext.define('Ext.layout.container.Border', {
                 el: me.getTarget(),
                 layout: Ext.applyIf({
                     type: 'vbox',
-                    align: 'stretch'
+                    align: 'stretch',
+                    getVisibleItems: me.getVisibleItems
                 }, me.initialConfig)
             });
             me.createItems(me.shadowContainer, vBoxItems);
@@ -441,6 +473,7 @@ Ext.define('Ext.layout.container.Border', {
         // Mini collapse means that the splitter is the placeholder Component
         if (comp.collapseMode == 'mini') {
             comp.placeholder = resizer;
+            resizer.collapsedCls = comp.collapsedCls;
         }
 
         // Arrange to hide/show a region's associated splitter when the region is hidden/shown
@@ -453,7 +486,7 @@ Ext.define('Ext.layout.container.Border', {
     },
 
     // Private
-    // Propogates the min/maxHeight values from the inner hbox items to its container.
+    // Propagates the min/maxHeight values from the inner hbox items to its container.
     fixHeightConstraints: function () {
         var me = this,
             ct = me.embeddedContainer,
@@ -542,7 +575,7 @@ Ext.define('Ext.layout.container.Border', {
                     baseCls: comp.baseCls + '-header',
                     ui: comp.ui,
                     indicateDrag: comp.draggable,
-                    cls: Ext.baseCSSPrefix + 'region-collapsed-placeholder ' + Ext.baseCSSPrefix + 'region-collapsed-' + comp.collapseDirection + '-placeholder',
+                    cls: Ext.baseCSSPrefix + 'region-collapsed-placeholder ' + Ext.baseCSSPrefix + 'region-collapsed-' + comp.collapseDirection + '-placeholder ' + comp.collapsedCls,
                     listeners: comp.floatable ? {
                         click: {
                             fn: function(e) {
@@ -1058,3 +1091,4 @@ Ext.define('Ext.layout.container.Border', {
         me.callParent(arguments);
     }
 });
+

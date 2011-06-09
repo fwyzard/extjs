@@ -1,150 +1,254 @@
 Ext.data.JsonP.Ext_layout_container_Fit({
-  "tagname": "class",
-  "name": "Ext.layout.container.Fit",
-  "doc": "<p>This is a base class for layouts that contain <b>a single item</b> that automatically expands to fill the layout's\ncontainer.  This class is intended to be extended or created via the <tt>layout:'fit'</tt> <a href=\"#/api/Ext.container.Container-cfg-layout\" rel=\"Ext.container.Container-cfg-layout\" class=\"docClass\">Ext.container.Container.layout</a>\nconfig, and should generally not need to be created directly via the new keyword.</p>\n\n\n<p>FitLayout does not have any direct config options (other than inherited ones).  To fit a panel to a container\nusing FitLayout, simply set layout:'fit' on the container and add a single panel to it.  If the container has\nmultiple panels, only the first one will be displayed.  \n<p><img src=\"doc-resources/Ext.layout.container.Fit/Ext.layout.container.Fit.png\" alt=\"Ext.layout.container.Fit container layout\"></p>\nExample usage:</p>\n\n\n<pre><code>    Ext.create('Ext.panel.Panel', {\n        title: 'Fit Layout',\n        width: 300,\n        height: 150,\n        layout:'fit',\n        items: {\n            title: 'Inner Panel',\n            html: 'This is the inner panel content',\n            bodyPadding: 20,\n            border: false\n        },\n        renderTo: Ext.getBody()\n    });  \n</code></pre>\n\n",
-  "extends": "Ext.layout.container.AbstractFit",
-  "mixins": [
+  "mixedInto": [
 
   ],
-  "alternateClassNames": [
-    "Ext.layout.FitLayout"
-  ],
-  "xtype": null,
-  "author": null,
-  "docauthor": null,
-  "singleton": false,
-  "private": false,
-  "cfg": [
-    {
-      "tagname": "cfg",
-      "name": "bindToOwnerCtComponent",
-      "member": "Ext.layout.container.AbstractContainer",
-      "type": "Boolean",
-      "doc": "<p>Flag to notify the ownerCt Component on afterLayout of a change</p>\n",
-      "private": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/platform/src/layout/container/AbstractContainer.js",
-      "linenr": 24,
-      "html_filename": "AbstractContainer2.html",
-      "href": "AbstractContainer2.html#Ext-layout-container-AbstractContainer-cfg-bindToOwnerCtComponent"
-    },
-    {
-      "tagname": "cfg",
-      "name": "bindToOwnerCtContainer",
-      "member": "Ext.layout.container.AbstractContainer",
-      "type": "Boolean",
-      "doc": "<p>Flag to notify the ownerCt Container on afterLayout of a change</p>\n",
-      "private": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/platform/src/layout/container/AbstractContainer.js",
-      "linenr": 30,
-      "html_filename": "AbstractContainer2.html",
-      "href": "AbstractContainer2.html#Ext-layout-container-AbstractContainer-cfg-bindToOwnerCtContainer"
-    },
-    {
-      "tagname": "cfg",
-      "name": "itemCls",
-      "member": "Ext.layout.container.AbstractContainer",
-      "type": "String",
-      "doc": "<p>An optional extra CSS class that will be added to the container. This can be useful for adding\ncustomized styles to the container or any of its children using standard CSS rules. See\n<a href=\"#/api/Ext.Component\" rel=\"Ext.Component\" class=\"docClass\">Ext.Component</a>.<a href=\"#/api/Ext.Component--ctCls\" rel=\"Ext.Component--ctCls\" class=\"docClass\">ctCls</a> also.</p>\n\n\n<p></p></p>\n",
-      "private": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/platform/src/layout/container/AbstractContainer.js",
-      "linenr": 36,
-      "html_filename": "AbstractContainer2.html",
-      "href": "AbstractContainer2.html#Ext-layout-container-AbstractContainer-cfg-itemCls",
-      "shortDoc": "An optional extra CSS class that will be added to the container. This can be useful for adding\ncustomized styles to t..."
-    }
-  ],
-  "method": [
-    {
-      "tagname": "method",
-      "name": "getLayoutItems",
-      "member": "Ext.layout.container.AbstractContainer",
-      "doc": "<p>Returns an array of child components either for a render phase (Performed in the beforeLayout method of the layout's\nbase class), or the layout phase (onLayout).</p>\n\n",
-      "params": [
-
-      ],
-      "return": {
-        "type": "Array",
-        "doc": "<p>of child components</p>\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/platform/src/layout/container/AbstractContainer.js",
-      "linenr": 87,
-      "html_filename": "AbstractContainer2.html",
-      "href": "AbstractContainer2.html#Ext-layout-container-AbstractContainer-method-getLayoutItems",
-      "shortDoc": "Returns an array of child components either for a render phase (Performed in the beforeLayout method of the layout's\n..."
-    },
-    {
-      "tagname": "method",
-      "name": "getRenderTarget",
-      "member": "Ext.layout.container.AbstractContainer",
-      "doc": "<p>Returns the element into which rendering must take place. Defaults to the owner Container's <a href=\"#/api/Ext.AbstractComponent--targetEl\" rel=\"Ext.AbstractComponent--targetEl\" class=\"docClass\">Ext.AbstractComponent.targetEl</a>.</p>\n\n\n<p>May be overridden in layout managers which implement an inner element.</p>\n",
-      "params": [
-
-      ],
-      "return": {
-        "type": "Ext.core.Element",
-        "doc": "\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/platform/src/layout/container/AbstractContainer.js",
-      "linenr": 106,
-      "html_filename": "AbstractContainer2.html",
-      "href": "AbstractContainer2.html#Ext-layout-container-AbstractContainer-method-getRenderTarget",
-      "shortDoc": "Returns the element into which rendering must take place. Defaults to the owner Container's Ext.AbstractComponent.tar..."
-    },
-    {
-      "tagname": "method",
-      "name": "getTarget",
-      "member": "Ext.layout.container.AbstractContainer",
-      "doc": "<p>Returns the owner component's resize element.</p>\n",
-      "params": [
-
-      ],
-      "return": {
-        "type": "Ext.core.Element",
-        "doc": "\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/platform/src/layout/container/AbstractContainer.js",
-      "linenr": 99,
-      "html_filename": "AbstractContainer2.html",
-      "href": "AbstractContainer2.html#Ext-layout-container-AbstractContainer-method-getTarget",
-      "shortDoc": "<p>Returns the owner component's resize element.</p>\n"
-    }
-  ],
-  "property": [
-
-  ],
-  "event": [
-
-  ],
-  "filename": "/Users/nick/Projects/sencha/SDK/extjs/src/layout/container/Fit.js",
-  "linenr": 1,
-  "html_filename": "Fit.html",
-  "href": "Fit.html#Ext-layout-container-Fit",
-  "cssVar": [
-
-  ],
-  "cssMixin": [
-
-  ],
-  "component": false,
   "superclasses": [
     "Ext.layout.Layout",
     "Ext.layout.container.AbstractContainer",
     "Ext.layout.container.Container",
     "Ext.layout.container.AbstractFit"
   ],
+  "inheritable": false,
   "subclasses": [
     "Ext.layout.container.AbstractCard"
   ],
-  "mixedInto": [
-
-  ],
+  "deprecated": null,
   "allMixins": [
 
-  ]
+  ],
+  "href": "Fit.html#Ext-layout-container-Fit",
+  "members": {
+    "cfg": [
+      {
+        "inheritable": false,
+        "type": "Boolean",
+        "deprecated": null,
+        "href": "AbstractContainer.html#Ext-layout-container-AbstractContainer-cfg-bindToOwnerCtComponent",
+        "protected": false,
+        "tagname": "cfg",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/src/layout/container/AbstractContainer.js",
+        "private": false,
+        "static": false,
+        "name": "bindToOwnerCtComponent",
+        "owner": "Ext.layout.container.AbstractContainer",
+        "doc": "<p>Flag to notify the ownerCt Component on afterLayout of a change</p>\n",
+        "linenr": 17,
+        "html_filename": "AbstractContainer.html"
+      },
+      {
+        "inheritable": false,
+        "type": "Boolean",
+        "deprecated": null,
+        "href": "AbstractContainer.html#Ext-layout-container-AbstractContainer-cfg-bindToOwnerCtContainer",
+        "protected": false,
+        "tagname": "cfg",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/src/layout/container/AbstractContainer.js",
+        "private": false,
+        "static": false,
+        "name": "bindToOwnerCtContainer",
+        "owner": "Ext.layout.container.AbstractContainer",
+        "doc": "<p>Flag to notify the ownerCt Container on afterLayout of a change</p>\n",
+        "linenr": 23,
+        "html_filename": "AbstractContainer.html"
+      },
+      {
+        "inheritable": false,
+        "type": "String",
+        "deprecated": null,
+        "href": "AbstractContainer.html#Ext-layout-container-AbstractContainer-cfg-itemCls",
+        "protected": false,
+        "tagname": "cfg",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/src/layout/container/AbstractContainer.js",
+        "private": false,
+        "shortDoc": "An optional extra CSS class that will be added to the container. ...",
+        "static": false,
+        "name": "itemCls",
+        "owner": "Ext.layout.container.AbstractContainer",
+        "doc": "<p>An optional extra CSS class that will be added to the container. This can be useful for adding\ncustomized styles to the container or any of its children using standard CSS rules. See\n<a href=\"#/api/Ext.Component\" rel=\"Ext.Component\" class=\"docClass\">Ext.Component</a>.ctCls also.</p>\n\n\n<p></p></p>\n",
+        "linenr": 29,
+        "html_filename": "AbstractContainer.html"
+      }
+    ],
+    "method": [
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+
+        ],
+        "href": "AbstractContainer.html#Ext-layout-container-AbstractContainer-method-getLayoutItems",
+        "return": {
+          "type": "Array",
+          "doc": "<p>of child components</p>\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/src/layout/container/AbstractContainer.js",
+        "private": false,
+        "shortDoc": "Returns an array of child components either for a render phase (Performed in the beforeLayout method of the layout's\n...",
+        "static": false,
+        "name": "getLayoutItems",
+        "owner": "Ext.layout.container.AbstractContainer",
+        "doc": "<p>Returns an array of child components either for a render phase (Performed in the beforeLayout method of the layout's\nbase class), or the layout phase (onLayout).</p>\n\n",
+        "linenr": 49,
+        "html_filename": "AbstractContainer.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+
+        ],
+        "href": "AbstractContainer.html#Ext-layout-container-AbstractContainer-method-getRenderTarget",
+        "return": {
+          "type": "Ext.core.Element",
+          "doc": "\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/src/layout/container/AbstractContainer.js",
+        "private": false,
+        "shortDoc": "Returns the element into which rendering must take place. ...",
+        "static": false,
+        "name": "getRenderTarget",
+        "owner": "Ext.layout.container.AbstractContainer",
+        "doc": "<p>Returns the element into which rendering must take place. Defaults to the owner Container's Ext.AbstractComponent.targetEl.</p>\n\n\n<p>May be overridden in layout managers which implement an inner element.</p>\n",
+        "linenr": 68,
+        "html_filename": "AbstractContainer.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+
+        ],
+        "href": "Container.html#Ext-layout-container-Container-method-getRenderedItems",
+        "return": {
+          "type": "Array",
+          "doc": "<p>All matching items</p>\n"
+        },
+        "protected": true,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/layout/container/Container.js",
+        "private": false,
+        "shortDoc": "Returns all items that are rendered ...",
+        "static": false,
+        "name": "getRenderedItems",
+        "owner": "Ext.layout.container.Container",
+        "doc": "<p>Returns all items that are rendered</p>\n",
+        "linenr": 53,
+        "html_filename": "Container.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+
+        ],
+        "href": "AbstractContainer.html#Ext-layout-container-AbstractContainer-method-getTarget",
+        "return": {
+          "type": "Ext.core.Element",
+          "doc": "\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/src/layout/container/AbstractContainer.js",
+        "private": false,
+        "shortDoc": "Returns the owner component's resize element. ...",
+        "static": false,
+        "name": "getTarget",
+        "owner": "Ext.layout.container.AbstractContainer",
+        "doc": "<p>Returns the owner component's resize element.</p>\n",
+        "linenr": 61,
+        "html_filename": "AbstractContainer.html"
+      },
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+
+        ],
+        "href": "Container.html#Ext-layout-container-Container-method-getVisibleItems",
+        "return": {
+          "type": "Array",
+          "doc": "<p>All matching items</p>\n"
+        },
+        "protected": true,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/layout/container/Container.js",
+        "private": false,
+        "shortDoc": "Returns all items that are both rendered and visible ...",
+        "static": false,
+        "name": "getVisibleItems",
+        "owner": "Ext.layout.container.Container",
+        "doc": "<p>Returns all items that are both rendered and visible</p>\n",
+        "linenr": 76,
+        "html_filename": "Container.html"
+      }
+    ],
+    "event": [
+
+    ],
+    "css_var": [
+
+    ],
+    "css_mixin": [
+
+    ],
+    "property": [
+
+    ]
+  },
+  "singleton": false,
+  "protected": false,
+  "tagname": "class",
+  "mixins": [
+
+  ],
+  "alias": null,
+  "author": null,
+  "filename": "/mnt/ebs/nightly/git/SDK/extjs/src/layout/container/Fit.js",
+  "private": false,
+  "alternateClassNames": [
+    "Ext.layout.FitLayout"
+  ],
+  "static": false,
+  "name": "Ext.layout.container.Fit",
+  "doc": "<p>This is a base class for layouts that contain <b>a single item</b> that automatically expands to fill the layout's\ncontainer.  This class is intended to be extended or created via the <tt>layout:'fit'</tt> <a href=\"#/api/Ext.container.Container-cfg-layout\" rel=\"Ext.container.Container-cfg-layout\" class=\"docClass\">Ext.container.Container.layout</a>\nconfig, and should generally not need to be created directly via the new keyword.</p>\n\n\n<p>FitLayout does not have any direct config options (other than inherited ones).  To fit a panel to a container\nusing FitLayout, simply set layout:'fit' on the container and add a single panel to it.  If the container has\nmultiple panels, only the first one will be displayed.  \n<p><img src=\"doc-resources/Ext.layout.container.Fit/Ext.layout.container.Fit.png\" alt=\"Ext.layout.container.Fit container layout\"></p>\nExample usage:</p>\n\n\n<pre><code>    Ext.create('Ext.panel.Panel', {\n        title: 'Fit Layout',\n        width: 300,\n        height: 150,\n        layout:'fit',\n        items: {\n            title: 'Inner Panel',\n            html: 'This is the inner panel content',\n            bodyPadding: 20,\n            border: false\n        },\n        renderTo: Ext.getBody()\n    });  \n</code></pre>\n\n",
+  "docauthor": null,
+  "component": false,
+  "linenr": 1,
+  "xtypes": [
+
+  ],
+  "html_filename": "Fit.html",
+  "statics": {
+    "cfg": [
+
+    ],
+    "method": [
+
+    ],
+    "event": [
+
+    ],
+    "css_var": [
+
+    ],
+    "css_mixin": [
+
+    ],
+    "property": [
+
+    ]
+  },
+  "extends": "Ext.layout.container.AbstractFit"
 });

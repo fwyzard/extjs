@@ -1,3 +1,17 @@
+/*
+
+This file is part of Ext JS 4
+
+Copyright (c) 2011 Sencha Inc
+
+Contact:  http://www.sencha.com/contact
+
+GNU General Public License Usage
+This file may be used under the terms of the GNU General Public License version 3.0 as published by the Free Software Foundation and appearing in the file LICENSE included in the packaging of this file.  Please review the following information to ensure the GNU General Public License version 3.0 requirements will be met: http://www.gnu.org/copyleft/gpl.html.
+
+If you are unsure which license is appropriate for your use, please contact the sales department at http://www.sencha.com/contact.
+
+*/
 /**
  * @class Ext.layout.container.Column
  * @extends Ext.layout.container.Auto
@@ -157,9 +171,9 @@ Ext.define('Ext.layout.container.Column', {
             item = items[i];
             if (item.columnWidth) {
                 columnWidth = Math.floor(item.columnWidth * availableWidth) - parallelMargins[i];
-                if (item.getWidth() != columnWidth) {
-                    me.setItemSize(item, columnWidth, item.height);
-                }
+                me.setItemSize(item, columnWidth, item.height);
+            } else {
+                me.layoutItem(item);
             }
         }
 
@@ -181,5 +195,13 @@ Ext.define('Ext.layout.container.Column', {
             }
         }
         delete me.adjustmentPass;
+    },
+
+    configureItem: function(item) {
+        this.callParent(arguments);
+
+        if (item.columnWidth) {
+            item.layoutManagedWidth = 1;
+        }
     }
 });

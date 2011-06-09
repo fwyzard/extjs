@@ -96,8 +96,6 @@ Ext.define('Ext.layout.container.Border', {
 
     bindToOwnerCtContainer: true,
 
-    fixedLayout: false,
-
     percentageRe: /(\d+)%/,
 
     slideDirection: {
@@ -153,6 +151,8 @@ Ext.define('Ext.layout.container.Border', {
 
         // Delegate this operation to the shadow &quot;V&quot; or &quot;H&quot; box layout.
         this.shadowLayout.beforeLayout();
+
+        // note: don't call base because that does a renderItems again
     },
 
     renderItems: function(items, target) {
@@ -165,6 +165,22 @@ Ext.define('Ext.layout.container.Border', {
         //&lt;debug&gt;
         Ext.Error.raise('This should not be called');
         //&lt;/debug&gt;
+    },
+
+    renderChildren: function() {
+        if (!this.borderLayoutInitialized) {
+            this.initializeBorderLayout();
+        }
+
+        this.shadowLayout.renderChildren();
+    },
+
+    /*
+     * Gathers items for a layout operation. Injected into child Box layouts through configuration.
+     * We must not include child items which are floated over the layout (are primed with a slide out animation)
+     */
+    getVisibleItems: function() {
+        return Ext.ComponentQuery.query(':not([slideOutAnim])', this.callParent(arguments));
     },
 
     initializeBorderLayout: function() {
@@ -257,7 +273,8 @@ Ext.define('Ext.layout.container.Border', {
                     maintainFlex: true,
                     layout: {
                         type: 'hbox',
-                        align: 'stretch'
+                        align: 'stretch',
+                        getVisibleItems: me.getVisibleItems
                     }
                 }));
                 hBoxItems.push(regions.center);
@@ -311,7 +328,8 @@ Ext.define('Ext.layout.container.Border', {
                 el: me.getTarget(),
                 layout: Ext.applyIf({
                     type: 'vbox',
-                    align: 'stretch'
+                    align: 'stretch',
+                    getVisibleItems: me.getVisibleItems
                 }, me.initialConfig)
             });
             me.createItems(me.shadowContainer, vBoxItems);
@@ -471,7 +489,7 @@ Ext.define('Ext.layout.container.Border', {
     },
 
     // Private
-    // Propogates the min/maxHeight values from the inner hbox items to its container.
+    // Propagates the min/maxHeight values from the inner hbox items to its container.
     fixHeightConstraints: function () {
         var me = this,
             ct = me.embeddedContainer,

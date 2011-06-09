@@ -1,76 +1,109 @@
 Ext.data.JsonP.Ext_direct_Transaction({
-  "tagname": "class",
-  "name": "Ext.direct.Transaction",
-  "doc": "<p>Supporting Class for Ext.Direct (not intended to be used directly).</p>\n\n",
-  "extends": "Object",
-  "mixins": [
-
-  ],
-  "alternateClassNames": [
-    "Ext.Direct.Transaction"
-  ],
-  "xtype": null,
-  "author": null,
-  "docauthor": null,
-  "singleton": false,
-  "private": false,
-  "cfg": [
-
-  ],
-  "method": [
-    {
-      "tagname": "method",
-      "name": "Transaction",
-      "member": "Ext.direct.Transaction",
-      "doc": "\n",
-      "params": [
-        {
-          "type": "Object",
-          "name": "config",
-          "doc": "\n",
-          "optional": false
-        }
-      ],
-      "return": {
-        "type": "void",
-        "doc": "\n"
-      },
-      "private": false,
-      "static": false,
-      "filename": "/Users/nick/Projects/sencha/SDK/platform/src/direct/Transaction.js",
-      "linenr": 1,
-      "html_filename": "Transaction.html",
-      "href": "Transaction.html#Ext-direct-Transaction-method-constructor",
-      "shortDoc": "\n"
-    }
-  ],
-  "property": [
-
-  ],
-  "event": [
-
-  ],
-  "filename": "/Users/nick/Projects/sencha/SDK/platform/src/direct/Transaction.js",
-  "linenr": 1,
-  "html_filename": "Transaction.html",
-  "href": "Transaction.html#Ext-direct-Transaction",
-  "cssVar": [
-
-  ],
-  "cssMixin": [
-
-  ],
-  "component": false,
-  "superclasses": [
-
-  ],
-  "subclasses": [
-
-  ],
   "mixedInto": [
 
   ],
+  "superclasses": [
+
+  ],
+  "inheritable": false,
+  "subclasses": [
+
+  ],
+  "deprecated": null,
   "allMixins": [
 
-  ]
+  ],
+  "href": "Transaction.html#Ext-direct-Transaction",
+  "members": {
+    "cfg": [
+
+    ],
+    "method": [
+      {
+        "inheritable": false,
+        "deprecated": null,
+        "params": [
+          {
+            "type": "Object",
+            "optional": true,
+            "doc": "<p>(optional) Config object.</p>\n",
+            "name": "config"
+          }
+        ],
+        "href": "Transaction.html#Ext-direct-Transaction-method-constructor",
+        "return": {
+          "type": "Object",
+          "doc": "\n"
+        },
+        "protected": false,
+        "tagname": "method",
+        "alias": null,
+        "filename": "/mnt/ebs/nightly/git/SDK/platform/src/direct/Transaction.js",
+        "private": false,
+        "shortDoc": "Creates new Transaction. ...",
+        "static": false,
+        "name": "constructor",
+        "owner": "Ext.direct.Transaction",
+        "doc": "<p>Creates new Transaction.</p>\n",
+        "linenr": 19,
+        "html_filename": "Transaction.html"
+      }
+    ],
+    "event": [
+
+    ],
+    "css_var": [
+
+    ],
+    "css_mixin": [
+
+    ],
+    "property": [
+
+    ]
+  },
+  "singleton": false,
+  "protected": false,
+  "tagname": "class",
+  "mixins": [
+
+  ],
+  "alias": null,
+  "author": null,
+  "filename": "/mnt/ebs/nightly/git/SDK/platform/src/direct/Transaction.js",
+  "private": false,
+  "alternateClassNames": [
+    "Ext.Direct.Transaction"
+  ],
+  "static": false,
+  "name": "Ext.direct.Transaction",
+  "doc": "<p>Supporting Class for Ext.Direct (not intended to be used directly).</p>\n\n",
+  "docauthor": null,
+  "component": false,
+  "linenr": 1,
+  "xtypes": [
+
+  ],
+  "html_filename": "Transaction.html",
+  "statics": {
+    "cfg": [
+
+    ],
+    "method": [
+
+    ],
+    "event": [
+
+    ],
+    "css_var": [
+
+    ],
+    "css_mixin": [
+
+    ],
+    "property": [
+
+    ]
+  },
+  "extends": "Object"
 });
